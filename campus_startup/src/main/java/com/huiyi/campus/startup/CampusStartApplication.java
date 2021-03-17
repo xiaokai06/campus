@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Slf4j
 @SpringBootApplication(scanBasePackages = "com.huiyi.campus" )
 public class CampusStartApplication implements WebMvcConfigurer {
+
     public static void main(String[] args) {
         SpringApplication.run(CampusStartApplication.class, args);
         log.info(
@@ -38,6 +40,7 @@ public class CampusStartApplication implements WebMvcConfigurer {
                         + "  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd\n\n\n\n\n");
 
     }
+
     /**
      * 跨域
      * @param registry
