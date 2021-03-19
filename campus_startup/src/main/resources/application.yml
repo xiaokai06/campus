@@ -36,7 +36,7 @@ login:
 #  params: count=countSql
 
 ---
-###########################PACS dev测试环境配置###############################
+###########################campus dev测试环境配置###############################
 spring:
   profiles: dev
   # MYSQL数据库驱动配置
@@ -83,15 +83,15 @@ spring:
 #mybatis配置
 mybatis:
   mapperLocations:  classpath*:mapper/*Mapper.xml
-  typeAliasesPackage: com.huiyi.pacs.dao.mapper
-  mapperScanPackage: com.huiyi.pacs.dao.mapper
+  typeAliasesPackage: com.huiyi.campus.dao.mapper
+  mapperScanPackage: com.huiyi.campus.dao.mapper
   configLocation: classpath:/mybatis-config.xml
 splitOrgId:
   splitSQL: SELECT :str AS value_str FROM DUAL
   oneMax: 1
 
 ---
-###########################LIS pro生产环境配置###############################
+###########################campus pro生产环境配置###############################
 spring:
   profiles: prod
   # MYSQL数据库驱动配置
@@ -138,8 +138,8 @@ spring:
 #mybatis配置
 mybatis:
   mapperLocations:  classpath*:mapper/*Mapper.xml
-  typeAliasesPackage: com.huiyi.pacs.dao.mapper
-  mapperScanPackage: com.huiyi.pacs.dao.mapper
+  typeAliasesPackage: com.huiyi.campus.dao.mapper
+  mapperScanPackage: com.huiyi.campus.dao.mapper
   configLocation: classpath:/mybatis-config.xml
 splitOrgId:
   splitSQL: SELECT :str AS value_str FROM DUAL
