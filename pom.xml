@@ -21,7 +21,7 @@
     <groupId>com.huiyi.campus</groupId>
     <artifactId>campus_health_system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>campus_health_system</name>
+    <name>campus-health-system-1.0</name>
     <description>校园健康管理系统</description>
 
 
@@ -47,7 +47,6 @@
         <jsch.version>0.1.53</jsch.version>
         <spring-webmvc.version>5.3.1</spring-webmvc.version>
         <tomcat-embed-core.version>9.0.31</tomcat-embed-core.version>
-
     </properties>
 
     <dependencies>
@@ -208,6 +207,28 @@
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
             <version>${tomcat-embed-core.version}</version>
+        </dependency>
+        <!--netty通讯依赖-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.25.Final</version>
+        </dependency>
+        <!-- 二维码 -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+        <!-- 高性能分布式文件服务器 -->
+        <dependency>
+            <groupId>com.github.tobato</groupId>
+            <artifactId>fastdfs-client</artifactId>
+            <version>1.26.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
         </dependency>
     </dependencies>
 

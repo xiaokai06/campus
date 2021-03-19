@@ -3,6 +3,7 @@ package com.huiyi.campus.startup;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -15,7 +16,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Version V1.0
  */
 @Slf4j
-@SpringBootApplication(scanBasePackages = "com.huiyi.campus" )
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.huiyi.campus"})
 public class CampusStartApplication implements WebMvcConfigurer {
 
     public static void main(String[] args) {

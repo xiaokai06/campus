@@ -17,7 +17,7 @@ spring: #默认profiles 测试dev
       charset: utf-8
       enabled: true
 server:
-  port: 8090
+  port: 8080
   tomcat:
     uri-encoding: UTF-8
 logging:
