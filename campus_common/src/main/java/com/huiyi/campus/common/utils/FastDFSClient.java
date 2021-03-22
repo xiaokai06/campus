@@ -1,3 +1,4 @@
+/*
 package com.huiyi.campus.common.utils;
 
 import com.github.tobato.fastdfs.domain.StorePath;
@@ -22,14 +23,16 @@ public class FastDFSClient {
 //	@Autowired
 //	private AppConfig appConfig; // 项目参数配置
 
-	/**
+	*/
+/**
 	 * 上传文件
 	 * 
 	 * @param file
 	 *            文件对象
 	 * @return 文件访问地址
 	 * @throws IOException
-	 */
+	 *//*
+
 	public String uploadFile(MultipartFile file) throws IOException {
 		StorePath storePath = storageClient.uploadFile(file.getInputStream(), file.getSize(),
 				FilenameUtils.getExtension(file.getOriginalFilename()), null);
@@ -65,14 +68,16 @@ public class FastDFSClient {
 		return storePath.getPath();
 	}
 	
-	/**
+	*/
+/**
 	 * 将一段字符串生成一个文件上传
 	 * 
 	 * @param content
 	 *            文件内容
 	 * @param fileExtension
 	 * @return
-	 */
+	 *//*
+
 	public String uploadFile(String content, String fileExtension) {
 		byte[] buff = content.getBytes(Charset.forName("UTF-8"));
 		ByteArrayInputStream stream = new ByteArrayInputStream(buff);
@@ -87,13 +92,15 @@ public class FastDFSClient {
 //		return fileUrl;
 //	}
 
-	/**
+	*/
+/**
 	 * 删除文件
 	 * 
 	 * @param fileUrl
 	 *            文件访问地址
 	 * @return
-	 */
+	 *//*
+
 	public void deleteFile(String fileUrl) {
 		if (StringUtils.isEmpty(fileUrl)) {
 			return;
@@ -106,3 +113,4 @@ public class FastDFSClient {
 		}
 	}
 }
+*/
