@@ -43,7 +43,7 @@
         <!-- 最常用的滚动策略，它根据时间来制定滚动策略.既负责滚动也负责出发滚动 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志输出位置 可相对、和绝对路径 -->
-            <fileNamePattern>${log_dir}/logback_error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/logback_error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 日志最大保留历史 -->
             <maxHistory>${maxHistory}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -70,7 +70,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${log_dir}/logback_info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/logback_info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 日志最大保留历史 -->
             <maxHistory>${maxHistory}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -86,7 +86,7 @@
     </appender>
 
     <appender name="campusLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_HOME}/logback_campus.log</file>
+        <file>${LOG_HOME}/logback_campus-%d{yyyy-MM-dd}.%i.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名 -->
             <FileNamePattern>${LOG_HOME}/logback_campus-%d{yyyy-MM-dd}.%i.zip
