@@ -33,6 +33,22 @@ import java.util.List;
 public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
     /**
+     * 客户段消息请求格式为：
+     * {
+     *     "action":2,
+     *     "chatMsg":{
+     *         "senderId":"210323CPD9K7HYCH",
+     *         "receiverId":"210323CR4RK0GXAW",
+     *         "msg":"1",
+     *         "msgId":null
+     *     },
+     *     "extand":null
+     * }
+     */
+
+
+
+    /**
      * 用于记录和管理所有客户端的channle
      */
     public static ChannelGroup users = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
