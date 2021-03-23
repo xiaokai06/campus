@@ -1,10 +1,15 @@
 package com.huiyi.campus.netty;
 
-import com.alibaba.druid.support.json.JSONUtils;
+
 import com.huiyi.campus.common.enums.MsgActionEnum;
 import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.netty.pojo.vo.DataContent;
 import com.huiyi.campus.netty.pojo.vo.OnlineChatMsg;
+
+
+
+
+
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -103,12 +108,9 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
      */
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        String channelId = ctx.channel().id().asShortText();
+        log.info(("客户端被移除，channelId为：" + channelId));
         users.remove(ctx.channel());
-        /**
-         * 触发handlerRemoved，ChannelGroup会自动移除对应客户端的channel
-         */
-        log.info("客户端断开，channle对应的长id为：" + ctx.channel().id().asLongText());
-        log.info("客户端断开，channle对应的短id为：" + ctx.channel().id().asShortText());
     }
 
     /**

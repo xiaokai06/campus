@@ -48,6 +48,13 @@
         <jsch.version>0.1.53</jsch.version>
         <spring-webmvc.version>5.3.1</spring-webmvc.version>
         <tomcat-embed-core.version>9.0.31</tomcat-embed-core.version>
+        <dependency.version>6.1.0</dependency.version>
+        <netty-all.version>4.1.25.Final</netty-all.version>
+        <javase.version>3.3.3</javase.version>
+        <fastdfs-client.version>1.26.2</fastdfs-client.version>
+        <!--maven-->
+        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
     </properties>
 
     <dependencies>
@@ -213,19 +220,19 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.25.Final</version>
+            <version>${netty-all.version}</version>
         </dependency>
         <!-- 二维码 -->
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>javase</artifactId>
-            <version>3.3.3</version>
+            <version>${javase.version}</version>
         </dependency>
         <!-- 高性能分布式文件服务器 -->
-        <!--<dependency>
+      <!--  <dependency>
             <groupId>com.github.tobato</groupId>
             <artifactId>fastdfs-client</artifactId>
-            <version>1.26.2</version>
+            <version>${fastdfs-client.version}</version>
         </dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -233,27 +240,45 @@
         </dependency>
     </dependencies>
 
+
+
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <skipTests>true</skipTests>  <!--默认关掉单元测试 -->
                 </configuration>
             </plugin>
-
+            <!--owasp漏洞扫描依赖（不用可以注释掉）-->
+             <plugin>
+                 <groupId>org.owasp</groupId>
+                 <artifactId>dependency-check-maven</artifactId>
+                 <version>${dependency.version}</version>
+                 <configuration>
+                     <cveUrlModified>E:/owsp/data/nvdcve-1.1-modified.json.gz</cveUrlModified>
+                     <cveUrlBase>E:/owsp/data/nvdcve-1.1-%d.json.gz</cveUrlBase>
+                 </configuration>
+                 <executions>
+                     <execution>
+                         <goals>
+                             <goal>check</goal>
+                         </goals>
+                     </execution>
+                 </executions>
+             </plugin>
         </plugins>
 
         <resources>
@@ -269,5 +294,4 @@
             </resource>
         </resources>
     </build>
-
 </project>
