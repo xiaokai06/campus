@@ -49,7 +49,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://192.168.3.75:3306/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
     username: root
-    password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     minIdle: 5
     maxActive: 100
@@ -70,7 +70,7 @@ spring:
   redis:
     host: 192.168.3.75
     port: 6379
-    password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
+    password:
     timeout: 30000
     jedis:
       pool:

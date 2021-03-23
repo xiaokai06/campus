@@ -1,0 +1,41 @@
+###########################campus local测试环境配置###############################
+# 系统安全配置文件加密key
+jasypt:
+  encryptor:
+    password: aztKpms@e7Dy9Fc#
+
+spring:
+  # MYSQL数据库驱动配置
+  datasource:
+    name: db
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.3.75:3306/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    minIdle: 5
+    maxActive: 100
+    initialSize: 10
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 50
+    removeAbandoned: true
+    filters: stat # ,wall,log4j # 配置监控统计拦截的filters，去掉后监控界面sql 无法统计，'wall'用于防火墙
+    connectionProperties:  druid.stat.mergeSql=false;druid.stat.slowSqlMillis=5000 # 通过connectProperties属 性来打开mergeSql功能；慢SQL记录
+    useGlobalDataSourceStat: true # 合并多个DruidDataSource的监控数据
+
+#mybatis配置
+mybatis:
+  mapperLocations:  classpath*:mapper/*Mapper.xml
+  typeAliasesPackage: com.huiyi.campus.dao.mapper
+  mapperScanPackage: com.huiyi.campus.dao.mapper
+  configLocation: classpath:/mybatis-config.xml
+splitOrgId:
+  splitSQL: SELECT :str AS value_str FROM DUAL
+  oneMax: 1

@@ -1,1 +1,0 @@
-2021-03-17 15:12:35.018 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.huiyi.campus.startup]' package. Please check your configuration.
