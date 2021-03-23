@@ -63,6 +63,6 @@ public class JasyptUtils {
         // 加密
         System.out.println(encryptPwd("aztKpms@e7Dy9Fc#", "123456"));
         // 解密
-        System.out.println(decyptPwd("aztKpms@e7Dy9Fc#", "fUOCufhr5TJBUzXSw+/h8zypQkojGDXM"));
+        System.out.println(decyptPwd("aztKpms@e7Dy9Fc#", "ikT3m1vmolEaqq4DXKq4Jw=="));
     }
 }
