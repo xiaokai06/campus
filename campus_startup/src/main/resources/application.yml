@@ -35,6 +35,10 @@ login:
 #  supportMethodsArguments: false
 #  params: count=countSql
 
+# 系统安全配置文件加密key
+jasypt:
+  encryptor:
+    password: aztKpms@e7Dy9Fc#
 ---
 ###########################campus dev测试环境配置###############################
 spring:
@@ -43,9 +47,9 @@ spring:
   datasource:
     name: db
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/lis?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
+    url: jdbc:mysql://192.168.3.75:3306/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
     username: root
-    password: 123456
+    password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
     driver-class-name: com.mysql.cj.jdbc.Driver
     minIdle: 5
     maxActive: 100
@@ -64,9 +68,9 @@ spring:
     connectionProperties:  druid.stat.mergeSql=false;druid.stat.slowSqlMillis=5000 # 通过connectProperties属 性来打开mergeSql功能；慢SQL记录
     useGlobalDataSourceStat: true # 合并多个DruidDataSource的监控数据
   redis:
-    host: localhost
+    host: 192.168.3.75
     port: 6379
-    password: 123456
+    password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
     timeout: 30000
     jedis:
       pool:
@@ -98,9 +102,9 @@ spring:
   datasource:
     name: db
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://47.93.112.92:3306/lis?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
+    url: jdbc:mysql://47.115.41.64:3306/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
     username: root
-    password: 123456
+    password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
     driver-class-name: com.mysql.cj.jdbc.Driver
     minIdle: 5
     maxActive: 100
@@ -119,9 +123,9 @@ spring:
     connectionProperties:  druid.stat.mergeSql=false;druid.stat.slowSqlMillis=5000 # 通过connectProperties属 性来打开mergeSql功能；慢SQL记录
     useGlobalDataSourceStat: true # 合并多个DruidDataSource的监控数据
   redis:
-    host: 47.93.112.92
+    host: 47.115.41.64
     port: 6379
-    password:
+    password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
     timeout: 30000
     jedis:
       pool:

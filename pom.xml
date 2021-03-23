@@ -52,6 +52,8 @@
         <netty-all.version>4.1.25.Final</netty-all.version>
         <javase.version>3.3.3</javase.version>
         <fastdfs-client.version>1.26.2</fastdfs-client.version>
+        <jasypt-spring-boot-starter.version>3.0.3</jasypt-spring-boot-starter.version>
+
         <!--maven-->
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
@@ -237,6 +239,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+        </dependency>
+        <!-- Jasypt安全框架加密依赖 -->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>${jasypt-spring-boot-starter.version}</version>
         </dependency>
     </dependencies>
 
