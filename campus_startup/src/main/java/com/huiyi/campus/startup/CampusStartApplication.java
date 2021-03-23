@@ -2,6 +2,7 @@ package com.huiyi.campus.startup;
 
 import com.huiyi.campus.common.utils.SpringUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Slf4j
 @SpringBootApplication
+@MapperScan("com.huiyi.campus.dao")
 @ComponentScan(basePackages = {"com.huiyi.campus"})
 public class CampusStartApplication implements WebMvcConfigurer {
 

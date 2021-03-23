@@ -28,7 +28,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <mybatis.version>2.1.3</mybatis.version>
+        <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
         <druid.boot.version>1.1.20</druid.boot.version>
         <dom4j.version>1.6.1</dom4j.version>
         <jaxen.version>1.1.6</jaxen.version>
@@ -49,10 +49,12 @@
         <spring-webmvc.version>5.3.1</spring-webmvc.version>
         <tomcat-embed-core.version>9.0.31</tomcat-embed-core.version>
         <dependency.version>6.1.0</dependency.version>
-        <netty-all.version>4.1.25.Final</netty-all.version>
         <javase.version>3.3.3</javase.version>
         <fastdfs-client.version>1.26.2</fastdfs-client.version>
+        <!--jasypt系统安全服务-->
         <jasypt-spring-boot-starter.version>3.0.3</jasypt-spring-boot-starter.version>
+        <!--netty通讯聊天服务-->
+        <netty-all.version>4.1.25.Final</netty-all.version>
 
         <!--maven-->
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
@@ -85,9 +87,9 @@
         </dependency>
         <!--mybaties依赖JAR-->
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.version}</version>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus-boot-starter.version}</version>
         </dependency>
         <!--druid依赖jar-->
         <dependency>
@@ -271,7 +273,7 @@
                 </configuration>
             </plugin>
             <!--owasp漏洞扫描依赖（不用可以注释掉）-->
-             <plugin>
+             <!--<plugin>
                  <groupId>org.owasp</groupId>
                  <artifactId>dependency-check-maven</artifactId>
                  <version>${dependency.version}</version>
@@ -286,7 +288,7 @@
                          </goals>
                      </execution>
                  </executions>
-             </plugin>
+             </plugin>-->
         </plugins>
 
         <resources>

@@ -3,13 +3,12 @@ package com.huiyi.campus.netty;
 
 import com.huiyi.campus.common.enums.MsgActionEnum;
 import com.huiyi.campus.common.utils.JsonUtils;
+import com.huiyi.campus.common.utils.SpringUtil;
 import com.huiyi.campus.netty.pojo.vo.DataContent;
 import com.huiyi.campus.netty.pojo.vo.OnlineChatMsg;
 
 
-
-
-
+import com.huiyi.campus.netty.service.NUserService;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -18,8 +17,10 @@ import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.concurrent.GlobalEventExecutor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author: liyukai
@@ -30,6 +31,7 @@ import java.time.LocalDateTime;
  */
 @Slf4j
 public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+
     /**
      * 用于记录和管理所有客户端的channle
      */
@@ -58,8 +60,6 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
             //2.1、当websocket 第一次open的时候，初始化Channel，把用户的Channel和userid关联起来
             String senderId = dataContent.getOnlineChatMsg().getSenderId();
             UserChannelRel.put(senderId, currentChannel);
-
-
         }else if(action.equals(MsgActionEnum.CHAT.type)){
             //2.2、聊天类型的消息，把聊天记录保存到数据库（注：需要进行加密后保存库内），同事标记消息的签收状态[未签收]
             OnlineChatMsg onlineChatMsg = dataContent.getOnlineChatMsg();
@@ -68,23 +68,51 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
             String senderId = onlineChatMsg.getSenderId();
 
             //保存消息到数据库，并且标记为未签收
-
+            NUserService nUserService = (NUserService) SpringUtil.getBean("nUserServiceImpl");
+            String msgId = nUserService.saveMsg(onlineChatMsg);
+            onlineChatMsg.setMsgId(msgId);
+            DataContent dataContentMsg = new DataContent();
+            dataContentMsg.setOnlineChatMsg(onlineChatMsg);
+            /**
+             * 发送消息
+             */
+            // 从全局用户Channel关系中获取接受方的channel
+            Channel receiverChannel = UserChannelRel.get(receiverId);
+            if (receiverChannel == null) {
+                // TODO channel为空代表用户离线，推送消息（JPush，个推，小米推送）
+            } else {
+                // 当receiverChannel不为空的时候，从ChannelGroup去查找对应的channel是否存在
+                Channel findChannel = users.find(receiverChannel.id());
+                if (findChannel != null) {
+                    // 用户在线
+                    receiverChannel.writeAndFlush(
+                            new TextWebSocketFrame(
+                                    JsonUtils.objectToJson(dataContentMsg)));
+                } else {
+                    // 用户离线 TODO 推送消息
+                }
+            }
         }else if (action.equals(MsgActionEnum.SIGNED.type)){
             //2.3、签收消息类型，针对具体的消息进行签收，修改数据库中对应消息的签收状态[已签收]
+            NUserService nUserService = (NUserService) SpringUtil.getBean("nUserServiceImpl");
+            String msgIdsStr = dataContent.getExtand();
+            String msgIds[] = msgIdsStr.split(",");
 
+            List<String> msgIdList = new ArrayList<>();
+            for (String mid : msgIds){
+                if (StringUtils.isNoneBlank(mid)){
+                    msgIdList.add(mid);
+                }
+            }
+            log.info(msgIdList.toString());
+            if (msgIdList != null && !msgIdList.isEmpty() && msgIdList.size() >0){
+                nUserService.updateMsgSigned(msgIdList);
+            }
         }else if(action.equals(MsgActionEnum.KEEPALIVE.type)){
             //2.4、心跳类型的消息，
+            log.info("收到来自channel为[" + currentChannel + "]的心跳包...");
 
         }
-
-
-
-
-
-        log.info("接收到客户端的数据：" + cliContent);
-        users.writeAndFlush(
-                new TextWebSocketFrame("[服务器在]" + LocalDateTime.now()
-                        + "接受到消息, 消息为：" + cliContent));
     }
 
     /**

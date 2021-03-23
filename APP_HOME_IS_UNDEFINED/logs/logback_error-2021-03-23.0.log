@@ -84,3 +84,36 @@ Consider the following:
 	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
 	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
 
+2021-03-23 14:35:08.933 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.huiyi.campus.common.utils.RedisUtils required a bean of type 'org.springframework.data.redis.core.RedisTemplate' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.core.RedisTemplate' in your configuration.
+
+2021-03-23 15:54:19.063 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field zxChatMsgEntityMapper in com.huiyi.campus.dao.impl.NUserServiceDao required a bean of type 'com.huiyi.campus.dao.web.mapper.zx.ZxChatMsgEntityMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.huiyi.campus.dao.web.mapper.zx.ZxChatMsgEntityMapper' in your configuration.
+

@@ -1,4 +1,4 @@
-package com.huiyi.campus.common.config;
+package com.huiyi.campus.common.config.redis;
 
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -17,6 +17,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport{
+
     /**
      * 配置自定义redisTemplate
      * @return
@@ -36,4 +37,5 @@ public class RedisConfig extends CachingConfigurerSupport{
         return redisTemplate;
 
     }
+
 }
