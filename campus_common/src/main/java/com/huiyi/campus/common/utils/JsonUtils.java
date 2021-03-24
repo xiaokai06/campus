@@ -1,10 +1,16 @@
 package com.huiyi.campus.common.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
+import java.util.regex.Pattern;
+
+import static java.util.regex.Pattern.compile;
 
 /**
  * @Description: 自定义响应结构, 转换类
@@ -47,6 +53,18 @@ public class JsonUtils {
         }
         return null;
     }
+
+    /**
+     * 处理特殊字符
+     * 要处理的数据,空格、回车、换行符、制表符
+     * @param str
+     * @return
+     */
+    private static String dealSepcialChar(String str) {
+        Pattern p = compile("\\s*|\t|\r|\n|\r\\n");
+        return p.matcher(str).replaceAll("");
+    }
+
     
     /**
      * 将json数据转换成pojo对象list

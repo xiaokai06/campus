@@ -66,7 +66,9 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
          * 1、获取客户端传输的消息
          */
         String cliContent = msg.text();
-
+        /**
+         * 注：需要格式化换行符
+         */
         Channel currentChannel = ctx.channel();
 
         DataContent dataContent = JsonUtils.jsonToPojo(cliContent, DataContent.class);
@@ -76,6 +78,7 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
             //2.1、当websocket 第一次open的时候，初始化Channel，把用户的Channel和userid关联起来
             String senderId = dataContent.getOnlineChatMsg().getSenderId();
             UserChannelRel.put(senderId, currentChannel);
+            UserChannelRel.output();
         }else if(action.equals(MsgActionEnum.CHAT.type)){
             //2.2、聊天类型的消息，把聊天记录保存到数据库（注：需要进行加密后保存库内），同事标记消息的签收状态[未签收]
             OnlineChatMsg onlineChatMsg = dataContent.getOnlineChatMsg();
@@ -96,6 +99,7 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
             Channel receiverChannel = UserChannelRel.get(receiverId);
             if (receiverChannel == null) {
                 // TODO channel为空代表用户离线，推送消息（JPush，个推，小米推送）
+                log.info("当前接收用户状态为离线接收："+receiverId);
             } else {
                 // 当receiverChannel不为空的时候，从ChannelGroup去查找对应的channel是否存在
                 Channel findChannel = users.find(receiverChannel.id());
@@ -104,7 +108,9 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
                     receiverChannel.writeAndFlush(
                             new TextWebSocketFrame(
                                     JsonUtils.objectToJson(dataContentMsg)));
+                    System.err.println("返回消息为："+ JsonUtils.objectToJson(dataContentMsg));
                 } else {
+                    log.info("当前接收用户状态为离线接收："+receiverId);
                     // 用户离线 TODO 推送消息
                 }
             }
