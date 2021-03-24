@@ -33,7 +33,7 @@ import java.util.List;
 public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
     /**
-     * 客户段消息请求格式为：
+     * 客户段消息请求返回格式为：
      * {
      *     "action":2,
      *     "chatMsg":{
