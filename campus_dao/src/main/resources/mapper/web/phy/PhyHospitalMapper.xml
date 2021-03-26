@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.phy.PhyHospitalMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.phy.PhyHospitalEntity">
+    <id column="NBXH01" jdbcType="INTEGER" property="nbxh01" />
+    <result column="YWXH01" jdbcType="INTEGER" property="ywxh01" />
+    <result column="GRXH01" jdbcType="INTEGER" property="grxh01" />
+    <result column="YWBM01" jdbcType="VARCHAR" property="ywbm01" />
+    <result column="LXBS01" jdbcType="VARCHAR" property="lxbs01" />
+    <result column="SXBH01" jdbcType="VARCHAR" property="sxbh01" />
+    <result column="QSRQ01" jdbcType="TIMESTAMP" property="qsrq01" />
+    <result column="ZZRQ01" jdbcType="TIMESTAMP" property="zzrq01" />
+    <result column="ZYYY01" jdbcType="VARCHAR" property="zyyy01" />
+    <result column="YLJG01" jdbcType="VARCHAR" property="yljg01" />
+    <result column="YLJG02" jdbcType="VARCHAR" property="yljg02" />
+    <result column="BAH001" jdbcType="VARCHAR" property="bah001" />
+    <result column="ZXRQ01" jdbcType="TIMESTAMP" property="zxrq01" />
+    <result column="JGDM01" jdbcType="VARCHAR" property="jgdm01" />
+    <result column="YSDM01" jdbcType="VARCHAR" property="ysdm01" />
+    <result column="YSDM02" jdbcType="VARCHAR" property="ysdm02" />
+    <result column="CZR001" jdbcType="VARCHAR" property="czr001" />
+    <result column="CZR002" jdbcType="VARCHAR" property="czr002" />
+    <result column="CZSJ01" jdbcType="TIMESTAMP" property="czsj01" />
+    <result column="GXRY01" jdbcType="VARCHAR" property="gxry01" />
+    <result column="GXRY02" jdbcType="VARCHAR" property="gxry02" />
+    <result column="GXSJ01" jdbcType="TIMESTAMP" property="gxsj01" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NBXH01, YWXH01, GRXH01, YWBM01, LXBS01, SXBH01, QSRQ01, ZZRQ01, ZYYY01, YLJG01, YLJG02, 
+    BAH001, ZXRQ01, JGDM01, YSDM01, YSDM02, CZR001, CZR002, CZSJ01, GXRY01, GXRY02, GXSJ01
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from phy_hospital
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from phy_hospital
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.phy.PhyHospitalEntity">
+    insert into phy_hospital (NBXH01, YWXH01, GRXH01, 
+      YWBM01, LXBS01, SXBH01, 
+      QSRQ01, ZZRQ01, ZYYY01, 
+      YLJG01, YLJG02, BAH001, 
+      ZXRQ01, JGDM01, YSDM01, 
+      YSDM02, CZR001, CZR002, 
+      CZSJ01, GXRY01, GXRY02, 
+      GXSJ01)
+    values (#{nbxh01,jdbcType=INTEGER}, #{ywxh01,jdbcType=INTEGER}, #{grxh01,jdbcType=INTEGER}, 
+      #{ywbm01,jdbcType=VARCHAR}, #{lxbs01,jdbcType=VARCHAR}, #{sxbh01,jdbcType=VARCHAR}, 
+      #{qsrq01,jdbcType=TIMESTAMP}, #{zzrq01,jdbcType=TIMESTAMP}, #{zyyy01,jdbcType=VARCHAR}, 
+      #{yljg01,jdbcType=VARCHAR}, #{yljg02,jdbcType=VARCHAR}, #{bah001,jdbcType=VARCHAR}, 
+      #{zxrq01,jdbcType=TIMESTAMP}, #{jgdm01,jdbcType=VARCHAR}, #{ysdm01,jdbcType=VARCHAR}, 
+      #{ysdm02,jdbcType=VARCHAR}, #{czr001,jdbcType=VARCHAR}, #{czr002,jdbcType=VARCHAR}, 
+      #{czsj01,jdbcType=TIMESTAMP}, #{gxry01,jdbcType=VARCHAR}, #{gxry02,jdbcType=VARCHAR}, 
+      #{gxsj01,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyHospitalEntity">
+    insert into phy_hospital
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nbxh01 != null">
+        NBXH01,
+      </if>
+      <if test="ywxh01 != null">
+        YWXH01,
+      </if>
+      <if test="grxh01 != null">
+        GRXH01,
+      </if>
+      <if test="ywbm01 != null">
+        YWBM01,
+      </if>
+      <if test="lxbs01 != null">
+        LXBS01,
+      </if>
+      <if test="sxbh01 != null">
+        SXBH01,
+      </if>
+      <if test="qsrq01 != null">
+        QSRQ01,
+      </if>
+      <if test="zzrq01 != null">
+        ZZRQ01,
+      </if>
+      <if test="zyyy01 != null">
+        ZYYY01,
+      </if>
+      <if test="yljg01 != null">
+        YLJG01,
+      </if>
+      <if test="yljg02 != null">
+        YLJG02,
+      </if>
+      <if test="bah001 != null">
+        BAH001,
+      </if>
+      <if test="zxrq01 != null">
+        ZXRQ01,
+      </if>
+      <if test="jgdm01 != null">
+        JGDM01,
+      </if>
+      <if test="ysdm01 != null">
+        YSDM01,
+      </if>
+      <if test="ysdm02 != null">
+        YSDM02,
+      </if>
+      <if test="czr001 != null">
+        CZR001,
+      </if>
+      <if test="czr002 != null">
+        CZR002,
+      </if>
+      <if test="czsj01 != null">
+        CZSJ01,
+      </if>
+      <if test="gxry01 != null">
+        GXRY01,
+      </if>
+      <if test="gxry02 != null">
+        GXRY02,
+      </if>
+      <if test="gxsj01 != null">
+        GXSJ01,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nbxh01 != null">
+        #{nbxh01,jdbcType=INTEGER},
+      </if>
+      <if test="ywxh01 != null">
+        #{ywxh01,jdbcType=INTEGER},
+      </if>
+      <if test="grxh01 != null">
+        #{grxh01,jdbcType=INTEGER},
+      </if>
+      <if test="ywbm01 != null">
+        #{ywbm01,jdbcType=VARCHAR},
+      </if>
+      <if test="lxbs01 != null">
+        #{lxbs01,jdbcType=VARCHAR},
+      </if>
+      <if test="sxbh01 != null">
+        #{sxbh01,jdbcType=VARCHAR},
+      </if>
+      <if test="qsrq01 != null">
+        #{qsrq01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zzrq01 != null">
+        #{zzrq01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zyyy01 != null">
+        #{zyyy01,jdbcType=VARCHAR},
+      </if>
+      <if test="yljg01 != null">
+        #{yljg01,jdbcType=VARCHAR},
+      </if>
+      <if test="yljg02 != null">
+        #{yljg02,jdbcType=VARCHAR},
+      </if>
+      <if test="bah001 != null">
+        #{bah001,jdbcType=VARCHAR},
+      </if>
+      <if test="zxrq01 != null">
+        #{zxrq01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jgdm01 != null">
+        #{jgdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm01 != null">
+        #{ysdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm02 != null">
+        #{ysdm02,jdbcType=VARCHAR},
+      </if>
+      <if test="czr001 != null">
+        #{czr001,jdbcType=VARCHAR},
+      </if>
+      <if test="czr002 != null">
+        #{czr002,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj01 != null">
+        #{czsj01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxry01 != null">
+        #{gxry01,jdbcType=VARCHAR},
+      </if>
+      <if test="gxry02 != null">
+        #{gxry02,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsj01 != null">
+        #{gxsj01,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyHospitalEntity">
+    update phy_hospital
+    <set>
+      <if test="ywxh01 != null">
+        YWXH01 = #{ywxh01,jdbcType=INTEGER},
+      </if>
+      <if test="grxh01 != null">
+        GRXH01 = #{grxh01,jdbcType=INTEGER},
+      </if>
+      <if test="ywbm01 != null">
+        YWBM01 = #{ywbm01,jdbcType=VARCHAR},
+      </if>
+      <if test="lxbs01 != null">
+        LXBS01 = #{lxbs01,jdbcType=VARCHAR},
+      </if>
+      <if test="sxbh01 != null">
+        SXBH01 = #{sxbh01,jdbcType=VARCHAR},
+      </if>
+      <if test="qsrq01 != null">
+        QSRQ01 = #{qsrq01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zzrq01 != null">
+        ZZRQ01 = #{zzrq01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zyyy01 != null">
+        ZYYY01 = #{zyyy01,jdbcType=VARCHAR},
+      </if>
+      <if test="yljg01 != null">
+        YLJG01 = #{yljg01,jdbcType=VARCHAR},
+      </if>
+      <if test="yljg02 != null">
+        YLJG02 = #{yljg02,jdbcType=VARCHAR},
+      </if>
+      <if test="bah001 != null">
+        BAH001 = #{bah001,jdbcType=VARCHAR},
+      </if>
+      <if test="zxrq01 != null">
+        ZXRQ01 = #{zxrq01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jgdm01 != null">
+        JGDM01 = #{jgdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm01 != null">
+        YSDM01 = #{ysdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm02 != null">
+        YSDM02 = #{ysdm02,jdbcType=VARCHAR},
+      </if>
+      <if test="czr001 != null">
+        CZR001 = #{czr001,jdbcType=VARCHAR},
+      </if>
+      <if test="czr002 != null">
+        CZR002 = #{czr002,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj01 != null">
+        CZSJ01 = #{czsj01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxry01 != null">
+        GXRY01 = #{gxry01,jdbcType=VARCHAR},
+      </if>
+      <if test="gxry02 != null">
+        GXRY02 = #{gxry02,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsj01 != null">
+        GXSJ01 = #{gxsj01,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.phy.PhyHospitalEntity">
+    update phy_hospital
+    set YWXH01 = #{ywxh01,jdbcType=INTEGER},
+      GRXH01 = #{grxh01,jdbcType=INTEGER},
+      YWBM01 = #{ywbm01,jdbcType=VARCHAR},
+      LXBS01 = #{lxbs01,jdbcType=VARCHAR},
+      SXBH01 = #{sxbh01,jdbcType=VARCHAR},
+      QSRQ01 = #{qsrq01,jdbcType=TIMESTAMP},
+      ZZRQ01 = #{zzrq01,jdbcType=TIMESTAMP},
+      ZYYY01 = #{zyyy01,jdbcType=VARCHAR},
+      YLJG01 = #{yljg01,jdbcType=VARCHAR},
+      YLJG02 = #{yljg02,jdbcType=VARCHAR},
+      BAH001 = #{bah001,jdbcType=VARCHAR},
+      ZXRQ01 = #{zxrq01,jdbcType=TIMESTAMP},
+      JGDM01 = #{jgdm01,jdbcType=VARCHAR},
+      YSDM01 = #{ysdm01,jdbcType=VARCHAR},
+      YSDM02 = #{ysdm02,jdbcType=VARCHAR},
+      CZR001 = #{czr001,jdbcType=VARCHAR},
+      CZR002 = #{czr002,jdbcType=VARCHAR},
+      CZSJ01 = #{czsj01,jdbcType=TIMESTAMP},
+      GXRY01 = #{gxry01,jdbcType=VARCHAR},
+      GXRY02 = #{gxry02,jdbcType=VARCHAR},
+      GXSJ01 = #{gxsj01,jdbcType=TIMESTAMP}
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </update>
+</mapper>

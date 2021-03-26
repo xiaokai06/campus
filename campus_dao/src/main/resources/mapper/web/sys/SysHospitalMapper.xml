@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysHospitalMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysHospitalEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="hospital_name" jdbcType="VARCHAR" property="hospitalName" />
+    <result column="hospital_code" jdbcType="VARCHAR" property="hospitalCode" />
+    <result column="hospital_address" jdbcType="VARCHAR" property="hospitalAddress" />
+    <result column="hospital_phone" jdbcType="VARCHAR" property="hospitalPhone" />
+    <result column="hospital_leader" jdbcType="VARCHAR" property="hospitalLeader" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark1" jdbcType="VARCHAR" property="remark1" />
+    <result column="remark2" jdbcType="VARCHAR" property="remark2" />
+    <result column="remark3" jdbcType="VARCHAR" property="remark3" />
+    <result column="remark4" jdbcType="VARCHAR" property="remark4" />
+    <result column="remark5" jdbcType="VARCHAR" property="remark5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, hospital_name, hospital_code, hospital_address, hospital_phone, hospital_leader, 
+    create_time, update_time, remark1, remark2, remark3, remark4, remark5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_hospital
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_hospital
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.SysHospitalEntity">
+    insert into sys_hospital (id, hospital_name, hospital_code, 
+      hospital_address, hospital_phone, hospital_leader, 
+      create_time, update_time, remark1, 
+      remark2, remark3, remark4, 
+      remark5)
+    values (#{id,jdbcType=INTEGER}, #{hospitalName,jdbcType=VARCHAR}, #{hospitalCode,jdbcType=VARCHAR}, 
+      #{hospitalAddress,jdbcType=VARCHAR}, #{hospitalPhone,jdbcType=VARCHAR}, #{hospitalLeader,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark1,jdbcType=VARCHAR}, 
+      #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}, #{remark4,jdbcType=VARCHAR}, 
+      #{remark5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.sys.SysHospitalEntity">
+    insert into sys_hospital
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="hospitalName != null">
+        hospital_name,
+      </if>
+      <if test="hospitalCode != null">
+        hospital_code,
+      </if>
+      <if test="hospitalAddress != null">
+        hospital_address,
+      </if>
+      <if test="hospitalPhone != null">
+        hospital_phone,
+      </if>
+      <if test="hospitalLeader != null">
+        hospital_leader,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark1 != null">
+        remark1,
+      </if>
+      <if test="remark2 != null">
+        remark2,
+      </if>
+      <if test="remark3 != null">
+        remark3,
+      </if>
+      <if test="remark4 != null">
+        remark4,
+      </if>
+      <if test="remark5 != null">
+        remark5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalName != null">
+        #{hospitalName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCode != null">
+        #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalAddress != null">
+        #{hospitalAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalPhone != null">
+        #{hospitalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalLeader != null">
+        #{hospitalLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="remark4 != null">
+        #{remark4,jdbcType=VARCHAR},
+      </if>
+      <if test="remark5 != null">
+        #{remark5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.sys.SysHospitalEntity">
+    update sys_hospital
+    <set>
+      <if test="hospitalName != null">
+        hospital_name = #{hospitalName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCode != null">
+        hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalAddress != null">
+        hospital_address = #{hospitalAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalPhone != null">
+        hospital_phone = #{hospitalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalLeader != null">
+        hospital_leader = #{hospitalLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark1 != null">
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        remark3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="remark4 != null">
+        remark4 = #{remark4,jdbcType=VARCHAR},
+      </if>
+      <if test="remark5 != null">
+        remark5 = #{remark5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.SysHospitalEntity">
+    update sys_hospital
+    set hospital_name = #{hospitalName,jdbcType=VARCHAR},
+      hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      hospital_address = #{hospitalAddress,jdbcType=VARCHAR},
+      hospital_phone = #{hospitalPhone,jdbcType=VARCHAR},
+      hospital_leader = #{hospitalLeader,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      remark3 = #{remark3,jdbcType=VARCHAR},
+      remark4 = #{remark4,jdbcType=VARCHAR},
+      remark5 = #{remark5,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

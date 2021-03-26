@@ -3,16 +3,18 @@ package com.huiyi.campus.dao.entity.sys;
 import java.io.Serializable;
 import java.util.Date;
 
-public class SysParentEntity implements Serializable {
+public class SysHospitalEntity implements Serializable {
     private Integer id;
 
-    private String userName;
+    private String hospitalName;
 
-    private Integer age;
+    private String hospitalCode;
 
-    private Byte sex;
+    private String hospitalAddress;
 
-    private String phone;
+    private String hospitalPhone;
+
+    private String hospitalLeader;
 
     private Date createTime;
 
@@ -38,36 +40,44 @@ public class SysParentEntity implements Serializable {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getHospitalName() {
+        return hospitalName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName == null ? null : hospitalName.trim();
     }
 
-    public Integer getAge() {
-        return age;
+    public String getHospitalCode() {
+        return hospitalCode;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setHospitalCode(String hospitalCode) {
+        this.hospitalCode = hospitalCode == null ? null : hospitalCode.trim();
     }
 
-    public Byte getSex() {
-        return sex;
+    public String getHospitalAddress() {
+        return hospitalAddress;
     }
 
-    public void setSex(Byte sex) {
-        this.sex = sex;
+    public void setHospitalAddress(String hospitalAddress) {
+        this.hospitalAddress = hospitalAddress == null ? null : hospitalAddress.trim();
     }
 
-    public String getPhone() {
-        return phone;
+    public String getHospitalPhone() {
+        return hospitalPhone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+    public void setHospitalPhone(String hospitalPhone) {
+        this.hospitalPhone = hospitalPhone == null ? null : hospitalPhone.trim();
+    }
+
+    public String getHospitalLeader() {
+        return hospitalLeader;
+    }
+
+    public void setHospitalLeader(String hospitalLeader) {
+        this.hospitalLeader = hospitalLeader == null ? null : hospitalLeader.trim();
     }
 
     public Date getCreateTime() {
@@ -137,12 +147,13 @@ public class SysParentEntity implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        SysParentEntity other = (SysParentEntity) that;
+        SysHospitalEntity other = (SysHospitalEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
-            && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+            && (this.getHospitalName() == null ? other.getHospitalName() == null : this.getHospitalName().equals(other.getHospitalName()))
+            && (this.getHospitalCode() == null ? other.getHospitalCode() == null : this.getHospitalCode().equals(other.getHospitalCode()))
+            && (this.getHospitalAddress() == null ? other.getHospitalAddress() == null : this.getHospitalAddress().equals(other.getHospitalAddress()))
+            && (this.getHospitalPhone() == null ? other.getHospitalPhone() == null : this.getHospitalPhone().equals(other.getHospitalPhone()))
+            && (this.getHospitalLeader() == null ? other.getHospitalLeader() == null : this.getHospitalLeader().equals(other.getHospitalLeader()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
             && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
@@ -157,10 +168,11 @@ public class SysParentEntity implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
-        result = prime * result + ((getAge() == null) ? 0 : getAge().hashCode());
-        result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
-        result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
+        result = prime * result + ((getHospitalName() == null) ? 0 : getHospitalName().hashCode());
+        result = prime * result + ((getHospitalCode() == null) ? 0 : getHospitalCode().hashCode());
+        result = prime * result + ((getHospitalAddress() == null) ? 0 : getHospitalAddress().hashCode());
+        result = prime * result + ((getHospitalPhone() == null) ? 0 : getHospitalPhone().hashCode());
+        result = prime * result + ((getHospitalLeader() == null) ? 0 : getHospitalLeader().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
@@ -178,10 +190,11 @@ public class SysParentEntity implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", userName=").append(userName);
-        sb.append(", age=").append(age);
-        sb.append(", sex=").append(sex);
-        sb.append(", phone=").append(phone);
+        sb.append(", hospitalName=").append(hospitalName);
+        sb.append(", hospitalCode=").append(hospitalCode);
+        sb.append(", hospitalAddress=").append(hospitalAddress);
+        sb.append(", hospitalPhone=").append(hospitalPhone);
+        sb.append(", hospitalLeader=").append(hospitalLeader);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", remark1=").append(remark1);

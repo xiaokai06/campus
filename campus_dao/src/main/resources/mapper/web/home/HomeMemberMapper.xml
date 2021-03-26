@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.home.HomeMemberMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.home.HomeMemberEntity">
+    <id column="NBXH01" jdbcType="VARCHAR" property="nbxh01" />
+    <result column="JTBH01" jdbcType="VARCHAR" property="jtbh01" />
+    <result column="GRXH01" jdbcType="INTEGER" property="grxh01" />
+    <result column="GRXM01" jdbcType="VARCHAR" property="grxm01" />
+    <result column="SXBM01" jdbcType="VARCHAR" property="sxbm01" />
+    <result column="GRXH02" jdbcType="INTEGER" property="grxh02" />
+    <result column="GRXM02" jdbcType="VARCHAR" property="grxm02" />
+    <result column="GXLX01" jdbcType="TINYINT" property="gxlx01" />
+    <result column="GXLX02" jdbcType="VARCHAR" property="gxlx02" />
+    <result column="SCZT01" jdbcType="TINYINT" property="sczt01" />
+    <result column="SJQYXH" jdbcType="VARCHAR" property="sjqyxh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NBXH01, JTBH01, GRXH01, GRXM01, SXBM01, GRXH02, GRXM02, GXLX01, GXLX02, SCZT01, SJQYXH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from home_member
+    where NBXH01 = #{nbxh01,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from home_member
+    where NBXH01 = #{nbxh01,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.home.HomeMemberEntity">
+    insert into home_member (NBXH01, JTBH01, GRXH01, 
+      GRXM01, SXBM01, GRXH02, 
+      GRXM02, GXLX01, GXLX02, 
+      SCZT01, SJQYXH)
+    values (#{nbxh01,jdbcType=VARCHAR}, #{jtbh01,jdbcType=VARCHAR}, #{grxh01,jdbcType=INTEGER}, 
+      #{grxm01,jdbcType=VARCHAR}, #{sxbm01,jdbcType=VARCHAR}, #{grxh02,jdbcType=INTEGER}, 
+      #{grxm02,jdbcType=VARCHAR}, #{gxlx01,jdbcType=TINYINT}, #{gxlx02,jdbcType=VARCHAR}, 
+      #{sczt01,jdbcType=TINYINT}, #{sjqyxh,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.home.HomeMemberEntity">
+    insert into home_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nbxh01 != null">
+        NBXH01,
+      </if>
+      <if test="jtbh01 != null">
+        JTBH01,
+      </if>
+      <if test="grxh01 != null">
+        GRXH01,
+      </if>
+      <if test="grxm01 != null">
+        GRXM01,
+      </if>
+      <if test="sxbm01 != null">
+        SXBM01,
+      </if>
+      <if test="grxh02 != null">
+        GRXH02,
+      </if>
+      <if test="grxm02 != null">
+        GRXM02,
+      </if>
+      <if test="gxlx01 != null">
+        GXLX01,
+      </if>
+      <if test="gxlx02 != null">
+        GXLX02,
+      </if>
+      <if test="sczt01 != null">
+        SCZT01,
+      </if>
+      <if test="sjqyxh != null">
+        SJQYXH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nbxh01 != null">
+        #{nbxh01,jdbcType=VARCHAR},
+      </if>
+      <if test="jtbh01 != null">
+        #{jtbh01,jdbcType=VARCHAR},
+      </if>
+      <if test="grxh01 != null">
+        #{grxh01,jdbcType=INTEGER},
+      </if>
+      <if test="grxm01 != null">
+        #{grxm01,jdbcType=VARCHAR},
+      </if>
+      <if test="sxbm01 != null">
+        #{sxbm01,jdbcType=VARCHAR},
+      </if>
+      <if test="grxh02 != null">
+        #{grxh02,jdbcType=INTEGER},
+      </if>
+      <if test="grxm02 != null">
+        #{grxm02,jdbcType=VARCHAR},
+      </if>
+      <if test="gxlx01 != null">
+        #{gxlx01,jdbcType=TINYINT},
+      </if>
+      <if test="gxlx02 != null">
+        #{gxlx02,jdbcType=VARCHAR},
+      </if>
+      <if test="sczt01 != null">
+        #{sczt01,jdbcType=TINYINT},
+      </if>
+      <if test="sjqyxh != null">
+        #{sjqyxh,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.home.HomeMemberEntity">
+    update home_member
+    <set>
+      <if test="jtbh01 != null">
+        JTBH01 = #{jtbh01,jdbcType=VARCHAR},
+      </if>
+      <if test="grxh01 != null">
+        GRXH01 = #{grxh01,jdbcType=INTEGER},
+      </if>
+      <if test="grxm01 != null">
+        GRXM01 = #{grxm01,jdbcType=VARCHAR},
+      </if>
+      <if test="sxbm01 != null">
+        SXBM01 = #{sxbm01,jdbcType=VARCHAR},
+      </if>
+      <if test="grxh02 != null">
+        GRXH02 = #{grxh02,jdbcType=INTEGER},
+      </if>
+      <if test="grxm02 != null">
+        GRXM02 = #{grxm02,jdbcType=VARCHAR},
+      </if>
+      <if test="gxlx01 != null">
+        GXLX01 = #{gxlx01,jdbcType=TINYINT},
+      </if>
+      <if test="gxlx02 != null">
+        GXLX02 = #{gxlx02,jdbcType=VARCHAR},
+      </if>
+      <if test="sczt01 != null">
+        SCZT01 = #{sczt01,jdbcType=TINYINT},
+      </if>
+      <if test="sjqyxh != null">
+        SJQYXH = #{sjqyxh,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NBXH01 = #{nbxh01,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.home.HomeMemberEntity">
+    update home_member
+    set JTBH01 = #{jtbh01,jdbcType=VARCHAR},
+      GRXH01 = #{grxh01,jdbcType=INTEGER},
+      GRXM01 = #{grxm01,jdbcType=VARCHAR},
+      SXBM01 = #{sxbm01,jdbcType=VARCHAR},
+      GRXH02 = #{grxh02,jdbcType=INTEGER},
+      GRXM02 = #{grxm02,jdbcType=VARCHAR},
+      GXLX01 = #{gxlx01,jdbcType=TINYINT},
+      GXLX02 = #{gxlx02,jdbcType=VARCHAR},
+      SCZT01 = #{sczt01,jdbcType=TINYINT},
+      SJQYXH = #{sjqyxh,jdbcType=VARCHAR}
+    where NBXH01 = #{nbxh01,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,13 +1,18 @@
 package com.huiyi.campus.dao.entity.sys;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
-public class SysStudentParentEntity implements Serializable {
+public class ProjectRefEntity implements Serializable {
     private Integer id;
 
-    private Integer studentId;
+    private String projectName;
 
-    private Integer parentId;
+    private BigDecimal min;
+
+    private BigDecimal max;
+
+    private String refText;
 
     private String remark1;
 
@@ -25,20 +30,36 @@ public class SysStudentParentEntity implements Serializable {
         this.id = id;
     }
 
-    public Integer getStudentId() {
-        return studentId;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName == null ? null : projectName.trim();
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public BigDecimal getMin() {
+        return min;
     }
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setMin(BigDecimal min) {
+        this.min = min;
+    }
+
+    public BigDecimal getMax() {
+        return max;
+    }
+
+    public void setMax(BigDecimal max) {
+        this.max = max;
+    }
+
+    public String getRefText() {
+        return refText;
+    }
+
+    public void setRefText(String refText) {
+        this.refText = refText == null ? null : refText.trim();
     }
 
     public String getRemark1() {
@@ -76,10 +97,12 @@ public class SysStudentParentEntity implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        SysStudentParentEntity other = (SysStudentParentEntity) that;
+        ProjectRefEntity other = (ProjectRefEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getStudentId() == null ? other.getStudentId() == null : this.getStudentId().equals(other.getStudentId()))
-            && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
+            && (this.getProjectName() == null ? other.getProjectName() == null : this.getProjectName().equals(other.getProjectName()))
+            && (this.getMin() == null ? other.getMin() == null : this.getMin().equals(other.getMin()))
+            && (this.getMax() == null ? other.getMax() == null : this.getMax().equals(other.getMax()))
+            && (this.getRefText() == null ? other.getRefText() == null : this.getRefText().equals(other.getRefText()))
             && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
             && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
             && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()));
@@ -90,8 +113,10 @@ public class SysStudentParentEntity implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getStudentId() == null) ? 0 : getStudentId().hashCode());
-        result = prime * result + ((getParentId() == null) ? 0 : getParentId().hashCode());
+        result = prime * result + ((getProjectName() == null) ? 0 : getProjectName().hashCode());
+        result = prime * result + ((getMin() == null) ? 0 : getMin().hashCode());
+        result = prime * result + ((getMax() == null) ? 0 : getMax().hashCode());
+        result = prime * result + ((getRefText() == null) ? 0 : getRefText().hashCode());
         result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
         result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
         result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
@@ -105,8 +130,10 @@ public class SysStudentParentEntity implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", studentId=").append(studentId);
-        sb.append(", parentId=").append(parentId);
+        sb.append(", projectName=").append(projectName);
+        sb.append(", min=").append(min);
+        sb.append(", max=").append(max);
+        sb.append(", refText=").append(refText);
         sb.append(", remark1=").append(remark1);
         sb.append(", remark2=").append(remark2);
         sb.append(", remark3=").append(remark3);

@@ -3,16 +3,10 @@ package com.huiyi.campus.dao.entity.sys;
 import java.io.Serializable;
 import java.util.Date;
 
-public class SysParentEntity implements Serializable {
+public class SysMenuEntity implements Serializable {
     private Integer id;
 
-    private String userName;
-
-    private Integer age;
-
-    private Byte sex;
-
-    private String phone;
+    private String menuName;
 
     private Date createTime;
 
@@ -38,36 +32,12 @@ public class SysParentEntity implements Serializable {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getMenuName() {
+        return menuName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Byte getSex() {
-        return sex;
-    }
-
-    public void setSex(Byte sex) {
-        this.sex = sex;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+    public void setMenuName(String menuName) {
+        this.menuName = menuName == null ? null : menuName.trim();
     }
 
     public Date getCreateTime() {
@@ -137,12 +107,9 @@ public class SysParentEntity implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        SysParentEntity other = (SysParentEntity) that;
+        SysMenuEntity other = (SysMenuEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
-            && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+            && (this.getMenuName() == null ? other.getMenuName() == null : this.getMenuName().equals(other.getMenuName()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
             && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
@@ -157,10 +124,7 @@ public class SysParentEntity implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
-        result = prime * result + ((getAge() == null) ? 0 : getAge().hashCode());
-        result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
-        result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
+        result = prime * result + ((getMenuName() == null) ? 0 : getMenuName().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
@@ -178,10 +142,7 @@ public class SysParentEntity implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", userName=").append(userName);
-        sb.append(", age=").append(age);
-        sb.append(", sex=").append(sex);
-        sb.append(", phone=").append(phone);
+        sb.append(", menuName=").append(menuName);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", remark1=").append(remark1);

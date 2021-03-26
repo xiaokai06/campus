@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.phy.PhyLifeMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.phy.PhyLifeEntity">
+    <id column="NBXH01" jdbcType="INTEGER" property="nbxh01" />
+    <result column="YWXH01" jdbcType="INTEGER" property="ywxh01" />
+    <result column="GRXH01" jdbcType="INTEGER" property="grxh01" />
+    <result column="YWBM01" jdbcType="VARCHAR" property="ywbm01" />
+    <result column="DLPL01" jdbcType="VARCHAR" property="dlpl01" />
+    <result column="DLSJ01" jdbcType="VARCHAR" property="dlsj01" />
+    <result column="DLSJ02" jdbcType="VARCHAR" property="dlsj02" />
+    <result column="DLFS01" jdbcType="VARCHAR" property="dlfs01" />
+    <result column="YSXG01" jdbcType="VARCHAR" property="ysxg01" />
+    <result column="YSXG02" jdbcType="VARCHAR" property="ysxg02" />
+    <result column="XYZK01" jdbcType="VARCHAR" property="xyzk01" />
+    <result column="RXYL01" jdbcType="VARCHAR" property="rxyl01" />
+    <result column="XYNL01" jdbcType="VARCHAR" property="xynl01" />
+    <result column="JYNL01" jdbcType="VARCHAR" property="jynl01" />
+    <result column="YJPL01" jdbcType="VARCHAR" property="yjpl01" />
+    <result column="RYJL01" jdbcType="VARCHAR" property="ryjl01" />
+    <result column="JJBZ01" jdbcType="VARCHAR" property="jjbz01" />
+    <result column="JJNL01" jdbcType="VARCHAR" property="jjnl01" />
+    <result column="YJNL01" jdbcType="VARCHAR" property="yjnl01" />
+    <result column="SFZJ01" jdbcType="VARCHAR" property="sfzj01" />
+    <result column="YJZL01" jdbcType="VARCHAR" property="yjzl01" />
+    <result column="YJZLBC" jdbcType="VARCHAR" property="yjzlbc" />
+    <result column="YJZLMS" jdbcType="VARCHAR" property="yjzlms" />
+    <result column="WHYS01" jdbcType="TINYINT" property="whys01" />
+    <result column="WHGZ01" jdbcType="VARCHAR" property="whgz01" />
+    <result column="CYSJ01" jdbcType="VARCHAR" property="cysj01" />
+    <result column="ZFZL01" jdbcType="VARCHAR" property="zfzl01" />
+    <result column="FHCS01" jdbcType="TINYINT" property="fhcs01" />
+    <result column="FHFS01" jdbcType="VARCHAR" property="fhfs01" />
+    <result column="FHBC01" jdbcType="TINYINT" property="fhbc01" />
+    <result column="FSWZ01" jdbcType="VARCHAR" property="fswz01" />
+    <result column="FHCS03" jdbcType="TINYINT" property="fhcs03" />
+    <result column="FHFS03" jdbcType="VARCHAR" property="fhfs03" />
+    <result column="FHBC03" jdbcType="VARCHAR" property="fhbc03" />
+    <result column="WLYS01" jdbcType="VARCHAR" property="wlys01" />
+    <result column="FHCS04" jdbcType="TINYINT" property="fhcs04" />
+    <result column="FHFS04" jdbcType="VARCHAR" property="fhfs04" />
+    <result column="FHBC04" jdbcType="TINYINT" property="fhbc04" />
+    <result column="HXWZ01" jdbcType="VARCHAR" property="hxwz01" />
+    <result column="FHCS05" jdbcType="TINYINT" property="fhcs05" />
+    <result column="FHFS05" jdbcType="VARCHAR" property="fhfs05" />
+    <result column="FHBC05" jdbcType="VARCHAR" property="fhbc05" />
+    <result column="QTZL01" jdbcType="VARCHAR" property="qtzl01" />
+    <result column="FHCS02" jdbcType="VARCHAR" property="fhcs02" />
+    <result column="FHFS02" jdbcType="VARCHAR" property="fhfs02" />
+    <result column="FHBC02" jdbcType="VARCHAR" property="fhbc02" />
+    <result column="ZXRQ01" jdbcType="TIMESTAMP" property="zxrq01" />
+    <result column="JGDM01" jdbcType="VARCHAR" property="jgdm01" />
+    <result column="YSDM01" jdbcType="VARCHAR" property="ysdm01" />
+    <result column="YSDM02" jdbcType="VARCHAR" property="ysdm02" />
+    <result column="SJQYXH" jdbcType="VARCHAR" property="sjqyxh" />
+    <result column="CZR001" jdbcType="VARCHAR" property="czr001" />
+    <result column="CZR002" jdbcType="VARCHAR" property="czr002" />
+    <result column="CZSJ01" jdbcType="TIMESTAMP" property="czsj01" />
+    <result column="GXRY01" jdbcType="VARCHAR" property="gxry01" />
+    <result column="GXRY02" jdbcType="VARCHAR" property="gxry02" />
+    <result column="GXSJ01" jdbcType="TIMESTAMP" property="gxsj01" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NBXH01, YWXH01, GRXH01, YWBM01, DLPL01, DLSJ01, DLSJ02, DLFS01, YSXG01, YSXG02, XYZK01, 
+    RXYL01, XYNL01, JYNL01, YJPL01, RYJL01, JJBZ01, JJNL01, YJNL01, SFZJ01, YJZL01, YJZLBC, 
+    YJZLMS, WHYS01, WHGZ01, CYSJ01, ZFZL01, FHCS01, FHFS01, FHBC01, FSWZ01, FHCS03, FHFS03, 
+    FHBC03, WLYS01, FHCS04, FHFS04, FHBC04, HXWZ01, FHCS05, FHFS05, FHBC05, QTZL01, FHCS02, 
+    FHFS02, FHBC02, ZXRQ01, JGDM01, YSDM01, YSDM02, SJQYXH, CZR001, CZR002, CZSJ01, GXRY01, 
+    GXRY02, GXSJ01
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from phy_life
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from phy_life
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.phy.PhyLifeEntity">
+    insert into phy_life (NBXH01, YWXH01, GRXH01, 
+      YWBM01, DLPL01, DLSJ01, 
+      DLSJ02, DLFS01, YSXG01, 
+      YSXG02, XYZK01, RXYL01, 
+      XYNL01, JYNL01, YJPL01, 
+      RYJL01, JJBZ01, JJNL01, 
+      YJNL01, SFZJ01, YJZL01, 
+      YJZLBC, YJZLMS, WHYS01, 
+      WHGZ01, CYSJ01, ZFZL01, 
+      FHCS01, FHFS01, FHBC01, 
+      FSWZ01, FHCS03, FHFS03, 
+      FHBC03, WLYS01, FHCS04, 
+      FHFS04, FHBC04, HXWZ01, 
+      FHCS05, FHFS05, FHBC05, 
+      QTZL01, FHCS02, FHFS02, 
+      FHBC02, ZXRQ01, JGDM01, 
+      YSDM01, YSDM02, SJQYXH, 
+      CZR001, CZR002, CZSJ01, 
+      GXRY01, GXRY02, GXSJ01
+      )
+    values (#{nbxh01,jdbcType=INTEGER}, #{ywxh01,jdbcType=INTEGER}, #{grxh01,jdbcType=INTEGER}, 
+      #{ywbm01,jdbcType=VARCHAR}, #{dlpl01,jdbcType=VARCHAR}, #{dlsj01,jdbcType=VARCHAR}, 
+      #{dlsj02,jdbcType=VARCHAR}, #{dlfs01,jdbcType=VARCHAR}, #{ysxg01,jdbcType=VARCHAR}, 
+      #{ysxg02,jdbcType=VARCHAR}, #{xyzk01,jdbcType=VARCHAR}, #{rxyl01,jdbcType=VARCHAR}, 
+      #{xynl01,jdbcType=VARCHAR}, #{jynl01,jdbcType=VARCHAR}, #{yjpl01,jdbcType=VARCHAR}, 
+      #{ryjl01,jdbcType=VARCHAR}, #{jjbz01,jdbcType=VARCHAR}, #{jjnl01,jdbcType=VARCHAR}, 
+      #{yjnl01,jdbcType=VARCHAR}, #{sfzj01,jdbcType=VARCHAR}, #{yjzl01,jdbcType=VARCHAR}, 
+      #{yjzlbc,jdbcType=VARCHAR}, #{yjzlms,jdbcType=VARCHAR}, #{whys01,jdbcType=TINYINT}, 
+      #{whgz01,jdbcType=VARCHAR}, #{cysj01,jdbcType=VARCHAR}, #{zfzl01,jdbcType=VARCHAR}, 
+      #{fhcs01,jdbcType=TINYINT}, #{fhfs01,jdbcType=VARCHAR}, #{fhbc01,jdbcType=TINYINT}, 
+      #{fswz01,jdbcType=VARCHAR}, #{fhcs03,jdbcType=TINYINT}, #{fhfs03,jdbcType=VARCHAR}, 
+      #{fhbc03,jdbcType=VARCHAR}, #{wlys01,jdbcType=VARCHAR}, #{fhcs04,jdbcType=TINYINT}, 
+      #{fhfs04,jdbcType=VARCHAR}, #{fhbc04,jdbcType=TINYINT}, #{hxwz01,jdbcType=VARCHAR}, 
+      #{fhcs05,jdbcType=TINYINT}, #{fhfs05,jdbcType=VARCHAR}, #{fhbc05,jdbcType=VARCHAR}, 
+      #{qtzl01,jdbcType=VARCHAR}, #{fhcs02,jdbcType=VARCHAR}, #{fhfs02,jdbcType=VARCHAR}, 
+      #{fhbc02,jdbcType=VARCHAR}, #{zxrq01,jdbcType=TIMESTAMP}, #{jgdm01,jdbcType=VARCHAR}, 
+      #{ysdm01,jdbcType=VARCHAR}, #{ysdm02,jdbcType=VARCHAR}, #{sjqyxh,jdbcType=VARCHAR}, 
+      #{czr001,jdbcType=VARCHAR}, #{czr002,jdbcType=VARCHAR}, #{czsj01,jdbcType=TIMESTAMP}, 
+      #{gxry01,jdbcType=VARCHAR}, #{gxry02,jdbcType=VARCHAR}, #{gxsj01,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyLifeEntity">
+    insert into phy_life
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nbxh01 != null">
+        NBXH01,
+      </if>
+      <if test="ywxh01 != null">
+        YWXH01,
+      </if>
+      <if test="grxh01 != null">
+        GRXH01,
+      </if>
+      <if test="ywbm01 != null">
+        YWBM01,
+      </if>
+      <if test="dlpl01 != null">
+        DLPL01,
+      </if>
+      <if test="dlsj01 != null">
+        DLSJ01,
+      </if>
+      <if test="dlsj02 != null">
+        DLSJ02,
+      </if>
+      <if test="dlfs01 != null">
+        DLFS01,
+      </if>
+      <if test="ysxg01 != null">
+        YSXG01,
+      </if>
+      <if test="ysxg02 != null">
+        YSXG02,
+      </if>
+      <if test="xyzk01 != null">
+        XYZK01,
+      </if>
+      <if test="rxyl01 != null">
+        RXYL01,
+      </if>
+      <if test="xynl01 != null">
+        XYNL01,
+      </if>
+      <if test="jynl01 != null">
+        JYNL01,
+      </if>
+      <if test="yjpl01 != null">
+        YJPL01,
+      </if>
+      <if test="ryjl01 != null">
+        RYJL01,
+      </if>
+      <if test="jjbz01 != null">
+        JJBZ01,
+      </if>
+      <if test="jjnl01 != null">
+        JJNL01,
+      </if>
+      <if test="yjnl01 != null">
+        YJNL01,
+      </if>
+      <if test="sfzj01 != null">
+        SFZJ01,
+      </if>
+      <if test="yjzl01 != null">
+        YJZL01,
+      </if>
+      <if test="yjzlbc != null">
+        YJZLBC,
+      </if>
+      <if test="yjzlms != null">
+        YJZLMS,
+      </if>
+      <if test="whys01 != null">
+        WHYS01,
+      </if>
+      <if test="whgz01 != null">
+        WHGZ01,
+      </if>
+      <if test="cysj01 != null">
+        CYSJ01,
+      </if>
+      <if test="zfzl01 != null">
+        ZFZL01,
+      </if>
+      <if test="fhcs01 != null">
+        FHCS01,
+      </if>
+      <if test="fhfs01 != null">
+        FHFS01,
+      </if>
+      <if test="fhbc01 != null">
+        FHBC01,
+      </if>
+      <if test="fswz01 != null">
+        FSWZ01,
+      </if>
+      <if test="fhcs03 != null">
+        FHCS03,
+      </if>
+      <if test="fhfs03 != null">
+        FHFS03,
+      </if>
+      <if test="fhbc03 != null">
+        FHBC03,
+      </if>
+      <if test="wlys01 != null">
+        WLYS01,
+      </if>
+      <if test="fhcs04 != null">
+        FHCS04,
+      </if>
+      <if test="fhfs04 != null">
+        FHFS04,
+      </if>
+      <if test="fhbc04 != null">
+        FHBC04,
+      </if>
+      <if test="hxwz01 != null">
+        HXWZ01,
+      </if>
+      <if test="fhcs05 != null">
+        FHCS05,
+      </if>
+      <if test="fhfs05 != null">
+        FHFS05,
+      </if>
+      <if test="fhbc05 != null">
+        FHBC05,
+      </if>
+      <if test="qtzl01 != null">
+        QTZL01,
+      </if>
+      <if test="fhcs02 != null">
+        FHCS02,
+      </if>
+      <if test="fhfs02 != null">
+        FHFS02,
+      </if>
+      <if test="fhbc02 != null">
+        FHBC02,
+      </if>
+      <if test="zxrq01 != null">
+        ZXRQ01,
+      </if>
+      <if test="jgdm01 != null">
+        JGDM01,
+      </if>
+      <if test="ysdm01 != null">
+        YSDM01,
+      </if>
+      <if test="ysdm02 != null">
+        YSDM02,
+      </if>
+      <if test="sjqyxh != null">
+        SJQYXH,
+      </if>
+      <if test="czr001 != null">
+        CZR001,
+      </if>
+      <if test="czr002 != null">
+        CZR002,
+      </if>
+      <if test="czsj01 != null">
+        CZSJ01,
+      </if>
+      <if test="gxry01 != null">
+        GXRY01,
+      </if>
+      <if test="gxry02 != null">
+        GXRY02,
+      </if>
+      <if test="gxsj01 != null">
+        GXSJ01,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nbxh01 != null">
+        #{nbxh01,jdbcType=INTEGER},
+      </if>
+      <if test="ywxh01 != null">
+        #{ywxh01,jdbcType=INTEGER},
+      </if>
+      <if test="grxh01 != null">
+        #{grxh01,jdbcType=INTEGER},
+      </if>
+      <if test="ywbm01 != null">
+        #{ywbm01,jdbcType=VARCHAR},
+      </if>
+      <if test="dlpl01 != null">
+        #{dlpl01,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsj01 != null">
+        #{dlsj01,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsj02 != null">
+        #{dlsj02,jdbcType=VARCHAR},
+      </if>
+      <if test="dlfs01 != null">
+        #{dlfs01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysxg01 != null">
+        #{ysxg01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysxg02 != null">
+        #{ysxg02,jdbcType=VARCHAR},
+      </if>
+      <if test="xyzk01 != null">
+        #{xyzk01,jdbcType=VARCHAR},
+      </if>
+      <if test="rxyl01 != null">
+        #{rxyl01,jdbcType=VARCHAR},
+      </if>
+      <if test="xynl01 != null">
+        #{xynl01,jdbcType=VARCHAR},
+      </if>
+      <if test="jynl01 != null">
+        #{jynl01,jdbcType=VARCHAR},
+      </if>
+      <if test="yjpl01 != null">
+        #{yjpl01,jdbcType=VARCHAR},
+      </if>
+      <if test="ryjl01 != null">
+        #{ryjl01,jdbcType=VARCHAR},
+      </if>
+      <if test="jjbz01 != null">
+        #{jjbz01,jdbcType=VARCHAR},
+      </if>
+      <if test="jjnl01 != null">
+        #{jjnl01,jdbcType=VARCHAR},
+      </if>
+      <if test="yjnl01 != null">
+        #{yjnl01,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzj01 != null">
+        #{sfzj01,jdbcType=VARCHAR},
+      </if>
+      <if test="yjzl01 != null">
+        #{yjzl01,jdbcType=VARCHAR},
+      </if>
+      <if test="yjzlbc != null">
+        #{yjzlbc,jdbcType=VARCHAR},
+      </if>
+      <if test="yjzlms != null">
+        #{yjzlms,jdbcType=VARCHAR},
+      </if>
+      <if test="whys01 != null">
+        #{whys01,jdbcType=TINYINT},
+      </if>
+      <if test="whgz01 != null">
+        #{whgz01,jdbcType=VARCHAR},
+      </if>
+      <if test="cysj01 != null">
+        #{cysj01,jdbcType=VARCHAR},
+      </if>
+      <if test="zfzl01 != null">
+        #{zfzl01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs01 != null">
+        #{fhcs01,jdbcType=TINYINT},
+      </if>
+      <if test="fhfs01 != null">
+        #{fhfs01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc01 != null">
+        #{fhbc01,jdbcType=TINYINT},
+      </if>
+      <if test="fswz01 != null">
+        #{fswz01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs03 != null">
+        #{fhcs03,jdbcType=TINYINT},
+      </if>
+      <if test="fhfs03 != null">
+        #{fhfs03,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc03 != null">
+        #{fhbc03,jdbcType=VARCHAR},
+      </if>
+      <if test="wlys01 != null">
+        #{wlys01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs04 != null">
+        #{fhcs04,jdbcType=TINYINT},
+      </if>
+      <if test="fhfs04 != null">
+        #{fhfs04,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc04 != null">
+        #{fhbc04,jdbcType=TINYINT},
+      </if>
+      <if test="hxwz01 != null">
+        #{hxwz01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs05 != null">
+        #{fhcs05,jdbcType=TINYINT},
+      </if>
+      <if test="fhfs05 != null">
+        #{fhfs05,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc05 != null">
+        #{fhbc05,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzl01 != null">
+        #{qtzl01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs02 != null">
+        #{fhcs02,jdbcType=VARCHAR},
+      </if>
+      <if test="fhfs02 != null">
+        #{fhfs02,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc02 != null">
+        #{fhbc02,jdbcType=VARCHAR},
+      </if>
+      <if test="zxrq01 != null">
+        #{zxrq01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jgdm01 != null">
+        #{jgdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm01 != null">
+        #{ysdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm02 != null">
+        #{ysdm02,jdbcType=VARCHAR},
+      </if>
+      <if test="sjqyxh != null">
+        #{sjqyxh,jdbcType=VARCHAR},
+      </if>
+      <if test="czr001 != null">
+        #{czr001,jdbcType=VARCHAR},
+      </if>
+      <if test="czr002 != null">
+        #{czr002,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj01 != null">
+        #{czsj01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxry01 != null">
+        #{gxry01,jdbcType=VARCHAR},
+      </if>
+      <if test="gxry02 != null">
+        #{gxry02,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsj01 != null">
+        #{gxsj01,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyLifeEntity">
+    update phy_life
+    <set>
+      <if test="ywxh01 != null">
+        YWXH01 = #{ywxh01,jdbcType=INTEGER},
+      </if>
+      <if test="grxh01 != null">
+        GRXH01 = #{grxh01,jdbcType=INTEGER},
+      </if>
+      <if test="ywbm01 != null">
+        YWBM01 = #{ywbm01,jdbcType=VARCHAR},
+      </if>
+      <if test="dlpl01 != null">
+        DLPL01 = #{dlpl01,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsj01 != null">
+        DLSJ01 = #{dlsj01,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsj02 != null">
+        DLSJ02 = #{dlsj02,jdbcType=VARCHAR},
+      </if>
+      <if test="dlfs01 != null">
+        DLFS01 = #{dlfs01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysxg01 != null">
+        YSXG01 = #{ysxg01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysxg02 != null">
+        YSXG02 = #{ysxg02,jdbcType=VARCHAR},
+      </if>
+      <if test="xyzk01 != null">
+        XYZK01 = #{xyzk01,jdbcType=VARCHAR},
+      </if>
+      <if test="rxyl01 != null">
+        RXYL01 = #{rxyl01,jdbcType=VARCHAR},
+      </if>
+      <if test="xynl01 != null">
+        XYNL01 = #{xynl01,jdbcType=VARCHAR},
+      </if>
+      <if test="jynl01 != null">
+        JYNL01 = #{jynl01,jdbcType=VARCHAR},
+      </if>
+      <if test="yjpl01 != null">
+        YJPL01 = #{yjpl01,jdbcType=VARCHAR},
+      </if>
+      <if test="ryjl01 != null">
+        RYJL01 = #{ryjl01,jdbcType=VARCHAR},
+      </if>
+      <if test="jjbz01 != null">
+        JJBZ01 = #{jjbz01,jdbcType=VARCHAR},
+      </if>
+      <if test="jjnl01 != null">
+        JJNL01 = #{jjnl01,jdbcType=VARCHAR},
+      </if>
+      <if test="yjnl01 != null">
+        YJNL01 = #{yjnl01,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzj01 != null">
+        SFZJ01 = #{sfzj01,jdbcType=VARCHAR},
+      </if>
+      <if test="yjzl01 != null">
+        YJZL01 = #{yjzl01,jdbcType=VARCHAR},
+      </if>
+      <if test="yjzlbc != null">
+        YJZLBC = #{yjzlbc,jdbcType=VARCHAR},
+      </if>
+      <if test="yjzlms != null">
+        YJZLMS = #{yjzlms,jdbcType=VARCHAR},
+      </if>
+      <if test="whys01 != null">
+        WHYS01 = #{whys01,jdbcType=TINYINT},
+      </if>
+      <if test="whgz01 != null">
+        WHGZ01 = #{whgz01,jdbcType=VARCHAR},
+      </if>
+      <if test="cysj01 != null">
+        CYSJ01 = #{cysj01,jdbcType=VARCHAR},
+      </if>
+      <if test="zfzl01 != null">
+        ZFZL01 = #{zfzl01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs01 != null">
+        FHCS01 = #{fhcs01,jdbcType=TINYINT},
+      </if>
+      <if test="fhfs01 != null">
+        FHFS01 = #{fhfs01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc01 != null">
+        FHBC01 = #{fhbc01,jdbcType=TINYINT},
+      </if>
+      <if test="fswz01 != null">
+        FSWZ01 = #{fswz01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs03 != null">
+        FHCS03 = #{fhcs03,jdbcType=TINYINT},
+      </if>
+      <if test="fhfs03 != null">
+        FHFS03 = #{fhfs03,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc03 != null">
+        FHBC03 = #{fhbc03,jdbcType=VARCHAR},
+      </if>
+      <if test="wlys01 != null">
+        WLYS01 = #{wlys01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs04 != null">
+        FHCS04 = #{fhcs04,jdbcType=TINYINT},
+      </if>
+      <if test="fhfs04 != null">
+        FHFS04 = #{fhfs04,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc04 != null">
+        FHBC04 = #{fhbc04,jdbcType=TINYINT},
+      </if>
+      <if test="hxwz01 != null">
+        HXWZ01 = #{hxwz01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs05 != null">
+        FHCS05 = #{fhcs05,jdbcType=TINYINT},
+      </if>
+      <if test="fhfs05 != null">
+        FHFS05 = #{fhfs05,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc05 != null">
+        FHBC05 = #{fhbc05,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzl01 != null">
+        QTZL01 = #{qtzl01,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcs02 != null">
+        FHCS02 = #{fhcs02,jdbcType=VARCHAR},
+      </if>
+      <if test="fhfs02 != null">
+        FHFS02 = #{fhfs02,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbc02 != null">
+        FHBC02 = #{fhbc02,jdbcType=VARCHAR},
+      </if>
+      <if test="zxrq01 != null">
+        ZXRQ01 = #{zxrq01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jgdm01 != null">
+        JGDM01 = #{jgdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm01 != null">
+        YSDM01 = #{ysdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdm02 != null">
+        YSDM02 = #{ysdm02,jdbcType=VARCHAR},
+      </if>
+      <if test="sjqyxh != null">
+        SJQYXH = #{sjqyxh,jdbcType=VARCHAR},
+      </if>
+      <if test="czr001 != null">
+        CZR001 = #{czr001,jdbcType=VARCHAR},
+      </if>
+      <if test="czr002 != null">
+        CZR002 = #{czr002,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj01 != null">
+        CZSJ01 = #{czsj01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxry01 != null">
+        GXRY01 = #{gxry01,jdbcType=VARCHAR},
+      </if>
+      <if test="gxry02 != null">
+        GXRY02 = #{gxry02,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsj01 != null">
+        GXSJ01 = #{gxsj01,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.phy.PhyLifeEntity">
+    update phy_life
+    set YWXH01 = #{ywxh01,jdbcType=INTEGER},
+      GRXH01 = #{grxh01,jdbcType=INTEGER},
+      YWBM01 = #{ywbm01,jdbcType=VARCHAR},
+      DLPL01 = #{dlpl01,jdbcType=VARCHAR},
+      DLSJ01 = #{dlsj01,jdbcType=VARCHAR},
+      DLSJ02 = #{dlsj02,jdbcType=VARCHAR},
+      DLFS01 = #{dlfs01,jdbcType=VARCHAR},
+      YSXG01 = #{ysxg01,jdbcType=VARCHAR},
+      YSXG02 = #{ysxg02,jdbcType=VARCHAR},
+      XYZK01 = #{xyzk01,jdbcType=VARCHAR},
+      RXYL01 = #{rxyl01,jdbcType=VARCHAR},
+      XYNL01 = #{xynl01,jdbcType=VARCHAR},
+      JYNL01 = #{jynl01,jdbcType=VARCHAR},
+      YJPL01 = #{yjpl01,jdbcType=VARCHAR},
+      RYJL01 = #{ryjl01,jdbcType=VARCHAR},
+      JJBZ01 = #{jjbz01,jdbcType=VARCHAR},
+      JJNL01 = #{jjnl01,jdbcType=VARCHAR},
+      YJNL01 = #{yjnl01,jdbcType=VARCHAR},
+      SFZJ01 = #{sfzj01,jdbcType=VARCHAR},
+      YJZL01 = #{yjzl01,jdbcType=VARCHAR},
+      YJZLBC = #{yjzlbc,jdbcType=VARCHAR},
+      YJZLMS = #{yjzlms,jdbcType=VARCHAR},
+      WHYS01 = #{whys01,jdbcType=TINYINT},
+      WHGZ01 = #{whgz01,jdbcType=VARCHAR},
+      CYSJ01 = #{cysj01,jdbcType=VARCHAR},
+      ZFZL01 = #{zfzl01,jdbcType=VARCHAR},
+      FHCS01 = #{fhcs01,jdbcType=TINYINT},
+      FHFS01 = #{fhfs01,jdbcType=VARCHAR},
+      FHBC01 = #{fhbc01,jdbcType=TINYINT},
+      FSWZ01 = #{fswz01,jdbcType=VARCHAR},
+      FHCS03 = #{fhcs03,jdbcType=TINYINT},
+      FHFS03 = #{fhfs03,jdbcType=VARCHAR},
+      FHBC03 = #{fhbc03,jdbcType=VARCHAR},
+      WLYS01 = #{wlys01,jdbcType=VARCHAR},
+      FHCS04 = #{fhcs04,jdbcType=TINYINT},
+      FHFS04 = #{fhfs04,jdbcType=VARCHAR},
+      FHBC04 = #{fhbc04,jdbcType=TINYINT},
+      HXWZ01 = #{hxwz01,jdbcType=VARCHAR},
+      FHCS05 = #{fhcs05,jdbcType=TINYINT},
+      FHFS05 = #{fhfs05,jdbcType=VARCHAR},
+      FHBC05 = #{fhbc05,jdbcType=VARCHAR},
+      QTZL01 = #{qtzl01,jdbcType=VARCHAR},
+      FHCS02 = #{fhcs02,jdbcType=VARCHAR},
+      FHFS02 = #{fhfs02,jdbcType=VARCHAR},
+      FHBC02 = #{fhbc02,jdbcType=VARCHAR},
+      ZXRQ01 = #{zxrq01,jdbcType=TIMESTAMP},
+      JGDM01 = #{jgdm01,jdbcType=VARCHAR},
+      YSDM01 = #{ysdm01,jdbcType=VARCHAR},
+      YSDM02 = #{ysdm02,jdbcType=VARCHAR},
+      SJQYXH = #{sjqyxh,jdbcType=VARCHAR},
+      CZR001 = #{czr001,jdbcType=VARCHAR},
+      CZR002 = #{czr002,jdbcType=VARCHAR},
+      CZSJ01 = #{czsj01,jdbcType=TIMESTAMP},
+      GXRY01 = #{gxry01,jdbcType=VARCHAR},
+      GXRY02 = #{gxry02,jdbcType=VARCHAR},
+      GXSJ01 = #{gxsj01,jdbcType=TIMESTAMP}
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </update>
+</mapper>

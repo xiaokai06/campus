@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysGradeClassMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysGradeClassEntity">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="grade_name" jdbcType="VARCHAR" property="gradeName" />
+    <result column="grade_id" jdbcType="INTEGER" property="gradeId" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="school_id" jdbcType="INTEGER" property="schoolId" />
+    <result column="remark1" jdbcType="VARCHAR" property="remark1" />
+    <result column="remark2" jdbcType="VARCHAR" property="remark2" />
+    <result column="remark3" jdbcType="VARCHAR" property="remark3" />
+    <result column="remark4" jdbcType="VARCHAR" property="remark4" />
+    <result column="remark5" jdbcType="VARCHAR" property="remark5" />
+    <result column="remark6" jdbcType="VARCHAR" property="remark6" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, grade_name, grade_id, class_name, parent_id, school_id, remark1, remark2, remark3, 
+    remark4, remark5, remark6
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_grade_class
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_grade_class
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeClassEntity">
+    insert into sys_grade_class (id, grade_name, grade_id, 
+      class_name, parent_id, school_id, 
+      remark1, remark2, remark3, 
+      remark4, remark5, remark6
+      )
+    values (#{id,jdbcType=VARCHAR}, #{gradeName,jdbcType=VARCHAR}, #{gradeId,jdbcType=INTEGER}, 
+      #{className,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{schoolId,jdbcType=INTEGER}, 
+      #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}, 
+      #{remark4,jdbcType=VARCHAR}, #{remark5,jdbcType=VARCHAR}, #{remark6,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeClassEntity">
+    insert into sys_grade_class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="gradeName != null">
+        grade_name,
+      </if>
+      <if test="gradeId != null">
+        grade_id,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="schoolId != null">
+        school_id,
+      </if>
+      <if test="remark1 != null">
+        remark1,
+      </if>
+      <if test="remark2 != null">
+        remark2,
+      </if>
+      <if test="remark3 != null">
+        remark3,
+      </if>
+      <if test="remark4 != null">
+        remark4,
+      </if>
+      <if test="remark5 != null">
+        remark5,
+      </if>
+      <if test="remark6 != null">
+        remark6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeName != null">
+        #{gradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeId != null">
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null">
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="remark4 != null">
+        #{remark4,jdbcType=VARCHAR},
+      </if>
+      <if test="remark5 != null">
+        #{remark5,jdbcType=VARCHAR},
+      </if>
+      <if test="remark6 != null">
+        #{remark6,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeClassEntity">
+    update sys_grade_class
+    <set>
+      <if test="gradeName != null">
+        grade_name = #{gradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeId != null">
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="className != null">
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null">
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="remark1 != null">
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        remark3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="remark4 != null">
+        remark4 = #{remark4,jdbcType=VARCHAR},
+      </if>
+      <if test="remark5 != null">
+        remark5 = #{remark5,jdbcType=VARCHAR},
+      </if>
+      <if test="remark6 != null">
+        remark6 = #{remark6,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeClassEntity">
+    update sys_grade_class
+    set grade_name = #{gradeName,jdbcType=VARCHAR},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      class_name = #{className,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=VARCHAR},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      remark3 = #{remark3,jdbcType=VARCHAR},
+      remark4 = #{remark4,jdbcType=VARCHAR},
+      remark5 = #{remark5,jdbcType=VARCHAR},
+      remark6 = #{remark6,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

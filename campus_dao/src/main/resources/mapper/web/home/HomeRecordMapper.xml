@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.home.HomeRecordMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.home.HomeRecordEntity">
+    <id column="NBXH01" jdbcType="INTEGER" property="nbxh01" />
+    <result column="HKBH01" jdbcType="VARCHAR" property="hkbh01" />
+    <result column="HKLB01" jdbcType="VARCHAR" property="hklb01" />
+    <result column="HZXM01" jdbcType="VARCHAR" property="hzxm01" />
+    <result column="GRXH01" jdbcType="INTEGER" property="grxh01" />
+    <result column="HJDZ01" jdbcType="VARCHAR" property="hjdz01" />
+    <result column="XZJG01" jdbcType="VARCHAR" property="xzjg01" />
+    <result column="XZDM01" jdbcType="VARCHAR" property="xzdm01" />
+    <result column="CJDM01" jdbcType="VARCHAR" property="cjdm01" />
+    <result column="ZJDM01" jdbcType="VARCHAR" property="zjdm01" />
+    <result column="CZR001" jdbcType="VARCHAR" property="czr001" />
+    <result column="CZR002" jdbcType="VARCHAR" property="czr002" />
+    <result column="CZSJ01" jdbcType="TIMESTAMP" property="czsj01" />
+    <result column="GXR001" jdbcType="VARCHAR" property="gxr001" />
+    <result column="GXR002" jdbcType="VARCHAR" property="gxr002" />
+    <result column="GXSJ01" jdbcType="TIMESTAMP" property="gxsj01" />
+    <result column="SCZT01" jdbcType="VARCHAR" property="sczt01" />
+    <result column="YTJXH1" jdbcType="VARCHAR" property="ytjxh1" />
+    <result column="YTJBM1" jdbcType="VARCHAR" property="ytjbm1" />
+    <result column="SJQYXH" jdbcType="VARCHAR" property="sjqyxh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NBXH01, HKBH01, HKLB01, HZXM01, GRXH01, HJDZ01, XZJG01, XZDM01, CJDM01, ZJDM01, CZR001, 
+    CZR002, CZSJ01, GXR001, GXR002, GXSJ01, SCZT01, YTJXH1, YTJBM1, SJQYXH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from home_record
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from home_record
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.home.HomeRecordEntity">
+    insert into home_record (NBXH01, HKBH01, HKLB01, 
+      HZXM01, GRXH01, HJDZ01, 
+      XZJG01, XZDM01, CJDM01, 
+      ZJDM01, CZR001, CZR002, 
+      CZSJ01, GXR001, GXR002, 
+      GXSJ01, SCZT01, YTJXH1, 
+      YTJBM1, SJQYXH)
+    values (#{nbxh01,jdbcType=INTEGER}, #{hkbh01,jdbcType=VARCHAR}, #{hklb01,jdbcType=VARCHAR}, 
+      #{hzxm01,jdbcType=VARCHAR}, #{grxh01,jdbcType=INTEGER}, #{hjdz01,jdbcType=VARCHAR}, 
+      #{xzjg01,jdbcType=VARCHAR}, #{xzdm01,jdbcType=VARCHAR}, #{cjdm01,jdbcType=VARCHAR}, 
+      #{zjdm01,jdbcType=VARCHAR}, #{czr001,jdbcType=VARCHAR}, #{czr002,jdbcType=VARCHAR}, 
+      #{czsj01,jdbcType=TIMESTAMP}, #{gxr001,jdbcType=VARCHAR}, #{gxr002,jdbcType=VARCHAR}, 
+      #{gxsj01,jdbcType=TIMESTAMP}, #{sczt01,jdbcType=VARCHAR}, #{ytjxh1,jdbcType=VARCHAR}, 
+      #{ytjbm1,jdbcType=VARCHAR}, #{sjqyxh,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.home.HomeRecordEntity">
+    insert into home_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nbxh01 != null">
+        NBXH01,
+      </if>
+      <if test="hkbh01 != null">
+        HKBH01,
+      </if>
+      <if test="hklb01 != null">
+        HKLB01,
+      </if>
+      <if test="hzxm01 != null">
+        HZXM01,
+      </if>
+      <if test="grxh01 != null">
+        GRXH01,
+      </if>
+      <if test="hjdz01 != null">
+        HJDZ01,
+      </if>
+      <if test="xzjg01 != null">
+        XZJG01,
+      </if>
+      <if test="xzdm01 != null">
+        XZDM01,
+      </if>
+      <if test="cjdm01 != null">
+        CJDM01,
+      </if>
+      <if test="zjdm01 != null">
+        ZJDM01,
+      </if>
+      <if test="czr001 != null">
+        CZR001,
+      </if>
+      <if test="czr002 != null">
+        CZR002,
+      </if>
+      <if test="czsj01 != null">
+        CZSJ01,
+      </if>
+      <if test="gxr001 != null">
+        GXR001,
+      </if>
+      <if test="gxr002 != null">
+        GXR002,
+      </if>
+      <if test="gxsj01 != null">
+        GXSJ01,
+      </if>
+      <if test="sczt01 != null">
+        SCZT01,
+      </if>
+      <if test="ytjxh1 != null">
+        YTJXH1,
+      </if>
+      <if test="ytjbm1 != null">
+        YTJBM1,
+      </if>
+      <if test="sjqyxh != null">
+        SJQYXH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nbxh01 != null">
+        #{nbxh01,jdbcType=INTEGER},
+      </if>
+      <if test="hkbh01 != null">
+        #{hkbh01,jdbcType=VARCHAR},
+      </if>
+      <if test="hklb01 != null">
+        #{hklb01,jdbcType=VARCHAR},
+      </if>
+      <if test="hzxm01 != null">
+        #{hzxm01,jdbcType=VARCHAR},
+      </if>
+      <if test="grxh01 != null">
+        #{grxh01,jdbcType=INTEGER},
+      </if>
+      <if test="hjdz01 != null">
+        #{hjdz01,jdbcType=VARCHAR},
+      </if>
+      <if test="xzjg01 != null">
+        #{xzjg01,jdbcType=VARCHAR},
+      </if>
+      <if test="xzdm01 != null">
+        #{xzdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="cjdm01 != null">
+        #{cjdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdm01 != null">
+        #{zjdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="czr001 != null">
+        #{czr001,jdbcType=VARCHAR},
+      </if>
+      <if test="czr002 != null">
+        #{czr002,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj01 != null">
+        #{czsj01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxr001 != null">
+        #{gxr001,jdbcType=VARCHAR},
+      </if>
+      <if test="gxr002 != null">
+        #{gxr002,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsj01 != null">
+        #{gxsj01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sczt01 != null">
+        #{sczt01,jdbcType=VARCHAR},
+      </if>
+      <if test="ytjxh1 != null">
+        #{ytjxh1,jdbcType=VARCHAR},
+      </if>
+      <if test="ytjbm1 != null">
+        #{ytjbm1,jdbcType=VARCHAR},
+      </if>
+      <if test="sjqyxh != null">
+        #{sjqyxh,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.home.HomeRecordEntity">
+    update home_record
+    <set>
+      <if test="hkbh01 != null">
+        HKBH01 = #{hkbh01,jdbcType=VARCHAR},
+      </if>
+      <if test="hklb01 != null">
+        HKLB01 = #{hklb01,jdbcType=VARCHAR},
+      </if>
+      <if test="hzxm01 != null">
+        HZXM01 = #{hzxm01,jdbcType=VARCHAR},
+      </if>
+      <if test="grxh01 != null">
+        GRXH01 = #{grxh01,jdbcType=INTEGER},
+      </if>
+      <if test="hjdz01 != null">
+        HJDZ01 = #{hjdz01,jdbcType=VARCHAR},
+      </if>
+      <if test="xzjg01 != null">
+        XZJG01 = #{xzjg01,jdbcType=VARCHAR},
+      </if>
+      <if test="xzdm01 != null">
+        XZDM01 = #{xzdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="cjdm01 != null">
+        CJDM01 = #{cjdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="zjdm01 != null">
+        ZJDM01 = #{zjdm01,jdbcType=VARCHAR},
+      </if>
+      <if test="czr001 != null">
+        CZR001 = #{czr001,jdbcType=VARCHAR},
+      </if>
+      <if test="czr002 != null">
+        CZR002 = #{czr002,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj01 != null">
+        CZSJ01 = #{czsj01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxr001 != null">
+        GXR001 = #{gxr001,jdbcType=VARCHAR},
+      </if>
+      <if test="gxr002 != null">
+        GXR002 = #{gxr002,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsj01 != null">
+        GXSJ01 = #{gxsj01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sczt01 != null">
+        SCZT01 = #{sczt01,jdbcType=VARCHAR},
+      </if>
+      <if test="ytjxh1 != null">
+        YTJXH1 = #{ytjxh1,jdbcType=VARCHAR},
+      </if>
+      <if test="ytjbm1 != null">
+        YTJBM1 = #{ytjbm1,jdbcType=VARCHAR},
+      </if>
+      <if test="sjqyxh != null">
+        SJQYXH = #{sjqyxh,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.home.HomeRecordEntity">
+    update home_record
+    set HKBH01 = #{hkbh01,jdbcType=VARCHAR},
+      HKLB01 = #{hklb01,jdbcType=VARCHAR},
+      HZXM01 = #{hzxm01,jdbcType=VARCHAR},
+      GRXH01 = #{grxh01,jdbcType=INTEGER},
+      HJDZ01 = #{hjdz01,jdbcType=VARCHAR},
+      XZJG01 = #{xzjg01,jdbcType=VARCHAR},
+      XZDM01 = #{xzdm01,jdbcType=VARCHAR},
+      CJDM01 = #{cjdm01,jdbcType=VARCHAR},
+      ZJDM01 = #{zjdm01,jdbcType=VARCHAR},
+      CZR001 = #{czr001,jdbcType=VARCHAR},
+      CZR002 = #{czr002,jdbcType=VARCHAR},
+      CZSJ01 = #{czsj01,jdbcType=TIMESTAMP},
+      GXR001 = #{gxr001,jdbcType=VARCHAR},
+      GXR002 = #{gxr002,jdbcType=VARCHAR},
+      GXSJ01 = #{gxsj01,jdbcType=TIMESTAMP},
+      SCZT01 = #{sczt01,jdbcType=VARCHAR},
+      YTJXH1 = #{ytjxh1,jdbcType=VARCHAR},
+      YTJBM1 = #{ytjbm1,jdbcType=VARCHAR},
+      SJQYXH = #{sjqyxh,jdbcType=VARCHAR}
+    where NBXH01 = #{nbxh01,jdbcType=INTEGER}
+  </update>
+</mapper>

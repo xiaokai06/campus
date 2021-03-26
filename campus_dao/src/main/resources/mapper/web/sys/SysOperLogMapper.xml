@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysOperLogMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysOperLogEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="oper_user" jdbcType="VARCHAR" property="operUser" />
+    <result column="oper_model" jdbcType="VARCHAR" property="operModel" />
+    <result column="oper_type" jdbcType="VARCHAR" property="operType" />
+    <result column="oper_desc" jdbcType="VARCHAR" property="operDesc" />
+    <result column="oper_url" jdbcType="VARCHAR" property="operUrl" />
+    <result column="oper_method" jdbcType="VARCHAR" property="operMethod" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark1" jdbcType="VARCHAR" property="remark1" />
+    <result column="remark2" jdbcType="VARCHAR" property="remark2" />
+    <result column="remark3" jdbcType="VARCHAR" property="remark3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, oper_user, oper_model, oper_type, oper_desc, oper_url, oper_method, create_time, 
+    update_time, remark1, remark2, remark3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_oper_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_oper_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.SysOperLogEntity">
+    insert into sys_oper_log (id, oper_user, oper_model, 
+      oper_type, oper_desc, oper_url, 
+      oper_method, create_time, update_time, 
+      remark1, remark2, remark3
+      )
+    values (#{id,jdbcType=INTEGER}, #{operUser,jdbcType=VARCHAR}, #{operModel,jdbcType=VARCHAR}, 
+      #{operType,jdbcType=VARCHAR}, #{operDesc,jdbcType=VARCHAR}, #{operUrl,jdbcType=VARCHAR}, 
+      #{operMethod,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.sys.SysOperLogEntity">
+    insert into sys_oper_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="operUser != null">
+        oper_user,
+      </if>
+      <if test="operModel != null">
+        oper_model,
+      </if>
+      <if test="operType != null">
+        oper_type,
+      </if>
+      <if test="operDesc != null">
+        oper_desc,
+      </if>
+      <if test="operUrl != null">
+        oper_url,
+      </if>
+      <if test="operMethod != null">
+        oper_method,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark1 != null">
+        remark1,
+      </if>
+      <if test="remark2 != null">
+        remark2,
+      </if>
+      <if test="remark3 != null">
+        remark3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="operUser != null">
+        #{operUser,jdbcType=VARCHAR},
+      </if>
+      <if test="operModel != null">
+        #{operModel,jdbcType=VARCHAR},
+      </if>
+      <if test="operType != null">
+        #{operType,jdbcType=VARCHAR},
+      </if>
+      <if test="operDesc != null">
+        #{operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operUrl != null">
+        #{operUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="operMethod != null">
+        #{operMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.sys.SysOperLogEntity">
+    update sys_oper_log
+    <set>
+      <if test="operUser != null">
+        oper_user = #{operUser,jdbcType=VARCHAR},
+      </if>
+      <if test="operModel != null">
+        oper_model = #{operModel,jdbcType=VARCHAR},
+      </if>
+      <if test="operType != null">
+        oper_type = #{operType,jdbcType=VARCHAR},
+      </if>
+      <if test="operDesc != null">
+        oper_desc = #{operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operUrl != null">
+        oper_url = #{operUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="operMethod != null">
+        oper_method = #{operMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark1 != null">
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        remark3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.SysOperLogEntity">
+    update sys_oper_log
+    set oper_user = #{operUser,jdbcType=VARCHAR},
+      oper_model = #{operModel,jdbcType=VARCHAR},
+      oper_type = #{operType,jdbcType=VARCHAR},
+      oper_desc = #{operDesc,jdbcType=VARCHAR},
+      oper_url = #{operUrl,jdbcType=VARCHAR},
+      oper_method = #{operMethod,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      remark3 = #{remark3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

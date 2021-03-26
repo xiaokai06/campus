@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.phy.PhyProjectStateMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.phy.PhyProjectStateEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="project_id" jdbcType="INTEGER" property="projectId" />
+    <result column="height_state" jdbcType="VARCHAR" property="heightState" />
+    <result column="weight_state" jdbcType="VARCHAR" property="weightState" />
+    <result column="blood_state" jdbcType="VARCHAR" property="bloodState" />
+    <result column="pulse_state" jdbcType="VARCHAR" property="pulseState" />
+    <result column="chest_state" jdbcType="VARCHAR" property="chestState" />
+    <result column="vital_capacity_state" jdbcType="VARCHAR" property="vitalCapacityState" />
+    <result column="naked_left_state" jdbcType="VARCHAR" property="nakedLeftState" />
+    <result column="naked_right_state" jdbcType="VARCHAR" property="nakedRightState" />
+    <result column="correct_left_state" jdbcType="VARCHAR" property="correctLeftState" />
+    <result column="correct_right_state" jdbcType="VARCHAR" property="correctRightState" />
+    <result column="color_vision_state" jdbcType="VARCHAR" property="colorVisionState" />
+    <result column="trach_left_state" jdbcType="VARCHAR" property="trachLeftState" />
+    <result column="trach_right_state" jdbcType="VARCHAR" property="trachRightState" />
+    <result column="ear_state" jdbcType="VARCHAR" property="earState" />
+    <result column="nose_state" jdbcType="VARCHAR" property="noseState" />
+    <result column="throat_state" jdbcType="VARCHAR" property="throatState" />
+    <result column="tooth_state" jdbcType="VARCHAR" property="toothState" />
+    <result column="periodontal_state" jdbcType="VARCHAR" property="periodontalState" />
+    <result column="anamnesis_state" jdbcType="VARCHAR" property="anamnesisState" />
+    <result column="heart_state" jdbcType="VARCHAR" property="heartState" />
+    <result column="lung_state" jdbcType="VARCHAR" property="lungState" />
+    <result column="liver_state" jdbcType="VARCHAR" property="liverState" />
+    <result column="spleen_state" jdbcType="VARCHAR" property="spleenState" />
+    <result column="internal_other_state" jdbcType="VARCHAR" property="internalOtherState" />
+    <result column="skin_state" jdbcType="VARCHAR" property="skinState" />
+    <result column="lymph_state" jdbcType="VARCHAR" property="lymphState" />
+    <result column="thyroid_state" jdbcType="VARCHAR" property="thyroidState" />
+    <result column="spine_state" jdbcType="VARCHAR" property="spineState" />
+    <result column="limb_joints_state" jdbcType="VARCHAR" property="limbJointsState" />
+    <result column="flatfoot_state" jdbcType="VARCHAR" property="flatfootState" />
+    <result column="pudendum_state" jdbcType="VARCHAR" property="pudendumState" />
+    <result column="anus_state" jdbcType="VARCHAR" property="anusState" />
+    <result column="surgery_other_state" jdbcType="VARCHAR" property="surgeryOtherState" />
+    <result column="liver_function_state" jdbcType="VARCHAR" property="liverFunctionState" />
+    <result column="blood_routine_state" jdbcType="VARCHAR" property="bloodRoutineState" />
+    <result column="del_flag_state" jdbcType="TINYINT" property="delFlagState" />
+    <result column="create_time_state" jdbcType="TIMESTAMP" property="createTimeState" />
+    <result column="update_time_state" jdbcType="TIMESTAMP" property="updateTimeState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, project_id, height_state, weight_state, blood_state, pulse_state, chest_state, 
+    vital_capacity_state, naked_left_state, naked_right_state, correct_left_state, correct_right_state, 
+    color_vision_state, trach_left_state, trach_right_state, ear_state, nose_state, throat_state, 
+    tooth_state, periodontal_state, anamnesis_state, heart_state, lung_state, liver_state, 
+    spleen_state, internal_other_state, skin_state, lymph_state, thyroid_state, spine_state, 
+    limb_joints_state, flatfoot_state, pudendum_state, anus_state, surgery_other_state, 
+    liver_function_state, blood_routine_state, del_flag_state, create_time_state, update_time_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from phy_project_state
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from phy_project_state
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.phy.PhyProjectStateEntity">
+    insert into phy_project_state (id, project_id, height_state, 
+      weight_state, blood_state, pulse_state, 
+      chest_state, vital_capacity_state, naked_left_state, 
+      naked_right_state, correct_left_state, correct_right_state, 
+      color_vision_state, trach_left_state, trach_right_state, 
+      ear_state, nose_state, throat_state, 
+      tooth_state, periodontal_state, anamnesis_state, 
+      heart_state, lung_state, liver_state, 
+      spleen_state, internal_other_state, skin_state, 
+      lymph_state, thyroid_state, spine_state, 
+      limb_joints_state, flatfoot_state, pudendum_state, 
+      anus_state, surgery_other_state, liver_function_state, 
+      blood_routine_state, del_flag_state, create_time_state, 
+      update_time_state)
+    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{heightState,jdbcType=VARCHAR}, 
+      #{weightState,jdbcType=VARCHAR}, #{bloodState,jdbcType=VARCHAR}, #{pulseState,jdbcType=VARCHAR}, 
+      #{chestState,jdbcType=VARCHAR}, #{vitalCapacityState,jdbcType=VARCHAR}, #{nakedLeftState,jdbcType=VARCHAR}, 
+      #{nakedRightState,jdbcType=VARCHAR}, #{correctLeftState,jdbcType=VARCHAR}, #{correctRightState,jdbcType=VARCHAR}, 
+      #{colorVisionState,jdbcType=VARCHAR}, #{trachLeftState,jdbcType=VARCHAR}, #{trachRightState,jdbcType=VARCHAR}, 
+      #{earState,jdbcType=VARCHAR}, #{noseState,jdbcType=VARCHAR}, #{throatState,jdbcType=VARCHAR}, 
+      #{toothState,jdbcType=VARCHAR}, #{periodontalState,jdbcType=VARCHAR}, #{anamnesisState,jdbcType=VARCHAR}, 
+      #{heartState,jdbcType=VARCHAR}, #{lungState,jdbcType=VARCHAR}, #{liverState,jdbcType=VARCHAR}, 
+      #{spleenState,jdbcType=VARCHAR}, #{internalOtherState,jdbcType=VARCHAR}, #{skinState,jdbcType=VARCHAR}, 
+      #{lymphState,jdbcType=VARCHAR}, #{thyroidState,jdbcType=VARCHAR}, #{spineState,jdbcType=VARCHAR}, 
+      #{limbJointsState,jdbcType=VARCHAR}, #{flatfootState,jdbcType=VARCHAR}, #{pudendumState,jdbcType=VARCHAR}, 
+      #{anusState,jdbcType=VARCHAR}, #{surgeryOtherState,jdbcType=VARCHAR}, #{liverFunctionState,jdbcType=VARCHAR}, 
+      #{bloodRoutineState,jdbcType=VARCHAR}, #{delFlagState,jdbcType=TINYINT}, #{createTimeState,jdbcType=TIMESTAMP}, 
+      #{updateTimeState,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyProjectStateEntity">
+    insert into phy_project_state
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="heightState != null">
+        height_state,
+      </if>
+      <if test="weightState != null">
+        weight_state,
+      </if>
+      <if test="bloodState != null">
+        blood_state,
+      </if>
+      <if test="pulseState != null">
+        pulse_state,
+      </if>
+      <if test="chestState != null">
+        chest_state,
+      </if>
+      <if test="vitalCapacityState != null">
+        vital_capacity_state,
+      </if>
+      <if test="nakedLeftState != null">
+        naked_left_state,
+      </if>
+      <if test="nakedRightState != null">
+        naked_right_state,
+      </if>
+      <if test="correctLeftState != null">
+        correct_left_state,
+      </if>
+      <if test="correctRightState != null">
+        correct_right_state,
+      </if>
+      <if test="colorVisionState != null">
+        color_vision_state,
+      </if>
+      <if test="trachLeftState != null">
+        trach_left_state,
+      </if>
+      <if test="trachRightState != null">
+        trach_right_state,
+      </if>
+      <if test="earState != null">
+        ear_state,
+      </if>
+      <if test="noseState != null">
+        nose_state,
+      </if>
+      <if test="throatState != null">
+        throat_state,
+      </if>
+      <if test="toothState != null">
+        tooth_state,
+      </if>
+      <if test="periodontalState != null">
+        periodontal_state,
+      </if>
+      <if test="anamnesisState != null">
+        anamnesis_state,
+      </if>
+      <if test="heartState != null">
+        heart_state,
+      </if>
+      <if test="lungState != null">
+        lung_state,
+      </if>
+      <if test="liverState != null">
+        liver_state,
+      </if>
+      <if test="spleenState != null">
+        spleen_state,
+      </if>
+      <if test="internalOtherState != null">
+        internal_other_state,
+      </if>
+      <if test="skinState != null">
+        skin_state,
+      </if>
+      <if test="lymphState != null">
+        lymph_state,
+      </if>
+      <if test="thyroidState != null">
+        thyroid_state,
+      </if>
+      <if test="spineState != null">
+        spine_state,
+      </if>
+      <if test="limbJointsState != null">
+        limb_joints_state,
+      </if>
+      <if test="flatfootState != null">
+        flatfoot_state,
+      </if>
+      <if test="pudendumState != null">
+        pudendum_state,
+      </if>
+      <if test="anusState != null">
+        anus_state,
+      </if>
+      <if test="surgeryOtherState != null">
+        surgery_other_state,
+      </if>
+      <if test="liverFunctionState != null">
+        liver_function_state,
+      </if>
+      <if test="bloodRoutineState != null">
+        blood_routine_state,
+      </if>
+      <if test="delFlagState != null">
+        del_flag_state,
+      </if>
+      <if test="createTimeState != null">
+        create_time_state,
+      </if>
+      <if test="updateTimeState != null">
+        update_time_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="heightState != null">
+        #{heightState,jdbcType=VARCHAR},
+      </if>
+      <if test="weightState != null">
+        #{weightState,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodState != null">
+        #{bloodState,jdbcType=VARCHAR},
+      </if>
+      <if test="pulseState != null">
+        #{pulseState,jdbcType=VARCHAR},
+      </if>
+      <if test="chestState != null">
+        #{chestState,jdbcType=VARCHAR},
+      </if>
+      <if test="vitalCapacityState != null">
+        #{vitalCapacityState,jdbcType=VARCHAR},
+      </if>
+      <if test="nakedLeftState != null">
+        #{nakedLeftState,jdbcType=VARCHAR},
+      </if>
+      <if test="nakedRightState != null">
+        #{nakedRightState,jdbcType=VARCHAR},
+      </if>
+      <if test="correctLeftState != null">
+        #{correctLeftState,jdbcType=VARCHAR},
+      </if>
+      <if test="correctRightState != null">
+        #{correctRightState,jdbcType=VARCHAR},
+      </if>
+      <if test="colorVisionState != null">
+        #{colorVisionState,jdbcType=VARCHAR},
+      </if>
+      <if test="trachLeftState != null">
+        #{trachLeftState,jdbcType=VARCHAR},
+      </if>
+      <if test="trachRightState != null">
+        #{trachRightState,jdbcType=VARCHAR},
+      </if>
+      <if test="earState != null">
+        #{earState,jdbcType=VARCHAR},
+      </if>
+      <if test="noseState != null">
+        #{noseState,jdbcType=VARCHAR},
+      </if>
+      <if test="throatState != null">
+        #{throatState,jdbcType=VARCHAR},
+      </if>
+      <if test="toothState != null">
+        #{toothState,jdbcType=VARCHAR},
+      </if>
+      <if test="periodontalState != null">
+        #{periodontalState,jdbcType=VARCHAR},
+      </if>
+      <if test="anamnesisState != null">
+        #{anamnesisState,jdbcType=VARCHAR},
+      </if>
+      <if test="heartState != null">
+        #{heartState,jdbcType=VARCHAR},
+      </if>
+      <if test="lungState != null">
+        #{lungState,jdbcType=VARCHAR},
+      </if>
+      <if test="liverState != null">
+        #{liverState,jdbcType=VARCHAR},
+      </if>
+      <if test="spleenState != null">
+        #{spleenState,jdbcType=VARCHAR},
+      </if>
+      <if test="internalOtherState != null">
+        #{internalOtherState,jdbcType=VARCHAR},
+      </if>
+      <if test="skinState != null">
+        #{skinState,jdbcType=VARCHAR},
+      </if>
+      <if test="lymphState != null">
+        #{lymphState,jdbcType=VARCHAR},
+      </if>
+      <if test="thyroidState != null">
+        #{thyroidState,jdbcType=VARCHAR},
+      </if>
+      <if test="spineState != null">
+        #{spineState,jdbcType=VARCHAR},
+      </if>
+      <if test="limbJointsState != null">
+        #{limbJointsState,jdbcType=VARCHAR},
+      </if>
+      <if test="flatfootState != null">
+        #{flatfootState,jdbcType=VARCHAR},
+      </if>
+      <if test="pudendumState != null">
+        #{pudendumState,jdbcType=VARCHAR},
+      </if>
+      <if test="anusState != null">
+        #{anusState,jdbcType=VARCHAR},
+      </if>
+      <if test="surgeryOtherState != null">
+        #{surgeryOtherState,jdbcType=VARCHAR},
+      </if>
+      <if test="liverFunctionState != null">
+        #{liverFunctionState,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodRoutineState != null">
+        #{bloodRoutineState,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlagState != null">
+        #{delFlagState,jdbcType=TINYINT},
+      </if>
+      <if test="createTimeState != null">
+        #{createTimeState,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTimeState != null">
+        #{updateTimeState,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyProjectStateEntity">
+    update phy_project_state
+    <set>
+      <if test="projectId != null">
+        project_id = #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="heightState != null">
+        height_state = #{heightState,jdbcType=VARCHAR},
+      </if>
+      <if test="weightState != null">
+        weight_state = #{weightState,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodState != null">
+        blood_state = #{bloodState,jdbcType=VARCHAR},
+      </if>
+      <if test="pulseState != null">
+        pulse_state = #{pulseState,jdbcType=VARCHAR},
+      </if>
+      <if test="chestState != null">
+        chest_state = #{chestState,jdbcType=VARCHAR},
+      </if>
+      <if test="vitalCapacityState != null">
+        vital_capacity_state = #{vitalCapacityState,jdbcType=VARCHAR},
+      </if>
+      <if test="nakedLeftState != null">
+        naked_left_state = #{nakedLeftState,jdbcType=VARCHAR},
+      </if>
+      <if test="nakedRightState != null">
+        naked_right_state = #{nakedRightState,jdbcType=VARCHAR},
+      </if>
+      <if test="correctLeftState != null">
+        correct_left_state = #{correctLeftState,jdbcType=VARCHAR},
+      </if>
+      <if test="correctRightState != null">
+        correct_right_state = #{correctRightState,jdbcType=VARCHAR},
+      </if>
+      <if test="colorVisionState != null">
+        color_vision_state = #{colorVisionState,jdbcType=VARCHAR},
+      </if>
+      <if test="trachLeftState != null">
+        trach_left_state = #{trachLeftState,jdbcType=VARCHAR},
+      </if>
+      <if test="trachRightState != null">
+        trach_right_state = #{trachRightState,jdbcType=VARCHAR},
+      </if>
+      <if test="earState != null">
+        ear_state = #{earState,jdbcType=VARCHAR},
+      </if>
+      <if test="noseState != null">
+        nose_state = #{noseState,jdbcType=VARCHAR},
+      </if>
+      <if test="throatState != null">
+        throat_state = #{throatState,jdbcType=VARCHAR},
+      </if>
+      <if test="toothState != null">
+        tooth_state = #{toothState,jdbcType=VARCHAR},
+      </if>
+      <if test="periodontalState != null">
+        periodontal_state = #{periodontalState,jdbcType=VARCHAR},
+      </if>
+      <if test="anamnesisState != null">
+        anamnesis_state = #{anamnesisState,jdbcType=VARCHAR},
+      </if>
+      <if test="heartState != null">
+        heart_state = #{heartState,jdbcType=VARCHAR},
+      </if>
+      <if test="lungState != null">
+        lung_state = #{lungState,jdbcType=VARCHAR},
+      </if>
+      <if test="liverState != null">
+        liver_state = #{liverState,jdbcType=VARCHAR},
+      </if>
+      <if test="spleenState != null">
+        spleen_state = #{spleenState,jdbcType=VARCHAR},
+      </if>
+      <if test="internalOtherState != null">
+        internal_other_state = #{internalOtherState,jdbcType=VARCHAR},
+      </if>
+      <if test="skinState != null">
+        skin_state = #{skinState,jdbcType=VARCHAR},
+      </if>
+      <if test="lymphState != null">
+        lymph_state = #{lymphState,jdbcType=VARCHAR},
+      </if>
+      <if test="thyroidState != null">
+        thyroid_state = #{thyroidState,jdbcType=VARCHAR},
+      </if>
+      <if test="spineState != null">
+        spine_state = #{spineState,jdbcType=VARCHAR},
+      </if>
+      <if test="limbJointsState != null">
+        limb_joints_state = #{limbJointsState,jdbcType=VARCHAR},
+      </if>
+      <if test="flatfootState != null">
+        flatfoot_state = #{flatfootState,jdbcType=VARCHAR},
+      </if>
+      <if test="pudendumState != null">
+        pudendum_state = #{pudendumState,jdbcType=VARCHAR},
+      </if>
+      <if test="anusState != null">
+        anus_state = #{anusState,jdbcType=VARCHAR},
+      </if>
+      <if test="surgeryOtherState != null">
+        surgery_other_state = #{surgeryOtherState,jdbcType=VARCHAR},
+      </if>
+      <if test="liverFunctionState != null">
+        liver_function_state = #{liverFunctionState,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodRoutineState != null">
+        blood_routine_state = #{bloodRoutineState,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlagState != null">
+        del_flag_state = #{delFlagState,jdbcType=TINYINT},
+      </if>
+      <if test="createTimeState != null">
+        create_time_state = #{createTimeState,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTimeState != null">
+        update_time_state = #{updateTimeState,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.phy.PhyProjectStateEntity">
+    update phy_project_state
+    set project_id = #{projectId,jdbcType=INTEGER},
+      height_state = #{heightState,jdbcType=VARCHAR},
+      weight_state = #{weightState,jdbcType=VARCHAR},
+      blood_state = #{bloodState,jdbcType=VARCHAR},
+      pulse_state = #{pulseState,jdbcType=VARCHAR},
+      chest_state = #{chestState,jdbcType=VARCHAR},
+      vital_capacity_state = #{vitalCapacityState,jdbcType=VARCHAR},
+      naked_left_state = #{nakedLeftState,jdbcType=VARCHAR},
+      naked_right_state = #{nakedRightState,jdbcType=VARCHAR},
+      correct_left_state = #{correctLeftState,jdbcType=VARCHAR},
+      correct_right_state = #{correctRightState,jdbcType=VARCHAR},
+      color_vision_state = #{colorVisionState,jdbcType=VARCHAR},
+      trach_left_state = #{trachLeftState,jdbcType=VARCHAR},
+      trach_right_state = #{trachRightState,jdbcType=VARCHAR},
+      ear_state = #{earState,jdbcType=VARCHAR},
+      nose_state = #{noseState,jdbcType=VARCHAR},
+      throat_state = #{throatState,jdbcType=VARCHAR},
+      tooth_state = #{toothState,jdbcType=VARCHAR},
+      periodontal_state = #{periodontalState,jdbcType=VARCHAR},
+      anamnesis_state = #{anamnesisState,jdbcType=VARCHAR},
+      heart_state = #{heartState,jdbcType=VARCHAR},
+      lung_state = #{lungState,jdbcType=VARCHAR},
+      liver_state = #{liverState,jdbcType=VARCHAR},
+      spleen_state = #{spleenState,jdbcType=VARCHAR},
+      internal_other_state = #{internalOtherState,jdbcType=VARCHAR},
+      skin_state = #{skinState,jdbcType=VARCHAR},
+      lymph_state = #{lymphState,jdbcType=VARCHAR},
+      thyroid_state = #{thyroidState,jdbcType=VARCHAR},
+      spine_state = #{spineState,jdbcType=VARCHAR},
+      limb_joints_state = #{limbJointsState,jdbcType=VARCHAR},
+      flatfoot_state = #{flatfootState,jdbcType=VARCHAR},
+      pudendum_state = #{pudendumState,jdbcType=VARCHAR},
+      anus_state = #{anusState,jdbcType=VARCHAR},
+      surgery_other_state = #{surgeryOtherState,jdbcType=VARCHAR},
+      liver_function_state = #{liverFunctionState,jdbcType=VARCHAR},
+      blood_routine_state = #{bloodRoutineState,jdbcType=VARCHAR},
+      del_flag_state = #{delFlagState,jdbcType=TINYINT},
+      create_time_state = #{createTimeState,jdbcType=TIMESTAMP},
+      update_time_state = #{updateTimeState,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

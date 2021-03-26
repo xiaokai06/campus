@@ -107,7 +107,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field zxChatMsgEntityMapper in com.huiyi.campus.dao.impl.NUserServiceDao required a bean of type 'com.huiyi.campus.dao.web.mapper.zx.ZxChatMsgEntityMapper' that could not be found.
+Field zxChatMsgEntityMapper in com.huiyi.campus.dao.impl.web.NUserServiceDao required a bean of type 'ZxChatMsgEntityMapper' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -115,7 +115,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.huiyi.campus.dao.web.mapper.zx.ZxChatMsgEntityMapper' in your configuration.
+Consider defining a bean of type 'ZxChatMsgEntityMapper' in your configuration.
 
 2021-03-23 18:42:57.150 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
 

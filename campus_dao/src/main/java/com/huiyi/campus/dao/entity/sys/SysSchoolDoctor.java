@@ -1,22 +1,13 @@
 package com.huiyi.campus.dao.entity.sys;
 
 import java.io.Serializable;
-import java.util.Date;
 
-public class SysParentEntity implements Serializable {
+public class SysSchoolDoctor implements Serializable {
     private Integer id;
 
-    private String userName;
+    private Integer doctorId;
 
-    private Integer age;
-
-    private Byte sex;
-
-    private String phone;
-
-    private Date createTime;
-
-    private Date updateTime;
+    private Integer schoolId;
 
     private String remark1;
 
@@ -38,52 +29,20 @@ public class SysParentEntity implements Serializable {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public Integer getDoctorId() {
+        return doctorId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setDoctorId(Integer doctorId) {
+        this.doctorId = doctorId;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getSchoolId() {
+        return schoolId;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Byte getSex() {
-        return sex;
-    }
-
-    public void setSex(Byte sex) {
-        this.sex = sex;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
     }
 
     public String getRemark1() {
@@ -137,14 +96,10 @@ public class SysParentEntity implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        SysParentEntity other = (SysParentEntity) that;
+        SysSchoolDoctor other = (SysSchoolDoctor) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
-            && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+            && (this.getDoctorId() == null ? other.getDoctorId() == null : this.getDoctorId().equals(other.getDoctorId()))
+            && (this.getSchoolId() == null ? other.getSchoolId() == null : this.getSchoolId().equals(other.getSchoolId()))
             && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
             && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
             && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()))
@@ -157,12 +112,8 @@ public class SysParentEntity implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
-        result = prime * result + ((getAge() == null) ? 0 : getAge().hashCode());
-        result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
-        result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
-        result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
-        result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
+        result = prime * result + ((getDoctorId() == null) ? 0 : getDoctorId().hashCode());
+        result = prime * result + ((getSchoolId() == null) ? 0 : getSchoolId().hashCode());
         result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
         result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
         result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
@@ -178,12 +129,8 @@ public class SysParentEntity implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", userName=").append(userName);
-        sb.append(", age=").append(age);
-        sb.append(", sex=").append(sex);
-        sb.append(", phone=").append(phone);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
+        sb.append(", doctorId=").append(doctorId);
+        sb.append(", schoolId=").append(schoolId);
         sb.append(", remark1=").append(remark1);
         sb.append(", remark2=").append(remark2);
         sb.append(", remark3=").append(remark3);

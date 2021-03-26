@@ -1,22 +1,19 @@
 package com.huiyi.campus.dao.entity.sys;
 
 import java.io.Serializable;
-import java.util.Date;
 
-public class SysParentEntity implements Serializable {
-    private Integer id;
+public class SysGradeClassEntity implements Serializable {
+    private String id;
 
-    private String userName;
+    private String gradeName;
 
-    private Integer age;
+    private Integer gradeId;
 
-    private Byte sex;
+    private String className;
 
-    private String phone;
+    private String parentId;
 
-    private Date createTime;
-
-    private Date updateTime;
+    private Integer schoolId;
 
     private String remark1;
 
@@ -28,62 +25,56 @@ public class SysParentEntity implements Serializable {
 
     private String remark5;
 
+    private String remark6;
+
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public String getUserName() {
-        return userName;
+    public String getGradeName() {
+        return gradeName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setGradeName(String gradeName) {
+        this.gradeName = gradeName == null ? null : gradeName.trim();
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getGradeId() {
+        return gradeId;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
     }
 
-    public Byte getSex() {
-        return sex;
+    public String getClassName() {
+        return className;
     }
 
-    public void setSex(Byte sex) {
-        this.sex = sex;
+    public void setClassName(String className) {
+        this.className = className == null ? null : className.trim();
     }
 
-    public String getPhone() {
-        return phone;
+    public String getParentId() {
+        return parentId;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+    public void setParentId(String parentId) {
+        this.parentId = parentId == null ? null : parentId.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Integer getSchoolId() {
+        return schoolId;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
     }
 
     public String getRemark1() {
@@ -126,6 +117,14 @@ public class SysParentEntity implements Serializable {
         this.remark5 = remark5 == null ? null : remark5.trim();
     }
 
+    public String getRemark6() {
+        return remark6;
+    }
+
+    public void setRemark6(String remark6) {
+        this.remark6 = remark6 == null ? null : remark6.trim();
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -137,19 +136,19 @@ public class SysParentEntity implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        SysParentEntity other = (SysParentEntity) that;
+        SysGradeClassEntity other = (SysGradeClassEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
-            && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+            && (this.getGradeName() == null ? other.getGradeName() == null : this.getGradeName().equals(other.getGradeName()))
+            && (this.getGradeId() == null ? other.getGradeId() == null : this.getGradeId().equals(other.getGradeId()))
+            && (this.getClassName() == null ? other.getClassName() == null : this.getClassName().equals(other.getClassName()))
+            && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
+            && (this.getSchoolId() == null ? other.getSchoolId() == null : this.getSchoolId().equals(other.getSchoolId()))
             && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
             && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
             && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()))
             && (this.getRemark4() == null ? other.getRemark4() == null : this.getRemark4().equals(other.getRemark4()))
-            && (this.getRemark5() == null ? other.getRemark5() == null : this.getRemark5().equals(other.getRemark5()));
+            && (this.getRemark5() == null ? other.getRemark5() == null : this.getRemark5().equals(other.getRemark5()))
+            && (this.getRemark6() == null ? other.getRemark6() == null : this.getRemark6().equals(other.getRemark6()));
     }
 
     @Override
@@ -157,17 +156,17 @@ public class SysParentEntity implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
-        result = prime * result + ((getAge() == null) ? 0 : getAge().hashCode());
-        result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
-        result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
-        result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
-        result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
+        result = prime * result + ((getGradeName() == null) ? 0 : getGradeName().hashCode());
+        result = prime * result + ((getGradeId() == null) ? 0 : getGradeId().hashCode());
+        result = prime * result + ((getClassName() == null) ? 0 : getClassName().hashCode());
+        result = prime * result + ((getParentId() == null) ? 0 : getParentId().hashCode());
+        result = prime * result + ((getSchoolId() == null) ? 0 : getSchoolId().hashCode());
         result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
         result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
         result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
         result = prime * result + ((getRemark4() == null) ? 0 : getRemark4().hashCode());
         result = prime * result + ((getRemark5() == null) ? 0 : getRemark5().hashCode());
+        result = prime * result + ((getRemark6() == null) ? 0 : getRemark6().hashCode());
         return result;
     }
 
@@ -178,17 +177,17 @@ public class SysParentEntity implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", userName=").append(userName);
-        sb.append(", age=").append(age);
-        sb.append(", sex=").append(sex);
-        sb.append(", phone=").append(phone);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
+        sb.append(", gradeName=").append(gradeName);
+        sb.append(", gradeId=").append(gradeId);
+        sb.append(", className=").append(className);
+        sb.append(", parentId=").append(parentId);
+        sb.append(", schoolId=").append(schoolId);
         sb.append(", remark1=").append(remark1);
         sb.append(", remark2=").append(remark2);
         sb.append(", remark3=").append(remark3);
         sb.append(", remark4=").append(remark4);
         sb.append(", remark5=").append(remark5);
+        sb.append(", remark6=").append(remark6);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

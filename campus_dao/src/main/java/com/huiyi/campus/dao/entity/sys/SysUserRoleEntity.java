@@ -2,12 +2,12 @@ package com.huiyi.campus.dao.entity.sys;
 
 import java.io.Serializable;
 
-public class SysStudentParentEntity implements Serializable {
+public class SysUserRoleEntity implements Serializable {
     private Integer id;
 
-    private Integer studentId;
+    private Integer userId;
 
-    private Integer parentId;
+    private Integer roleId;
 
     private String remark1;
 
@@ -25,20 +25,20 @@ public class SysStudentParentEntity implements Serializable {
         this.id = id;
     }
 
-    public Integer getStudentId() {
-        return studentId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public String getRemark1() {
@@ -76,10 +76,10 @@ public class SysStudentParentEntity implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        SysStudentParentEntity other = (SysStudentParentEntity) that;
+        SysUserRoleEntity other = (SysUserRoleEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getStudentId() == null ? other.getStudentId() == null : this.getStudentId().equals(other.getStudentId()))
-            && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
+            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+            && (this.getRoleId() == null ? other.getRoleId() == null : this.getRoleId().equals(other.getRoleId()))
             && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
             && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
             && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()));
@@ -90,8 +90,8 @@ public class SysStudentParentEntity implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getStudentId() == null) ? 0 : getStudentId().hashCode());
-        result = prime * result + ((getParentId() == null) ? 0 : getParentId().hashCode());
+        result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
+        result = prime * result + ((getRoleId() == null) ? 0 : getRoleId().hashCode());
         result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
         result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
         result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
@@ -105,8 +105,8 @@ public class SysStudentParentEntity implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", studentId=").append(studentId);
-        sb.append(", parentId=").append(parentId);
+        sb.append(", userId=").append(userId);
+        sb.append(", roleId=").append(roleId);
         sb.append(", remark1=").append(remark1);
         sb.append(", remark2=").append(remark2);
         sb.append(", remark3=").append(remark3);
