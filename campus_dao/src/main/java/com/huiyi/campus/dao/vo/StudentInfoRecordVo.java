@@ -1,4 +1,4 @@
-package com.huiyi.campus.dao.dto.health;
+package com.huiyi.campus.dao.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -10,23 +10,25 @@ import java.util.Date;
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
- * @Description: 校园健康档案dto
- * @date: 2021-03-28 13:55
+ * @Description:
+ * @date: 2021-03-28 20:43
  * @Version V1.0
  */
 @Getter
 @Setter
-@ApiModel("学生档案信息请求Dto")
-public class StudentInfoRecordDto {
+@ApiModel("学生档案信息返回Vo")
+public class StudentInfoRecordVo {
 
-    @ApiModelProperty("学生姓名")
+    @ApiModelProperty("主键id")
+    private String id;
+    @ApiModelProperty("姓名")
     private String userName;
     @ApiModelProperty("性别(1:男，2:女，0:未知性别)")
     private Integer sex;
     @ApiModelProperty("年龄")
     private Integer age;
     @ApiModelProperty("出生日期")
-    private Date birthDate;
+    private String birthDate;
     @ApiModelProperty("父母id")
     private String parentId;
     @ApiModelProperty("学校机构id")
@@ -55,12 +57,10 @@ public class StudentInfoRecordDto {
     private String dutyDoctor;
     @ApiModelProperty("体检日期")
     private Date phyDate;
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+    @ApiModelProperty("更新时间")
+    private Date updateTime;
     @ApiModelProperty("操作人员id (注：当前操作人员)")
     private Integer operatorId;
-    @ApiModelProperty("页码")
-    private int page;
-    @ApiModelProperty("条数")
-    private int rows;
-
-
 }

@@ -1,28 +1,25 @@
-package com.huiyi.campus.dao.entity.phy;
+package com.huiyi.campus.dao.dto.health;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
- * @Description: 学生健康体检信息表
- * @date: 2021-03-28 13:38
+ * @Description:
+ * @date: 2021-03-28 20:32
  * @Version V1.0
  */
 @Getter
 @Setter
-@TableName("phy_student_health_info")
-public class PhyStudentHealthInfoEntity implements Serializable {
+@ApiModel("学生健康档案信息Dto")
+public class StudentHealthInfoDto {
 
-    @ApiModelProperty("主键id")
-    private String id;
     @ApiModelProperty("学生id")
     private String phyStudentId;
     @ApiModelProperty("身高")
@@ -117,22 +114,4 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     private String phyResultSuggest;
     @ApiModelProperty("删除标志(0:未删，1:已删)")
     private Byte delFlag;
-    @ApiModelProperty("创建时间")
-    private Date createTime;
-    @ApiModelProperty("更新时间")
-    private Date updateTime;
-    @ApiModelProperty("扩展字段1")
-    private String extend1;
-    @ApiModelProperty("扩展字段2")
-    private String extend2;
-    @ApiModelProperty("扩展字段3")
-    private String extend3;
-    @ApiModelProperty("扩展字段4")
-    private String extend4;
-    @ApiModelProperty("扩展字段5")
-    private String extend5;
-
-    private static final long serialVersionUID = 1L;
-
-
 }

@@ -351,4 +351,10 @@
       extend5 = #{extend5,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+<!--查询所有学生档案信息-->
+  <select id="selectAll" resultType="com.huiyi.campus.dao.vo.StudentInfoRecordVo">
+    select
+    <include refid="Base_Column_List" />
+    from phy_student_info
+    </select>
 </mapper>

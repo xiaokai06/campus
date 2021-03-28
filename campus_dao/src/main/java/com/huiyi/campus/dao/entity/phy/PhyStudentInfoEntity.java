@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
- * @Description:
+ * @Description: 学生信息表
  * @date: 2021-03-28 13:38
  * @Version V1.0
  */

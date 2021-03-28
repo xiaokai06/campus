@@ -1,6 +1,7 @@
 package com.huiyi.campus.web.health.controller;
 
 import com.huiyi.campus.common.base.CrRpcResult;
+import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
 import lombok.extern.slf4j.Slf4j;
@@ -22,21 +23,80 @@ public class CampusHRecordController {
     @Autowired
     CampusHRecordService campusHRecordService;
 
+    /**
+     * 获取所有学生档案信息
+     *
+     * @param studentInfoRecordDto
+     * @return
+     */
+    @PostMapping("/queryStudentInfoRecord")
+    public CrRpcResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
+        return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto);
+    }
 
     /**
-     * 创建学生健康档案
+     * 创建学生档案信息
+     *
      * @return
      */
     @PostMapping("/createStudentInfoRecord")
-    public CrRpcResult createStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto){
+    public CrRpcResult createStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.createStudentInfoRecord(studentInfoRecordDto);
     }
-    @GetMapping("/get")
-    public String get(){
-        return "你好";
+
+    /**
+     * 修改学生档案信息
+     *
+     * @param studentInfoRecordDto
+     * @return
+     */
+    @PostMapping("/updateStudentInfoRecord")
+    public CrRpcResult updateStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
+        return campusHRecordService.updateStudentInfoRecord(studentInfoRecordDto);
+    }
+
+    /**
+     * 删除学生档案信息
+     *
+     * @param studentInfoRecordDto
+     * @return
+     */
+    @PostMapping("/deleteStudentInfoRecord")
+    public CrRpcResult deleteStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
+        return campusHRecordService.deleteStudentInfoRecord(studentInfoRecordDto);
+    }
+
+    /**
+     * 创建学生健康档案信息
+     *
+     * @return
+     */
+    @PostMapping("/createStudentHealthInfo")
+    public CrRpcResult createStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
+        return campusHRecordService.createStudentHealthInfo(studentHealthInfoDto);
+    }
+
+    /**
+     * 查询学生健康档案信息
+     * @param studentHealthInfoDto
+     * @return
+     */
+    @PostMapping("/selectStudentHealthInfo")
+    public CrRpcResult selectStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
+        return campusHRecordService.selectStudentHealthInfo(studentHealthInfoDto);
     }
 
 
+    /**
+     * 修改学生健康档案信息
+     *
+     * @param studentHealthInfoDto
+     * @return
+     */
+    @PostMapping("/updateStudentHealthInfo")
+    public CrRpcResult updateStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
+        return campusHRecordService.updateStudentHealthInfo(studentHealthInfoDto);
+    }
 
 
 }

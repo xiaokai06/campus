@@ -5,15 +5,15 @@ spring:
 #   需要加载的配置文件
   profiles:
     active: datasource,cache
-  servlet:
-#   项目默认路径
-    context-path: /campus
+#  servlet:
+##   项目默认路径
+#    context-path: /campus
 
-  devtools:
-    restart:
-      enabled: true  #设置开启热部署
-      additional-paths: src/main/java #重启目录
-      exclude: WEB-INF/**
+#  devtools:
+#    restart:
+#      enabled: true  #设置开启热部署
+#      additional-paths: src/main/java #重启目录
+#      exclude: WEB-INF/**
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
   http:
@@ -22,6 +22,9 @@ spring:
       charset: utf-8
       enabled: true
 server:
+#  项目默认路径
+  servlet:
+    context-path: /campus
   port: 8021
   tomcat:
     uri-encoding: UTF-8
@@ -31,8 +34,8 @@ logging:
       huiyi:
         pacs: debug
   config: classpath:logback.xml
-login:
-  count: 3 # 系统最多允许多少台设备登录同一账号
+#login:
+#  count: 3 # 系统最多允许多少台设备登录同一账号
 # PageHelper分页插件
 #pagehelper:
 #  helperDialect: mysql
