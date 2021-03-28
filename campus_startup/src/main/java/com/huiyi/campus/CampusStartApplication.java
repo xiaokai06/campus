@@ -23,14 +23,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ServletComponentScan
 @SpringBootApplication(scanBasePackages = "com.huiyi.campus")
 @MapperScan("com.huiyi.campus.dao.mapper")
-//@ComponentScan(basePackages = {"com.huiyi.campus.web"})
 public class CampusStartApplication implements WebMvcConfigurer {
-
 
     @Bean
     public SpringUtil getSpingUtil() {
         return new SpringUtil();
     }
+
     public static void main(String[] args) {
         SpringApplication.run(CampusStartApplication.class, args);
         log.info(

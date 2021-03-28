@@ -28,7 +28,7 @@ logging:
   level:
     com:
       huiyi:
-        pacs: debug
+        campus: debug
   config: classpath:logback.xml
 #login:
 #  count: 3 # 系统最多允许多少台设备登录同一账号

@@ -86,6 +86,7 @@ public class JsonUtils {
     	
     	return null;
     }
+
     /**
      * 判断对象中属性值是否全为空
      *
@@ -96,23 +97,18 @@ public class JsonUtils {
         if (null == object) {
             return true;
         }
-
         try {
             for (Field f : object.getClass().getDeclaredFields()) {
                 f.setAccessible(true);
-
-                System.out.print(f.getName() + ":");
-                System.out.println(f.get(object));
-
+              /*  System.out.print(f.getName() + ":");
+                System.out.println(f.get(object));*/
                 if (f.get(object) != null && StringUtils.isNotBlank(f.get(object).toString())) {
                     return false;
                 }
-
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return true;
     }
     
