@@ -1,10 +1,11 @@
-package com.huiyi.campus.startup;
+package com.huiyi.campus;
 
 import com.huiyi.campus.common.utils.SpringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -19,9 +20,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Version V1.0
  */
 @Slf4j
-@SpringBootApplication
-@MapperScan("com.huiyi.campus.dao")
-@ComponentScan(basePackages = {"com.huiyi.campus"})
+@ServletComponentScan
+@SpringBootApplication(scanBasePackages = "com.huiyi.campus")
+@MapperScan("com.huiyi.campus.dao.mapper")
+//@ComponentScan(basePackages = {"com.huiyi.campus.web"})
 public class CampusStartApplication implements WebMvcConfigurer {
 
 

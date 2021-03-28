@@ -6,7 +6,7 @@
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="sex" jdbcType="TINYINT" property="sex" />
     <result column="age" jdbcType="INTEGER" property="age" />
-    <result column="birth_date" jdbcType="TIMESTAMP" property="birthDate" />
+    <result column="birth_date" jdbcType="VARCHAR" property="birthDate" />
     <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
     <result column="school_id" jdbcType="INTEGER" property="schoolId" />
     <result column="student_number" jdbcType="VARCHAR" property="studentNumber" />
@@ -58,7 +58,7 @@
       extend3, extend4, extend5
       )
     values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, 
-      #{age,jdbcType=INTEGER}, #{birthDate,jdbcType=TIMESTAMP}, #{parentId,jdbcType=VARCHAR}, 
+      #{age,jdbcType=INTEGER}, #{birthDate,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR},
       #{schoolId,jdbcType=INTEGER}, #{studentNumber,jdbcType=VARCHAR}, #{majorClass,jdbcType=VARCHAR}, 
       #{classId,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
       #{image,jdbcType=VARCHAR}, #{familyAddress,jdbcType=VARCHAR}, #{censusAddress,jdbcType=VARCHAR}, 
@@ -167,7 +167,7 @@
         #{age,jdbcType=INTEGER},
       </if>
       <if test="birthDate != null">
-        #{birthDate,jdbcType=TIMESTAMP},
+        #{birthDate,jdbcType=VARCHAR},
       </if>
       <if test="parentId != null">
         #{parentId,jdbcType=VARCHAR},
@@ -250,7 +250,7 @@
         age = #{age,jdbcType=INTEGER},
       </if>
       <if test="birthDate != null">
-        birth_date = #{birthDate,jdbcType=TIMESTAMP},
+        birth_date = #{birthDate,jdbcType=VARCHAR},
       </if>
       <if test="parentId != null">
         parent_id = #{parentId,jdbcType=VARCHAR},
@@ -326,7 +326,7 @@
     set user_name = #{userName,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=TINYINT},
       age = #{age,jdbcType=INTEGER},
-      birth_date = #{birthDate,jdbcType=TIMESTAMP},
+      birth_date = #{birthDate,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=VARCHAR},
       school_id = #{schoolId,jdbcType=INTEGER},
       student_number = #{studentNumber,jdbcType=VARCHAR},

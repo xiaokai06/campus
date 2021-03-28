@@ -1,35 +1,32 @@
-package com.huiyi.campus.dao.entity.phy;
+package com.huiyi.campus.dao.dto.health;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
- * @Description:
- * @date: 2021-03-28 13:38
+ * @Description: 校园健康档案dto
+ * @date: 2021-03-28 13:55
  * @Version V1.0
  */
 @Getter
 @Setter
-@TableName("phy_student_info")
-public class PhyStudentInfoEntity implements Serializable {
+@ApiModel("校园健康档案")
+public class StudentInfoRecordDto {
 
-    @ApiModelProperty("主键id")
-    private String id;
-    @ApiModelProperty("姓名")
+    @ApiModelProperty("学生姓名")
     private String userName;
     @ApiModelProperty("性别(1:男，2:女，0:未知性别)")
     private Integer sex;
     @ApiModelProperty("年龄")
     private Integer age;
     @ApiModelProperty("出生日期")
-    private String birthDate;
+    private Date birthDate;
     @ApiModelProperty("父母id")
     private String parentId;
     @ApiModelProperty("学校机构id")
@@ -58,23 +55,7 @@ public class PhyStudentInfoEntity implements Serializable {
     private String dutyDoctor;
     @ApiModelProperty("体检日期")
     private Date phyDate;
-    @ApiModelProperty("创建时间")
-    private Date createTime;
-    @ApiModelProperty("更新时间")
-    private Date updateTime;
     @ApiModelProperty("操作人员id (注：当前操作人员)")
     private Integer operatorId;
-    @ApiModelProperty("扩展字段1")
-    private String extend1;
-    @ApiModelProperty("扩展字段2")
-    private String extend2;
-    @ApiModelProperty("扩展字段3")
-    private String extend3;
-    @ApiModelProperty("扩展字段4")
-    private String extend4;
-    @ApiModelProperty("扩展字段5")
-    private String extend5;
-
-    private static final long serialVersionUID = 1L;
 
 }
