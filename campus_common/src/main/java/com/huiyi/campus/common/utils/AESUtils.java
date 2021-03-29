@@ -89,6 +89,7 @@ public class AESUtils {
 
 
 	public static void main(String[] args) throws Exception {
+		System.out.println("");
 		/*
 		 * 此处使用AES-128-ECB加密模式，key需要为16位。
 		 */
