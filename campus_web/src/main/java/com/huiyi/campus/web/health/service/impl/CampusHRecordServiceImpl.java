@@ -6,6 +6,8 @@ import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.utils.IdCardValidatorUtil;
 import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.idworker.Sid;
+import com.huiyi.campus.common.utils.rs.HQJsonResult;
+import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
@@ -41,21 +43,16 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
      * @return
      */
     @Override
-    public CrRpcResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto) {
-        CrRpcResult rpcResult = new CrRpcResult();
+    public HQJsonResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto) {
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
-            return null;
+            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
         try {
             PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
             List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
             PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
             if (page.getList() != null && !page.getList().isEmpty()) {
-                rpcResult.setCode("200");
-                rpcResult.setMsg("成功获取学生档案信息");
-                rpcResult.setTotal(page.getTotal());
-                rpcResult.setData(page.getList());
-                return rpcResult;
+                return HQJsonResult.success(page.getList(),"查询成功","200");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,7 +69,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
      */
     @Override
     public CrRpcResult createStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto) {
-        CrRpcResult rpcResult = new CrRpcResult();
+        CrRpcResult rpcResult = new CrRpcResult(SystemErrorEnum.SYSTEM_ERROR);
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
             return null;
         }
@@ -127,7 +124,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
      */
     @Override
     public CrRpcResult createStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto) {
-        CrRpcResult rpcResult = new CrRpcResult();
+        CrRpcResult rpcResult = new CrRpcResult(SystemErrorEnum.SYSTEM_ERROR);
         if (JsonUtils.checkObjAllFieldsIsNull(studentHealthInfoDto)) {
             return null;
         }

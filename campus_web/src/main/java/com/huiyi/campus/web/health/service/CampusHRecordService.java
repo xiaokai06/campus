@@ -1,13 +1,14 @@
 package com.huiyi.campus.web.health.service;
 
 import com.huiyi.campus.common.base.CrRpcResult;
+import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 
 public interface CampusHRecordService {
     CrRpcResult createStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
 
-    CrRpcResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
+    HQJsonResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
 
     CrRpcResult createStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
 

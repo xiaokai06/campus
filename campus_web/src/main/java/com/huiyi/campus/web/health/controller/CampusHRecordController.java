@@ -1,6 +1,7 @@
 package com.huiyi.campus.web.health.controller;
 
 import com.huiyi.campus.common.base.CrRpcResult;
+import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
@@ -30,7 +31,7 @@ public class CampusHRecordController {
      * @return
      */
     @PostMapping("/queryStudentInfoRecord")
-    public CrRpcResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
+    public HQJsonResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto);
     }
 

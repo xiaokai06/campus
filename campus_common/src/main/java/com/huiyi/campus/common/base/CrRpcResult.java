@@ -2,6 +2,7 @@ package com.huiyi.campus.common.base;
 
 
 import com.github.pagehelper.PageInfo;
+import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 
 import java.util.List;
 
@@ -18,17 +19,23 @@ public class CrRpcResult<T> {
     private long total;
 
     private List<T> data;
+    private boolean success = true;
+    private String requestID;
 
-    public CrRpcResult()
+    public CrRpcResult(SystemErrorEnum systemError)
     {
     }
 
-    public CrRpcResult(String code, Long total, String msg) {
+    public CrRpcResult(String code, Long total, String msg,List<T> data) {
         this.code = code;
         this.msg = msg;
         this.total = total;
+        this.data = data;
     }
-
+    public CrRpcResult(String code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
     public CrRpcResult(String code, String msg, List<T> data) {
         this.code = code;
         this.msg = msg;
@@ -72,7 +79,7 @@ public class CrRpcResult<T> {
     }
 
     public static CrRpcResult success(PageInfo pageInfo) {
-        CrRpcResult crRpcResult = new CrRpcResult();
+        CrRpcResult crRpcResult = new CrRpcResult(SystemErrorEnum.SYSTEM_ERROR);
         crRpcResult.setCode(CommonEnum.SUCCESS.getResultCode());
         crRpcResult.setMsg(CommonEnum.SUCCESS.getResultMsg());
         crRpcResult.setTotal(pageInfo.getTotal());
