@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>campus_common</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.huiyi.campus</groupId>
+            <artifactId>campus_dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
     <properties>

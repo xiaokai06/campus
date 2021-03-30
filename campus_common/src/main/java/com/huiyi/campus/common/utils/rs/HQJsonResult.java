@@ -21,7 +21,7 @@ import java.util.function.Supplier;
  * @Version V1.0
  */
 
-public class HQJsonResult<T> extends BaseJsonModel {
+public class HQJsonResult<T> {
     private static final long serialVersionUID = -7532190660864165247L;
     static final HQJsonResult.Success DEFAULT_SUCCESS = new HQJsonResult.Success();
     @JSONField

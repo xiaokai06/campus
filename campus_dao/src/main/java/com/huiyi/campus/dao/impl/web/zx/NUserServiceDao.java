@@ -1,4 +1,4 @@
-package com.huiyi.campus.dao.impl.web;
+package com.huiyi.campus.dao.impl.web.zx;
 
 import com.huiyi.campus.dao.entity.zx.ZxChatMsgEntity;
 import com.huiyi.campus.dao.mapper.web.zx.ZxChatMsgEntityMapper;

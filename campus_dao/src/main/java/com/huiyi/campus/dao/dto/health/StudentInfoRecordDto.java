@@ -18,7 +18,8 @@ import java.util.Date;
 @Setter
 @ApiModel("学生档案信息请求Dto")
 public class StudentInfoRecordDto {
-
+    @ApiModelProperty("学生id")
+    private String id;
     @ApiModelProperty("学生姓名")
     private String userName;
     @ApiModelProperty("性别(1:男，2:女，0:未知性别)")
@@ -26,7 +27,7 @@ public class StudentInfoRecordDto {
     @ApiModelProperty("年龄")
     private Integer age;
     @ApiModelProperty("出生日期")
-    private Date birthDate;
+    private String birthDate;
     @ApiModelProperty("父母id")
     private String parentId;
     @ApiModelProperty("学校机构id")
@@ -58,9 +59,9 @@ public class StudentInfoRecordDto {
     @ApiModelProperty("操作人员id (注：当前操作人员)")
     private Integer operatorId;
     @ApiModelProperty("页码")
-    private int page;
+    private Integer page;
     @ApiModelProperty("条数")
-    private int rows;
+    private Integer rows;
 
 
 }

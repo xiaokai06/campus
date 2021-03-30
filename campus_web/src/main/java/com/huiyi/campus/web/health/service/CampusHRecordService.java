@@ -1,22 +1,28 @@
 package com.huiyi.campus.web.health.service;
 
-import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletResponse;
 
 public interface CampusHRecordService {
-    CrRpcResult createStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
+    HQJsonResult createStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
 
     HQJsonResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
 
-    CrRpcResult createStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
+    HQJsonResult createStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
 
-    CrRpcResult updateStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
+    HQJsonResult updateStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
 
-    CrRpcResult deleteStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
+    HQJsonResult deleteStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
 
-    CrRpcResult updateStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
+    HQJsonResult updateStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
 
-    CrRpcResult selectStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
+    HQJsonResult selectStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
+
+    String exportStudentInfoFile(StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response);
+
+    String importStudentInfoFile(MultipartFile file);
 }

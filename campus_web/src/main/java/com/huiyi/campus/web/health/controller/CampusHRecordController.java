@@ -1,6 +1,5 @@
 package com.huiyi.campus.web.health.controller;
 
-import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
@@ -8,6 +7,9 @@ import com.huiyi.campus.web.health.service.CampusHRecordService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author: liyukai
@@ -41,7 +43,7 @@ public class CampusHRecordController {
      * @return
      */
     @PostMapping("/createStudentInfoRecord")
-    public CrRpcResult createStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
+    public HQJsonResult createStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.createStudentInfoRecord(studentInfoRecordDto);
     }
 
@@ -52,7 +54,7 @@ public class CampusHRecordController {
      * @return
      */
     @PostMapping("/updateStudentInfoRecord")
-    public CrRpcResult updateStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
+    public HQJsonResult updateStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.updateStudentInfoRecord(studentInfoRecordDto);
     }
 
@@ -63,7 +65,7 @@ public class CampusHRecordController {
      * @return
      */
     @PostMapping("/deleteStudentInfoRecord")
-    public CrRpcResult deleteStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
+    public HQJsonResult deleteStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.deleteStudentInfoRecord(studentInfoRecordDto);
     }
 
@@ -73,17 +75,18 @@ public class CampusHRecordController {
      * @return
      */
     @PostMapping("/createStudentHealthInfo")
-    public CrRpcResult createStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
+    public HQJsonResult createStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.createStudentHealthInfo(studentHealthInfoDto);
     }
 
     /**
      * 查询学生健康档案信息
+     *
      * @param studentHealthInfoDto
      * @return
      */
     @PostMapping("/selectStudentHealthInfo")
-    public CrRpcResult selectStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
+    public HQJsonResult selectStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.selectStudentHealthInfo(studentHealthInfoDto);
     }
 
@@ -95,8 +98,33 @@ public class CampusHRecordController {
      * @return
      */
     @PostMapping("/updateStudentHealthInfo")
-    public CrRpcResult updateStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
+    public HQJsonResult updateStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.updateStudentHealthInfo(studentHealthInfoDto);
+    }
+
+    /**
+     * 学生档案信息数据导入
+     *
+     * @param file
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/importStudentInfoFile")
+    public String importStudentInfoFile(@RequestParam("file") MultipartFile file) {
+        return campusHRecordService.importStudentInfoFile(file);
+    }
+
+    /**
+     * 学生档案信息数据导出
+     *
+     * @param studentInfoRecordDto
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/exportStudentInfoFile")
+    public String exportStudentInfoFile(@RequestBody StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response) {
+        return campusHRecordService.exportStudentInfoFile(studentInfoRecordDto, response);
     }
 
 

@@ -1,0 +1,94 @@
+2021-03-30 22:44:10.030 INFO  com.huiyi.campus.CampusStartApplication - Starting CampusStartApplication on LAPTOP-UEELJFL3 with PID 2096 (F:\huiyi\campus_health_system\campus_startup\target\classes started by 凯凯 in F:\huiyi\campus_health_system)
+2021-03-30 22:44:10.044 INFO  com.huiyi.campus.CampusStartApplication - The following profiles are active: datasource,cache
+2021-03-30 22:46:48.158 INFO  com.huiyi.campus.CampusStartApplication - Starting CampusStartApplication on LAPTOP-UEELJFL3 with PID 16408 (F:\huiyi\campus_health_system\campus_startup\target\classes started by 凯凯 in F:\huiyi\campus_health_system)
+2021-03-30 22:46:48.163 INFO  com.huiyi.campus.CampusStartApplication - The following profiles are active: datasource,cache
+2021-03-30 22:46:51.028 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-30 22:46:51.034 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-30 22:46:51.174 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101ms. Found 0 Redis repository interfaces.
+2021-03-30 22:46:52.028 INFO  com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor - Post-processing PropertySource instances
+2021-03-30 22:46:52.140 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-03-30 22:46:52.141 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-03-30 22:46:52.141 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-03-30 22:46:52.142 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-03-30 22:46:52.142 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-03-30 22:46:52.142 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-03-30 22:46:52.142 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-03-30 22:46:52.142 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-03-30 22:46:52.143 INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-03-30 22:46:52.305 INFO  com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter - Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-03-30 22:46:52.492 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$b80c7fee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-30 22:46:52.722 INFO  com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver - Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-03-30 22:46:52.725 INFO  com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector - Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-03-30 22:46:53.121 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8021 (http)
+2021-03-30 22:46:53.155 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8021"]
+2021-03-30 22:46:53.156 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-03-30 22:46:53.156 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-03-30 22:46:53.498 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/campus] - Initializing Spring embedded WebApplicationContext
+2021-03-30 22:46:53.498 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5129 ms
+2021-03-30 22:46:53.819 INFO  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-03-30 22:46:53.974 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2021-03-30 22:46:54.002 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - Encryptor config not found for property jasypt.encryptor.algorithm, using default value: PBEWithMD5AndDES
+2021-03-30 22:46:54.003 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - Encryptor config not found for property jasypt.encryptor.keyObtentionIterations, using default value: 1000
+2021-03-30 22:46:54.003 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - Encryptor config not found for property jasypt.encryptor.poolSize, using default value: 1
+2021-03-30 22:46:54.003 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - Encryptor config not found for property jasypt.encryptor.providerName, using default value: null
+2021-03-30 22:46:54.003 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - Encryptor config not found for property jasypt.encryptor.providerClassName, using default value: null
+2021-03-30 22:46:54.003 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - Encryptor config not found for property jasypt.encryptor.saltGeneratorClassname, using default value: org.jasypt.salt.RandomSaltGenerator
+2021-03-30 22:46:54.005 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - Encryptor config not found for property jasypt.encryptor.ivGeneratorClassname, using default value: org.jasypt.salt.NoOpIVGenerator
+2021-03-30 22:46:54.006 INFO  com.ulisesbocchio.jasyptspringboot.encryptor.DefaultLazyEncryptor - Encryptor config not found for property jasypt.encryptor.stringOutputType, using default value: base64
+2021-03-30 22:46:54.922 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-03-30 22:46:58.316 INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-30 22:46:58.578 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-30 22:46:59.536 INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2021-03-30 22:46:59.555 INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-03-30 22:46:59.556 INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2021-03-30 22:46:59.557 INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2021-03-30 22:46:59.559 INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-03-30 22:46:59.560 INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-03-30 22:46:59.560 INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2021-03-30 22:46:59.560 INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4f2b1e9f
+2021-03-30 22:46:59.642 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-03-30 22:46:59.706 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-03-30 22:46:59.880 INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-03-30 22:46:59.919 INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2021-03-30 22:46:59.919 INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-03-30 22:47:00.703 INFO  com.huiyi.campus.netty.NWebSocketServer - netty websocket server 启动完毕......
+2021-03-30 22:47:00.722 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8021"]
+2021-03-30 22:47:00.798 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8021 (http) with context path '/campus'
+2021-03-30 22:47:00.828 INFO  com.huiyi.campus.CampusStartApplication - Started CampusStartApplication in 14.292 seconds (JVM running for 18.103)
+2021-03-30 22:47:00.831 INFO  com.huiyi.campus.CampusStartApplication - 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+2021-03-30 22:47:27.906 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/campus] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-30 22:47:27.924 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-03-30 22:47:27.958 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 34 ms

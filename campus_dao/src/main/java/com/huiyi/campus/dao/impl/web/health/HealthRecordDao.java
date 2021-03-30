@@ -5,7 +5,7 @@ import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
 import com.huiyi.campus.dao.mapper.web.phy.PhyStudentHealthInfoMapper;
 import com.huiyi.campus.dao.mapper.web.phy.PhyStudentInfoMapper;
-import com.huiyi.campus.dao.vo.StudentInfoRecordVo;
+import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -47,10 +47,61 @@ public class HealthRecordDao {
 
     /**
      * 创建学生健康档案信息
+     *
      * @param phyStudentHealthInfoEntity
      * @return
      */
     public int createStudentHealthInfo(PhyStudentHealthInfoEntity phyStudentHealthInfoEntity) {
         return phyStudentHealthInfoMapper.insert(phyStudentHealthInfoEntity);
+    }
+
+    /**
+     * 修改学生档案信息
+     *
+     * @param phyStudentInfoEntity
+     * @return
+     */
+    public int updateStudentInfoRecord(PhyStudentInfoEntity phyStudentInfoEntity) {
+        return phyStudentInfoMapper.updateByPrimaryKeySelective(phyStudentInfoEntity);
+    }
+
+    /**
+     * 删除学生档案信息
+     *
+     * @param phyStudentInfoEntity
+     * @return
+     */
+    public int deleteStudentInfoRecord(PhyStudentInfoEntity phyStudentInfoEntity) {
+        return phyStudentInfoMapper.deleteByPrimaryKey(phyStudentInfoEntity.getId());
+    }
+
+    /**
+     * 查询学生健康档案信息
+     *
+     * @param phyStudentHealthInfoEntity
+     * @return
+     */
+    public PhyStudentHealthInfoEntity selectStudentHealthInfo(PhyStudentHealthInfoEntity phyStudentHealthInfoEntity) {
+        return phyStudentHealthInfoMapper.selectByPrimaryKey(phyStudentHealthInfoEntity.getId());
+
+    }
+
+    /**
+     * 修改学生健康档案信息
+     *
+     * @param phyStudentHealthInfoEntity
+     * @return
+     */
+    public int updateStudentHealthInfo(PhyStudentHealthInfoEntity phyStudentHealthInfoEntity) {
+        return phyStudentHealthInfoMapper.updateByPrimaryKey(phyStudentHealthInfoEntity);
+    }
+
+    /**
+     * 批量导入学生档案信息
+     * @param phyStudentInfoEntityList
+     * @return
+     */
+    public int batchInsertStudentInfo(List<PhyStudentInfoEntity> phyStudentInfoEntityList) {
+        return phyStudentInfoMapper.insertSelectiveList(phyStudentInfoEntityList);
     }
 }
