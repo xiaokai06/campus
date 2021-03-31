@@ -9,6 +9,8 @@ import com.huiyi.campus.common.utils.RedisUtils;
 import com.huiyi.campus.common.utils.StringUtils;
 import com.huiyi.campus.dao.dto.sys.SysUserDto;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
+import com.huiyi.campus.dao.dto.sys.UserDto;
+import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysUserService;
@@ -16,6 +18,8 @@ import com.huiyi.campus.web.sys.service.TokenService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author: yzg
@@ -107,5 +111,11 @@ public class SysUserServiceImpl implements SysUserService {
             }
         }
         return ResultBody.error("修改失败！");
+    }
+
+    @Override
+    public ResultBody getAllUserInfo(UserDto userDto) {
+        List<SysUserEntity> list = sysUserDao.selectAllUserInfo(userDto);
+        return ResultBody.success(list);
     }
 }

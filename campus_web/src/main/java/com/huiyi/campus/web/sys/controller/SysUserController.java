@@ -5,6 +5,7 @@ import com.huiyi.campus.common.annotaion.PassToken;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.dto.sys.SysUserDto;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
+import com.huiyi.campus.dao.dto.sys.UserDto;
 import com.huiyi.campus.web.sys.service.SysUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -48,6 +49,13 @@ public class SysUserController {
     @PostMapping("/updatePwd")
     public ResultBody updatePwd(@RequestBody UpdatePwdDto updatePwdDto) {
         return sysUserService.updatePwdByOldPwd(updatePwdDto);
+    }
+
+    @IsLogin
+    @ApiOperation("获取所有用户信息")
+    @PostMapping("/getAllUserInfo")
+    public ResultBody getAllUserInfo(@RequestBody UserDto userDto) {
+        return sysUserService.getAllUserInfo(userDto);
     }
 
 }

@@ -27,11 +27,11 @@
   </delete>
   <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.SysMenuEntity">
     insert into sys_menu (id, menu_name, create_time, 
-      update_time, remark1, remark2, 
+      update_time, level, sort,
       remark3, remark4, remark5
       )
     values (#{id,jdbcType=INTEGER}, #{menuName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{level,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER},
       #{remark3,jdbcType=VARCHAR}, #{remark4,jdbcType=VARCHAR}, #{remark5,jdbcType=VARCHAR}
       )
   </insert>
@@ -131,8 +131,8 @@
     set menu_name = #{menuName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      remark1 = #{remark1,jdbcType=VARCHAR},
-      remark2 = #{remark2,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
       remark3 = #{remark3,jdbcType=VARCHAR},
       remark4 = #{remark4,jdbcType=VARCHAR},
       remark5 = #{remark5,jdbcType=VARCHAR}

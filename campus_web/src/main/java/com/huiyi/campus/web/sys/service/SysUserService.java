@@ -3,6 +3,7 @@ package com.huiyi.campus.web.sys.service;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.dto.sys.SysUserDto;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
+import com.huiyi.campus.dao.dto.sys.UserDto;
 
 /**
  * @author: yzg
@@ -16,5 +17,7 @@ public interface SysUserService {
     ResultBody exitSystem(String nickName);
 
     ResultBody updatePwdByOldPwd(UpdatePwdDto updatePwdDto);
+
+    ResultBody getAllUserInfo(UserDto userDto);
 
 }

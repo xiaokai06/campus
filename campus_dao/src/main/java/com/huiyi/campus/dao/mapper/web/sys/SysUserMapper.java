@@ -1,7 +1,10 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
+import com.huiyi.campus.dao.dto.sys.UserDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
+
+import java.util.List;
 
 public interface SysUserMapper {
 
@@ -20,5 +23,7 @@ public interface SysUserMapper {
     String selectUserInfoByNickName(String nickName);
 
     Integer updatePwdByNickName(UpdatePwdDto updatePwdDto);
+
+    List<SysUserEntity> selectAllUserInfo(UserDto userDto);
 
 }

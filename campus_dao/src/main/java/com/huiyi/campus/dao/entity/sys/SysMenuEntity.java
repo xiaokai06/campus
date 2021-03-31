@@ -12,9 +12,9 @@ public class SysMenuEntity implements Serializable {
 
     private Date updateTime;
 
-    private String remark1;
+    private String level;
 
-    private String remark2;
+    private String sort;
 
     private String remark3;
 
@@ -56,20 +56,20 @@ public class SysMenuEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public String getRemark1() {
-        return remark1;
+    public String getLevel() {
+        return level;
     }
 
-    public void setRemark1(String remark1) {
-        this.remark1 = remark1 == null ? null : remark1.trim();
+    public void setLevel(String level) {
+        this.level = level;
     }
 
-    public String getRemark2() {
-        return remark2;
+    public String getSort() {
+        return sort;
     }
 
-    public void setRemark2(String remark2) {
-        this.remark2 = remark2 == null ? null : remark2.trim();
+    public void setSort(String sort) {
+        this.sort = sort;
     }
 
     public String getRemark3() {
@@ -112,8 +112,8 @@ public class SysMenuEntity implements Serializable {
             && (this.getMenuName() == null ? other.getMenuName() == null : this.getMenuName().equals(other.getMenuName()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
-            && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
+            && (this.getLevel() == null ? other.getLevel() == null : this.getLevel().equals(other.getLevel()))
+            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
             && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()))
             && (this.getRemark4() == null ? other.getRemark4() == null : this.getRemark4().equals(other.getRemark4()))
             && (this.getRemark5() == null ? other.getRemark5() == null : this.getRemark5().equals(other.getRemark5()));
@@ -127,8 +127,8 @@ public class SysMenuEntity implements Serializable {
         result = prime * result + ((getMenuName() == null) ? 0 : getMenuName().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
-        result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
+        result = prime * result + ((getLevel() == null) ? 0 : getLevel().hashCode());
+        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
         result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
         result = prime * result + ((getRemark4() == null) ? 0 : getRemark4().hashCode());
         result = prime * result + ((getRemark5() == null) ? 0 : getRemark5().hashCode());
@@ -145,8 +145,8 @@ public class SysMenuEntity implements Serializable {
         sb.append(", menuName=").append(menuName);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
-        sb.append(", remark1=").append(remark1);
-        sb.append(", remark2=").append(remark2);
+        sb.append(", level=").append(level);
+        sb.append(", sort=").append(sort);
         sb.append(", remark3=").append(remark3);
         sb.append(", remark4=").append(remark4);
         sb.append(", remark5=").append(remark5);

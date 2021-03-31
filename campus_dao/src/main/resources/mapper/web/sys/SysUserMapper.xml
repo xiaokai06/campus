@@ -196,4 +196,8 @@
     update sys_user set pass_word=#{newPwd} where nick_name=#{nickName}
   </update>
 
+  <select id="selectAllUserInfo" parameterType="com.huiyi.campus.dao.dto.sys.UserDto" resultMap="BaseResultMap">
+    select id,nick_name,user_name,phone,sex from sys_user where nick_name=#{nickName}
+  </select>
+
 </mapper>
