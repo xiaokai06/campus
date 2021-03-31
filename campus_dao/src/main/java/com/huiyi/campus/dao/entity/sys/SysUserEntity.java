@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class SysUserEntity implements Serializable {
-    private String uid;
+    private String id;
 
     private String nickName;
 
@@ -32,12 +32,12 @@ public class SysUserEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid == null ? null : uid.trim();
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getNickName() {
@@ -148,7 +148,7 @@ public class SysUserEntity implements Serializable {
             return false;
         }
         SysUserEntity other = (SysUserEntity) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getNickName() == null ? other.getNickName() == null : this.getNickName().equals(other.getNickName()))
             && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
             && (this.getPassWord() == null ? other.getPassWord() == null : this.getPassWord().equals(other.getPassWord()))
@@ -167,7 +167,7 @@ public class SysUserEntity implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getNickName() == null) ? 0 : getNickName().hashCode());
         result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
         result = prime * result + ((getPassWord() == null) ? 0 : getPassWord().hashCode());
@@ -189,7 +189,7 @@ public class SysUserEntity implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
+        sb.append(", id=").append(id);
         sb.append(", nickName=").append(nickName);
         sb.append(", userName=").append(userName);
         sb.append(", passWord=").append(passWord);

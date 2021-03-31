@@ -3,15 +3,19 @@ package com.huiyi.campus.dao.mapper.web.sys;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 
 public interface SysUserMapper {
-    int deleteByPrimaryKey(String uid);
+
+    int deleteByPrimaryKey(String id);
 
     int insert(SysUserEntity record);
 
     int insertSelective(SysUserEntity record);
 
-    SysUserEntity selectByPrimaryKey(String uid);
+    SysUserEntity selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(SysUserEntity record);
 
     int updateByPrimaryKey(SysUserEntity record);
+
+    String selectUserInfoByNickName(String nickName);
+
 }
