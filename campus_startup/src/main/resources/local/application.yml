@@ -30,6 +30,12 @@ logging:
       huiyi:
         campus: debug
   config: classpath:logback.xml
+#  minio对象存储配置
+minio:
+  endpoint: http://192.168.3.94:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketImageName: campus
 #login:
 #  count: 3 # 系统最多允许多少台设备登录同一账号
 # PageHelper分页插件

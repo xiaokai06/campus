@@ -56,7 +56,8 @@
         <jasypt-spring-boot-starter.version>2.1.1</jasypt-spring-boot-starter.version>
         <!--netty通讯聊天服务-->
         <netty-all.version>4.1.25.Final</netty-all.version>
-
+        <!--对象存储服务器-->
+        <minio.version>7.1.0</minio.version>
         <!--maven-->
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
@@ -169,11 +170,6 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>${spring-boot-starter-data-redis.version}</version>
         </dependency>
-     <!--   <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -201,6 +197,7 @@
             <artifactId>easypoi-spring-boot-starter</artifactId>
             <version>${easypoi-spring-boot-starter.version}</version>
         </dependency>
+        <!--分布式定时任务依赖-->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
@@ -254,9 +251,13 @@
             <artifactId>spring-security-crypto</artifactId>
             <version>5.1.6.RELEASE</version>
         </dependency>
+        <!--minio 对象存储文件服务器-->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>${minio.version}</version>
+        </dependency>
     </dependencies>
-
-
 
 
     <build>

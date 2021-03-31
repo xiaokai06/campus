@@ -4,12 +4,16 @@ import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
+import io.minio.MinioClient;
+import io.minio.PutObjectArgs;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
 
 /**
  * @author: liyukai
@@ -25,6 +29,8 @@ public class CampusHRecordController {
 
     @Autowired
     CampusHRecordService campusHRecordService;
+    @Autowired
+    MinioClient minioClient;
 
     /**
      * 获取所有学生档案信息
@@ -125,6 +131,38 @@ public class CampusHRecordController {
     @PostMapping("/exportStudentInfoFile")
     public String exportStudentInfoFile(@RequestBody StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response) {
         return campusHRecordService.exportStudentInfoFile(studentInfoRecordDto, response);
+    }
+
+    /**
+     * 学生相片上传
+     */
+    @PostMapping("/upload")
+    public String upload(@RequestParam("data") MultipartFile data) throws Exception {
+        String fileName = data.getOriginalFilename();
+        InputStream inputStream = data.getInputStream();
+        minioClient.putObject(
+                PutObjectArgs.builder().bucket("campus").object(fileName).stream(
+                        inputStream, data.getSize(), -1)
+                        .contentType(data.getContentType())
+                        .build());
+        return "上传成功";
+    }
+
+    /**
+     * 学生相片下载
+     *
+     * @param fileName
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/download")
+    public String download(@RequestParam("fileName") String fileName) throws Exception {
+        if (StringUtils.isNoneEmpty(fileName)) {
+            String url = minioClient.presignedGetObject("campus", fileName, 60 * 60 * 24 * 7);
+            System.err.println(url);
+            return url;
+        }
+        return null;
     }
 
 
