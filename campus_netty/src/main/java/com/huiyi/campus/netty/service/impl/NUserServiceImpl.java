@@ -3,7 +3,7 @@ package com.huiyi.campus.netty.service.impl;
 import com.huiyi.campus.common.enums.MsgSignFlagEnum;
 import com.huiyi.campus.common.utils.idworker.Sid;
 import com.huiyi.campus.dao.entity.zx.ZxChatMsgEntity;
-import com.huiyi.campus.dao.impl.web.zx.NUserServiceDao;
+import com.huiyi.campus.dao.pojo.web.zx.NUserServiceDao;
 import com.huiyi.campus.netty.pojo.vo.OnlineChatMsg;
 import com.huiyi.campus.netty.service.NUserService;
 import org.springframework.beans.factory.annotation.Autowired;

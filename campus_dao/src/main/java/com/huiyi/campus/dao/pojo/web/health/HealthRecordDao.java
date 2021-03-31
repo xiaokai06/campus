@@ -1,4 +1,4 @@
-package com.huiyi.campus.dao.impl.web.health;
+package com.huiyi.campus.dao.pojo.web.health;
 
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;

@@ -13,7 +13,7 @@ import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
-import com.huiyi.campus.dao.impl.web.health.HealthRecordDao;
+import com.huiyi.campus.dao.pojo.web.health.HealthRecordDao;
 import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
