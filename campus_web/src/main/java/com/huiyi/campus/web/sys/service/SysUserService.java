@@ -1,5 +1,9 @@
 package com.huiyi.campus.web.sys.service;
 
+import com.huiyi.campus.common.base.ResultBody;
+import com.huiyi.campus.dao.dto.sys.SysUserDto;
+import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
+
 /**
  * @author: yzg
  * @time: 2021-03-30 9:59
@@ -7,6 +11,10 @@ package com.huiyi.campus.web.sys.service;
  */
 public interface SysUserService {
 
-    String selectUserInfoByNickName(String nickName);
+    ResultBody selectUserInfoByNickName(SysUserDto sysUserDto);
+
+    ResultBody exitSystem(String nickName);
+
+    ResultBody updatePwdByOldPwd(UpdatePwdDto updatePwdDto);
 
 }

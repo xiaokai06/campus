@@ -6,8 +6,14 @@ import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.annotaion.PassToken;
 import com.huiyi.campus.common.base.CommonEnum;
 import com.huiyi.campus.common.consts.CommConstants;
+import com.huiyi.campus.common.utils.JasyptUtils;
+import com.huiyi.campus.common.utils.RSAUtils;
+import com.huiyi.campus.common.utils.RedisUtils;
+import com.huiyi.campus.common.utils.StringUtils;
+import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,9 +31,18 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationInterceptor.class);
 
+    @Autowired
+    RedisUtils redisUtils;
+    @Autowired
+    JasyptUtils jasyptUtils;
+    @Autowired
+    RSAUtils rsaUtils;
+    @Autowired
+    SysUserDao sysUserDao;
+
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) {
-        String token = httpServletRequest.getHeader(CommConstants.TOKEN);
+        String aesToken = httpServletRequest.getHeader(CommConstants.TOKEN);
         // 如果不是映射到方法直接通过
         if (!(object instanceof HandlerMethod)) {
             return true;
@@ -46,17 +61,25 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             IsLogin userLoginToken = method.getAnnotation(IsLogin.class);
             if (userLoginToken.required()) {
                 // 执行认证
-                if (token == null) {
+                if (aesToken == null) {
                     logger.info("无token，请重新登录");
                     throw new RuntimeException("无token，请重新登录");
                 }
-
+                String token = jasyptUtils.decryptPwd(aesToken);
                 try {
                     String nickName = JWT.decode(token).getAudience().get(0);
+                    if (!StringUtils.isEmpty(nickName)) {
+                        boolean bl = redisUtils.hasKey(nickName);
+                        if (!bl) {
+                            String passWord = sysUserDao.selectUserByNickName(nickName);
+                            if (StringUtils.isEmpty(passWord)) {
+                                throw new RuntimeException("用户不存在，请重新登录");
+                            }
+                        }
+                    }
                 } catch (JWTDecodeException j) {
                     throw new RuntimeException(CommonEnum.SIGNATURE_NOT_MATCH.getResultMsg());
                 }
-
                 return true;
             }
         }
@@ -64,12 +87,12 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
 
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
 
     }
 }

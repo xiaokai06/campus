@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
+import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 
 public interface SysUserMapper {
@@ -17,5 +18,7 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUserEntity record);
 
     String selectUserInfoByNickName(String nickName);
+
+    Integer updatePwdByNickName(UpdatePwdDto updatePwdDto);
 
 }

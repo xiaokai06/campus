@@ -3,6 +3,8 @@ package com.huiyi.campus.common.utils;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.StandardPBEByteEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * @Created with Intellij IDEA
@@ -10,34 +12,32 @@ import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
  * @Date : 2019/10/16
  * @Descripition : Jasypt安全框架加密类工具包
  */
+@Component
 public class JasyptUtils {
 
+    @Value("${jasypt.encryptor.password}")
+    private String password;
+
     /**
-     * Jasypt生成加密结果
-     *
-     * @param password 配置文件中设定的加密密码 jasypt.encryptor.password
+     * 加密
      * @param value    待加密值
      * @return
      */
-    public static String encryptPwd(String password, String value) {
+    public String encryptPwd(String value) {
         PooledPBEStringEncryptor encryptOr = new PooledPBEStringEncryptor();
         encryptOr.setConfig(cryptOr(password));
-        String result = encryptOr.encrypt(value);
-        return result;
+        return encryptOr.encrypt(value);
     }
 
     /**
      * 解密
-     *
-     * @param password 配置文件中设定的加密密码 jasypt.encryptor.password
      * @param value    待解密密文
      * @return
      */
-    public static String decyptPwd(String password, String value) {
+    public String decryptPwd(String value) {
         PooledPBEStringEncryptor encryptOr = new PooledPBEStringEncryptor();
         encryptOr.setConfig(cryptOr(password));
-        String result = encryptOr.decrypt(value);
-        return result;
+        return encryptOr.decrypt(value);
     }
 
     public static SimpleStringPBEConfig cryptOr(String password) {
@@ -59,10 +59,10 @@ public class JasyptUtils {
      *
      * @param args
      */
-    public static void main(String[] args) {
-        // 加密
-        System.out.println(encryptPwd("aztKpms@e7Dy9Fc#", "123456"));
-        // 解密
-        System.out.println(decyptPwd("aztKpms@e7Dy9Fc#", "ikT3m1vmolEaqq4DXKq4Jw=="));
-    }
+//    public static void main(String[] args) {
+//        // 加密
+//        System.out.println(encryptPwd("aztKpms@e7Dy9Fc#", "123456"));
+//        // 解密
+//        System.out.println(decyptPwd("aztKpms@e7Dy9Fc#", "ikT3m1vmolEaqq4DXKq4Jw=="));
+//    }
 }

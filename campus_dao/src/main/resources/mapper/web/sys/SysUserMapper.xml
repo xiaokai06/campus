@@ -191,4 +191,9 @@
     select pass_word from sys_user where nick_name=#{nickName}
   </select>
 
+  <!-- 通过昵称修改用户密码 -->
+  <update id="updatePwdByNickName" parameterType="com.huiyi.campus.dao.dto.sys.UpdatePwdDto">
+    update sys_user set pass_word=#{newPwd} where nick_name=#{nickName}
+  </update>
+
 </mapper>
