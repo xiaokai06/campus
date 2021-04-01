@@ -1,6 +1,8 @@
 package com.huiyi.campus.common.base;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @author pancm
@@ -9,20 +11,25 @@ import com.alibaba.fastjson.JSONObject;
  * @Version:1.0.0
  * @date 2018年3月7日
  */
+@ApiModel("返回结果集")
 public class ResultBody {
+
     /**
      * 响应代码
      */
+    @ApiModelProperty("响应代码")
     private String code;
 
     /**
      * 响应消息
      */
+    @ApiModelProperty("响应消息")
     private String message;
 
     /**
      * 响应结果
      */
+    @ApiModelProperty("响应结果")
     private Object result;
 
     public ResultBody() {
@@ -138,18 +145,6 @@ public class ResultBody {
     }
 
     /**
-     * 使用中，无法删除
-     * @return
-     */
-    public static ResultBody inUse() {
-        ResultBody resultBody = new ResultBody();
-        resultBody.setCode(CommonEnum.NO_DELETE.getResultCode());
-        resultBody.setMessage(CommonEnum.NO_DELETE.getResultMsg());
-        resultBody.setResult(null);
-        return resultBody;
-    }
-
-    /**
      * 新增数据
      */
     public static ResultBody insert(Integer count, Integer id) {
@@ -180,7 +175,7 @@ public class ResultBody {
     }
 
     /**
-     * 用户代号重复
+     * 用户昵称重复
      */
     public static ResultBody repetition() {
         ResultBody resultBody = new ResultBody();

@@ -30,25 +30,6 @@ public class CommConstants {
 
     public static final String REMOVE = "remove";
 
-    public static final String CHECK = "check";
-
-    public static final String RELIEVE_CHECK = "relieveCheck";
-
-    public static final String ITEM_CODE_EN = "itemCodeEn";
-
-    /**
-     * 不区分性别
-     */
-    public static final String ALL = "All";
-
-    public static final String RISE = "↑";
-
-    public static final String DECLINE = "↓";
-
-    public static final String PLUS = "+";
-
-    public static final String SUBTRACT = "-";
-
     public static final String ALL_CLASS = ".";
 
     public static final String EMPTY = "";
@@ -65,22 +46,7 @@ public class CommConstants {
 
     public static final String UNKNOWN = "unknown";
 
-    public static final String NAME_SAKE = "该英文缩写名称已存在！";
+    public static final String USER_INFO = "user:";
 
-    /**
-     * 京东方条形码的位数
-     */
-    public static final int BARCODE = 16;
-
-    public static final int STATE = 0;
-
-    /**
-     * 1表示体检
-     */
-    public static final String PHYSICAL = "1";
-
-    public static final Integer URINE_METER_ID = 19;
-
-    public static final String A = "A";
 
 }

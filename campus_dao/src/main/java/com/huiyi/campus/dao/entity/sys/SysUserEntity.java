@@ -1,43 +1,62 @@
 package com.huiyi.campus.dao.entity.sys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@ApiModel("用户实体类")
 public class SysUserEntity implements Serializable {
-    private String id;
 
+    @ApiModelProperty("id")
+    private Integer id;
+
+    @ApiModelProperty("昵称")
     private String nickName;
 
+    @ApiModelProperty("姓名")
     private String userName;
 
+    @ApiModelProperty("密码")
     private String passWord;
 
+    @ApiModelProperty("性别（1:男，2:女）")
     private Byte sex;
 
+    @ApiModelProperty("手机号")
     private String phone;
 
+    @JsonIgnore
     private Byte delFlag;
 
-    private Date lastVisit;
+    @ApiModelProperty("最后登录时间")
+    private String lastVisit;
 
-    private Date createTime;
+    @JsonIgnore
+    private String createTime;
 
+    @JsonIgnore
     private Date updateTime;
 
+    @JsonIgnore
     private String remark1;
 
+    @JsonIgnore
     private String remark2;
 
+    @JsonIgnore
     private String remark3;
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNickName() {
@@ -88,19 +107,19 @@ public class SysUserEntity implements Serializable {
         this.delFlag = delFlag;
     }
 
-    public Date getLastVisit() {
+    public String getLastVisit() {
         return lastVisit;
     }
 
-    public void setLastVisit(Date lastVisit) {
+    public void setLastVisit(String lastVisit) {
         this.lastVisit = lastVisit;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

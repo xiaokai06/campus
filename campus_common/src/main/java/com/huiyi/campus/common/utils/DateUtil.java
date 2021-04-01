@@ -85,86 +85,6 @@ public class DateUtil {
 	}
 
 	/**
-	 * 获取当前时间，并返回指定格式的时间字符串。
-	 *
-	 * @param format 格式
-	 * @return String
-	 */
-//  public static String getCurrentDate(String format) {
-//    return new DateTime().toString();
-//  }
-
-	/**
-	 * 格式化时间
-	 *
-	 * @param format 格式
-	 * @return String
-	 */
-//  public static String format(Timestamp date, String format) {
-//    return new DateTime(date).toString(format);
-//  }
-
-	/**
-	 * 格式化时间
-	 */
-//  public static String format(Date date, String format) {
-//    return new DateTime(date).toString(format);
-//  }
-
-	/**
-	 * 格式化时间
-	 */
-//  public static String format(Date date) {
-//    return new DateTime(date).toString(DEFAULT_FORMAT);
-//  }
-
-	/**
-	 * 计算几天前的时间
-	 */
-//  public static Date getDateBefore(Date d, int day) {
-//    return new DateTime(d).minusDays(day).toDate();
-//  }
-
- /* public static List<Date> getDateListBefore(Date d, int day) {
-    List<Date> dateList = new ArrayList<Date>();
-    for (int i = 0; i < day; i++) {
-      dateList.add(new DateTime(d).minusDays(i).toDate());
-    }
-    return dateList;
-  }*/
-
-	/**
-	 * 计算几天前的时间
-	 */
- /* public static String getDateBefore(Date d, int day, String format) {
-    return new DateTime(d).minusDays(day).toString(format);
-  }*/
-
-	/**
-	 * 计算几小时前的时间
-	 */
-//  public static Date getHourBefore(Date d, int hour) {
-//    return new DateTime(d).minusHours(hour).toDate();
-//  }
-
-	/**
-	 * 计算几个月的时间
-	 */
-//  public static Date getMonthBefore(Date d, int month) {
-//    return new DateTime(d).minusMonths(month).toDate();
-//  }
-
-	/**
-	 * 计算时间间隔
-	 */
-//  public static int getDayBetween(Date d1, Date d2) {
-//    DateTime dt1 = new DateTime(d1);
-//    DateTime dt2 = new DateTime(d2);
-//    Period p = new Period(dt1, dt2, PeriodType.days());
-//    return p.getDays();
-//  }
-
-	/**
 	 * 日期转string
 	 *
 	 * @param dateDate to str
@@ -315,30 +235,6 @@ public class DateUtil {
 	}
 
 	/**
-	 * 获取前月的第一天 ÅÅ
-	 */
-  /*public static String getMonthFirstDay(Date date,String format) {
-    //获取前月的第一天
-    Calendar cal_1 = Calendar.getInstance();//获取当前日期
-    cal_1.setTime(date);
-    cal_1.add(Calendar.MONTH, 0);
-    cal_1.set(Calendar.DAY_OF_MONTH, 1);//设置为1号,当前日期既为本月第一天
-
-    return format(cal_1.getTime(),format);
-
-  }*/
-	/**
-	 * 获取前月的最后一天
-	 */
- /* public static String getMonthLastDay(Date date,String format) {
-    Calendar cal_1 = Calendar.getInstance();//获取当前日期
-    cal_1.setTime(date);
-    cal_1.set(Calendar.DAY_OF_MONTH, cal_1.getActualMaximum(Calendar.DAY_OF_MONTH));
-    //获取前月的最后一天
-    return format(cal_1.getTime(),format);
-  }*/
-
-	/**
 	 * 校验日期是否合法
 	 */
 	public static boolean isValidDate(String s, String pattern) {
@@ -417,28 +313,8 @@ public class DateUtil {
 		return dateStr;
 	}
 
-/*  public static Date formatDateStart(Date date) {
-    if (date == null) {
-      return DateUtil.formatDateStart(new Date());
-    }
-    return DateUtil.parseTime(DateUtil.format(date,DateUtil.START_FORMAT));
-  }*/
-
- /* public static Date formatDateEnd(Date date) {
-    if (date == null) {
-      return DateUtil.formatDateEnd(new Date());
-    }
-    return DateUtil.parseTime(DateUtil.format(date,DateUtil.END_FORMAT));
-  }*/
-
 	public static String getYearYY() {
 		return new SimpleDateFormat("yy", Locale.CHINESE).format(Calendar.getInstance().getTime());
-	}
-
-	public static void main(String[] args) throws Exception {
-//    System.out.println(DateUtil.getDateBefore(new Date(), 1));
-
-
 	}
 
 }

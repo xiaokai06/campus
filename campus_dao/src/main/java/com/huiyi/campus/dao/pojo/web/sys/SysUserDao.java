@@ -20,7 +20,7 @@ public class SysUserDao {
     @Autowired
     SysUserMapper sysUserMapper;
 
-    public String selectUserByNickName(String nickName) {
+    public SysUserEntity selectUserByNickName(String nickName) {
         return sysUserMapper.selectUserInfoByNickName(nickName);
     }
 
@@ -30,6 +30,18 @@ public class SysUserDao {
 
     public List<SysUserEntity> selectAllUserInfo(UserDto userDto) {
         return sysUserMapper.selectAllUserInfo(userDto);
+    }
+
+    public Integer insertUserInfo(SysUserEntity sysUserEntity) {
+        return sysUserMapper.insertSelective(sysUserEntity);
+    }
+
+    public Integer updateUserInfo(SysUserEntity sysUserEntity) {
+        return sysUserMapper.updateByPrimaryKeySelective(sysUserEntity);
+    }
+
+    public Integer deleteUserInfoById(Integer id) {
+        return sysUserMapper.deleteByPrimaryKey(id);
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface SysUserMapper {
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(SysUserEntity record);
 
@@ -20,7 +20,7 @@ public interface SysUserMapper {
 
     int updateByPrimaryKey(SysUserEntity record);
 
-    String selectUserInfoByNickName(String nickName);
+    SysUserEntity selectUserInfoByNickName(String nickName);
 
     Integer updatePwdByNickName(UpdatePwdDto updatePwdDto);
 

@@ -1,5 +1,7 @@
 package com.huiyi.campus.dao.dto.sys;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,12 +12,13 @@ import lombok.Setter;
  */
 @Setter
 @Getter
+@ApiModel("用户管理筛选条件")
 public class UserDto {
 
-    private String userName;
+    @ApiModelProperty("用户昵称")
+    private String nickName;
 
+    @ApiModelProperty("手机号")
     private String phone;
-
-    private String idCard;
 
 }

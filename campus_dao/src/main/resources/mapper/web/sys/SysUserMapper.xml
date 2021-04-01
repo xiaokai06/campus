@@ -26,11 +26,10 @@
     from sys_user
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from sys_user
-    where id = #{id,jdbcType=INTEGER}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    update sys_user set del_flag=1 where id=#{id}
   </delete>
-  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
     insert into sys_user (id, nick_name, user_name, 
       pass_word, sex, phone, 
       del_flag, last_visit, create_time, 
@@ -42,7 +41,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, 
       #{remark3,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -63,26 +62,8 @@
       <if test="phone != null">
         phone,
       </if>
-      <if test="delFlag != null">
-        del_flag,
-      </if>
-      <if test="lastVisit != null">
-        last_visit,
-      </if>
       <if test="createTime != null">
         create_time,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-      <if test="remark1 != null">
-        remark1,
-      </if>
-      <if test="remark2 != null">
-        remark2,
-      </if>
-      <if test="remark3 != null">
-        remark3,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -104,26 +85,8 @@
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="delFlag != null">
-        #{delFlag,jdbcType=TINYINT},
-      </if>
-      <if test="lastVisit != null">
-        #{lastVisit,jdbcType=TIMESTAMP},
-      </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remark1 != null">
-        #{remark1,jdbcType=VARCHAR},
-      </if>
-      <if test="remark2 != null">
-        #{remark2,jdbcType=VARCHAR},
-      </if>
-      <if test="remark3 != null">
-        #{remark3,jdbcType=VARCHAR},
+        #{createTime},
       </if>
     </trim>
   </insert>
@@ -136,38 +99,17 @@
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="passWord != null">
-        pass_word = #{passWord,jdbcType=VARCHAR},
-      </if>
       <if test="sex != null">
         sex = #{sex,jdbcType=TINYINT},
       </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="delFlag != null">
-        del_flag = #{delFlag,jdbcType=TINYINT},
-      </if>
       <if test="lastVisit != null">
-        last_visit = #{lastVisit,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remark1 != null">
-        remark1 = #{remark1,jdbcType=VARCHAR},
-      </if>
-      <if test="remark2 != null">
-        remark2 = #{remark2,jdbcType=VARCHAR},
-      </if>
-      <if test="remark3 != null">
-        remark3 = #{remark3,jdbcType=VARCHAR},
+        last_visit = #{lastVisit},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER} and del_flag=0
   </update>
   <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
     update sys_user
@@ -177,27 +119,40 @@
       sex = #{sex,jdbcType=TINYINT},
       phone = #{phone,jdbcType=VARCHAR},
       del_flag = #{delFlag,jdbcType=TINYINT},
-      last_visit = #{lastVisit,jdbcType=TIMESTAMP},
+      last_visit = #{lastVisit},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       remark1 = #{remark1,jdbcType=VARCHAR},
       remark2 = #{remark2,jdbcType=VARCHAR},
       remark3 = #{remark3,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER} and del_flag=0
   </update>
 
   <!-- 通过昵称查询用户密码 -->
-  <select id="selectUserInfoByNickName" parameterType="java.lang.String" resultType="java.lang.String">
-    select pass_word from sys_user where nick_name=#{nickName}
+  <select id="selectUserInfoByNickName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id,pass_word from sys_user where del_flag=0
+      <if test="nickName != null and nickName != ''">
+        and nick_name=#{nickName}
+      </if>
   </select>
 
   <!-- 通过昵称修改用户密码 -->
   <update id="updatePwdByNickName" parameterType="com.huiyi.campus.dao.dto.sys.UpdatePwdDto">
-    update sys_user set pass_word=#{newPwd} where nick_name=#{nickName}
+    update sys_user set pass_word=#{newPwd} where del_flag=0
+      <if test="nickName != null and nickName != ''">
+        and nick_name=#{nickName}
+      </if>
   </update>
 
+  <!-- 查询所有用户信息 -->
   <select id="selectAllUserInfo" parameterType="com.huiyi.campus.dao.dto.sys.UserDto" resultMap="BaseResultMap">
-    select id,nick_name,user_name,phone,sex from sys_user where nick_name=#{nickName}
+    select id,nick_name,user_name,phone,sex,last_visit from sys_user where del_flag=0
+      <if test="nickName != null and nickName != ''">
+        and nick_name=#{nickName}
+      </if>
+      <if test="phone != null and phone != ''">
+        and phone=#{phone}
+      </if>
   </select>
 
 </mapper>

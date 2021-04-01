@@ -4,6 +4,7 @@ import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.dto.sys.SysUserDto;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.dto.sys.UserDto;
+import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 
 /**
  * @author: yzg
@@ -19,5 +20,11 @@ public interface SysUserService {
     ResultBody updatePwdByOldPwd(UpdatePwdDto updatePwdDto);
 
     ResultBody getAllUserInfo(UserDto userDto);
+
+    ResultBody insertUserInfo(SysUserEntity sysUserEntity);
+
+    ResultBody updateUserInfo(SysUserEntity sysUserEntity);
+
+    ResultBody deleteUserInfoById(Integer id);
 
 }

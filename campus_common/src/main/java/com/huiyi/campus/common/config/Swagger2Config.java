@@ -28,7 +28,7 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .select()
                 // 为当前包路径
-                .apis(RequestHandlerSelectors.basePackage("com.huiyi.pacs.web"))
+                .apis(RequestHandlerSelectors.basePackage("com.huiyi.campus.web.sys"))
                 .paths(PathSelectors.any())
                 .build();
     }

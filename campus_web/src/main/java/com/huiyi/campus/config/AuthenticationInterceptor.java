@@ -6,10 +6,8 @@ import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.annotaion.PassToken;
 import com.huiyi.campus.common.base.CommonEnum;
 import com.huiyi.campus.common.consts.CommConstants;
-import com.huiyi.campus.common.utils.JasyptUtils;
-import com.huiyi.campus.common.utils.RSAUtils;
-import com.huiyi.campus.common.utils.RedisUtils;
-import com.huiyi.campus.common.utils.StringUtils;
+import com.huiyi.campus.common.utils.*;
+import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +32,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     @Autowired
     RedisUtils redisUtils;
     @Autowired
-    JasyptUtils jasyptUtils;
+    AESUtils aesUtils;
     @Autowired
     RSAUtils rsaUtils;
     @Autowired
@@ -65,14 +63,14 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     logger.info("无token，请重新登录");
                     throw new RuntimeException("无token，请重新登录");
                 }
-                String token = jasyptUtils.decryptPwd(aesToken);
+                String token = aesUtils.decrypt(aesToken);
                 try {
                     String nickName = JWT.decode(token).getAudience().get(0);
                     if (!StringUtils.isEmpty(nickName)) {
-                        boolean bl = redisUtils.hasKey(nickName);
+                        boolean bl = redisUtils.hasKey(CommConstants.USER_INFO + nickName);
                         if (!bl) {
-                            String passWord = sysUserDao.selectUserByNickName(nickName);
-                            if (StringUtils.isEmpty(passWord)) {
+                            SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
+                            if (null == sysUserEntity) {
                                 throw new RuntimeException("用户不存在，请重新登录");
                             }
                         }

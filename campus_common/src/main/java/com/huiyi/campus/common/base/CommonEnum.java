@@ -15,7 +15,7 @@ public enum CommonEnum implements BaseErrorInfoInterface {
     LOGIN_TIMEOUT("504", "登录超时，请重新登录!"),
     NO_DELETE("506", "当前项目使用中，无法删除!"),
     INVALID_TOKEN("507", "token无效，无法登录"),
-    REPETITION("508", "该用户代号已存在，请重新输入!"),
+    REPETITION("508", "该用户昵称已存在，请重新输入!"),
     LOGIN_OFFLINE("509", "无法登录，该用户账号登录设备已上限!");
 
     /**

@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.dto.sys;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
+@ApiModel("修改密码")
 public class UpdatePwdDto {
 
     @ApiModelProperty("用户昵称")

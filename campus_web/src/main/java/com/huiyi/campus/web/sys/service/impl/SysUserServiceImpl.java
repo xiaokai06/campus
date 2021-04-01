@@ -3,10 +3,7 @@ package com.huiyi.campus.web.sys.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
-import com.huiyi.campus.common.utils.AESUtils;
-import com.huiyi.campus.common.utils.RSAUtils;
-import com.huiyi.campus.common.utils.RedisUtils;
-import com.huiyi.campus.common.utils.StringUtils;
+import com.huiyi.campus.common.utils.*;
 import com.huiyi.campus.dao.dto.sys.SysUserDto;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.dto.sys.UserDto;
@@ -18,8 +15,6 @@ import com.huiyi.campus.web.sys.service.TokenService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author: yzg
@@ -50,7 +45,8 @@ public class SysUserServiceImpl implements SysUserService {
     public ResultBody selectUserInfoByNickName(SysUserDto sysUserDto) {
         String pwd = sysUserDto.getPwd();
         String nickName = sysUserDto.getNickName();
-        String passWord = sysUserDao.selectUserByNickName(nickName);
+        SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
+        String passWord = sysUserEntity.getPassWord();
         logger.info("前端传递的数据，用户昵称：" + nickName + ", 密码为：" + pwd);
         if (!StringUtils.isEmpty(passWord) && !StringUtils.isEmpty(pwd)) {
             // 对前端传递过来的密码和数据库中的密码，先进行RSA解密，再进行AES解密
@@ -60,14 +56,19 @@ public class SysUserServiceImpl implements SysUserService {
             String decAesM = aesUtils.decrypt(decRsaM);
             if (decAes.equals(decAesM)) {
                 TokenVo tokenVo = new TokenVo();
-                if (redisUtils.hasKey(nickName)) {
-                    tokenVo.setToken(JSON.toJSONString(redisUtils.get(nickName)));
+                String key = CommConstants.USER_INFO + nickName;
+                if (redisUtils.hasKey(key)) {
+                    tokenVo.setToken(JSON.toJSONString(redisUtils.get(key)));
                 } else {
                     String token = tokenService.getToken(nickName);
                     String aesToken = aesUtils.encrypt(token);
                     tokenVo.setToken(aesToken);
-                    redisUtils.set(nickName, aesToken, CommConstants.EXPIRE_TIME);
+                    redisUtils.set(key, aesToken, CommConstants.EXPIRE_TIME);
                 }
+                SysUserEntity sysUser = new SysUserEntity();
+                sysUser.setId(sysUserEntity.getId());
+                sysUser.setLastVisit(DateUtils.getTime());
+                sysUserDao.updateUserInfo(sysUser);
                 return ResultBody.success(tokenVo);
             } else {
                 return ResultBody.error("用户名或密码输入错误，请重新输入....");
@@ -78,9 +79,10 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public ResultBody exitSystem(String nickName) {
-        boolean bl = redisUtils.hasKey(nickName);
+        String key = CommConstants.USER_INFO + nickName;
+        boolean bl = redisUtils.hasKey(key);
         if (bl) {
-            redisUtils.del(nickName);
+            redisUtils.del(key);
             return ResultBody.success("退出成功");
         }
         return ResultBody.error("退出失败");
@@ -90,7 +92,8 @@ public class SysUserServiceImpl implements SysUserService {
     public ResultBody updatePwdByOldPwd(UpdatePwdDto updatePwdDto) {
         String nickName = updatePwdDto.getNickName();
         String pwd = updatePwdDto.getOldPwd();
-        String passWord = sysUserDao.selectUserByNickName(nickName);
+        SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
+        String passWord = sysUserEntity.getPassWord();
         if (!StringUtils.isEmpty(passWord) && !StringUtils.isEmpty(pwd)) {
             // 对前端传递过来的密码和数据库中的密码，先进行RSA解密，再进行AES解密
             String decRsa = rsaUtils.decrypt(pwd);
@@ -105,17 +108,38 @@ public class SysUserServiceImpl implements SysUserService {
             if (!newPwd.equals(confirmPwd)) {
                 return ResultBody.error("新密码和确认密码输入不一致，请重新输入....");
             }
-            Integer i = sysUserDao.updateUserPwd(updatePwdDto);
-            if (i > 0) {
-                return ResultBody.success("修改成功！");
-            }
+            return ResultBody.update(sysUserDao.updateUserPwd(updatePwdDto));
         }
-        return ResultBody.error("修改失败！");
+        return ResultBody.update(0);
     }
 
     @Override
     public ResultBody getAllUserInfo(UserDto userDto) {
-        List<SysUserEntity> list = sysUserDao.selectAllUserInfo(userDto);
-        return ResultBody.success(list);
+        return ResultBody.success(sysUserDao.selectAllUserInfo(userDto));
     }
+
+    @Override
+    public ResultBody insertUserInfo(SysUserEntity sysUserEntity) {
+        // TODO:对于前端传递过来的密码加密字符串先解密后加密再存储到数据库
+        String pwd = sysUserEntity.getPassWord();
+        String decRsa = rsaUtils.decrypt(pwd);
+        String decAes = aesUtils.decrypt(decRsa);
+        if (!StringUtils.isEmpty(decAes)) {
+            String enAes = aesUtils.encrypt(decAes);
+            String enRsa = rsaUtils.encrypt(enAes);
+            sysUserEntity.setPassWord(enRsa);
+        }
+        return ResultBody.insert(sysUserDao.insertUserInfo(sysUserEntity), sysUserEntity.getId());
+    }
+
+    @Override
+    public ResultBody updateUserInfo(SysUserEntity sysUserEntity) {
+        return ResultBody.update(sysUserDao.updateUserInfo(sysUserEntity));
+    }
+
+    @Override
+    public ResultBody deleteUserInfoById(Integer id) {
+        return ResultBody.delete(sysUserDao.deleteUserInfoById(id));
+    }
+
 }
