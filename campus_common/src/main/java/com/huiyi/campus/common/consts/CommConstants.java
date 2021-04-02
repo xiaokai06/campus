@@ -48,5 +48,7 @@ public class CommConstants {
 
     public static final String USER_INFO = "user:";
 
+    /** 管理员昵称 */
+    public static final String USER_ADMIN = "admin";
 
 }

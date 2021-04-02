@@ -1,17 +1,29 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
-import com.huiyi.campus.dao.entity.sys.SysRoleMenuEntity;
+import com.huiyi.campus.dao.dto.sys.RoleDto;
+import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
+import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
+
+import java.util.List;
 
 public interface SysRoleMenuMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(SysRoleMenuEntity record);
+    List<Integer> selectMenuById(Integer userId);
 
-    int insertSelective(SysRoleMenuEntity record);
+    List<SysRoleEntity> selectAllRole(RoleDto roleDto);
 
-    SysRoleMenuEntity selectByPrimaryKey(Integer id);
+    int insertRoleInfo(SysRoleEntity sysRoleEntity);
 
-    int updateByPrimaryKeySelective(SysRoleMenuEntity record);
+    int updateRoleInfo(SysRoleEntity sysRoleEntity);
 
-    int updateByPrimaryKey(SysRoleMenuEntity record);
+    int deleteRoleInfo(Integer id);
+
+    List<SysMenuEntity> selectAllMenu(String menuName);
+
+    int insertMenuInfo(SysMenuEntity sysMenuEntity);
+
+    int updateMenuInfo(SysMenuEntity sysMenuEntity);
+
+    int deleteMenuInfo(Integer id);
+
 }
