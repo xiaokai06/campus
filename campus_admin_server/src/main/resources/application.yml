@@ -4,7 +4,7 @@ server:
 spring:
   application:
     name: campus-boot-admin-server
-# 微服务注册
+  # 微服务注册
   cloud:
     nacos:
       discovery:
@@ -31,4 +31,4 @@ logging:
   config: classpath:logback-spring.xml
   level:
     root: info
-  file: logs/campus-info.log
+  file: campus-health/logs/campus-admin-server-info.log
