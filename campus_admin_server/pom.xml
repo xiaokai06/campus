@@ -2,60 +2,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
+   <!-- <parent>
         <artifactId>campus_health_system</artifactId>
         <groupId>com.huiyi.campus</groupId>
         <version>0.0.1-SNAPSHOT</version>
-    </parent>
+    </parent>-->
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>campus_startup</artifactId>
+    <artifactId>campus_admin_server</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <!--druid数据连接池-->
-        <druid.boot.version>1.1.20</druid.boot.version>
         <!---->
-        <spring-boot-admin-client.version>2.2.3</spring-boot-admin-client.version>
+        <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.huiyi.campus</groupId>
-            <artifactId>campus_web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.huiyi.campus</groupId>
-            <artifactId>campus_dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.huiyi.campus</groupId>
-            <artifactId>campus_wx_applets</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.huiyi.campus</groupId>
-            <artifactId>campus_netty</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.huiyi.campus</groupId>
-            <artifactId>campus_common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
-        <!--加入spring-boot-admin连接端-->
+    <dependencies>
+        <!--健康检查-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <dependency>
             <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>${spring-boot-admin-client.version}</version>
+            <artifactId>spring-boot-admin-starter-server</artifactId>
+            <version>2.2.3</version>
         </dependency>
-        <!--nacos微服务注册-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.13</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -65,21 +52,17 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!--mysql依赖Jar-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <!--druid依赖jar-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid.boot.version}</version>
-        </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!--SpringCloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -88,7 +71,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--Spring Alibaba Cloud-->
+
+            <!-- Spring Alibaba Cloud-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -99,33 +83,11 @@
         </dependencies>
     </dependencyManagement>
 
-    <profiles>
-        <!-- 开发环境 -->
-        <profile>
-            <id>local</id>
-            <properties>
-                <profiles.active>src/main/resources/local</profiles.active>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <!-- 生产环境 -->
-        <profile>
-            <id>prod</id>
-            <properties>
-                <profiles.active>src/main/resources/prod</profiles.active>
-            </properties>
-        </profile>
-    </profiles>
     <build>
         <!-- 定义资源目录 -->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>${profiles.active}</directory>
             </resource>
             <resource>
                 <directory>src/main/java</directory>
@@ -148,4 +110,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

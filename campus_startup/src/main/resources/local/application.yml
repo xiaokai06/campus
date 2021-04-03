@@ -2,15 +2,21 @@ spring:
   application:
     #   项目应用名
     name: campus_health_service
+    # 微服务注册
+    cloud:
+      nacos:
+        discovery:
+          #必须配置ip地址
+          server-addr: 192.168.123.13:8848
+          # 将自己的服务注册到注册中心
+          register-enabled: true
+        config:
+          server-addr: 192.168.123.13:8848
+          enabled: true
+          file-extension: yaml
   #   需要加载的配置文件
   profiles:
     active: datasource,cache
-
-#  devtools:
-#    restart:
-#      enabled: true  #设置开启热部署
-#      additional-paths: src/main/java #重启目录
-#      exclude: WEB-INF/**
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
   http:
@@ -24,18 +30,50 @@ server:
   port: 8021
   tomcat:
     uri-encoding: UTF-8
+# 开放端点用于SpringBoot Admin的监控-健康检查访问: http://ip:port/sys/actuator/health
+management:
+  # 端点信息接口使用的端口，为了和主系统接口使用的端口进行分离
+  server:
+    port: 7059
+    servlet:
+      context-path: /sys
+  # 端点健康情况，默认值"never"，设置为"always"可以显示硬盘使用情况和线程情况
+  endpoint:
+    health:
+      show-details: always
+  # 设置端点暴露的哪些内容，默认["health","info"]，设置"*"代表暴露所有可访问的端点
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  ## spring-boot-admin 配置
+  boot:
+    admin:
+      client:
+        enabled: true
+        url: http://localhost:8769
+        #        username: admin
+        #        password: admin@12345
+        #        period: 10000
+        #        connect-timeout: 5000
+        #        read-timeout: 5000
+        # 为了显示客户端的ip否则是以主机名显示的，这样需要添加hosts影射。
+#        instance:
+#          prefer-ip: true
+
+# 日志文件访问配置
 logging:
   level:
-    com:
-      huiyi:
-        campus: debug
-  config: classpath:logback.xml
+    root: info
+  file: logs/campus-info.log
+  config: classpath:logback-spring.xml
 #  minio对象存储配置
 minio:
   endpoint: http://192.168.3.94:9000
   accessKey: minioadmin
   secretKey: minioadmin
   bucketImageName: campus
+
 #login:
 #  count: 3 # 系统最多允许多少台设备登录同一账号
 # PageHelper分页插件
@@ -44,3 +82,7 @@ minio:
 #  reasonable: true
 #  supportMethodsArguments: false
 #  params: count=countSql
+
+
+
+

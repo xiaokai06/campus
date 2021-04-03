@@ -12,7 +12,7 @@ spring:
   datasource:
     name: db
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://192.168.3.75:3306/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
+    url: jdbc:mysql://47.93.112.92:3306/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver

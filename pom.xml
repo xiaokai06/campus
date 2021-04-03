@@ -12,6 +12,7 @@
         <module>campus_web</module>
         <module>campus_wx_applets</module>
         <module>campus_netty</module>
+        <module>campus_admin_server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -93,18 +94,8 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus-boot-starter.version}</version>
         </dependency>
-        <!--druid依赖jar-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid.boot.version}</version>
-        </dependency>
-        <!--mysql依赖Jar-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+
+
         <!--数据解析依赖-->
         <dependency>
             <groupId>dom4j</groupId>
@@ -257,6 +248,7 @@
             <artifactId>minio</artifactId>
             <version>${minio.version}</version>
         </dependency>
+
     </dependencies>
 
 

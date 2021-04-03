@@ -1,0 +1,14 @@
+2021-04-03 21:23:09.082 ERROR 19892 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8021 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8021 or configure this application to listen on another port.
+
