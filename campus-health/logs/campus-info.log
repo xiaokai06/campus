@@ -1283,3 +1283,208 @@ s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r              
 2021-04-04 00:40:29.526  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
 2021-04-04 00:40:59.029  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
 2021-04-04 00:41:28.536  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:41:58.054  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:42:27.561  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:42:57.065  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:43:26.584  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:43:56.094  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:44:25.611  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:44:55.118  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:45:24.628  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:45:54.135  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:46:23.652  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:46:53.169  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:47:22.685  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:47:52.202  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:48:21.714  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:48:51.227  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:49:20.740  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:49:50.257  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:50:19.775  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:50:49.292  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:51:18.809  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:51:48.321  INFO 132 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:52:00.065  INFO 132 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-04 00:52:00.067  INFO 132 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'Nacso-Watch-Task-Scheduler'
+2021-04-04 00:52:00.077  INFO 132 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2021-04-04 00:52:00.078  INFO 132 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-04-04 00:52:00.078  INFO 132 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-04 00:52:00.082  INFO 132 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-04-04 00:52:00.150  INFO 132 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2021-04-04 00:52:00.151  INFO 132 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [BEAT] removing beat: DEFAULT_GROUP@@campus_health_service:192.168.123.13:8021 from beat map.
+2021-04-04 00:52:00.156  INFO 132 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@campus_health_service with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"instanceIdGenerator":"simple","ip":"192.168.123.13","ipDeleteTimeout":30000,"metadata":{},"port":8021,"weight":1.0}
+2021-04-04 00:52:00.172  INFO 132 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2021-04-04 00:52:00.176  INFO 132 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-04 00:52:00.206  INFO 132 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-04-04 00:52:00.242  INFO 132 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-04-04 00:52:10.036  INFO 22312 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-04 00:52:10.221  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-04 00:52:10.223  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:10.224  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:10.224  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:10.224  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-04 00:52:10.224  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:10.624  INFO 22312 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-04 00:52:12.905  INFO 22312 --- [main] c.a.n.c.c.impl.LocalConfigInfoProcessor  : LOCAL_SNAPSHOT_PATH:C:\Users\凯凯\nacos\config
+2021-04-04 00:52:13.154  INFO 22312 --- [main] c.a.nacos.client.config.impl.Limiter     : limitTime:5.0
+2021-04-04 00:52:14.091  WARN 22312 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service] & group[DEFAULT_GROUP]
+2021-04-04 00:52:14.120  WARN 22312 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service.properties] & group[DEFAULT_GROUP]
+2021-04-04 00:52:14.125  WARN 22312 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-datasource.properties] & group[DEFAULT_GROUP]
+2021-04-04 00:52:14.136  WARN 22312 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-cache.properties] & group[DEFAULT_GROUP]
+2021-04-04 00:52:14.138  INFO 22312 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-campus_health_service-cache.properties,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service-datasource.properties,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service.properties,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service,DEFAULT_GROUP'}]
+2021-04-04 00:52:14.169 ERROR 22312 --- [main] o.s.cloud.logging.LoggingRebinder        : Cannot set level:  for 'com.alibaba'
+2021-04-04 00:52:14.169 ERROR 22312 --- [main] o.s.cloud.logging.LoggingRebinder        : Cannot set level:  for 'com.nacos'
+2021-04-04 00:52:14.169 ERROR 22312 --- [main] o.s.cloud.logging.LoggingRebinder        : Cannot set level:  for 'com.client'
+2021-04-04 00:52:14.170 ERROR 22312 --- [main] o.s.cloud.logging.LoggingRebinder        : Cannot set level:  for 'com.config'
+2021-04-04 00:52:14.174  INFO 22312 --- [main] EnableEncryptablePropertiesConfiguration : Bootstraping jasypt-string-boot auto configuration in context: application-1
+2021-04-04 00:52:14.174  INFO 22312 --- [main] com.huiyi.campus.CampusStartApplication  : The following profiles are active: datasource,cache
+2021-04-04 00:52:21.428  WARN 22312 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2021-04-04 00:52:21.438  WARN 22312 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2021-04-04 00:52:22.481  INFO 22312 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-04 00:52:22.498  INFO 22312 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-04 00:52:22.679  INFO 22312 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120ms. Found 0 Redis repository interfaces.
+2021-04-04 00:52:22.990  WARN 22312 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-04-04 00:52:23.361  INFO 22312 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9dfbaa42-7125-3cf0-9309-a76afc932ebf
+2021-04-04 00:52:24.099  INFO 22312 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-cache.properties,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-datasource.properties,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service.properties,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-04 00:52:24.130  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:24.131  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:24.131  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:24.131  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:24.131  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:24.131  INFO 22312 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-04 00:52:24.305  INFO 22312 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-04 00:52:25.503  INFO 22312 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$c287d4c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-04 00:52:25.899  INFO 22312 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-04 00:52:25.916  INFO 22312 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-04 00:52:27.431  INFO 22312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8021 (http)
+2021-04-04 00:52:27.484  INFO 22312 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-04 00:52:27.485  INFO 22312 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-04 00:52:28.100  INFO 22312 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-04 00:52:28.100  INFO 22312 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 13746 ms
+2021-04-04 00:52:33.242  INFO 22312 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2021-04-04 00:52:33.244  INFO 22312 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Environment :null
+2021-04-04 00:52:33.249  INFO 22312 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2021-04-04 00:52:33.389  INFO 22312 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-04-04 00:52:35.068  INFO 22312 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-04-04 00:52:45.330  INFO 22312 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
+2021-04-04 00:52:45.766  INFO 22312 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-04 00:52:45.923  WARN 22312 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-04 00:52:45.924  INFO 22312 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-04 00:52:45.940  WARN 22312 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-04 00:52:45.940  INFO 22312 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-04 00:52:46.637  INFO 22312 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-04 00:52:47.370  INFO 22312 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'Nacso-Watch-Task-Scheduler'
+2021-04-04 00:52:48.269  INFO 22312 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2021-04-04 00:52:48.343  INFO 22312 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-04-04 00:52:48.344  INFO 22312 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2021-04-04 00:52:48.347  INFO 22312 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2021-04-04 00:52:48.349  INFO 22312 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-04-04 00:52:48.351  INFO 22312 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-04-04 00:52:48.358  INFO 22312 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2021-04-04 00:52:48.364  INFO 22312 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4446e1d9
+2021-04-04 00:52:49.649  INFO 22312 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-04 00:52:49.687  INFO 22312 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-04 00:52:49.866  INFO 22312 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-04 00:52:50.637  INFO 22312 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2021-04-04 00:52:50.638  INFO 22312 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-04-04 00:52:50.759  INFO 22312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8021 (http) with context path ''
+2021-04-04 00:52:50.768  INFO 22312 --- [main] com.alibaba.nacos.client.naming          : [BEAT] adding beat: {"cluster":"DEFAULT","ip":"192.168.123.13","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":8021,"scheduled":false,"serviceName":"DEFAULT_GROUP@@campus_health_service","stopped":false,"weight":1.0} to beat map.
+2021-04-04 00:52:51.012  INFO 22312 --- [main] com.alibaba.nacos.client.naming          : [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@campus_health_service with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.123.13","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":8021,"weight":1.0}
+2021-04-04 00:52:51.040  INFO 22312 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP campus_health_service 192.168.123.13:8021 register finished
+2021-04-04 00:52:51.340  INFO 22312 --- [main] com.huiyi.campus.CampusStartApplication  : Started CampusStartApplication in 44.025 seconds (JVM running for 46.724)
+2021-04-04 00:52:51.354  INFO 22312 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-localhost_8848] [subscribe] campus_health_service.properties+DEFAULT_GROUP
+2021-04-04 00:52:51.355  INFO 22312 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-localhost_8848] [add-listener] ok, tenant=, dataId=campus_health_service.properties, group=DEFAULT_GROUP, cnt=1
+2021-04-04 00:52:51.356  INFO 22312 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-localhost_8848] [subscribe] campus_health_service+DEFAULT_GROUP
+2021-04-04 00:52:51.356  INFO 22312 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-localhost_8848] [add-listener] ok, tenant=, dataId=campus_health_service, group=DEFAULT_GROUP, cnt=1
+2021-04-04 00:52:51.356  INFO 22312 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-localhost_8848] [subscribe] campus_health_service-cache.properties+DEFAULT_GROUP
+2021-04-04 00:52:51.356  INFO 22312 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-localhost_8848] [add-listener] ok, tenant=, dataId=campus_health_service-cache.properties, group=DEFAULT_GROUP, cnt=1
+2021-04-04 00:52:51.356  INFO 22312 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-localhost_8848] [subscribe] campus_health_service-datasource.properties+DEFAULT_GROUP
+2021-04-04 00:52:51.356  INFO 22312 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-localhost_8848] [add-listener] ok, tenant=, dataId=campus_health_service-datasource.properties, group=DEFAULT_GROUP, cnt=1
+2021-04-04 00:52:51.360  INFO 22312 --- [main] com.huiyi.campus.CampusStartApplication  : 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+2021-04-04 00:52:51.413  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:53:12.527  INFO 22312 --- [http-nio-8021-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-04 00:53:12.527  INFO 22312 --- [http-nio-8021-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-04 00:53:12.549  INFO 22312 --- [http-nio-8021-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 22 ms
+2021-04-04 00:53:21.087  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:53:35.375  INFO 22312 --- [boundedElastic-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2021-04-04 00:53:35.384  INFO 22312 --- [boundedElastic-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2021-04-04 00:53:50.623  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:54:20.141  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:54:49.657  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:55:19.168  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:55:48.690  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:56:18.207  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:56:47.716  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:57:17.241  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:57:46.744  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:58:16.251  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:58:45.760  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:59:15.265  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 00:59:44.990  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:00:14.495  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:00:44.085  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:01:13.594  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:01:43.157  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:02:12.677  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:02:42.216  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:03:11.732  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:03:41.257  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:04:10.778  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:04:40.284  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:05:09.801  INFO 22312 --- [com.alibaba.nacos.client.Worker.longPolling.fixed-localhost_8848] c.a.n.client.config.impl.ClientWorker    : get changedGroupKeys:[]
+2021-04-04 01:05:27.564  INFO 22312 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-04 01:05:27.564  INFO 22312 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'Nacso-Watch-Task-Scheduler'
+2021-04-04 01:05:27.566  INFO 22312 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2021-04-04 01:05:27.567  INFO 22312 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-04-04 01:05:27.567  INFO 22312 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-04 01:05:27.568  INFO 22312 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-04-04 01:05:27.589  INFO 22312 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2021-04-04 01:05:27.590  INFO 22312 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [BEAT] removing beat: DEFAULT_GROUP@@campus_health_service:192.168.123.13:8021 from beat map.
+2021-04-04 01:05:27.590  INFO 22312 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@campus_health_service with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"instanceIdGenerator":"simple","ip":"192.168.123.13","ipDeleteTimeout":30000,"metadata":{},"port":8021,"weight":1.0}
+2021-04-04 01:05:27.597  INFO 22312 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2021-04-04 01:05:27.599  INFO 22312 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-04 01:05:27.620  INFO 22312 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-04-04 01:05:27.642  INFO 22312 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

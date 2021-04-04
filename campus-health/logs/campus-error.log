@@ -104,3 +104,7 @@ Caused by: java.lang.IllegalStateException: Property 'configuration' and 'config
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
 	... 70 common frames omitted
 
+2021-04-04 00:52:14.169 ERROR 22312 --- [main] o.s.cloud.logging.LoggingRebinder        : Cannot set level:  for 'com.alibaba'
+2021-04-04 00:52:14.169 ERROR 22312 --- [main] o.s.cloud.logging.LoggingRebinder        : Cannot set level:  for 'com.nacos'
+2021-04-04 00:52:14.169 ERROR 22312 --- [main] o.s.cloud.logging.LoggingRebinder        : Cannot set level:  for 'com.client'
+2021-04-04 00:52:14.170 ERROR 22312 --- [main] o.s.cloud.logging.LoggingRebinder        : Cannot set level:  for 'com.config'
