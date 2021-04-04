@@ -36,9 +36,9 @@ logging:
   config: classpath:logback.xml
 #  minio对象存储配置
 minio:
-  endpoint: http://127.0.0.1:9000
-  accessKey: minioadmin
-  secretKey: minioadmin
+  endpoint: http://47.93.112.92:9000
+  accessKey: admin
+  secretKey: admin123456
   bucketImageName: campus
 #login:
 #  count: 3 # 系统最多允许多少台设备登录同一账号

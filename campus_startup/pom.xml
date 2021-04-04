@@ -19,7 +19,7 @@
         <!---->
         <spring-boot-admin-client.version>2.2.3</spring-boot-admin-client.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <dependencies>
