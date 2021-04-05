@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>campus_admin_server</artifactId>
+    <name>campus-admin-server-1.0</name>
+    <description>后台健康监控服务</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -84,29 +86,10 @@
     </dependencyManagement>
 
     <build>
-        <!-- 定义资源目录 -->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.yml</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <finalName>${project.parent.name}</finalName>
-                    <outputDirectory>../target</outputDirectory>
-                    <fork>true</fork>
-                </configuration>
             </plugin>
         </plugins>
     </build>

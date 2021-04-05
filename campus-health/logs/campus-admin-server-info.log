@@ -9915,3 +9915,8 @@ java.net.ConnectException: [NACOS HTTP-POST] The maximum number of tolerable ser
 2021-04-05 10:48:49.812  INFO 9144 --- [reactor-http-nio-1] c.h.campus.notifier.DingtalkNotifier     : Instance campus-boot-admin-server (273c392b44aa) is UP
 2021-04-05 10:48:49.812  INFO 9144 --- [reactor-http-nio-1] c.h.campus.notifier.DingtalkNotifier     : 发送 服务上线 的通知！
 2021-04-05 10:48:50.890  INFO 9144 --- [reactor-http-nio-1] com.huiyi.campus.notifier.DingtalkUtils  : 执行结果：{"errcode":300001,"errmsg":"token is not exist"}
+2021-04-05 11:04:11.137  WARN 9144 --- [Thread-27] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2021-04-05 11:04:11.137  WARN 9144 --- [Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2021-04-05 11:04:11.137  WARN 9144 --- [Thread-27] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2021-04-05 11:04:11.137  WARN 9144 --- [Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2021-04-05 11:04:11.137  INFO 9144 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'Nacos-Watch-Task-Scheduler'

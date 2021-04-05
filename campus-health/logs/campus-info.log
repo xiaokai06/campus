@@ -1488,3 +1488,553 @@ s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r              
 2021-04-04 01:05:27.599  INFO 22312 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2021-04-04 01:05:27.620  INFO 22312 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
 2021-04-04 01:05:27.642  INFO 22312 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-04-05 11:38:17.768  INFO 12080 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-05 11:38:17.846  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-05 11:38:17.861  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:17.861  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:17.861  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:17.861  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:38:17.861  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:17.861  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/bootstrap.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:17.908  INFO 12080 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-05 11:38:17.924  INFO 12080 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-05 11:38:17.924  INFO 12080 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-05 11:38:18.346  INFO 12080 --- [main] c.a.n.c.c.impl.LocalConfigInfoProcessor  : LOCAL_SNAPSHOT_PATH:C:\Users\wwwxi\nacos\config
+2021-04-05 11:38:18.393  INFO 12080 --- [main] c.a.nacos.client.config.impl.Limiter     : limitTime:5.0
+2021-04-05 11:38:18.533  WARN 12080 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service] & group[DEFAULT_GROUP]
+2021-04-05 11:38:18.580  WARN 12080 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:38:18.627  WARN 12080 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-datasource.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:38:18.674  WARN 12080 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-cache.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:38:18.674  INFO 12080 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-campus_health_service-cache.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service-datasource.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service,DEFAULT_GROUP'}]
+2021-04-05 11:38:18.705  INFO 12080 --- [main] EnableEncryptablePropertiesConfiguration : Bootstraping jasypt-string-boot auto configuration in context: application-1
+2021-04-05 11:38:18.705  INFO 12080 --- [main] com.huiyi.campus.CampusStartApplication  : The following profiles are active: datasource,cache
+2021-04-05 11:38:20.096  INFO 12080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-05 11:38:20.112  INFO 12080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-05 11:38:20.159  INFO 12080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36ms. Found 0 Redis repository interfaces.
+2021-04-05 11:38:20.252  WARN 12080 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-04-05 11:38:20.377  INFO 12080 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6618298b-5e1e-37cb-9ccd-fd21ef255f68
+2021-04-05 11:38:20.596  INFO 12080 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-cache.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-datasource.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:20.627  INFO 12080 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:38:20.674  INFO 12080 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-05 11:38:20.940  INFO 12080 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$2b3a8552] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-05 11:38:21.080  INFO 12080 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-05 11:38:21.080  INFO 12080 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-05 11:38:21.377  INFO 12080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8021 (http)
+2021-04-05 11:38:21.393  INFO 12080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 11:38:21.393  INFO 12080 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-05 11:38:21.619  INFO 12080 --- [main] o.a.c.c.C.[.[localhost].[/campus]        : Initializing Spring embedded WebApplicationContext
+2021-04-05 11:38:21.619  INFO 12080 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2898 ms
+2021-04-05 11:38:22.472  INFO 12080 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2021-04-05 11:38:22.472  INFO 12080 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Environment :null
+2021-04-05 11:38:22.472  INFO 12080 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2021-04-05 11:38:22.519  INFO 12080 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-04-05 11:38:22.660  INFO 12080 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-04-05 11:38:26.216  INFO 12080 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
+2021-04-05 11:38:26.341  INFO 12080 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 11:38:26.372  WARN 12080 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-05 11:38:26.372  INFO 12080 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-05 11:38:26.388  WARN 12080 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-05 11:38:26.388  INFO 12080 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-05 11:38:26.606  INFO 12080 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:38:27.078  INFO 12080 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'Nacos-Watch-Task-Scheduler'
+2021-04-05 11:38:27.547  INFO 12080 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2021-04-05 11:38:27.563  INFO 12080 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-04-05 11:38:27.563  INFO 12080 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2021-04-05 11:38:27.563  INFO 12080 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2021-04-05 11:38:27.563  INFO 12080 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-04-05 11:38:27.563  INFO 12080 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-04-05 11:38:27.563  INFO 12080 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2021-04-05 11:38:27.563  INFO 12080 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5692863
+2021-04-05 11:38:28.188  INFO 12080 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 11:38:28.220  INFO 12080 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 11:38:28.266  INFO 12080 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 11:38:28.438  INFO 12080 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2021-04-05 11:38:28.438  INFO 12080 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-04-05 11:38:28.485  INFO 12080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8021 (http) with context path '/campus'
+2021-04-05 11:38:28.501  INFO 12080 --- [main] com.alibaba.nacos.client.naming          : [BEAT] adding beat: BeatInfo{port=8021, ip='192.168.71.1', weight=1.0, serviceName='DEFAULT_GROUP@@campus_health_service', cluster='DEFAULT', metadata={preserved.register.source=SPRING_CLOUD}, scheduled=false, period=5000, stopped=false} to beat map.
+2021-04-05 11:38:28.501  INFO 12080 --- [main] com.alibaba.nacos.client.naming          : [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@campus_health_service with instance: Instance{instanceId='null', ip='192.168.71.1', port=8021, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD}}
+2021-04-05 11:38:28.548  INFO 12080 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP campus_health_service 192.168.71.1:8021 register finished
+2021-04-05 11:38:28.798  INFO 12080 --- [main] com.huiyi.campus.CampusStartApplication  : Started CampusStartApplication in 12.723 seconds (JVM running for 14.611)
+2021-04-05 11:38:28.798  INFO 12080 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service-cache.yaml+DEFAULT_GROUP
+2021-04-05 11:38:28.798  INFO 12080 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service-cache.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:38:28.798  INFO 12080 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service.yaml+DEFAULT_GROUP
+2021-04-05 11:38:28.798  INFO 12080 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:38:28.798  INFO 12080 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service+DEFAULT_GROUP
+2021-04-05 11:38:28.798  INFO 12080 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:38:28.798  INFO 12080 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service-datasource.yaml+DEFAULT_GROUP
+2021-04-05 11:38:28.798  INFO 12080 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service-datasource.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:38:28.798  INFO 12080 --- [main] com.huiyi.campus.CampusStartApplication  : 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+2021-04-05 11:38:29.313  INFO 12080 --- [com.alibaba.nacos.client.naming.updater] com.alibaba.nacos.client.naming          : new ips(1) service: DEFAULT_GROUP@@campus_health_service@@DEFAULT -> [{"instanceId":"192.168.71.1#8021#DEFAULT#DEFAULT_GROUP@@campus_health_service","ip":"192.168.71.1","port":8021,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@campus_health_service","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000}]
+2021-04-05 11:38:29.328  INFO 12080 --- [com.alibaba.nacos.client.naming.updater] com.alibaba.nacos.client.naming          : current ips:(1) service: DEFAULT_GROUP@@campus_health_service@@DEFAULT -> [{"instanceId":"192.168.71.1#8021#DEFAULT#DEFAULT_GROUP@@campus_health_service","ip":"192.168.71.1","port":8021,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@campus_health_service","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000}]
+2021-04-05 11:38:29.406  INFO 12080 --- [RMI TCP Connection(4)-192.168.71.1] o.a.c.c.C.[.[localhost].[/campus]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 11:38:29.406  INFO 12080 --- [RMI TCP Connection(4)-192.168.71.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 11:38:29.422  INFO 12080 --- [RMI TCP Connection(4)-192.168.71.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2021-04-05 11:38:30.672  INFO 12080 --- [boundedElastic-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2021-04-05 11:38:30.672  INFO 12080 --- [boundedElastic-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2021-04-05 11:38:33.079  WARN 12080 --- [boundedElastic-1] o.s.b.a.r.RedisReactiveHealthIndicator   : Redis health check failed
+
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1199)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1178)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:952)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:429)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:94)
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:85)
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:225)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:234)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:207)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1197)
+	... 15 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:715)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:702)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-04-05 11:39:00.525  WARN 12080 --- [Thread-31] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2021-04-05 11:39:00.525  WARN 12080 --- [Thread-31] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2021-04-05 11:39:00.525  WARN 12080 --- [Thread-8] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2021-04-05 11:39:00.525  WARN 12080 --- [Thread-8] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'Nacos-Watch-Task-Scheduler'
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [BEAT] removing beat: DEFAULT_GROUP@@campus_health_service:192.168.71.1:8021 from beat map.
+2021-04-05 11:39:00.525  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@campus_health_service with instance: Instance{instanceId='null', ip='192.168.71.1', port=8021, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2021-04-05 11:39:00.572  INFO 12080 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2021-04-05 11:39:00.572  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.beat.BeatReactor do shutdown begin
+2021-04-05 11:39:03.604  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.beat.BeatReactor do shutdown stop
+2021-04-05 11:39:03.604  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.core.HostReactor do shutdown begin
+2021-04-05 11:39:06.635  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.core.PushReceiver do shutdown begin
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.core.PushReceiver do shutdown stop
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.core.HostReactor do shutdown stop
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.net.NamingProxy do shutdown begin
+2021-04-05 11:39:09.651  WARN 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [NamingHttpClientManager] Start destroying NacosRestTemplate
+2021-04-05 11:39:09.651  WARN 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [NamingHttpClientManager] Destruction of the end
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] c.a.n.client.identify.CredentialWatcher  : [null] CredentialWatcher is stopped
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] c.a.n.client.identify.CredentialService  : [null] CredentialService is freed
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.net.NamingProxy do shutdown stop
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:39:09.651  WARN 12080 --- [SpringContextShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Destroy method 'close' on bean with name 'nacosServiceRegistry' threw an exception: java.lang.NullPointerException
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-04-05 11:39:09.651  INFO 12080 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-04-05 11:39:16.155  INFO 8952 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-05 11:39:16.233  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-05 11:39:16.233  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:16.233  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:16.233  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:16.249  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:39:16.249  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:16.249  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/bootstrap.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:16.295  INFO 8952 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-05 11:39:16.311  INFO 8952 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-05 11:39:16.311  INFO 8952 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-05 11:39:16.780  INFO 8952 --- [main] c.a.n.c.c.impl.LocalConfigInfoProcessor  : LOCAL_SNAPSHOT_PATH:C:\Users\wwwxi\nacos\config
+2021-04-05 11:39:16.827  INFO 8952 --- [main] c.a.nacos.client.config.impl.Limiter     : limitTime:5.0
+2021-04-05 11:39:17.092  WARN 8952 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service] & group[DEFAULT_GROUP]
+2021-04-05 11:39:17.233  WARN 8952 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:39:17.374  WARN 8952 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-datasource.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:39:17.436  WARN 8952 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-cache.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:39:17.592  WARN 8952 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-bootstrap.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:39:17.592  INFO 8952 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-campus_health_service-bootstrap.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service-cache.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service-datasource.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service,DEFAULT_GROUP'}]
+2021-04-05 11:39:17.624  INFO 8952 --- [main] EnableEncryptablePropertiesConfiguration : Bootstraping jasypt-string-boot auto configuration in context: application-1
+2021-04-05 11:39:17.624  INFO 8952 --- [main] com.huiyi.campus.CampusStartApplication  : The following profiles are active: datasource,cache,bootstrap
+2021-04-05 11:39:19.108  INFO 8952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-05 11:39:19.108  INFO 8952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-05 11:39:19.155  INFO 8952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36ms. Found 0 Redis repository interfaces.
+2021-04-05 11:39:19.249  WARN 8952 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-04-05 11:39:19.374  INFO 8952 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6618298b-5e1e-37cb-9ccd-fd21ef255f68
+2021-04-05 11:39:19.608  INFO 8952 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-bootstrap.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-cache.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-datasource.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:19.624  INFO 8952 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:39:19.686  INFO 8952 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-05 11:39:19.976  INFO 8952 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$d42e5d94] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-05 11:39:20.101  INFO 8952 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-05 11:39:20.101  INFO 8952 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-05 11:39:20.413  INFO 8952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8021 (http)
+2021-04-05 11:39:20.429  INFO 8952 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 11:39:20.429  INFO 8952 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-05 11:39:20.585  INFO 8952 --- [main] o.a.c.c.C.[.[localhost].[/campus]        : Initializing Spring embedded WebApplicationContext
+2021-04-05 11:39:20.585  INFO 8952 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2930 ms
+2021-04-05 11:39:21.444  INFO 8952 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2021-04-05 11:39:21.444  INFO 8952 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Environment :null
+2021-04-05 11:39:21.444  INFO 8952 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2021-04-05 11:39:21.476  INFO 8952 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-04-05 11:39:21.601  INFO 8952 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-04-05 11:39:24.273  INFO 8952 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
+2021-04-05 11:39:24.398  INFO 8952 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 11:39:24.429  WARN 8952 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-05 11:39:24.429  INFO 8952 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-05 11:39:24.445  WARN 8952 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-05 11:39:24.445  INFO 8952 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-05 11:39:24.679  INFO 8952 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:39:25.044  INFO 8952 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'Nacos-Watch-Task-Scheduler'
+2021-04-05 11:39:25.513  INFO 8952 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2021-04-05 11:39:25.528  INFO 8952 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-04-05 11:39:25.528  INFO 8952 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2021-04-05 11:39:25.528  INFO 8952 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2021-04-05 11:39:25.528  INFO 8952 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-04-05 11:39:25.528  INFO 8952 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-04-05 11:39:25.528  INFO 8952 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2021-04-05 11:39:25.528  INFO 8952 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1a4c6e74
+2021-04-05 11:39:26.154  INFO 8952 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 11:39:26.185  INFO 8952 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 11:39:26.232  INFO 8952 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 11:39:26.419  INFO 8952 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2021-04-05 11:39:26.419  INFO 8952 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-04-05 11:39:26.450  INFO 8952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8021 (http) with context path '/campus'
+2021-04-05 11:39:26.450  INFO 8952 --- [main] com.alibaba.nacos.client.naming          : [BEAT] adding beat: BeatInfo{port=8021, ip='192.168.71.1', weight=1.0, serviceName='DEFAULT_GROUP@@campus_health_service', cluster='DEFAULT', metadata={preserved.register.source=SPRING_CLOUD}, scheduled=false, period=5000, stopped=false} to beat map.
+2021-04-05 11:39:26.466  INFO 8952 --- [main] com.alibaba.nacos.client.naming          : [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@campus_health_service with instance: Instance{instanceId='null', ip='192.168.71.1', port=8021, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD}}
+2021-04-05 11:39:26.513  INFO 8952 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP campus_health_service 192.168.71.1:8021 register finished
+2021-04-05 11:39:26.747  INFO 8952 --- [main] com.huiyi.campus.CampusStartApplication  : Started CampusStartApplication in 12.257 seconds (JVM running for 13.99)
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service-cache.yaml+DEFAULT_GROUP
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service-cache.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service.yaml+DEFAULT_GROUP
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service+DEFAULT_GROUP
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service-datasource.yaml+DEFAULT_GROUP
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service-datasource.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service-bootstrap.yaml+DEFAULT_GROUP
+2021-04-05 11:39:26.747  INFO 8952 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service-bootstrap.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:39:26.747  INFO 8952 --- [main] com.huiyi.campus.CampusStartApplication  : 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+2021-04-05 11:39:26.966  INFO 8952 --- [RMI TCP Connection(2)-192.168.71.1] o.a.c.c.C.[.[localhost].[/campus]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 11:39:26.966  INFO 8952 --- [RMI TCP Connection(2)-192.168.71.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 11:39:26.985  INFO 8952 --- [RMI TCP Connection(2)-192.168.71.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2021-04-05 11:39:27.218  INFO 8952 --- [com.alibaba.nacos.client.naming.updater] com.alibaba.nacos.client.naming          : new ips(1) service: DEFAULT_GROUP@@campus_health_service@@DEFAULT -> [{"instanceId":"192.168.71.1#8021#DEFAULT#DEFAULT_GROUP@@campus_health_service","ip":"192.168.71.1","port":8021,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@campus_health_service","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000}]
+2021-04-05 11:39:27.234  INFO 8952 --- [com.alibaba.nacos.client.naming.updater] com.alibaba.nacos.client.naming          : current ips:(1) service: DEFAULT_GROUP@@campus_health_service@@DEFAULT -> [{"instanceId":"192.168.71.1#8021#DEFAULT#DEFAULT_GROUP@@campus_health_service","ip":"192.168.71.1","port":8021,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@campus_health_service","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000}]
+2021-04-05 11:39:28.236  INFO 8952 --- [boundedElastic-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2021-04-05 11:39:28.236  INFO 8952 --- [boundedElastic-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2021-04-05 11:39:30.683  WARN 8952 --- [boundedElastic-1] o.s.b.a.r.RedisReactiveHealthIndicator   : Redis health check failed
+
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1199)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1178)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:952)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:429)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:94)
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:85)
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:225)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:234)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:207)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1197)
+	... 15 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:715)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:702)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-04-05 11:43:23.105  WARN 8952 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2021-04-05 11:43:23.105  WARN 8952 --- [Thread-32] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2021-04-05 11:43:23.105  WARN 8952 --- [Thread-32] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2021-04-05 11:43:23.105  WARN 8952 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'Nacos-Watch-Task-Scheduler'
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [BEAT] removing beat: DEFAULT_GROUP@@campus_health_service:192.168.71.1:8021 from beat map.
+2021-04-05 11:43:23.105  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@campus_health_service with instance: Instance{instanceId='null', ip='192.168.71.1', port=8021, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2021-04-05 11:43:23.183  INFO 8952 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2021-04-05 11:43:23.183  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.beat.BeatReactor do shutdown begin
+2021-04-05 11:43:24.761  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.beat.BeatReactor do shutdown stop
+2021-04-05 11:43:24.761  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.core.HostReactor do shutdown begin
+2021-04-05 11:43:27.786  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.core.PushReceiver do shutdown begin
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.core.PushReceiver do shutdown stop
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.core.HostReactor do shutdown stop
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.net.NamingProxy do shutdown begin
+2021-04-05 11:43:30.801  WARN 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [NamingHttpClientManager] Start destroying NacosRestTemplate
+2021-04-05 11:43:30.801  WARN 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [NamingHttpClientManager] Destruction of the end
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] c.a.n.client.identify.CredentialWatcher  : [null] CredentialWatcher is stopped
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] c.a.n.client.identify.CredentialService  : [null] CredentialService is freed
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : com.alibaba.nacos.client.naming.net.NamingProxy do shutdown stop
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:43:30.801  WARN 8952 --- [SpringContextShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Destroy method 'close' on bean with name 'nacosServiceRegistry' threw an exception: java.lang.NullPointerException
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-04-05 11:43:30.801  INFO 8952 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-04-05 11:43:37.162  INFO 7036 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-05 11:43:37.256  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-05 11:43:37.256  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:37.256  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:37.256  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:37.256  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:43:37.256  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:37.256  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/bootstrap.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:37.318  INFO 7036 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-05 11:43:37.334  INFO 7036 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-05 11:43:37.334  INFO 7036 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-05 11:43:37.818  INFO 7036 --- [main] c.a.n.c.c.impl.LocalConfigInfoProcessor  : LOCAL_SNAPSHOT_PATH:C:\Users\wwwxi\nacos\config
+2021-04-05 11:43:37.881  INFO 7036 --- [main] c.a.nacos.client.config.impl.Limiter     : limitTime:5.0
+2021-04-05 11:43:38.006  WARN 7036 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service] & group[DEFAULT_GROUP]
+2021-04-05 11:43:38.053  WARN 7036 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:43:38.115  WARN 7036 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-datasource.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:43:38.162  WARN 7036 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-cache.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:43:38.209  WARN 7036 --- [main] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[campus_health_service-bootstrap.yaml] & group[DEFAULT_GROUP]
+2021-04-05 11:43:38.209  INFO 7036 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-campus_health_service-bootstrap.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service-cache.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service-datasource.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-campus_health_service,DEFAULT_GROUP'}]
+2021-04-05 11:43:38.240  INFO 7036 --- [main] EnableEncryptablePropertiesConfiguration : Bootstraping jasypt-string-boot auto configuration in context: application-1
+2021-04-05 11:43:38.240  INFO 7036 --- [main] com.huiyi.campus.CampusStartApplication  : The following profiles are active: datasource,cache,bootstrap
+2021-04-05 11:43:39.725  INFO 7036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-05 11:43:39.725  INFO 7036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-05 11:43:39.787  INFO 7036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36ms. Found 0 Redis repository interfaces.
+2021-04-05 11:43:39.865  WARN 7036 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-04-05 11:43:40.006  INFO 7036 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6618298b-5e1e-37cb-9ccd-fd21ef255f68
+2021-04-05 11:43:40.209  INFO 7036 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-bootstrap.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-cache.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service-datasource.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service.yaml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource bootstrapProperties-campus_health_service,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:40.225  INFO 7036 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-05 11:43:40.287  INFO 7036 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-05 11:43:40.577  INFO 7036 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$97f5a0be] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-05 11:43:40.718  INFO 7036 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-05 11:43:40.718  INFO 7036 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-05 11:43:41.030  INFO 7036 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8021 (http)
+2021-04-05 11:43:41.030  INFO 7036 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 11:43:41.030  INFO 7036 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-05 11:43:41.202  INFO 7036 --- [main] o.a.c.c.C.[.[localhost].[/campus]        : Initializing Spring embedded WebApplicationContext
+2021-04-05 11:43:41.202  INFO 7036 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2930 ms
+2021-04-05 11:43:42.077  INFO 7036 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2021-04-05 11:43:42.077  INFO 7036 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Environment :null
+2021-04-05 11:43:42.077  INFO 7036 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2021-04-05 11:43:42.109  INFO 7036 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-04-05 11:43:42.218  INFO 7036 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-04-05 11:43:45.015  INFO 7036 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
+2021-04-05 11:43:45.171  INFO 7036 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 11:43:45.218  WARN 7036 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-05 11:43:45.218  INFO 7036 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-05 11:43:45.218  WARN 7036 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-05 11:43:45.218  INFO 7036 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-05 11:43:45.453  INFO 7036 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:43:45.831  INFO 7036 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'Nacos-Watch-Task-Scheduler'
+2021-04-05 11:43:46.316  INFO 7036 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2021-04-05 11:43:46.347  INFO 7036 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-04-05 11:43:46.347  INFO 7036 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2021-04-05 11:43:46.347  INFO 7036 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2021-04-05 11:43:46.347  INFO 7036 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-04-05 11:43:46.347  INFO 7036 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-04-05 11:43:46.347  INFO 7036 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2021-04-05 11:43:46.347  INFO 7036 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@2738a1fc
+2021-04-05 11:43:47.082  INFO 7036 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 11:43:47.113  INFO 7036 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 11:43:47.175  INFO 7036 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 11:43:47.363  INFO 7036 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2021-04-05 11:43:47.363  INFO 7036 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-04-05 11:43:47.410  INFO 7036 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8021 (http) with context path '/campus'
+2021-04-05 11:43:47.410  INFO 7036 --- [main] com.alibaba.nacos.client.naming          : [BEAT] adding beat: BeatInfo{port=8021, ip='192.168.71.1', weight=1.0, serviceName='DEFAULT_GROUP@@campus_health_service', cluster='DEFAULT', metadata={preserved.register.source=SPRING_CLOUD}, scheduled=false, period=5000, stopped=false} to beat map.
+2021-04-05 11:43:47.410  INFO 7036 --- [main] com.alibaba.nacos.client.naming          : [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@campus_health_service with instance: Instance{instanceId='null', ip='192.168.71.1', port=8021, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD}}
+2021-04-05 11:43:47.566  INFO 7036 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP campus_health_service 192.168.71.1:8021 register finished
+2021-04-05 11:43:47.800  INFO 7036 --- [main] com.huiyi.campus.CampusStartApplication  : Started CampusStartApplication in 12.277 seconds (JVM running for 13.996)
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service-cache.yaml+DEFAULT_GROUP
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service-cache.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service.yaml+DEFAULT_GROUP
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service+DEFAULT_GROUP
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service-datasource.yaml+DEFAULT_GROUP
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service-datasource.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-47.93.112.92_8848] [subscribe] campus_health_service-bootstrap.yaml+DEFAULT_GROUP
+2021-04-05 11:43:47.816  INFO 7036 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-47.93.112.92_8848] [add-listener] ok, tenant=, dataId=campus_health_service-bootstrap.yaml, group=DEFAULT_GROUP, cnt=1
+2021-04-05 11:43:47.816  INFO 7036 --- [main] com.huiyi.campus.CampusStartApplication  : 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+2021-04-05 11:43:48.253  INFO 7036 --- [com.alibaba.nacos.client.naming.updater] com.alibaba.nacos.client.naming          : new ips(1) service: DEFAULT_GROUP@@campus_health_service@@DEFAULT -> [{"instanceId":"192.168.71.1#8021#DEFAULT#DEFAULT_GROUP@@campus_health_service","ip":"192.168.71.1","port":8021,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@campus_health_service","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2021-04-05 11:43:48.269  INFO 7036 --- [com.alibaba.nacos.client.naming.updater] com.alibaba.nacos.client.naming          : current ips:(1) service: DEFAULT_GROUP@@campus_health_service@@DEFAULT -> [{"instanceId":"192.168.71.1#8021#DEFAULT#DEFAULT_GROUP@@campus_health_service","ip":"192.168.71.1","port":8021,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@campus_health_service","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2021-04-05 11:43:48.285  INFO 7036 --- [RMI TCP Connection(3)-192.168.71.1] o.a.c.c.C.[.[localhost].[/campus]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 11:43:48.285  INFO 7036 --- [RMI TCP Connection(3)-192.168.71.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 11:43:48.300  INFO 7036 --- [RMI TCP Connection(3)-192.168.71.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2021-04-05 11:43:49.362  INFO 7036 --- [boundedElastic-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2021-04-05 11:43:49.362  INFO 7036 --- [boundedElastic-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library

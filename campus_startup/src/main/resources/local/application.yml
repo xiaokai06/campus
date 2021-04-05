@@ -2,21 +2,21 @@ spring:
   application:
     #   项目应用名
     name: campus_health_service
-    # 微服务注册
-  cloud:
-    nacos:
-      discovery:
-          #必须配置ip地址
-        server-addr: 47.93.112.92:8848
-          # 将自己的服务注册到注册中心
-        register-enabled: true
-      config:
-        server-addr: 47.93.112.92:8848
-        enabled: true
-        file-extension: yaml
+#    # 微服务注册
+#  cloud:
+#    nacos:
+#      discovery:
+#        #必须配置ip地址
+#        server-addr: 47.93.112.92:8848
+#        # 将自己的服务注册到注册中心
+#        register-enabled: true
+#      config:
+#        server-addr: 47.93.112.92:8848
+#        enabled: true
+#        file-extension: yaml
   #   需要加载的配置文件
   profiles:
-    active: datasource,cache
+    active: datasource,cache,bootstrap
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
   http:
@@ -25,8 +25,8 @@ spring:
       charset: utf-8
       enabled: true
 server:
-#  servlet:
-#    context-path: /campus/
+  servlet:
+    context-path: /campus/
   port: 8021
   tomcat:
     uri-encoding: UTF-8

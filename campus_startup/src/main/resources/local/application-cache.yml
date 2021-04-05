@@ -1,8 +1,8 @@
 spring:
   redis:
-    host: localhost
+    host: 47.93.112.92
     port: 6379
-    password:
+    password: 123456
     passwordEncrypt: false
     passwordEncryptMode: AES
     timeout: 30000
