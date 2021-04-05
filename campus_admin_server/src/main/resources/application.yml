@@ -9,12 +9,12 @@ spring:
     nacos:
       discovery:
         #必须配置ip地址
-        server-addr: 192.168.123.13:8848
+        server-addr: 47.93.112.92:8848
         # 将自己的服务注册到注册中心
         register-enabled: true
       #        namespace:
       config:
-        server-addr: 192.168.123.13:8848
+        server-addr: 47.93.112.92:8848
         enabled: true
         file-extension: yaml
 #开放端点用于SpringBoot Admin的监控

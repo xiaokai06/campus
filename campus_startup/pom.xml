@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-   <!-- <parent>
+    <parent>
         <artifactId>campus_health_system</artifactId>
         <groupId>com.huiyi.campus</groupId>
         <version>0.0.1-SNAPSHOT</version>
-    </parent>-->
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>campus_startup</artifactId>
@@ -16,6 +16,8 @@
         <maven.compiler.target>8</maven.compiler.target>
         <!--druid数据连接池-->
         <druid.boot.version>1.1.20</druid.boot.version>
+        <spring-boot-starter-data-redis.version>2.2.7.RELEASE</spring-boot-starter-data-redis.version>
+
         <!---->
         <spring-boot-admin-client.version>2.2.3</spring-boot-admin-client.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
@@ -80,6 +82,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.boot.version}</version>
+        </dependency>
+        <!-- redis 缓存操作 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>${spring-boot-starter-data-redis.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
