@@ -19,7 +19,7 @@ public class SysUserEntity implements Serializable {
     @ApiModelProperty("姓名")
     private String userName;
 
-    @ApiModelProperty("密码")
+    @JsonIgnore
     private String passWord;
 
     @ApiModelProperty("性别（1:男，2:女）")
@@ -34,7 +34,7 @@ public class SysUserEntity implements Serializable {
     @ApiModelProperty("最后登录时间")
     private String lastVisit;
 
-    @JsonIgnore
+    @ApiModelProperty("创建时间")
     private String createTime;
 
     @JsonIgnore
