@@ -1,6 +1,5 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
-import com.huiyi.campus.dao.dto.sys.RoleDto;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
 
@@ -10,7 +9,7 @@ public interface SysRoleMenuMapper {
 
     List<Integer> selectMenuById(Integer userId);
 
-    List<SysRoleEntity> selectAllRole(RoleDto roleDto);
+    List<SysRoleEntity> selectAllRole(String roleName);
 
     int insertRoleInfo(SysRoleEntity sysRoleEntity);
 

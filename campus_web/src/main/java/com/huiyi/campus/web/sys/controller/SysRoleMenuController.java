@@ -2,8 +2,6 @@ package com.huiyi.campus.web.sys.controller;
 
 import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.base.ResultBody;
-import com.huiyi.campus.dao.dto.sys.MenuDto;
-import com.huiyi.campus.dao.dto.sys.RoleDto;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
 import com.huiyi.campus.web.sys.service.SysRoleMenuService;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @author: yzg
  * @time: 2021-04-02 9:11
- * @description:
+ * @description: 角色菜单管理
  */
 @Api(tags = "角色菜单管理")
 @RestController
@@ -38,8 +36,8 @@ public class SysRoleMenuController {
     @IsLogin
     @ApiOperation("查询所有角色")
     @PostMapping("/getAllRole")
-    public ResultBody getAllRole(@RequestBody RoleDto roleDto) {
-        return sysRoleMenuService.getAllRole(roleDto);
+    public ResultBody getAllRole(@RequestBody SysRoleEntity sysRoleEntity) {
+        return sysRoleMenuService.getAllRole(sysRoleEntity);
     }
 
     @IsLogin
@@ -66,8 +64,8 @@ public class SysRoleMenuController {
     @IsLogin
     @ApiOperation("查询所有菜单")
     @PostMapping("/getAllMenu")
-    public ResultBody selectAllMenu(@RequestBody MenuDto menuDto) {
-        return sysRoleMenuService.getAllMenu(menuDto);
+    public ResultBody selectAllMenu(@RequestBody SysMenuEntity sysMenuEntity) {
+        return sysRoleMenuService.getAllMenu(sysMenuEntity);
     }
 
     @IsLogin

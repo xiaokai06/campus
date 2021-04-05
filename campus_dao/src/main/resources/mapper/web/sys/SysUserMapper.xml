@@ -20,27 +20,21 @@
     id, nick_name, user_name, pass_word, sex, phone, del_flag, last_visit, create_time, 
     update_time, remark1, remark2, remark3
   </sql>
+
+  <!-- 通过ID查询用户信息 -->
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_user
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <!-- 删除用户信息 -->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     update sys_user set del_flag=1 where id=#{id}
   </delete>
-  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
-    insert into sys_user (id, nick_name, user_name, 
-      pass_word, sex, phone, 
-      del_flag, last_visit, create_time, 
-      update_time, remark1, remark2, 
-      remark3)
-    values (#{id,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
-      #{passWord,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{phone,jdbcType=VARCHAR}, 
-      #{delFlag,jdbcType=TINYINT}, #{lastVisit,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, 
-      #{remark3,jdbcType=VARCHAR})
-  </insert>
+
+  <!-- 新增用户信息 -->
   <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -90,6 +84,8 @@
       </if>
     </trim>
   </insert>
+
+  <!-- 修改用户信息 -->
   <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
     update sys_user
     <set>
@@ -111,22 +107,6 @@
     </set>
     where id = #{id,jdbcType=INTEGER} and del_flag=0
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity">
-    update sys_user
-    set nick_name = #{nickName,jdbcType=VARCHAR},
-      user_name = #{userName,jdbcType=VARCHAR},
-      pass_word = #{passWord,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=TINYINT},
-      phone = #{phone,jdbcType=VARCHAR},
-      del_flag = #{delFlag,jdbcType=TINYINT},
-      last_visit = #{lastVisit},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      remark1 = #{remark1,jdbcType=VARCHAR},
-      remark2 = #{remark2,jdbcType=VARCHAR},
-      remark3 = #{remark3,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER} and del_flag=0
-  </update>
 
   <!-- 通过昵称查询用户密码 -->
   <select id="selectUserInfoByNickName" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -145,7 +125,7 @@
   </update>
 
   <!-- 查询所有用户信息 -->
-  <select id="selectAllUserInfo" parameterType="com.huiyi.campus.dao.dto.sys.UserDto" resultMap="BaseResultMap">
+  <select id="selectAllUserInfo" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity" resultMap="BaseResultMap">
     select id,nick_name,user_name,phone,sex,last_visit from sys_user where del_flag=0
       <if test="nickName != null and nickName != ''">
         and nick_name=#{nickName}

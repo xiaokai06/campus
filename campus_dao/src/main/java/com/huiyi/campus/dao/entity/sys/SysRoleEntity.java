@@ -1,26 +1,39 @@
 package com.huiyi.campus.dao.entity.sys;
 
-import java.io.Serializable;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+
+@ApiModel("用户角色")
 public class SysRoleEntity implements Serializable {
 
+    @ApiModelProperty(dataType = "Integer", value = "id")
     private Integer id;
 
+    @ApiModelProperty("角色名称")
     private String roleName;
 
-    private Date createTime;
+    @ApiModelProperty("创建时间")
+    private String createTime;
 
-    private Date updateTime;
+    @ApiModelProperty("修改时间")
+    private String updateTime;
 
-    private Integer status;
+    @ApiModelProperty("角色状态")
+    private Integer roleStatus;
 
+    @ApiModelProperty("排序")
     private Integer sort;
 
+    @JsonIgnore
     private String remark3;
 
+    @JsonIgnore
     private String remark4;
 
+    @JsonIgnore
     private String remark5;
 
     private static final long serialVersionUID = 1L;
@@ -41,28 +54,28 @@ public class SysRoleEntity implements Serializable {
         this.roleName = roleName == null ? null : roleName.trim();
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getRoleStatus() {
+        return roleStatus;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setRoleStatus(Integer roleStatus) {
+        this.roleStatus = roleStatus;
     }
 
     public Integer getSort() {
@@ -113,7 +126,7 @@ public class SysRoleEntity implements Serializable {
             && (this.getRoleName() == null ? other.getRoleName() == null : this.getRoleName().equals(other.getRoleName()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getRoleStatus() == null ? other.getRoleStatus() == null : this.getRoleStatus().equals(other.getRoleStatus()))
             && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
             && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()))
             && (this.getRemark4() == null ? other.getRemark4() == null : this.getRemark4().equals(other.getRemark4()))
@@ -128,7 +141,7 @@ public class SysRoleEntity implements Serializable {
         result = prime * result + ((getRoleName() == null) ? 0 : getRoleName().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getRoleStatus() == null) ? 0 : getRoleStatus().hashCode());
         result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
         result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
         result = prime * result + ((getRemark4() == null) ? 0 : getRemark4().hashCode());
@@ -138,21 +151,20 @@ public class SysRoleEntity implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", roleName=").append(roleName);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", status=").append(status);
-        sb.append(", sort=").append(sort);
-        sb.append(", remark3=").append(remark3);
-        sb.append(", remark4=").append(remark4);
-        sb.append(", remark5=").append(remark5);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        String sb = getClass().getSimpleName() +
+                " [" +
+                "Hash = " + hashCode() +
+                ", id=" + id +
+                ", roleName=" + roleName +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", roleStatus=" + roleStatus +
+                ", sort=" + sort +
+                ", remark3=" + remark3 +
+                ", remark4=" + remark4 +
+                ", remark5=" + remark5 +
+                ", serialVersionUID=" + serialVersionUID +
+                "]";
+        return sb;
     }
 }

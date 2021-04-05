@@ -3,9 +3,7 @@ package com.huiyi.campus.web.sys.controller;
 import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.annotaion.PassToken;
 import com.huiyi.campus.common.base.ResultBody;
-import com.huiyi.campus.dao.dto.sys.SysUserDto;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
-import com.huiyi.campus.dao.dto.sys.UserDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.web.sys.service.SysUserService;
 import io.swagger.annotations.Api;
@@ -33,15 +31,15 @@ public class SysUserController {
     @PassToken
     @ApiOperation("用户登录")
     @PostMapping("/login")
-    public ResultBody login(@RequestBody SysUserDto sysUserDto) {
-        return sysUserService.selectUserInfoByNickName(sysUserDto);
+    public ResultBody login(@RequestBody SysUserEntity sysUserEntity) {
+        return sysUserService.selectUserInfoByNickName(sysUserEntity);
     }
 
     @IsLogin
     @ApiOperation("用户退出")
     @PostMapping("/exit")
-    public ResultBody exit(@RequestBody SysUserDto sysUserDto) {
-        return sysUserService.exitSystem(sysUserDto.getNickName());
+    public ResultBody exit(@RequestBody SysUserEntity sysUserEntity) {
+        return sysUserService.exitSystem(sysUserEntity.getNickName());
     }
 
     @IsLogin
@@ -54,8 +52,8 @@ public class SysUserController {
     @IsLogin
     @ApiOperation("获取所有用户信息")
     @PostMapping("/getAllUserInfo")
-    public ResultBody getAllUserInfo(@RequestBody UserDto userDto) {
-        return sysUserService.getAllUserInfo(userDto);
+    public ResultBody getAllUserInfo(@RequestBody SysUserEntity sysUserEntity) {
+        return sysUserService.getAllUserInfo(sysUserEntity);
     }
 
     @IsLogin

@@ -1,25 +1,39 @@
 package com.huiyi.campus.dao.entity.sys;
 
-import java.io.Serializable;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+
+@ApiModel("用户菜单")
 public class SysMenuEntity implements Serializable {
+
+    @ApiModelProperty(dataType = "Integer", value = "id")
     private Integer id;
 
+    @ApiModelProperty("菜单名称")
     private String menuName;
 
-    private Date createTime;
+    @ApiModelProperty("创建时间")
+    private String createTime;
 
-    private Date updateTime;
+    @ApiModelProperty("修改时间")
+    private String updateTime;
 
-    private String level;
+    @ApiModelProperty("菜单等级")
+    private Integer menuLevel;
 
+    @ApiModelProperty("排序")
     private String sort;
 
+    @JsonIgnore
     private String remark3;
 
+    @JsonIgnore
     private String remark4;
 
+    @JsonIgnore
     private String remark5;
 
     private static final long serialVersionUID = 1L;
@@ -40,28 +54,28 @@ public class SysMenuEntity implements Serializable {
         this.menuName = menuName == null ? null : menuName.trim();
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
 
-    public String getLevel() {
-        return level;
+    public Integer getMenuLevel() {
+        return menuLevel;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setMenuLevel(Integer menuLevel) {
+        this.menuLevel = menuLevel;
     }
 
     public String getSort() {
@@ -112,7 +126,7 @@ public class SysMenuEntity implements Serializable {
             && (this.getMenuName() == null ? other.getMenuName() == null : this.getMenuName().equals(other.getMenuName()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getLevel() == null ? other.getLevel() == null : this.getLevel().equals(other.getLevel()))
+            && (this.getMenuLevel() == null ? other.getMenuLevel() == null : this.getMenuLevel().equals(other.getMenuLevel()))
             && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
             && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()))
             && (this.getRemark4() == null ? other.getRemark4() == null : this.getRemark4().equals(other.getRemark4()))
@@ -127,7 +141,7 @@ public class SysMenuEntity implements Serializable {
         result = prime * result + ((getMenuName() == null) ? 0 : getMenuName().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getLevel() == null) ? 0 : getLevel().hashCode());
+        result = prime * result + ((getMenuLevel() == null) ? 0 : getMenuLevel().hashCode());
         result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
         result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
         result = prime * result + ((getRemark4() == null) ? 0 : getRemark4().hashCode());
@@ -137,21 +151,20 @@ public class SysMenuEntity implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", menuName=").append(menuName);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", level=").append(level);
-        sb.append(", sort=").append(sort);
-        sb.append(", remark3=").append(remark3);
-        sb.append(", remark4=").append(remark4);
-        sb.append(", remark5=").append(remark5);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        String sb = getClass().getSimpleName() +
+                " [" +
+                "Hash = " + hashCode() +
+                ", id=" + id +
+                ", menuName=" + menuName +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", menuLevel=" + menuLevel +
+                ", sort=" + sort +
+                ", remark3=" + remark3 +
+                ", remark4=" + remark4 +
+                ", remark5=" + remark5 +
+                ", serialVersionUID=" + serialVersionUID +
+                "]";
+        return sb;
     }
 }

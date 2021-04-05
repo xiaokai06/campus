@@ -2,15 +2,12 @@ package com.huiyi.campus.web.sys.service.impl;
 
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
-import com.huiyi.campus.dao.dto.sys.MenuDto;
-import com.huiyi.campus.dao.dto.sys.RoleDto;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import com.huiyi.campus.web.sys.service.SysRoleMenuService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,11 +20,13 @@ import java.util.List;
 @Service
 public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
-    @Autowired
-    SysRoleMenuDao sysRoleMenuDao;
-    @Autowired
     SysUserDao sysUserDao;
+    SysRoleMenuDao sysRoleMenuDao;
 
+    SysRoleMenuServiceImpl(SysUserDao sysUserDao, SysRoleMenuDao sysRoleMenuDao) {
+        this.sysUserDao = sysUserDao;
+        this.sysRoleMenuDao = sysRoleMenuDao;
+    }
 
     @Override
     public ResultBody getMenuByUserId(String nickName) {
@@ -43,8 +42,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
     }
 
     @Override
-    public ResultBody getAllRole(RoleDto roleDto) {
-        return ResultBody.success(sysRoleMenuDao.getAllRole(roleDto));
+    public ResultBody getAllRole(SysRoleEntity sysRoleEntity) {
+        return ResultBody.success(sysRoleMenuDao.getAllRole(sysRoleEntity));
     }
 
     @Override
@@ -63,8 +62,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
     }
 
     @Override
-    public ResultBody getAllMenu(MenuDto menuDto) {
-        return ResultBody.success(sysRoleMenuDao.getAllMenu(menuDto));
+    public ResultBody getAllMenu(SysMenuEntity sysMenuEntity) {
+        return ResultBody.success(sysRoleMenuDao.getAllMenu(sysMenuEntity));
     }
 
     @Override

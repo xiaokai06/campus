@@ -3,7 +3,7 @@ package com.huiyi.campus.web.sys.service;
 /**
  * @author: yzg
  * @time: 2021-03-30 17:07
- * @description:
+ * @description: 获取token
  */
 public interface TokenService {
 

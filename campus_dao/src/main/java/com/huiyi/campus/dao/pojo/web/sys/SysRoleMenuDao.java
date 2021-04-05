@@ -1,7 +1,5 @@
 package com.huiyi.campus.dao.pojo.web.sys;
 
-import com.huiyi.campus.dao.dto.sys.MenuDto;
-import com.huiyi.campus.dao.dto.sys.RoleDto;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysRoleMenuMapper;
@@ -31,8 +29,8 @@ public class SysRoleMenuDao {
         return sysRoleMenuMapper.selectAllMenu(null).stream().map(SysMenuEntity::getId).collect(Collectors.toList());
     }
 
-    public List<SysRoleEntity> getAllRole(RoleDto roleDto) {
-        return sysRoleMenuMapper.selectAllRole(roleDto);
+    public List<SysRoleEntity> getAllRole(SysRoleEntity sysRoleEntity) {
+        return sysRoleMenuMapper.selectAllRole(sysRoleEntity.getRoleName());
     }
 
     public int insertRoleInfo(SysRoleEntity sysRoleEntity) {
@@ -47,8 +45,8 @@ public class SysRoleMenuDao {
         return sysRoleMenuMapper.deleteRoleInfo(id);
     }
 
-    public List<SysMenuEntity> getAllMenu(MenuDto menuDto) {
-        return sysRoleMenuMapper.selectAllMenu(menuDto.getMenuName());
+    public List<SysMenuEntity> getAllMenu(SysMenuEntity sysMenuEntity) {
+        return sysRoleMenuMapper.selectAllMenu(sysMenuEntity.getMenuName());
     }
 
     public int insertMenuInfo(SysMenuEntity sysMenuEntity) {

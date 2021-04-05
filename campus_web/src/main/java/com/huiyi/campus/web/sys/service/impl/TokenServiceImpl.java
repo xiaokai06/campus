@@ -10,11 +10,16 @@ import java.util.UUID;
 /**
  * @author: yzg
  * @time: 2021-03-30 17:08
- * @description:
+ * @description: 获取token
  */
 @Service
 public class TokenServiceImpl implements TokenService {
 
+    /**
+     * 通过用户昵称生成token
+     * @param nickName
+     * @return
+     */
     @Override
     public String getToken(String nickName) {
         return JWT.create().withAudience(nickName)// 将 user id 保存到 token 里面

@@ -15,19 +15,23 @@
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="role_status" jdbcType="INTEGER" property="roleStatus" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
+
   <sql id="Role_Column_List">
-    id, role_name, create_time, update_time, status, sort
+    id, role_name, create_time, update_time, role_status, sort
   </sql>
 
   <!-- 查询所有角色信息 -->
-  <select id="selectAllRole" parameterType="java.lang.Integer" resultMap="RoleResultMap">
+  <select id="selectAllRole" parameterType="java.lang.String" resultMap="RoleResultMap">
     select
     <include refid="Role_Column_List" />
     from sys_role
-    where role_name=#{roleName,jdbcType=VARCHAR}
+    where 1=1
+    <if test="roleName != null and roleName != ''">
+      and role_name=#{roleName,jdbcType=VARCHAR}
+    </if>
   </select>
 
   <!-- 新增角色信息 -->
@@ -43,8 +47,8 @@
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="status != null">
-        status,
+      <if test="roleStatus != null">
+        role_status,
       </if>
       <if test="sort != null">
         sort,
@@ -60,8 +64,8 @@
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
+      <if test="roleStatus != null">
+        #{roleStatus,jdbcType=INTEGER},
       </if>
       <if test="sort != null">
         #{sort,jdbcType=INTEGER},
@@ -79,8 +83,8 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
+      <if test="roleStatus != null">
+        role_status = #{roleStatus,jdbcType=INTEGER},
       </if>
       <if test="sort != null">
         sort = #{sort,jdbcType=INTEGER},
@@ -100,20 +104,21 @@
     <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="level" jdbcType="VARCHAR" property="level" />
+    <result column="menu_level" jdbcType="VARCHAR" property="menuLevel" />
     <result column="sort" jdbcType="VARCHAR" property="sort" />
   </resultMap>
+
   <sql id="Menu_Column_List">
-    id, menu_name, create_time, update_time, level, sort
+    id, menu_name, create_time, update_time, menu_level, sort
   </sql>
 
   <!-- 超管角色查询所有菜单 -->
   <select id="selectAllMenu" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Menu_Column_List" />
-    from sys_menu
+    from sys_menu where 1=1
     <if test="menuName != null and menuName != ''">
-      where menu_name = #{menuName,jdbcType=INTEGER}
+      and menu_name = #{menuName,jdbcType=INTEGER}
     </if>
   </select>
 
@@ -130,8 +135,8 @@
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="level != null">
-        level,
+      <if test="menuLevel != null">
+        menu_level,
       </if>
       <if test="sort != null">
         sort,
@@ -147,8 +152,8 @@
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="level != null">
-        #{level,jdbcType=INTEGER},
+      <if test="menuLevel != null">
+        #{menuLevel,jdbcType=INTEGER},
       </if>
       <if test="sort != null">
         #{sort,jdbcType=INTEGER},
@@ -166,8 +171,8 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="level != null">
-        level = #{level,jdbcType=INTEGER},
+      <if test="menuLevel != null">
+        menu_level = #{menuLevel,jdbcType=INTEGER},
       </if>
       <if test="sort != null">
         sort = #{sort,jdbcType=INTEGER},
