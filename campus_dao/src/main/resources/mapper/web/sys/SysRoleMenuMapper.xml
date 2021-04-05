@@ -10,6 +10,21 @@
     where role_id = (select role_id from sys_user_role where user_id = #{userId})
   </select>
 
+  <resultMap id="RoleMenuResult" type="com.huiyi.campus.dao.entity.sys.SysRoleMenuEntity">
+    <result column="id" property="id"/>
+    <result column="role_id" property="roleId"/>
+    <result column="menu_id" property="menuId"/>
+  </resultMap>
+
+  <!-- 查询角色ID有哪些菜单权限 -->
+  <select id="selectMenuByRoleId" parameterType="java.util.List" resultMap="RoleMenuResult">
+      select id,role_id,menu_id from sys_role_menu where role_id in (
+      <foreach collection="idList" item="item" separator=",">
+          #{item}
+      </foreach>
+      )
+  </select>
+
   <resultMap id="RoleResultMap" type="com.huiyi.campus.dao.entity.sys.SysRoleEntity">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
@@ -99,7 +114,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysMenuEntity">
+  <resultMap id="MenuResultMap" type="com.huiyi.campus.dao.entity.sys.SysMenuEntity">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -113,7 +128,7 @@
   </sql>
 
   <!-- 超管角色查询所有菜单 -->
-  <select id="selectAllMenu" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectAllMenu" parameterType="java.lang.String" resultMap="MenuResultMap">
     select
     <include refid="Menu_Column_List" />
     from sys_menu where 1=1
@@ -184,6 +199,20 @@
   <!-- 删除菜单信息 -->
   <delete id="deleteMenuInfo" parameterType="java.lang.Integer">
     delete from sys_menu where id=#{id}
+  </delete>
+
+  <!-- 新增角色和菜单权限 -->
+  <insert id="insertRoleMenuInfo" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+    insert into sys_role_menu(role_id, menu_id) values (
+    <foreach collection="list" item="item" separator=",">
+      #{roleId},#{item}
+    </foreach>
+    )
+  </insert>
+
+  <!-- 通过角色ID删除菜单权限 -->
+  <delete id="deleteMenuByRoleId" parameterType="java.lang.Integer">
+    delete from sys_role_menu where role_id=#{roleId}
   </delete>
 
 </mapper>

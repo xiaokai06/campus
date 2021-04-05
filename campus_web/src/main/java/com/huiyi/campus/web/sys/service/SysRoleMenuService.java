@@ -12,13 +12,6 @@ import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
 public interface SysRoleMenuService {
 
     /**
-     * 获取该用户所拥有的菜单权限
-     * @param nickName
-     * @return
-     */
-    ResultBody getMenuByUserId(String nickName);
-
-    /**
      * 获取所有角色
      * @param sysRoleEntity
      * @return

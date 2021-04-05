@@ -1,10 +1,10 @@
 package com.huiyi.campus.dao.entity.sys;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
+import java.util.List;
 
 @ApiModel("用户角色")
 public class SysRoleEntity implements Serializable {
@@ -27,14 +27,8 @@ public class SysRoleEntity implements Serializable {
     @ApiModelProperty("排序")
     private Integer sort;
 
-    @JsonIgnore
-    private String remark3;
-
-    @JsonIgnore
-    private String remark4;
-
-    @JsonIgnore
-    private String remark5;
+    @ApiModelProperty("菜单权限")
+    private List<Integer> menuIds;
 
     private static final long serialVersionUID = 1L;
 
@@ -86,28 +80,12 @@ public class SysRoleEntity implements Serializable {
         this.sort = sort;
     }
 
-    public String getRemark3() {
-        return remark3;
+    public List<Integer> getMenuIds() {
+        return menuIds;
     }
 
-    public void setRemark3(String remark3) {
-        this.remark3 = remark3 == null ? null : remark3.trim();
-    }
-
-    public String getRemark4() {
-        return remark4;
-    }
-
-    public void setRemark4(String remark4) {
-        this.remark4 = remark4 == null ? null : remark4.trim();
-    }
-
-    public String getRemark5() {
-        return remark5;
-    }
-
-    public void setRemark5(String remark5) {
-        this.remark5 = remark5 == null ? null : remark5.trim();
+    public void setMenuIds(List<Integer> menuIds) {
+        this.menuIds = menuIds;
     }
 
     @Override
@@ -128,9 +106,7 @@ public class SysRoleEntity implements Serializable {
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
             && (this.getRoleStatus() == null ? other.getRoleStatus() == null : this.getRoleStatus().equals(other.getRoleStatus()))
             && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
-            && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()))
-            && (this.getRemark4() == null ? other.getRemark4() == null : this.getRemark4().equals(other.getRemark4()))
-            && (this.getRemark5() == null ? other.getRemark5() == null : this.getRemark5().equals(other.getRemark5()));
+            && (this.getMenuIds() == null ? other.getMenuIds() == null : this.getMenuIds().equals(other.getMenuIds()));
     }
 
     @Override
@@ -143,15 +119,13 @@ public class SysRoleEntity implements Serializable {
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         result = prime * result + ((getRoleStatus() == null) ? 0 : getRoleStatus().hashCode());
         result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
-        result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
-        result = prime * result + ((getRemark4() == null) ? 0 : getRemark4().hashCode());
-        result = prime * result + ((getRemark5() == null) ? 0 : getRemark5().hashCode());
+        result = prime * result + ((getMenuIds() == null) ? 0 : getMenuIds().hashCode());
         return result;
     }
 
     @Override
     public String toString() {
-        String sb = getClass().getSimpleName() +
+        return getClass().getSimpleName() +
                 " [" +
                 "Hash = " + hashCode() +
                 ", id=" + id +
@@ -160,11 +134,8 @@ public class SysRoleEntity implements Serializable {
                 ", updateTime=" + updateTime +
                 ", roleStatus=" + roleStatus +
                 ", sort=" + sort +
-                ", remark3=" + remark3 +
-                ", remark4=" + remark4 +
-                ", remark5=" + remark5 +
+                ", menuIds=" + menuIds +
                 ", serialVersionUID=" + serialVersionUID +
                 "]";
-        return sb;
     }
 }

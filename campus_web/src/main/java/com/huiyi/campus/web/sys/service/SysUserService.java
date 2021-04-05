@@ -33,6 +33,13 @@ public interface SysUserService {
     ResultBody updatePwdByOldPwd(UpdatePwdDto updatePwdDto);
 
     /**
+     * 获取该用户所拥有的菜单权限
+     * @param nickName
+     * @return
+     */
+    ResultBody getMenuByUserId(String nickName);
+
+    /**
      * 获取所有用户
      * @param sysUserEntity
      * @return

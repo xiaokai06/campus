@@ -50,6 +50,13 @@ public class SysUserController {
     }
 
     @IsLogin
+    @ApiOperation("通过用户昵称获取菜单权限")
+    @GetMapping("/getMenuByNickName")
+    public ResultBody getMenuByNickName(@RequestParam String nickName) {
+        return sysUserService.getMenuByUserId(nickName);
+    }
+
+    @IsLogin
     @ApiOperation("获取所有用户信息")
     @PostMapping("/getAllUserInfo")
     public ResultBody getAllUserInfo(@RequestBody SysUserEntity sysUserEntity) {

@@ -63,7 +63,11 @@ public class SysUserDao {
      * @return
      */
     public Integer updateUserInfo(SysUserEntity sysUserEntity) {
-        return sysUserMapper.updateByPrimaryKeySelective(sysUserEntity);
+        int i = sysUserMapper.updateByPrimaryKeySelective(sysUserEntity);
+        if (i > 0) {
+            sysUserMapper.updateUserRole(sysUserEntity);
+        }
+        return i;
     }
 
     /**

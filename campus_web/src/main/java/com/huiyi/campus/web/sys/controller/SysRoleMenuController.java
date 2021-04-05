@@ -27,13 +27,6 @@ public class SysRoleMenuController {
     }
 
     @IsLogin
-    @ApiOperation("通过用户昵称获取菜单权限")
-    @GetMapping("/getMenuByNickName")
-    public ResultBody getMenuByNickName(@RequestParam String nickName) {
-        return sysRoleMenuService.getMenuByUserId(nickName);
-    }
-
-    @IsLogin
     @ApiOperation("查询所有角色")
     @PostMapping("/getAllRole")
     public ResultBody getAllRole(@RequestBody SysRoleEntity sysRoleEntity) {

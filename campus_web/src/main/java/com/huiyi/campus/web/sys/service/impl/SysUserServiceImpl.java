@@ -6,6 +6,7 @@ import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.common.utils.*;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
+import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysUserService;
@@ -13,6 +14,8 @@ import com.huiyi.campus.web.sys.service.TokenService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author: yzg
@@ -29,14 +32,16 @@ public class SysUserServiceImpl implements SysUserService {
     RedisUtils redisUtils;
     SysUserDao sysUserDao;
     TokenService tokenService;
+    SysRoleMenuDao sysRoleMenuDao;
 
     SysUserServiceImpl(SysUserDao sysUserDao, RSAUtils rsaUtils, TokenService tokenService,
-                       AESUtils aesUtils, RedisUtils redisUtils) {
+                       AESUtils aesUtils, RedisUtils redisUtils, SysRoleMenuDao sysRoleMenuDao) {
         this.sysUserDao = sysUserDao;
         this.rsaUtils = rsaUtils;
         this.tokenService = tokenService;
         this.aesUtils = aesUtils;
         this.redisUtils = redisUtils;
+        this.sysRoleMenuDao = sysRoleMenuDao;
     }
 
     /**
@@ -124,6 +129,19 @@ public class SysUserServiceImpl implements SysUserService {
             return ResultBody.update(sysUserDao.updateUserPwd(updatePwdDto));
         }
         return ResultBody.update(0);
+    }
+
+    @Override
+    public ResultBody getMenuByUserId(String nickName) {
+        List<Integer> menuList;
+        if (CommConstants.USER_ADMIN.equals(nickName)) {
+            menuList = sysRoleMenuDao.selectMenuByUserId(null);
+        } else {
+            SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
+            Integer userId = sysUserEntity.getId();
+            menuList = sysRoleMenuDao.selectMenuByUserId(userId);
+        }
+        return ResultBody.success(menuList);
     }
 
     /**

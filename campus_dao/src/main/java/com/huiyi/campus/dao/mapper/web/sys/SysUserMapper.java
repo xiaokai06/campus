@@ -19,4 +19,6 @@ public interface SysUserMapper {
 
     List<SysUserEntity> selectAllUserInfo(SysUserEntity sysUserEntity);
 
+    int updateUserRole(SysUserEntity sysUserEntity);
+
 }

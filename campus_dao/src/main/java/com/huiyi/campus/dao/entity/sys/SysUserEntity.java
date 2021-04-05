@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @ApiModel("用户实体类")
 public class SysUserEntity implements Serializable {
@@ -28,8 +27,11 @@ public class SysUserEntity implements Serializable {
     @ApiModelProperty("手机号")
     private String phone;
 
-    @JsonIgnore
-    private Byte delFlag;
+    @ApiModelProperty("角色ID")
+    private Integer roleId;
+
+    @ApiModelProperty("角色名称")
+    private String roleName;
 
     @ApiModelProperty("最后登录时间")
     private String lastVisit;
@@ -37,17 +39,8 @@ public class SysUserEntity implements Serializable {
     @ApiModelProperty("创建时间")
     private String createTime;
 
-    @JsonIgnore
-    private Date updateTime;
-
-    @JsonIgnore
-    private String remark1;
-
-    @JsonIgnore
-    private String remark2;
-
-    @JsonIgnore
-    private String remark3;
+    @ApiModelProperty("更新时间")
+    private String updateTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -99,12 +92,20 @@ public class SysUserEntity implements Serializable {
         this.phone = phone == null ? null : phone.trim();
     }
 
-    public Byte getDelFlag() {
-        return delFlag;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setDelFlag(Byte delFlag) {
-        this.delFlag = delFlag;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getLastVisit() {
@@ -123,36 +124,12 @@ public class SysUserEntity implements Serializable {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public String getRemark1() {
-        return remark1;
-    }
-
-    public void setRemark1(String remark1) {
-        this.remark1 = remark1 == null ? null : remark1.trim();
-    }
-
-    public String getRemark2() {
-        return remark2;
-    }
-
-    public void setRemark2(String remark2) {
-        this.remark2 = remark2 == null ? null : remark2.trim();
-    }
-
-    public String getRemark3() {
-        return remark3;
-    }
-
-    public void setRemark3(String remark3) {
-        this.remark3 = remark3 == null ? null : remark3.trim();
     }
 
     @Override
@@ -173,13 +150,11 @@ public class SysUserEntity implements Serializable {
             && (this.getPassWord() == null ? other.getPassWord() == null : this.getPassWord().equals(other.getPassWord()))
             && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getDelFlag() == null ? other.getDelFlag() == null : this.getDelFlag().equals(other.getDelFlag()))
             && (this.getLastVisit() == null ? other.getLastVisit() == null : this.getLastVisit().equals(other.getLastVisit()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
-            && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
-            && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()));
+            && (this.getRoleId()) == null ? other.getRoleId() == null : this.getRoleId().equals(other.getRoleId())
+            && (this.getRoleName()) == null ? other.getRoleName() == null : this.getRoleName().equals(other.getRoleName());
     }
 
     @Override
@@ -192,37 +167,32 @@ public class SysUserEntity implements Serializable {
         result = prime * result + ((getPassWord() == null) ? 0 : getPassWord().hashCode());
         result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
-        result = prime * result + ((getDelFlag() == null) ? 0 : getDelFlag().hashCode());
         result = prime * result + ((getLastVisit() == null) ? 0 : getLastVisit().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
-        result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
-        result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
+        result = prime * result + ((getRoleId() == null) ? 0 : getRoleId().hashCode());
+        result = prime * result + ((getRoleName() == null) ? 0 : getRoleName().hashCode());
         return result;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", nickName=").append(nickName);
-        sb.append(", userName=").append(userName);
-        sb.append(", passWord=").append(passWord);
-        sb.append(", sex=").append(sex);
-        sb.append(", phone=").append(phone);
-        sb.append(", delFlag=").append(delFlag);
-        sb.append(", lastVisit=").append(lastVisit);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", remark1=").append(remark1);
-        sb.append(", remark2=").append(remark2);
-        sb.append(", remark3=").append(remark3);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        String sb = getClass().getSimpleName() +
+                " [" +
+                "Hash = " + hashCode() +
+                ", id=" + id +
+                ", nickName=" + nickName +
+                ", userName=" + userName +
+                ", passWord=" + passWord +
+                ", sex=" + sex +
+                ", phone=" + phone +
+                ", roleId=" + roleId +
+                ", roleName=" + roleName +
+                ", lastVisit=" + lastVisit +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", serialVersionUID=" + serialVersionUID +
+                "]";
+        return sb;
     }
 }

@@ -1,16 +1,12 @@
 package com.huiyi.campus.web.sys.service.impl;
 
 import com.huiyi.campus.common.base.ResultBody;
-import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
-import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import com.huiyi.campus.web.sys.service.SysRoleMenuService;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author: yzg
@@ -26,19 +22,6 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
     SysRoleMenuServiceImpl(SysUserDao sysUserDao, SysRoleMenuDao sysRoleMenuDao) {
         this.sysUserDao = sysUserDao;
         this.sysRoleMenuDao = sysRoleMenuDao;
-    }
-
-    @Override
-    public ResultBody getMenuByUserId(String nickName) {
-        List<Integer> menuList;
-        if (CommConstants.USER_ADMIN.equals(nickName)) {
-            menuList = sysRoleMenuDao.selectMenuByUserId(null);
-        } else {
-            SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
-            Integer userId = sysUserEntity.getId();
-            menuList = sysRoleMenuDao.selectMenuByUserId(userId);
-        }
-        return ResultBody.success(menuList);
     }
 
     @Override
