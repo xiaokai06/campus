@@ -68,4 +68,10 @@
       pid = #{pid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--省市区三级联动查询-->
+  <select id="selectAreaList" resultType="com.huiyi.campus.dao.vo.sys.SysAreasVo">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_areas
+  </select>
 </mapper>
