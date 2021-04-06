@@ -1,4 +1,4 @@
-package com.huiyi.campus.dao.vo.sys;
+package com.huiyi.campus.dao.vo.common;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,7 @@
-package com.huiyi.campus.dao.pojo.web.sys;
+package com.huiyi.campus.dao.pojo.web.common;
 
-import com.huiyi.campus.dao.entity.sys.SysAreasEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysAreasMapper;
-import com.huiyi.campus.dao.vo.sys.SysAreasVo;
+import com.huiyi.campus.dao.vo.common.SysAreasVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

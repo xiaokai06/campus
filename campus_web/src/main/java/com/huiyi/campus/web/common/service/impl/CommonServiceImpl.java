@@ -1,12 +1,9 @@
-package com.huiyi.campus.web.sys.service.impl;
+package com.huiyi.campus.web.common.service.impl;
 
-import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
-import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
-import com.huiyi.campus.dao.entity.sys.SysAreasEntity;
-import com.huiyi.campus.dao.pojo.web.sys.CommonDao;
-import com.huiyi.campus.dao.vo.sys.SysAreasVo;
-import com.huiyi.campus.web.sys.service.CommonService;
+import com.huiyi.campus.dao.pojo.web.common.CommonDao;
+import com.huiyi.campus.dao.vo.common.SysAreasVo;
+import com.huiyi.campus.web.common.service.CommonService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

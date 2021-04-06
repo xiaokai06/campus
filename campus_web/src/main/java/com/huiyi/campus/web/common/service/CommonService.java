@@ -1,7 +1,6 @@
-package com.huiyi.campus.web.sys.service;
+package com.huiyi.campus.web.common.service;
 
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
-import com.huiyi.campus.dao.vo.sys.SysAreasVo;
 
 /**
  * @author: liyukai
