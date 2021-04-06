@@ -25,8 +25,8 @@ spring:
       charset: utf-8
       enabled: true
 server:
-  servlet:
-    context-path: /campus
+#  servlet:
+#    context-path: /campus
   port: 8021
   tomcat:
     uri-encoding: UTF-8
@@ -43,25 +43,25 @@ management:
     health:
       show-details: always
   ## spring-boot-admin 配置
-  boot:
-    admin:
-      client:
-        username: admin
-        password: admin
-        enabled: true
-        url: http://localhost:8769
-        #        period: 10000
-        #        connect-timeout: 5000
-        #        read-timeout: 5000
-        # 为了显示客户端的ip否则是以主机名显示的，这样需要添加hosts影射。
-        instance:
-          prefer-ip: true
-          metadata-map:
-            management:
-              context-path: /campus/actuator
-          health-check-url: http://localhost:${server.port}/campus/actuator/health
-          status-page-url: http://localhost:${server.port}/campus/actuator/info
-          home-page-url: http://localhost:${server.port}/
+#  boot:
+#    admin:
+#      client:
+#        username: admin
+#        password: admin
+#        enabled: true
+#        url: http://localhost:8769
+#        #        period: 10000
+#        #        connect-timeout: 5000
+#        #        read-timeout: 5000
+#        # 为了显示客户端的ip否则是以主机名显示的，这样需要添加hosts影射。
+#        instance:
+#          prefer-ip: true
+#          metadata-map:
+#            management:
+#              context-path: /campus/actuator
+#          health-check-url: http://localhost:${server.port}/campus/actuator/health
+#          status-page-url: http://localhost:${server.port}/campus/actuator/info
+#          home-page-url: http://localhost:${server.port}/
 
 # 日志文件访问配置
 logging:

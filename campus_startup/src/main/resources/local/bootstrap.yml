@@ -1,14 +1,14 @@
-spring:
-  cloud:
-    nacos:
-      discovery:
-          #必须配置ip地址
-        server-addr: 47.93.112.92:8848
-          # 将自己的服务注册到注册中心
-        register-enabled: true
-      config:
-        server-addr: 47.93.112.92:8848
-        enabled: true
-        file-extension: yaml
-
-
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#          #必须配置ip地址
+#        server-addr: 47.93.112.92:8848
+#          # 将自己的服务注册到注册中心
+#        register-enabled: true
+#      config:
+#        server-addr: 47.93.112.92:8848
+#        enabled: true
+#        file-extension: yaml
+#
+#
