@@ -12,7 +12,7 @@
         <module>campus_web</module>
         <module>campus_wx_applets</module>
         <module>campus_netty</module>
-<!--        <module>campus_admin_server</module>-->
+        <module>campus_admin_server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
