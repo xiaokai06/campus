@@ -1,28 +1,27 @@
 package com.huiyi.campus.dao.entity.sys;
 
-import java.io.Serializable;
-import java.util.Date;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+
+@ApiModel("学校实体类")
 public class SysSchoolEntity implements Serializable {
+
+    @ApiModelProperty("id")
     private Integer id;
 
+    @ApiModelProperty("学校名称")
     private String schoolName;
 
+    @ApiModelProperty("学校地址")
     private String schoolAddress;
 
-    private Date createTime;
+    @ApiModelProperty("创建时间")
+    private String createTime;
 
-    private Date updateTime;
-
-    private String remark1;
-
-    private String remark2;
-
-    private String remark3;
-
-    private String remark4;
-
-    private String remark5;
+    @ApiModelProperty("修改时间")
+    private String updateTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -50,60 +49,20 @@ public class SysSchoolEntity implements Serializable {
         this.schoolAddress = schoolAddress == null ? null : schoolAddress.trim();
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public String getRemark1() {
-        return remark1;
-    }
-
-    public void setRemark1(String remark1) {
-        this.remark1 = remark1 == null ? null : remark1.trim();
-    }
-
-    public String getRemark2() {
-        return remark2;
-    }
-
-    public void setRemark2(String remark2) {
-        this.remark2 = remark2 == null ? null : remark2.trim();
-    }
-
-    public String getRemark3() {
-        return remark3;
-    }
-
-    public void setRemark3(String remark3) {
-        this.remark3 = remark3 == null ? null : remark3.trim();
-    }
-
-    public String getRemark4() {
-        return remark4;
-    }
-
-    public void setRemark4(String remark4) {
-        this.remark4 = remark4 == null ? null : remark4.trim();
-    }
-
-    public String getRemark5() {
-        return remark5;
-    }
-
-    public void setRemark5(String remark5) {
-        this.remark5 = remark5 == null ? null : remark5.trim();
     }
 
     @Override
@@ -122,12 +81,7 @@ public class SysSchoolEntity implements Serializable {
             && (this.getSchoolName() == null ? other.getSchoolName() == null : this.getSchoolName().equals(other.getSchoolName()))
             && (this.getSchoolAddress() == null ? other.getSchoolAddress() == null : this.getSchoolAddress().equals(other.getSchoolAddress()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
-            && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
-            && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()))
-            && (this.getRemark4() == null ? other.getRemark4() == null : this.getRemark4().equals(other.getRemark4()))
-            && (this.getRemark5() == null ? other.getRemark5() == null : this.getRemark5().equals(other.getRemark5()));
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
 
     @Override
@@ -139,11 +93,6 @@ public class SysSchoolEntity implements Serializable {
         result = prime * result + ((getSchoolAddress() == null) ? 0 : getSchoolAddress().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
-        result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
-        result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
-        result = prime * result + ((getRemark4() == null) ? 0 : getRemark4().hashCode());
-        result = prime * result + ((getRemark5() == null) ? 0 : getRemark5().hashCode());
         return result;
     }
 
@@ -158,11 +107,6 @@ public class SysSchoolEntity implements Serializable {
         sb.append(", schoolAddress=").append(schoolAddress);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
-        sb.append(", remark1=").append(remark1);
-        sb.append(", remark2=").append(remark2);
-        sb.append(", remark3=").append(remark3);
-        sb.append(", remark4=").append(remark4);
-        sb.append(", remark5=").append(remark5);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

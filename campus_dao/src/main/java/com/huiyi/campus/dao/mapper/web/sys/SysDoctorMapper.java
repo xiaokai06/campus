@@ -2,16 +2,36 @@ package com.huiyi.campus.dao.mapper.web.sys;
 
 import com.huiyi.campus.dao.entity.sys.SysDoctorEntity;
 
+import java.util.List;
+
 public interface SysDoctorMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(SysDoctorEntity record);
+    /**
+     * 查询所有医生
+     * @param sysDoctorEntity
+     * @return
+     */
+    List<SysDoctorEntity> selectAllDoctor(SysDoctorEntity sysDoctorEntity);
 
-    int insertSelective(SysDoctorEntity record);
+    /**
+     * 新增医生
+     * @param sysDoctorEntity
+     * @return
+     */
+    int insertDoctorInfo(SysDoctorEntity sysDoctorEntity);
 
-    SysDoctorEntity selectByPrimaryKey(Integer id);
+    /**
+     * 修改医生
+     * @param sysDoctorEntity
+     * @return
+     */
+    int updateDoctorInfo(SysDoctorEntity sysDoctorEntity);
 
-    int updateByPrimaryKeySelective(SysDoctorEntity record);
+    /**
+     * 删除医生
+     * @param id
+     * @return
+     */
+    int deleteDoctorInfo(Integer id);
 
-    int updateByPrimaryKey(SysDoctorEntity record);
 }

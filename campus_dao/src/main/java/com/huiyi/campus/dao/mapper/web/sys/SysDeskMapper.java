@@ -2,16 +2,36 @@ package com.huiyi.campus.dao.mapper.web.sys;
 
 import com.huiyi.campus.dao.entity.sys.SysDeskEntity;
 
+import java.util.List;
+
 public interface SysDeskMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(SysDeskEntity record);
+    /**
+     * 查询所有科室
+     * @param sysDeskEntity
+     * @return
+     */
+    List<SysDeskEntity> selectAllDesk(SysDeskEntity sysDeskEntity);
 
-    int insertSelective(SysDeskEntity record);
+    /**
+     * 新增科室
+     * @param sysDeskEntity
+     * @return
+     */
+    int insertDesk(SysDeskEntity sysDeskEntity);
 
-    SysDeskEntity selectByPrimaryKey(Integer id);
+    /**
+     * 修改科室
+     * @param sysDeskEntity
+     * @return
+     */
+    int updateDesk(SysDeskEntity sysDeskEntity);
 
-    int updateByPrimaryKeySelective(SysDeskEntity record);
+    /**
+     * 删除科室
+     * @param id
+     * @return
+     */
+    int deleteDesk(Integer id);
 
-    int updateByPrimaryKey(SysDeskEntity record);
 }

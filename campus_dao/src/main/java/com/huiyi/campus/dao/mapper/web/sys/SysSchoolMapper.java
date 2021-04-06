@@ -2,16 +2,35 @@ package com.huiyi.campus.dao.mapper.web.sys;
 
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 
+import java.util.List;
+
 public interface SysSchoolMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(SysSchoolEntity record);
+    /**
+     * 查询学校
+     * @param sysSchoolEntity
+     * @return
+     */
+    List<SysSchoolEntity> selectAllSchool(SysSchoolEntity sysSchoolEntity);
 
-    int insertSelective(SysSchoolEntity record);
+    /**
+     * 新增学校
+     * @param sysSchoolEntity
+     * @return
+     */
+    int insertSchoolInfo(SysSchoolEntity sysSchoolEntity);
 
-    SysSchoolEntity selectByPrimaryKey(Integer id);
+    /**
+     * 修改学校
+     * @param sysSchoolEntity
+     * @return
+     */
+    int updateSchoolInfo(SysSchoolEntity sysSchoolEntity);
 
-    int updateByPrimaryKeySelective(SysSchoolEntity record);
-
-    int updateByPrimaryKey(SysSchoolEntity record);
+    /**
+     * 删除学校
+     * @param id
+     * @return
+     */
+    int deleteSchoolInfo(Integer id);
 }
