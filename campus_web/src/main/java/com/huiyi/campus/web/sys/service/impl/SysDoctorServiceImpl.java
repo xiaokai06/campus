@@ -5,6 +5,7 @@ import com.huiyi.campus.dao.entity.sys.SysDoctorEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysDoctorDao;
 import com.huiyi.campus.web.sys.service.SysDoctorService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author: yzg
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @description: 医生管理
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class SysDoctorServiceImpl implements SysDoctorService {
 
     SysDoctorDao sysDoctorDao;

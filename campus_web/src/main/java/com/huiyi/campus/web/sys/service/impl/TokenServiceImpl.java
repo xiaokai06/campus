@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.huiyi.campus.web.sys.service.TokenService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -13,6 +14,7 @@ import java.util.UUID;
  * @description: 获取token
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class TokenServiceImpl implements TokenService {
 
     /**

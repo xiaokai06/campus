@@ -5,6 +5,7 @@ import com.huiyi.campus.dao.entity.sys.SysDeskEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysDeskDao;
 import com.huiyi.campus.web.sys.service.SysDeskService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author: yzg
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @description: 科室管理
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class SysDeskServiceImpl implements SysDeskService {
 
     SysDeskDao sysDeskDao;

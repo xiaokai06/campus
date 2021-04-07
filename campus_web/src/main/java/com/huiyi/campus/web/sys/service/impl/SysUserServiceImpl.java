@@ -14,6 +14,7 @@ import com.huiyi.campus.web.sys.service.TokenService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ import java.util.List;
  * @description: 用户管理
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class SysUserServiceImpl implements SysUserService {
 
     private static final Log logger = LogFactory.getLog(SysUserServiceImpl.class);

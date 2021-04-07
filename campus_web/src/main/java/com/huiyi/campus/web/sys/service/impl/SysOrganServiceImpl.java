@@ -5,6 +5,7 @@ import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.web.sys.service.SysOrganService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author: yzg
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @description: 机构管理
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class SysOrganServiceImpl implements SysOrganService {
 
     SysOrganDao sysOrganDao;

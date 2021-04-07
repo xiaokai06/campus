@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 //import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 
 /**
  * @author: liyukai
@@ -22,6 +22,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Slf4j
 //@EnableDiscoveryClient
 @ServletComponentScan
+@EnableTransactionManagement
 @SpringBootApplication(scanBasePackages = "com.huiyi.campus")
 @MapperScan("com.huiyi.campus.dao.mapper")
 public class CampusStartApplication implements WebMvcConfigurer {

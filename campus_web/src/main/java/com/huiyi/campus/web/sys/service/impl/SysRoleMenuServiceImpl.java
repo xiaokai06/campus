@@ -4,9 +4,9 @@ import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
-import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import com.huiyi.campus.web.sys.service.SysRoleMenuService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author: yzg
@@ -14,13 +14,12 @@ import org.springframework.stereotype.Service;
  * @description:
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
-    SysUserDao sysUserDao;
     SysRoleMenuDao sysRoleMenuDao;
 
-    SysRoleMenuServiceImpl(SysUserDao sysUserDao, SysRoleMenuDao sysRoleMenuDao) {
-        this.sysUserDao = sysUserDao;
+    SysRoleMenuServiceImpl(SysRoleMenuDao sysRoleMenuDao) {
         this.sysRoleMenuDao = sysRoleMenuDao;
     }
 

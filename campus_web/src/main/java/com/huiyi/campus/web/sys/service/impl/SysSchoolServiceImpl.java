@@ -5,6 +5,7 @@ import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
 import com.huiyi.campus.web.sys.service.SysSchoolService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author: yzg
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @description: 学校管理
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class SysSchoolServiceImpl implements SysSchoolService {
 
     SysSchoolDao sysSchoolDao;
