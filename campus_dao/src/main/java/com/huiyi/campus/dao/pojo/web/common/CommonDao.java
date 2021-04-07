@@ -1,6 +1,9 @@
 package com.huiyi.campus.dao.pojo.web.common;
 
+import com.huiyi.campus.dao.dto.common.SchoolDto;
+import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysAreasMapper;
+import com.huiyi.campus.dao.mapper.web.sys.SysSchoolMapper;
 import com.huiyi.campus.dao.vo.common.SysAreasVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,6 +23,9 @@ public class CommonDao {
     @Autowired
     SysAreasMapper sysAreasMapper;
 
+    @Autowired
+    SysSchoolMapper sysSchoolMapper;
+
     /**
      * 省市区三级联动查询
      * @return
@@ -28,4 +34,11 @@ public class CommonDao {
         return sysAreasMapper.selectAreaList();
     }
 
+    public List<SysSchoolEntity> selectSchoolByUserId(SchoolDto schoolDto) {
+        return sysSchoolMapper.selectSchoolByUserId(schoolDto.getId());
+    }
+
+    public List<SysSchoolEntity> selectSchoolByUserIdAndOrganId(SchoolDto schoolDto) {
+        return sysSchoolMapper.selectSchoolByUserIdAndOrganId(schoolDto.getId());
+    }
 }

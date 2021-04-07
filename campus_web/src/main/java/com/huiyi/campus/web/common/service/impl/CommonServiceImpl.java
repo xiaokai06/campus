@@ -1,6 +1,10 @@
 package com.huiyi.campus.web.common.service.impl;
 
+import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
+import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
+import com.huiyi.campus.dao.dto.common.SchoolDto;
+import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 import com.huiyi.campus.dao.pojo.web.common.CommonDao;
 import com.huiyi.campus.dao.vo.common.SysAreasVo;
 import com.huiyi.campus.web.common.service.CommonService;
@@ -55,5 +59,25 @@ public class CommonServiceImpl implements CommonService {
                 }
         );
         return HQJsonResult.success(oneLevelRegion);
+    }
+
+    /**
+     * 根据用户ID与教育局ID查询当前所归属学校
+     *
+     * @param schoolDto
+     * @return
+     */
+    @Override
+    public HQJsonResult selectSchoolByUserId(SchoolDto schoolDto) {
+        if (JsonUtils.checkObjAllFieldsIsNull(schoolDto)) {
+            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
+        }
+        List<SysSchoolEntity> schoolEntityList = null;
+
+        schoolEntityList = commonDao.selectSchoolByUserId(schoolDto);
+        if (schoolEntityList.isEmpty()){
+            schoolEntityList = commonDao.selectSchoolByUserIdAndOrganId(schoolDto);
+        }
+        return HQJsonResult.success(schoolEntityList);
     }
 }

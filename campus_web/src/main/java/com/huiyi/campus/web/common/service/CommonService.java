@@ -1,6 +1,7 @@
 package com.huiyi.campus.web.common.service;
 
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
+import com.huiyi.campus.dao.dto.common.SchoolDto;
 
 /**
  * @author: liyukai
@@ -11,4 +12,6 @@ import com.huiyi.campus.common.utils.rs.HQJsonResult;
  */
 public interface CommonService {
     HQJsonResult area();
+
+    HQJsonResult selectSchoolByUserId(SchoolDto schoolDto);
 }

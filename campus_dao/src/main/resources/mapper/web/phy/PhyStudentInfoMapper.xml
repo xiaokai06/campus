@@ -2,71 +2,76 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huiyi.campus.dao.mapper.web.phy.PhyStudentInfoMapper">
   <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
-    <id column="id" jdbcType="VARCHAR" property="id"/>
-    <result column="user_name" jdbcType="VARCHAR" property="userName"/>
-    <result column="sex" jdbcType="TINYINT" property="sex"/>
-    <result column="age" jdbcType="INTEGER" property="age"/>
-    <result column="birth_date" jdbcType="VARCHAR" property="birthDate"/>
-    <result column="parent_id" jdbcType="VARCHAR" property="parentId"/>
-    <result column="school_id" jdbcType="INTEGER" property="schoolId"/>
-    <result column="student_number" jdbcType="VARCHAR" property="studentNumber"/>
-    <result column="major_class" jdbcType="VARCHAR" property="majorClass"/>
-    <result column="class_id" jdbcType="VARCHAR" property="classId"/>
-    <result column="id_card" jdbcType="VARCHAR" property="idCard"/>
-    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber"/>
-    <result column="image" jdbcType="VARCHAR" property="image"/>
-    <result column="family_address" jdbcType="VARCHAR" property="familyAddress"/>
-    <result column="census_address" jdbcType="VARCHAR" property="censusAddress"/>
-    <result column="enter_time" jdbcType="TIMESTAMP" property="enterTime"/>
-    <result column="doctor_id" jdbcType="INTEGER" property="doctorId"/>
-    <result column="duty_doctor" jdbcType="VARCHAR" property="dutyDoctor"/>
-    <result column="phy_date" jdbcType="TIMESTAMP" property="phyDate"/>
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
-    <result column="operator_id" jdbcType="INTEGER" property="operatorId"/>
-    <result column="extend1" jdbcType="VARCHAR" property="extend1"/>
-    <result column="extend2" jdbcType="VARCHAR" property="extend2"/>
-    <result column="extend3" jdbcType="VARCHAR" property="extend3"/>
-    <result column="extend4" jdbcType="VARCHAR" property="extend4"/>
-    <result column="extend5" jdbcType="VARCHAR" property="extend5"/>
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="sex" jdbcType="TINYINT" property="sex" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="birth_date" jdbcType="VARCHAR" property="birthDate" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="school_id" jdbcType="INTEGER" property="schoolId" />
+    <result column="organ_id" jdbcType="INTEGER" property="organId" />
+    <result column="student_number" jdbcType="VARCHAR" property="studentNumber" />
+    <result column="major_class" jdbcType="VARCHAR" property="majorClass" />
+    <result column="class_id" jdbcType="VARCHAR" property="classId" />
+    <result column="nationality" jdbcType="TINYINT" property="nationality" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="family_address" jdbcType="VARCHAR" property="familyAddress" />
+    <result column="census_address" jdbcType="VARCHAR" property="censusAddress" />
+    <result column="enter_time" jdbcType="TIMESTAMP" property="enterTime" />
+    <result column="doctor_id" jdbcType="INTEGER" property="doctorId" />
+    <result column="duty_doctor" jdbcType="VARCHAR" property="dutyDoctor" />
+    <result column="phy_date" jdbcType="TIMESTAMP" property="phyDate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="operator_id" jdbcType="INTEGER" property="operatorId" />
+    <result column="del_flag" jdbcType="TINYINT" property="delFlag" />
+    <result column="extend1" jdbcType="VARCHAR" property="extend1" />
+    <result column="extend2" jdbcType="VARCHAR" property="extend2" />
+    <result column="extend3" jdbcType="VARCHAR" property="extend3" />
+    <result column="extend4" jdbcType="VARCHAR" property="extend4" />
+    <result column="extend5" jdbcType="VARCHAR" property="extend5" />
   </resultMap>
   <sql id="Base_Column_List">
-    id
-            , user_name, sex, age, birth_date, parent_id, school_id, student_number, major_class,
-    class_id, id_card, phone_number, image, family_address, census_address, enter_time,
-    doctor_id, duty_doctor, phy_date, create_time, update_time, operator_id, extend1,
-    extend2, extend3, extend4, extend5
+    id, user_name, sex, age, birth_date, parent_id, school_id, organ_id, student_number,
+    major_class, class_id, nationality, id_card, phone_number, image, family_address,
+    census_address, enter_time, doctor_id, duty_doctor, phy_date, create_time, update_time,
+    operator_id, del_flag, extend1, extend2, extend3, extend4, extend5
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List"/>
+    <include refid="Base_Column_List" />
     from phy_student_info
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete
-    from phy_student_info
+    delete from phy_student_info
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
     insert into phy_student_info (id, user_name, sex,
                                   age, birth_date, parent_id,
-                                  school_id, student_number, major_class,
-                                  class_id, id_card, phone_number,
-                                  image, family_address, census_address,
-                                  enter_time, doctor_id, duty_doctor,
-                                  phy_date, create_time, update_time,
-                                  operator_id, extend1, extend2,
-                                  extend3, extend4, extend5)
+                                  school_id, organ_id, student_number,
+                                  major_class, class_id, nationality,
+                                  id_card, phone_number, image,
+                                  family_address, census_address, enter_time,
+                                  doctor_id, duty_doctor, phy_date,
+                                  create_time, update_time, operator_id,
+                                  del_flag, extend1, extend2,
+                                  extend3, extend4, extend5
+            )
     values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
             #{age,jdbcType=INTEGER}, #{birthDate,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR},
-            #{schoolId,jdbcType=INTEGER}, #{studentNumber,jdbcType=VARCHAR}, #{majorClass,jdbcType=VARCHAR},
-            #{classId,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR},
-            #{image,jdbcType=VARCHAR}, #{familyAddress,jdbcType=VARCHAR}, #{censusAddress,jdbcType=VARCHAR},
-            #{enterTime,jdbcType=TIMESTAMP}, #{doctorId,jdbcType=INTEGER}, #{dutyDoctor,jdbcType=VARCHAR},
-            #{phyDate,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
-            #{operatorId,jdbcType=INTEGER}, #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR},
-            #{extend3,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
+            #{schoolId,jdbcType=INTEGER}, #{organId,jdbcType=INTEGER}, #{studentNumber,jdbcType=VARCHAR},
+            #{majorClass,jdbcType=VARCHAR}, #{classId,jdbcType=VARCHAR}, #{nationality,jdbcType=TINYINT},
+            #{idCard,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR},
+            #{familyAddress,jdbcType=VARCHAR}, #{censusAddress,jdbcType=VARCHAR}, #{enterTime,jdbcType=TIMESTAMP},
+            #{doctorId,jdbcType=INTEGER}, #{dutyDoctor,jdbcType=VARCHAR}, #{phyDate,jdbcType=TIMESTAMP},
+            #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER},
+            #{delFlag,jdbcType=TINYINT}, #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR},
+            #{extend3,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR}
+                   )
   </insert>
   <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
     insert into phy_student_info
@@ -92,6 +97,9 @@
       <if test="schoolId != null">
         school_id,
       </if>
+      <if test="organId != null">
+        organ_id,
+      </if>
       <if test="studentNumber != null">
         student_number,
       </if>
@@ -100,6 +108,9 @@
       </if>
       <if test="classId != null">
         class_id,
+      </if>
+      <if test="nationality != null">
+        nationality,
       </if>
       <if test="idCard != null">
         id_card,
@@ -136,6 +147,9 @@
       </if>
       <if test="operatorId != null">
         operator_id,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
       </if>
       <if test="extend1 != null">
         extend1,
@@ -175,6 +189,9 @@
       <if test="schoolId != null">
         #{schoolId,jdbcType=INTEGER},
       </if>
+      <if test="organId != null">
+        #{organId,jdbcType=INTEGER},
+      </if>
       <if test="studentNumber != null">
         #{studentNumber,jdbcType=VARCHAR},
       </if>
@@ -183,6 +200,9 @@
       </if>
       <if test="classId != null">
         #{classId,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=TINYINT},
       </if>
       <if test="idCard != null">
         #{idCard,jdbcType=VARCHAR},
@@ -219,6 +239,9 @@
       </if>
       <if test="operatorId != null">
         #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=TINYINT},
       </if>
       <if test="extend1 != null">
         #{extend1,jdbcType=VARCHAR},
@@ -258,6 +281,9 @@
       <if test="schoolId != null">
         school_id = #{schoolId,jdbcType=INTEGER},
       </if>
+      <if test="organId != null">
+        organ_id = #{organId,jdbcType=INTEGER},
+      </if>
       <if test="studentNumber != null">
         student_number = #{studentNumber,jdbcType=VARCHAR},
       </if>
@@ -266,6 +292,9 @@
       </if>
       <if test="classId != null">
         class_id = #{classId,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=TINYINT},
       </if>
       <if test="idCard != null">
         id_card = #{idCard,jdbcType=VARCHAR},
@@ -303,6 +332,9 @@
       <if test="operatorId != null">
         operator_id = #{operatorId,jdbcType=INTEGER},
       </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=TINYINT},
+      </if>
       <if test="extend1 != null">
         extend1 = #{extend1,jdbcType=VARCHAR},
       </if>
@@ -323,32 +355,35 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
     update phy_student_info
-    set user_name      = #{userName,jdbcType=VARCHAR},
-        sex            = #{sex,jdbcType=TINYINT},
-        age            = #{age,jdbcType=INTEGER},
-        birth_date     = #{birthDate,jdbcType=VARCHAR},
-        parent_id      = #{parentId,jdbcType=VARCHAR},
-        school_id      = #{schoolId,jdbcType=INTEGER},
+    set user_name = #{userName,jdbcType=VARCHAR},
+        sex = #{sex,jdbcType=TINYINT},
+        age = #{age,jdbcType=INTEGER},
+        birth_date = #{birthDate,jdbcType=VARCHAR},
+        parent_id = #{parentId,jdbcType=VARCHAR},
+        school_id = #{schoolId,jdbcType=INTEGER},
+        organ_id = #{organId,jdbcType=INTEGER},
         student_number = #{studentNumber,jdbcType=VARCHAR},
-        major_class    = #{majorClass,jdbcType=VARCHAR},
-        class_id       = #{classId,jdbcType=VARCHAR},
-        id_card        = #{idCard,jdbcType=VARCHAR},
-        phone_number   = #{phoneNumber,jdbcType=VARCHAR},
-        image          = #{image,jdbcType=VARCHAR},
+        major_class = #{majorClass,jdbcType=VARCHAR},
+        class_id = #{classId,jdbcType=VARCHAR},
+        nationality = #{nationality,jdbcType=TINYINT},
+        id_card = #{idCard,jdbcType=VARCHAR},
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+        image = #{image,jdbcType=VARCHAR},
         family_address = #{familyAddress,jdbcType=VARCHAR},
         census_address = #{censusAddress,jdbcType=VARCHAR},
-        enter_time     = #{enterTime,jdbcType=TIMESTAMP},
-        doctor_id      = #{doctorId,jdbcType=INTEGER},
-        duty_doctor    = #{dutyDoctor,jdbcType=VARCHAR},
-        phy_date       = #{phyDate,jdbcType=TIMESTAMP},
-        create_time    = #{createTime,jdbcType=TIMESTAMP},
-        update_time    = #{updateTime,jdbcType=TIMESTAMP},
-        operator_id    = #{operatorId,jdbcType=INTEGER},
-        extend1        = #{extend1,jdbcType=VARCHAR},
-        extend2        = #{extend2,jdbcType=VARCHAR},
-        extend3        = #{extend3,jdbcType=VARCHAR},
-        extend4        = #{extend4,jdbcType=VARCHAR},
-        extend5        = #{extend5,jdbcType=VARCHAR}
+        enter_time = #{enterTime,jdbcType=TIMESTAMP},
+        doctor_id = #{doctorId,jdbcType=INTEGER},
+        duty_doctor = #{dutyDoctor,jdbcType=VARCHAR},
+        phy_date = #{phyDate,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        operator_id = #{operatorId,jdbcType=INTEGER},
+        del_flag = #{delFlag,jdbcType=TINYINT},
+        extend1 = #{extend1,jdbcType=VARCHAR},
+        extend2 = #{extend2,jdbcType=VARCHAR},
+        extend3 = #{extend3,jdbcType=VARCHAR},
+        extend4 = #{extend4,jdbcType=VARCHAR},
+        extend5 = #{extend5,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <!--查询所有学生档案信息-->
@@ -356,6 +391,25 @@
     select
     <include refid="Base_Column_List"/>
     from phy_student_info
+    WHERE
+    <if test="id != null">
+      #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="id != null">
+      #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="id != null">
+      #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="id != null">
+      #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="id != null">
+      #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="id != null">
+      #{id,jdbcType=VARCHAR}
+    </if>
   </select>
   <!--批量导入学生档案信息-->
   <insert id="insertSelectiveList"  parameterType="java.util.List">

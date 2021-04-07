@@ -33,4 +33,18 @@ public interface SysSchoolMapper {
      * @return
      */
     int deleteSchoolInfo(Integer id);
+
+    /**
+     * 根据用户ID查询当前所归属学校
+     * @param id
+     * @return
+     */
+    List<SysSchoolEntity> selectSchoolByUserId(Integer id);
+
+    /**
+     * 根据教育局ID与用户ID查询学校
+     * @param id
+     * @return
+     */
+    List<SysSchoolEntity> selectSchoolByUserIdAndOrganId(Integer id);
 }

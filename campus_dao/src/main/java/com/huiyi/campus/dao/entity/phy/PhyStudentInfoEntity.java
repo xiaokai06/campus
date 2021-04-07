@@ -34,12 +34,16 @@ public class PhyStudentInfoEntity implements Serializable {
     private String parentId;
     @ApiModelProperty("学校机构id")
     private Integer schoolId;
+    @ApiModelProperty("教育局机构id")
+    private Integer organId;
     @ApiModelProperty("学生编号")
     private String studentNumber;
     @ApiModelProperty("专业班级")
     private String majorClass;
     @ApiModelProperty("班级id")
     private String classId;
+    @ApiModelProperty("国籍 0本国国籍 1外国国籍")
+    private Byte nationality;
     @ApiModelProperty("身份证号")
     private String idCard;
     @ApiModelProperty("联系电话")
@@ -64,6 +68,7 @@ public class PhyStudentInfoEntity implements Serializable {
     private Date updateTime;
     @ApiModelProperty("操作人员id (注：当前操作人员)")
     private Integer operatorId;
+    private Byte delFlag;
     @ApiModelProperty("扩展字段1")
     private String extend1;
     @ApiModelProperty("扩展字段2")
