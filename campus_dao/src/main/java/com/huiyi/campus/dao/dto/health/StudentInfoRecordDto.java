@@ -34,7 +34,7 @@ public class StudentInfoRecordDto {
     private Integer schoolId;
     @ApiModelProperty("教育局机构id")
     private Integer organId;
-    @ApiModelProperty("学生编号")
+    @ApiModelProperty("学生编号（学号）")
     private String studentNumber;
     @ApiModelProperty("专业班级")
     private String majorClass;
@@ -66,6 +66,5 @@ public class StudentInfoRecordDto {
     private Integer page;
     @ApiModelProperty("条数")
     private Integer rows;
-
 
 }

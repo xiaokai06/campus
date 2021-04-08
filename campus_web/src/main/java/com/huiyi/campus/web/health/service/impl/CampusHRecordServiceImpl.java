@@ -16,6 +16,7 @@ import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
 import com.huiyi.campus.dao.pojo.web.health.HealthRecordDao;
 import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,6 +34,7 @@ import java.util.List;
  * @date: 2021-03-28 13:38
  * @Version V1.0
  */
+@Slf4j
 @Service
 public class CampusHRecordServiceImpl implements CampusHRecordService {
 
@@ -54,11 +56,12 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
             List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
             PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
-            if (page.getList() != null && !page.getList().isEmpty()) {
-                return HQJsonResult.success(page.getList(), "查询成功", "200");
+            if (!page.getList().isEmpty()) {
+                return HQJsonResult.success(page.getList());
             }
         } catch (Exception e) {
             e.printStackTrace();
+            log.error("获取学生档案信息接口异常：" + e.getMessage());
         }
         return new HQJsonResult();
     }
@@ -243,18 +246,18 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
      */
     @Override
     public String importStudentInfoFile(MultipartFile file) {
-        try{
-            List<PhyStudentInfoEntity> phyStudentInfoEntityList= ExcelUtils.importExcel(file,0,1,PhyStudentInfoEntity.class);
-            phyStudentInfoEntityList.stream().forEach(str ->{
+        try {
+            List<PhyStudentInfoEntity> phyStudentInfoEntityList = ExcelUtils.importExcel(file, 0, 1, PhyStudentInfoEntity.class);
+            phyStudentInfoEntityList.stream().forEach(str -> {
                 str.setId(Sid.nextShort());
                 str.setPhyDate(new Date());
                 str.setCreateTime(new Date());
             });
             int batchInsertStudentInfo = healthRecordDao.batchInsertStudentInfo(phyStudentInfoEntityList);
-            if (batchInsertStudentInfo >0){
+            if (batchInsertStudentInfo > 0) {
                 return "导出成功";
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
