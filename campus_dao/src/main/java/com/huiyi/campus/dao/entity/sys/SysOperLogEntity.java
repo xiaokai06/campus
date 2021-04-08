@@ -1,34 +1,42 @@
 package com.huiyi.campus.dao.entity.sys;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@ApiModel("操作日志")
 public class SysOperLogEntity implements Serializable {
-    private Integer id;
-
-    private String operUser;
-
-    private String operModel;
-
-    private String operType;
-
-    private String operDesc;
-
-    private String operUrl;
-
-    private String operMethod;
-
-    private Date createTime;
-
-    private Date updateTime;
-
-    private String remark1;
-
-    private String remark2;
-
-    private String remark3;
 
     private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty("id")
+    private Integer id;
+
+    @ApiModelProperty("操作人")
+    private String operUser;
+
+    @ApiModelProperty("操作模块")
+    private String operModel;
+
+    @ApiModelProperty("操作类型")
+    private String operType;
+
+    @ApiModelProperty("操作描述")
+    private String operDesc;
+
+    @ApiModelProperty("操作URL")
+    private String operUrl;
+
+    @ApiModelProperty("操作方法")
+    private String operMethod;
+
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+
+    @ApiModelProperty("更新时间")
+    private Date updateTime;
 
     public Integer getId() {
         return id;
@@ -102,30 +110,6 @@ public class SysOperLogEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public String getRemark1() {
-        return remark1;
-    }
-
-    public void setRemark1(String remark1) {
-        this.remark1 = remark1 == null ? null : remark1.trim();
-    }
-
-    public String getRemark2() {
-        return remark2;
-    }
-
-    public void setRemark2(String remark2) {
-        this.remark2 = remark2 == null ? null : remark2.trim();
-    }
-
-    public String getRemark3() {
-        return remark3;
-    }
-
-    public void setRemark3(String remark3) {
-        this.remark3 = remark3 == null ? null : remark3.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -146,10 +130,7 @@ public class SysOperLogEntity implements Serializable {
             && (this.getOperUrl() == null ? other.getOperUrl() == null : this.getOperUrl().equals(other.getOperUrl()))
             && (this.getOperMethod() == null ? other.getOperMethod() == null : this.getOperMethod().equals(other.getOperMethod()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
-            && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
-            && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()));
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
 
     @Override
@@ -165,9 +146,6 @@ public class SysOperLogEntity implements Serializable {
         result = prime * result + ((getOperMethod() == null) ? 0 : getOperMethod().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
-        result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
-        result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
         return result;
     }
 
@@ -186,9 +164,6 @@ public class SysOperLogEntity implements Serializable {
         sb.append(", operMethod=").append(operMethod);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
-        sb.append(", remark1=").append(remark1);
-        sb.append(", remark2=").append(remark2);
-        sb.append(", remark3=").append(remark3);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

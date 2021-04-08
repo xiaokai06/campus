@@ -1,6 +1,5 @@
 package com.huiyi.campus.dao.entity.sys;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -8,6 +7,8 @@ import java.io.Serializable;
 
 @ApiModel("用户菜单")
 public class SysMenuEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(dataType = "Integer", value = "id")
     private Integer id;
@@ -26,17 +27,6 @@ public class SysMenuEntity implements Serializable {
 
     @ApiModelProperty("排序")
     private String sort;
-
-    @JsonIgnore
-    private String remark3;
-
-    @JsonIgnore
-    private String remark4;
-
-    @JsonIgnore
-    private String remark5;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -86,30 +76,6 @@ public class SysMenuEntity implements Serializable {
         this.sort = sort;
     }
 
-    public String getRemark3() {
-        return remark3;
-    }
-
-    public void setRemark3(String remark3) {
-        this.remark3 = remark3 == null ? null : remark3.trim();
-    }
-
-    public String getRemark4() {
-        return remark4;
-    }
-
-    public void setRemark4(String remark4) {
-        this.remark4 = remark4 == null ? null : remark4.trim();
-    }
-
-    public String getRemark5() {
-        return remark5;
-    }
-
-    public void setRemark5(String remark5) {
-        this.remark5 = remark5 == null ? null : remark5.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -127,10 +93,7 @@ public class SysMenuEntity implements Serializable {
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
             && (this.getMenuLevel() == null ? other.getMenuLevel() == null : this.getMenuLevel().equals(other.getMenuLevel()))
-            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
-            && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()))
-            && (this.getRemark4() == null ? other.getRemark4() == null : this.getRemark4().equals(other.getRemark4()))
-            && (this.getRemark5() == null ? other.getRemark5() == null : this.getRemark5().equals(other.getRemark5()));
+            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()));
     }
 
     @Override
@@ -143,9 +106,6 @@ public class SysMenuEntity implements Serializable {
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         result = prime * result + ((getMenuLevel() == null) ? 0 : getMenuLevel().hashCode());
         result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
-        result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
-        result = prime * result + ((getRemark4() == null) ? 0 : getRemark4().hashCode());
-        result = prime * result + ((getRemark5() == null) ? 0 : getRemark5().hashCode());
         return result;
     }
 
@@ -160,9 +120,6 @@ public class SysMenuEntity implements Serializable {
                 ", updateTime=" + updateTime +
                 ", menuLevel=" + menuLevel +
                 ", sort=" + sort +
-                ", remark3=" + remark3 +
-                ", remark4=" + remark4 +
-                ", remark5=" + remark5 +
                 ", serialVersionUID=" + serialVersionUID +
                 "]";
         return sb;

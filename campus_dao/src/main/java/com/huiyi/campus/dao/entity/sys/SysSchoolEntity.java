@@ -8,6 +8,8 @@ import java.io.Serializable;
 @ApiModel("学校实体类")
 public class SysSchoolEntity implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @ApiModelProperty("id")
     private Integer id;
 
@@ -22,8 +24,6 @@ public class SysSchoolEntity implements Serializable {
 
     @ApiModelProperty("修改时间")
     private String updateTime;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;

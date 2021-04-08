@@ -54,7 +54,11 @@ public class SysUserDao {
      * @return
      */
     public Integer insertUserInfo(SysUserEntity sysUserEntity) {
-        return sysUserMapper.insertSelective(sysUserEntity);
+        int i = sysUserMapper.insertSelective(sysUserEntity);
+        if (i > 0) {
+            sysUserMapper.insertUserRole(sysUserEntity);
+        }
+        return i;
     }
 
     /**
@@ -76,7 +80,11 @@ public class SysUserDao {
      * @return
      */
     public Integer deleteUserInfoById(Integer id) {
-        return sysUserMapper.deleteByPrimaryKey(id);
+        int i = sysUserMapper.deleteByPrimaryKey(id);
+        if (i > 0) {
+            sysUserMapper.deleteUserRole(id);
+        }
+        return i;
     }
 
 }

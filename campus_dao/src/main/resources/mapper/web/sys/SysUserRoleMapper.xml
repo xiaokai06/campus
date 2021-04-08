@@ -5,12 +5,9 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
-    <result column="remark1" jdbcType="VARCHAR" property="remark1" />
-    <result column="remark2" jdbcType="VARCHAR" property="remark2" />
-    <result column="remark3" jdbcType="VARCHAR" property="remark3" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_id, role_id, remark1, remark2, remark3
+    id, user_id, role_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -23,11 +20,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.SysUserRoleEntity">
-    insert into sys_user_role (id, user_id, role_id, 
-      remark1, remark2, remark3
+    insert into sys_user_role (id, user_id, role_id
       )
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, 
-      #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.sys.SysUserRoleEntity">
@@ -42,15 +37,6 @@
       <if test="roleId != null">
         role_id,
       </if>
-      <if test="remark1 != null">
-        remark1,
-      </if>
-      <if test="remark2 != null">
-        remark2,
-      </if>
-      <if test="remark3 != null">
-        remark3,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -61,15 +47,6 @@
       </if>
       <if test="roleId != null">
         #{roleId,jdbcType=INTEGER},
-      </if>
-      <if test="remark1 != null">
-        #{remark1,jdbcType=VARCHAR},
-      </if>
-      <if test="remark2 != null">
-        #{remark2,jdbcType=VARCHAR},
-      </if>
-      <if test="remark3 != null">
-        #{remark3,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -82,25 +59,13 @@
       <if test="roleId != null">
         role_id = #{roleId,jdbcType=INTEGER},
       </if>
-      <if test="remark1 != null">
-        remark1 = #{remark1,jdbcType=VARCHAR},
-      </if>
-      <if test="remark2 != null">
-        remark2 = #{remark2,jdbcType=VARCHAR},
-      </if>
-      <if test="remark3 != null">
-        remark3 = #{remark3,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.SysUserRoleEntity">
     update sys_user_role
     set user_id = #{userId,jdbcType=INTEGER},
-      role_id = #{roleId,jdbcType=INTEGER},
-      remark1 = #{remark1,jdbcType=VARCHAR},
-      remark2 = #{remark2,jdbcType=VARCHAR},
-      remark3 = #{remark3,jdbcType=VARCHAR}
+      role_id = #{roleId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

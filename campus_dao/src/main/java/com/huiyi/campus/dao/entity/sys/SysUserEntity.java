@@ -8,6 +8,8 @@ import java.io.Serializable;
 @ApiModel("用户实体类")
 public class SysUserEntity implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @ApiModelProperty("id")
     private Integer id;
 
@@ -58,8 +60,6 @@ public class SysUserEntity implements Serializable {
 
     @ApiModelProperty("机构名称")
     private String organName;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;

@@ -1,28 +1,33 @@
 package com.huiyi.campus.dao.entity.sys;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@ApiModel("登录日志管理")
 public class SysLoginLogEntity implements Serializable {
-    private Integer id;
-
-    private String loginUname;
-
-    private String loginIp;
-
-    private Date loginTime;
-
-    private Date createTime;
-
-    private Date updateTime;
-
-    private String remark1;
-
-    private String remark2;
-
-    private String remark3;
 
     private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty("id")
+    private Integer id;
+
+    @ApiModelProperty("登录用户名")
+    private String loginUname;
+
+    @ApiModelProperty("登录IP")
+    private String loginIp;
+
+    @ApiModelProperty("登录时间")
+    private Date loginTime;
+
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+
+    @ApiModelProperty("更新时间")
+    private Date updateTime;
 
     public Integer getId() {
         return id;
@@ -72,30 +77,6 @@ public class SysLoginLogEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public String getRemark1() {
-        return remark1;
-    }
-
-    public void setRemark1(String remark1) {
-        this.remark1 = remark1 == null ? null : remark1.trim();
-    }
-
-    public String getRemark2() {
-        return remark2;
-    }
-
-    public void setRemark2(String remark2) {
-        this.remark2 = remark2 == null ? null : remark2.trim();
-    }
-
-    public String getRemark3() {
-        return remark3;
-    }
-
-    public void setRemark3(String remark3) {
-        this.remark3 = remark3 == null ? null : remark3.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -113,10 +94,7 @@ public class SysLoginLogEntity implements Serializable {
             && (this.getLoginIp() == null ? other.getLoginIp() == null : this.getLoginIp().equals(other.getLoginIp()))
             && (this.getLoginTime() == null ? other.getLoginTime() == null : this.getLoginTime().equals(other.getLoginTime()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getRemark1() == null ? other.getRemark1() == null : this.getRemark1().equals(other.getRemark1()))
-            && (this.getRemark2() == null ? other.getRemark2() == null : this.getRemark2().equals(other.getRemark2()))
-            && (this.getRemark3() == null ? other.getRemark3() == null : this.getRemark3().equals(other.getRemark3()));
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
 
     @Override
@@ -129,9 +107,6 @@ public class SysLoginLogEntity implements Serializable {
         result = prime * result + ((getLoginTime() == null) ? 0 : getLoginTime().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getRemark1() == null) ? 0 : getRemark1().hashCode());
-        result = prime * result + ((getRemark2() == null) ? 0 : getRemark2().hashCode());
-        result = prime * result + ((getRemark3() == null) ? 0 : getRemark3().hashCode());
         return result;
     }
 
@@ -147,9 +122,6 @@ public class SysLoginLogEntity implements Serializable {
         sb.append(", loginTime=").append(loginTime);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
-        sb.append(", remark1=").append(remark1);
-        sb.append(", remark2=").append(remark2);
-        sb.append(", remark3=").append(remark3);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

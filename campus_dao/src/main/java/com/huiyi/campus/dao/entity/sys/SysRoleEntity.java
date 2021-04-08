@@ -9,6 +9,8 @@ import java.util.List;
 @ApiModel("用户角色")
 public class SysRoleEntity implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @ApiModelProperty(dataType = "Integer", value = "id")
     private Integer id;
 
@@ -29,8 +31,6 @@ public class SysRoleEntity implements Serializable {
 
     @ApiModelProperty("菜单权限")
     private List<Integer> menuIds;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;

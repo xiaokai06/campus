@@ -19,6 +19,9 @@ public interface SysUserMapper {
 
     List<SysUserEntity> selectAllUserInfo(SysUserEntity sysUserEntity);
 
+    int insertUserRole(SysUserEntity sysUserEntity);
+
     int updateUserRole(SysUserEntity sysUserEntity);
 
+    int deleteUserRole(Integer id);
 }
