@@ -44,6 +44,9 @@ public class StudentInfoRecordVo {
     @ApiModelProperty("父母id")
     private String parentId;
 
+    @ApiModelProperty("教育局机构id")
+    private Integer organId;
+
     @Excel(name = "学校机构id")
     @ApiModelProperty("学校机构id")
     private Integer schoolId;
@@ -59,6 +62,9 @@ public class StudentInfoRecordVo {
     @Excel(name = "班级id")
     @ApiModelProperty("班级id")
     private String classId;
+
+    @ApiModelProperty("国籍 0本国国籍 1外国国籍")
+    private Byte nationality;
 
     @Excel(name = "身份证号")
     @ApiModelProperty("身份证号")
