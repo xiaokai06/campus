@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author: liyukai
@@ -53,11 +54,18 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
         try {
+            HQJsonResult hqJsonResult = new HQJsonResult();
             PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
             List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
             PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
             if (!page.getList().isEmpty()) {
-                return HQJsonResult.success(page.getList());
+                hqJsonResult.setSuccess(true);
+                hqJsonResult.setCode("200");
+                hqJsonResult.setMsg("处理成功！");
+                hqJsonResult.setRequestID(String.valueOf(UUID.randomUUID()));
+                hqJsonResult.setTotal(page.getTotal());
+                hqJsonResult.setData(page.getList());
+                return hqJsonResult;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,7 +100,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
              * 校验数据插入
              */
             if (createInfoStr > 0) {
-                return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity), "学生档案信息创建成功", "200");
+                return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity));
             }
         } catch (Exception e) {
             e.printStackTrace();

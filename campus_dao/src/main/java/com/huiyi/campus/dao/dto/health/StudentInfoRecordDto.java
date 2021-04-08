@@ -21,7 +21,7 @@ public class StudentInfoRecordDto {
     @ApiModelProperty("学生id")
     private String id;
     @ApiModelProperty("学生姓名")
-    private String userName;
+    private String studentName;
     @ApiModelProperty("性别(1:男，2:女，0:未知性别)")
     private Integer sex;
     @ApiModelProperty("年龄")

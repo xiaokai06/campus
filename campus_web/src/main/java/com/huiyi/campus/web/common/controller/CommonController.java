@@ -51,4 +51,12 @@ public class CommonController {
     public HQJsonResult selectClassBySchoolId(@RequestBody SchoolDto schoolDto) {
         return commonService.selectClassBySchoolId(schoolDto);
     }
+
+    /**
+     * 参数字典表查询
+     */
+    @GetMapping("/selectType")
+    public HQJsonResult selectType() {
+        return commonService.selectType();
+    }
 }

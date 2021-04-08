@@ -6,15 +6,22 @@ import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 import com.huiyi.campus.dao.dto.common.SchoolDto;
 import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
+import com.huiyi.campus.dao.entity.sys.TsTypeEntity;
+import com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity;
 import com.huiyi.campus.dao.pojo.web.common.CommonDao;
 import com.huiyi.campus.dao.vo.common.SysAreasVo;
+import com.huiyi.campus.dao.vo.common.TsTypeGroupVo;
 import com.huiyi.campus.web.common.service.CommonService;
+import com.mchange.v1.util.CollectionUtils;
+import com.mchange.v2.beans.BeansUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -28,8 +35,10 @@ import java.util.stream.Collectors;
 @Service
 public class CommonServiceImpl implements CommonService {
 
+
     @Autowired
     CommonDao commonDao;
+
 
     /**
      * 省市区三级联动查询
@@ -96,5 +105,39 @@ public class CommonServiceImpl implements CommonService {
         }
         List<SysGradeClassEntity> classEntityList = commonDao.selectClassBySchoolId(schoolDto);
         return HQJsonResult.success(classEntityList);
+    }
+
+    /**
+     * 字典
+     * @return
+     */
+    @Override
+    public HQJsonResult selectType() {
+        //父级
+        List<TsTypeGroupVo> resultVoList = new ArrayList<>();
+        List<TsTypeGroupEntity> list = commonDao.selectTypeGroup();
+        Map<String, List<TsTypeGroupEntity>> map = list.stream().collect(Collectors.groupingBy(TsTypeGroupEntity::getTypegroupid));
+        for (String id : map.keySet()) {
+            TsTypeGroupVo tsTypeGroupVo = new TsTypeGroupVo();
+            List<TsTypeEntity> result = new ArrayList<>();
+            List<TsTypeGroupEntity> resultList = map.get(id);
+            for (TsTypeGroupEntity tsTypeGroupEntity : resultList) {
+                TsTypeEntity tsTypeEntity = new TsTypeEntity();
+                tsTypeEntity.setId(tsTypeGroupEntity.getId());
+                tsTypeEntity.setTypecode(tsTypeGroupEntity.getTypecode());
+                tsTypeEntity.setTypename(tsTypeGroupEntity.getTypename());
+                tsTypeEntity.setTypegroupid(tsTypeGroupEntity.getTypegroupid());
+                result.add(tsTypeEntity);
+            }
+            if (result.size() > 0) {
+                TsTypeGroupEntity tsTypeGroupEntity = resultList.get(0);
+                tsTypeGroupVo.setId(tsTypeGroupEntity.getId());
+                tsTypeGroupVo.setTypegroupcode(tsTypeGroupEntity.getTypegroupcode());
+                tsTypeGroupVo.setTypegroupname(tsTypeGroupEntity.getTypegroupname());
+                tsTypeGroupVo.setTypeList(result);
+                resultVoList.add(tsTypeGroupVo);
+            }
+        }
+        return HQJsonResult.success(resultVoList);
     }
 }

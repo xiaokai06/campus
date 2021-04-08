@@ -3,6 +3,8 @@ package com.huiyi.campus.dao.mapper.web.sys;
 
 import com.huiyi.campus.dao.entity.sys.TsTypeEntity;
 
+import java.util.List;
+
 public interface TsTypeMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -15,4 +17,6 @@ public interface TsTypeMapper {
     int updateByPrimaryKeySelective(TsTypeEntity record);
 
     int updateByPrimaryKey(TsTypeEntity record);
+
+    List<TsTypeEntity> selectByPrimaryKeyList(Integer id);
 }

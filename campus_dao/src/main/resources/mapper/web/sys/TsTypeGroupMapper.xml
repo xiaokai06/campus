@@ -1,71 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huiyi.campus.dao.mapper.web.sys.TsTypeGroupMapper">
-  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="TYPEGROUPCODE" jdbcType="VARCHAR" property="typegroupcode" />
-    <result column="TYPEGROUPNAME" jdbcType="VARCHAR" property="typegroupname" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, TYPEGROUPCODE, TYPEGROUPNAME
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_s_typegroup
-    where ID = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_s_typegroup
-    where ID = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
-    insert into t_s_typegroup (ID, TYPEGROUPCODE, TYPEGROUPNAME
-      )
-    values (#{id,jdbcType=INTEGER}, #{typegroupcode,jdbcType=VARCHAR}, #{typegroupname,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
-    insert into t_s_typegroup
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="typegroupcode != null">
-        TYPEGROUPCODE,
-      </if>
-      <if test="typegroupname != null">
-        TYPEGROUPNAME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="typegroupcode != null">
-        #{typegroupcode,jdbcType=VARCHAR},
-      </if>
-      <if test="typegroupname != null">
-        #{typegroupname,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
-    update t_s_typegroup
-    <set>
-      <if test="typegroupcode != null">
-        TYPEGROUPCODE = #{typegroupcode,jdbcType=VARCHAR},
-      </if>
-      <if test="typegroupname != null">
-        TYPEGROUPNAME = #{typegroupname,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
-    update t_s_typegroup
-    set TYPEGROUPCODE = #{typegroupcode,jdbcType=VARCHAR},
-      TYPEGROUPNAME = #{typegroupname,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
+    <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="TYPEGROUPCODE" jdbcType="VARCHAR" property="typegroupcode"/>
+        <result column="TYPEGROUPNAME" jdbcType="VARCHAR" property="typegroupname"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID
+                , TYPEGROUPCODE, TYPEGROUPNAME
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_s_typegroup
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from t_s_typegroup
+        where ID = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
+        insert into t_s_typegroup (ID, TYPEGROUPCODE, TYPEGROUPNAME)
+        values (#{id,jdbcType=INTEGER}, #{typegroupcode,jdbcType=VARCHAR}, #{typegroupname,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
+        insert into t_s_typegroup
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="typegroupcode != null">
+                TYPEGROUPCODE,
+            </if>
+            <if test="typegroupname != null">
+                TYPEGROUPNAME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="typegroupcode != null">
+                #{typegroupcode,jdbcType=VARCHAR},
+            </if>
+            <if test="typegroupname != null">
+                #{typegroupname,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
+        update t_s_typegroup
+        <set>
+            <if test="typegroupcode != null">
+                TYPEGROUPCODE = #{typegroupcode,jdbcType=VARCHAR},
+            </if>
+            <if test="typegroupname != null">
+                TYPEGROUPNAME = #{typegroupname,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
+        update t_s_typegroup
+        set TYPEGROUPCODE = #{typegroupcode,jdbcType=VARCHAR},
+            TYPEGROUPNAME = #{typegroupname,jdbcType=VARCHAR}
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <resultMap id="GroupResultMap" type="com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="TYPEGROUPCODE" jdbcType="VARCHAR" property="typegroupcode"/>
+        <result column="TYPEGROUPNAME" jdbcType="VARCHAR" property="typegroupname"/>
+        <result column="typecode" jdbcType="VARCHAR" property="typecode"/>
+        <result column="typename" jdbcType="VARCHAR" property="typename"/>
+        <result column="typegroupid" jdbcType="VARCHAR" property="typegroupid"/>
+    </resultMap>
+
+    <!--查询参数类型字典组-->
+    <select id="selectAll" resultMap="GroupResultMap">
+        SELECT t.ID,
+               t.typecode,
+               t.typename,
+               t.typegroupid,
+               g.TYPEGROUPCODE,
+               g.TYPEGROUPNAME
+        FROM t_s_type t
+                     LEFT JOIN t_s_typegroup g ON t.TYPEGROUPID = g.ID
+    </select>
 </mapper>

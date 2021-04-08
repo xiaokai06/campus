@@ -40,14 +40,14 @@ public class HQJsonResult<T> {
     public HQJsonResult() {
     }
 
-    public HQJsonResult(List<T> data, String code, String msg, boolean success) {
+    public HQJsonResult(List<T> data, String code, String message, boolean success) {
         if (this.getRequestID() == null || this.getRequestID().equals("")) {
             this.setRequestID(UUID.randomUUID().toString());
         }
 
         this.success = success;
         this.code = code;
-        this.msg = msg;
+        this.msg = message;
         this.data = data;
     }
 
@@ -140,7 +140,7 @@ public class HQJsonResult<T> {
     public String getMsg() {
         return this.msg;
     }
-    public void setMsg(String code) {
+    public void setMsg(String msg) {
         this.msg = msg;
     }
     public void setCode(String code) {

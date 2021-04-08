@@ -23,7 +23,7 @@ public class PhyStudentInfoEntity implements Serializable {
     @ApiModelProperty("主键id")
     private String id;
     @ApiModelProperty("姓名")
-    private String userName;
+    private String studentName;
     @ApiModelProperty("性别(1:男，2:女，0:未知性别)")
     private Integer sex;
     @ApiModelProperty("年龄")

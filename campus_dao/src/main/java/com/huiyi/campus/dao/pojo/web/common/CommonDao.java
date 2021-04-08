@@ -3,10 +3,11 @@ package com.huiyi.campus.dao.pojo.web.common;
 import com.huiyi.campus.dao.dto.common.SchoolDto;
 import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
-import com.huiyi.campus.dao.mapper.web.sys.SysAreasMapper;
-import com.huiyi.campus.dao.mapper.web.sys.SysGradeClassMapper;
-import com.huiyi.campus.dao.mapper.web.sys.SysSchoolMapper;
+import com.huiyi.campus.dao.entity.sys.TsTypeEntity;
+import com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity;
+import com.huiyi.campus.dao.mapper.web.sys.*;
 import com.huiyi.campus.dao.vo.common.SysAreasVo;
+import com.huiyi.campus.dao.vo.common.TsTypeGroupVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +32,11 @@ public class CommonDao {
     @Autowired
     SysGradeClassMapper sysGradeClassMapper;
 
+    @Autowired
+    TsTypeGroupMapper tsTypeGroupMapper;
+
+    @Autowired
+    TsTypeMapper tsTypeMapper;
     /**
      * 省市区三级联动查询
      *
@@ -67,5 +73,13 @@ public class CommonDao {
      */
     public List<SysGradeClassEntity> selectClassBySchoolId(SchoolDto schoolDto) {
         return sysGradeClassMapper.selectClassBySchoolId(schoolDto.getSchoolId());
+    }
+
+    public List<TsTypeGroupEntity> selectTypeGroup() {
+        return tsTypeGroupMapper.selectAll();
+    }
+
+    public List<TsTypeEntity> selectType(Integer id) {
+        return tsTypeMapper.selectByPrimaryKeyList(id);
     }
 }

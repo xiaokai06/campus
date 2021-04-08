@@ -3,7 +3,7 @@
 <mapper namespace="com.huiyi.campus.dao.mapper.web.phy.PhyStudentInfoMapper">
     <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
         <id column="id" jdbcType="VARCHAR" property="id"/>
-        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
         <result column="sex" jdbcType="TINYINT" property="sex"/>
         <result column="age" jdbcType="INTEGER" property="age"/>
         <result column="birth_date" jdbcType="VARCHAR" property="birthDate"/>
@@ -35,7 +35,7 @@
     </resultMap>
     <sql id="Base_Column_List">
         id
-                , user_name, sex, age, birth_date, parent_id, school_id, organ_id, student_number,
+                , student_name, sex, age, birth_date, parent_id, school_id, organ_id, student_number,
     major_class, class_id, nationality, id_card, phone_number, image, family_address,
     census_address, enter_time, doctor_id, duty_doctor, phy_date, create_time, update_time,
     operator_id, del_flag, extend1, extend2, extend3, extend4, extend5
@@ -52,7 +52,7 @@
         where id = #{id,jdbcType=VARCHAR}
     </delete>
     <insert id="insert" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
-        insert into phy_student_info (id, user_name, sex,
+        insert into phy_student_info (id, student_name, sex,
                                       age, birth_date, parent_id,
                                       school_id, organ_id, student_number,
                                       major_class, class_id, nationality,
@@ -62,7 +62,7 @@
                                       create_time, update_time, operator_id,
                                       del_flag, extend1, extend2,
                                       extend3, extend4, extend5)
-        values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
+        values (#{id,jdbcType=VARCHAR}, #{studentName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
                 #{age,jdbcType=INTEGER}, #{birthDate,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR},
                 #{schoolId,jdbcType=INTEGER}, #{organId,jdbcType=INTEGER}, #{studentNumber,jdbcType=VARCHAR},
                 #{majorClass,jdbcType=VARCHAR}, #{classId,jdbcType=VARCHAR}, #{nationality,jdbcType=TINYINT},
@@ -79,8 +79,8 @@
             <if test="id != null">
                 id,
             </if>
-            <if test="userName != null">
-                user_name,
+            <if test="studentName != null">
+                student_name,
             </if>
             <if test="sex != null">
                 sex,
@@ -171,8 +171,8 @@
             <if test="id != null">
                 #{id,jdbcType=VARCHAR},
             </if>
-            <if test="userName != null">
-                #{userName,jdbcType=VARCHAR},
+            <if test="studentName != null">
+                #{studentName,jdbcType=VARCHAR},
             </if>
             <if test="sex != null">
                 #{sex,jdbcType=TINYINT},
@@ -263,8 +263,8 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
         update phy_student_info
         <set>
-            <if test="userName != null">
-                user_name = #{userName,jdbcType=VARCHAR},
+            <if test="studentName != null">
+                student_name = #{studentName,jdbcType=VARCHAR},
             </if>
             <if test="sex != null">
                 sex = #{sex,jdbcType=TINYINT},
@@ -355,7 +355,7 @@
     </update>
     <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
         update phy_student_info
-        set user_name      = #{userName,jdbcType=VARCHAR},
+        set student_name      = #{studentName,jdbcType=VARCHAR},
             sex            = #{sex,jdbcType=TINYINT},
             age            = #{age,jdbcType=INTEGER},
             birth_date     = #{birthDate,jdbcType=VARCHAR},
@@ -395,8 +395,8 @@
         <if test="id != null and id!=''">
             AND id = #{id,jdbcType=VARCHAR}
         </if>
-        <if test="userName != null and userName!=''">
-            AND user_name = #{userName,jdbcType=VARCHAR}
+        <if test="studentName != null and studentName!=''">
+            AND student_name = #{studentName,jdbcType=VARCHAR}
         </if>
         <if test="sex != null and sex!=''">
             AND sex = #{sex,jdbcType=TINYINT}
@@ -426,8 +426,8 @@
                 <if test="item.id != null">
                     id,
                 </if>
-                <if test="item.userName != null">
-                    user_name,
+                <if test="item.studentName != null">
+                    student_name,
                 </if>
                 <if test="item.sex != null">
                     sex,
@@ -509,8 +509,8 @@
                 <if test="item.id != null">
                     #{item.id,jdbcType=VARCHAR},
                 </if>
-                <if test="item.userName != null">
-                    #{item.userName,jdbcType=VARCHAR},
+                <if test="item.studentName != null">
+                    #{item.studentName,jdbcType=VARCHAR},
                 </if>
                 <if test="item.sex != null">
                     #{item.sex,jdbcType=TINYINT},
