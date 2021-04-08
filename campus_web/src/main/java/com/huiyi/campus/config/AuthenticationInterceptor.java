@@ -73,6 +73,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                             if (null == sysUserEntity) {
                                 throw new RuntimeException("用户不存在，请重新登录");
                             }
+                        } else {
+                            throw new RuntimeException(CommonEnum.LOGIN_TIMEOUT.getResultMsg());
                         }
                     }
                 } catch (JWTDecodeException j) {

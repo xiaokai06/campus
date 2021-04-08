@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysSchoolOrganMapper">
+
+    <!-- 通过机构ID查询旗下的所有学校 -->
+    <select id="selectSchoolByOrganId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select school_id from sys_school_organ where organ_id=#{id,jdbcType=INTEGER}
+    </select>
+</mapper>
