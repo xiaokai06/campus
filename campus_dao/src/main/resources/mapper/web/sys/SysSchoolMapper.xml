@@ -77,7 +77,7 @@
         FROM sys_school school
                      LEFT JOIN sys_user u
                 ON school.id = u.school_id
-        WHERE u.id = #{id,jdbcType=INTEGER}
+        WHERE u.id = #{userId,jdbcType=INTEGER}
     </select>
     <!--根据教育局ID与用户ID查询学校-->
     <select id="selectSchoolByUserIdAndOrganId" resultMap="BaseResultMap">
@@ -85,6 +85,6 @@
         FROM sys_school school
                      INNER JOIN sys_school_organ o ON school.id = o.school_id
                      INNER JOIN sys_user u ON o.organ_id = u.organ_id
-        WHERE u.id = #{id,jdbcType=INTEGER}
+        WHERE u.id = #{userId,jdbcType=INTEGER}
     </select>
 </mapper>

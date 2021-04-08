@@ -13,5 +13,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SchoolDto {
-   private Integer id;
+   private Integer userId;
+   private Integer schoolId;
 }

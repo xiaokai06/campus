@@ -40,4 +40,15 @@ public class CommonController {
     public HQJsonResult selectSchoolByUserId(@RequestBody SchoolDto schoolDto) {
         return commonService.selectSchoolByUserId(schoolDto);
     }
+
+    /**
+     * 根据学校ID查询专业班级
+     *
+     * @param schoolDto
+     * @return
+     */
+    @PostMapping("/selectClassBySchoolId")
+    public HQJsonResult selectClassBySchoolId(@RequestBody SchoolDto schoolDto) {
+        return commonService.selectClassBySchoolId(schoolDto);
+    }
 }
