@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -72,10 +73,10 @@ public class CommonServiceImpl implements CommonService {
         if (JsonUtils.checkObjAllFieldsIsNull(schoolDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        List<SysSchoolEntity> schoolEntityList = null;
+        List<SysSchoolEntity> schoolEntityList = new ArrayList<SysSchoolEntity>();
 
         schoolEntityList = commonDao.selectSchoolByUserId(schoolDto);
-        if (schoolEntityList.isEmpty()){
+        if (schoolEntityList.isEmpty()) {
             schoolEntityList = commonDao.selectSchoolByUserIdAndOrganId(schoolDto);
         }
         return HQJsonResult.success(schoolEntityList);
