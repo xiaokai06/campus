@@ -30,6 +30,11 @@
             <version>2.3</version>
             <scope>compile</scope>
         </dependency>
+       <!-- <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>${tomcat-embed-core.version}</version>
+        </dependency>-->
 
     </dependencies>
 
@@ -38,6 +43,8 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <spring-boot-starter-data-redis.version>2.2.7.RELEASE</spring-boot-starter-data-redis.version>
+        <tomcat-embed-core.version>9.0.31</tomcat-embed-core.version>
+
 
     </properties>
 

@@ -20,6 +20,7 @@ spring:
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
   http:
+    enabled: true
     encoding:
       force: true
       charset: utf-8
@@ -28,8 +29,15 @@ server:
   servlet:
     context-path: /campus
   port: 8021
-  tomcat:
-    uri-encoding: UTF-8
+  undertow:
+    io-threads: 4
+    worker-threads: 256
+    buffer-size: 1024
+    buffers-per-region: 1024
+    direct-buffers: true
+#  tomcat:
+#    uri-encoding: UTF-8
+#    max-http-header-size: 8192
 
 # 开放端点用于SpringBoot Admin的监控-健康检查访问: http://ip:port/sys/actuator/health
 management:

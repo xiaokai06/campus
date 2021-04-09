@@ -124,7 +124,6 @@ public class CampusHRecordController {
      * 学生档案信息数据导出
      *
      * @param studentInfoRecordDto
-     *
      * @param response
      * @return
      */
@@ -160,7 +159,7 @@ public class CampusHRecordController {
     public String download(@RequestParam("fileName") String fileName) throws Exception {
         if (StringUtils.isNoneEmpty(fileName)) {
             String url = minioClient.presignedGetObject("campus", fileName, 60 * 60 * 24 * 7);
-            System.err.println(url);
+            log.info(url);
             return url;
         }
         return null;

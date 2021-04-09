@@ -47,7 +47,6 @@
         <quartz.version>2.3.2</quartz.version>
         <jsch.version>0.1.53</jsch.version>
         <spring-webmvc.version>5.3.1</spring-webmvc.version>
-        <tomcat-embed-core.version>9.0.31</tomcat-embed-core.version>
         <dependency.version>6.1.0</dependency.version>
         <javase.version>3.3.3</javase.version>
         <fastdfs-client.version>1.26.2</fastdfs-client.version>
@@ -71,6 +70,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 排除Tomcat依赖 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -192,11 +198,7 @@
             <artifactId>jsch</artifactId>
             <version>${jsch.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>${tomcat-embed-core.version}</version>
-        </dependency>
+
         <!--netty通讯依赖-->
         <dependency>
             <groupId>io.netty</groupId>
@@ -210,11 +212,11 @@
             <version>${javase.version}</version>
         </dependency>
         <!-- 高性能分布式文件服务器 -->
-      <!--  <dependency>
-            <groupId>com.github.tobato</groupId>
-            <artifactId>fastdfs-client</artifactId>
-            <version>${fastdfs-client.version}</version>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>com.github.tobato</groupId>
+              <artifactId>fastdfs-client</artifactId>
+              <version>${fastdfs-client.version}</version>
+          </dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -235,7 +237,7 @@
             <artifactId>spring-security-crypto</artifactId>
             <version>5.1.6.RELEASE</version>
         </dependency>
-        <!--minio 对象存储文件服务器-->
+        <!--minio对象存储文件服务器-->
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
@@ -251,6 +253,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13</version>
+        </dependency>
+        <!-- 添加 Undertow依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
     </dependencies>
 
@@ -275,22 +282,22 @@
                 </configuration>
             </plugin>
             <!--owasp漏洞扫描依赖（不用可以注释掉）-->
-             <!--<plugin>
-                 <groupId>org.owasp</groupId>
-                 <artifactId>dependency-check-maven</artifactId>
-                 <version>${dependency.version}</version>
-                 <configuration>
-                     <cveUrlModified>E:/owsp/data/nvdcve-1.1-modified.json.gz</cveUrlModified>
-                     <cveUrlBase>E:/owsp/data/nvdcve-1.1-%d.json.gz</cveUrlBase>
-                 </configuration>
-                 <executions>
-                     <execution>
-                         <goals>
-                             <goal>check</goal>
-                         </goals>
-                     </execution>
-                 </executions>
-             </plugin>-->
+            <!--<plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>${dependency.version}</version>
+                <configuration>
+                    <cveUrlModified>E:/owsp/data/nvdcve-1.1-modified.json.gz</cveUrlModified>
+                    <cveUrlBase>E:/owsp/data/nvdcve-1.1-%d.json.gz</cveUrlBase>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
         </plugins>
 
         <resources>

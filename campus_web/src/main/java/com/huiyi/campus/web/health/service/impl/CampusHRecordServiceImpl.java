@@ -54,7 +54,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
         try {
-            HQJsonResult hqJsonResult = new HQJsonResult();
+            HQJsonResult<StudentInfoRecordVo> hqJsonResult = new HQJsonResult<>();
             PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
             List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
             PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
@@ -86,7 +86,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
         try {
             PhyStudentInfoEntity phyStudentInfoEntity = new PhyStudentInfoEntity();
             JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
@@ -96,9 +96,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             }
             phyStudentInfoEntity.setCreateTime(new Date());
             int createInfoStr = healthRecordDao.createStudentInfoRecord(phyStudentInfoEntity);
-            /**
-             * 校验数据插入
-             */
+            //校验数据插入
             if (createInfoStr > 0) {
                 return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity));
             }
@@ -256,7 +254,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
     public String importStudentInfoFile(MultipartFile file) {
         try {
             List<PhyStudentInfoEntity> phyStudentInfoEntityList = ExcelUtils.importExcel(file, 0, 1, PhyStudentInfoEntity.class);
-            phyStudentInfoEntityList.stream().forEach(str -> {
+            phyStudentInfoEntityList.forEach(str -> {
                 str.setId(Sid.nextShort());
                 str.setPhyDate(new Date());
                 str.setCreateTime(new Date());
