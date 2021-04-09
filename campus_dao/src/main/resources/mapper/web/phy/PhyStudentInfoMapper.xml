@@ -389,35 +389,64 @@
     </update>
     <!--查询所有学生档案信息-->
     <select id="selectAll" resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
-        select
-        <include refid="Base_Column_List"/>
-        from phy_student_info
+        SELECT
+        info.id as "id",
+        info.student_name as "studentName",
+        info.sex as "sex",
+        info.age as "age",
+        info.birth_date as "birthDate",
+        p.user_name as "parentName",
+        school.school_name as "schoolName",
+        organ.organ_name as "organName",
+        info.student_number as "studentNumber",
+        info.major_class as "majorClass",
+        info.class_id as "classId",
+        info.nationality as "nationality",
+        info.id_card as "idCard",
+        info.phone_number as "phoneNumber",
+        info.image as "image",
+        info.family_address as "familyAddress",
+        info.census_address as "censusAddress",
+        info.enter_time as "enterTime",
+        doctor.doctor_name as "doctorName",
+        info.duty_doctor as "dutyDoctor",
+        info.phy_date as "phyDate",
+        info.create_time as "createTime",
+        info.operator_id as "operatorId"
+        FROM
+        phy_student_info info
+        LEFT JOIN sys_parent p on info.parent_id = p.id
+        LEFT JOIN sys_school school on info.school_id = school.id
+        LEFT JOIN sys_organ organ on info.organ_id = organ.id
+        LEFT JOIN sys_grade_class class on info.class_id = class.id
+        LEFT JOIN sys_doctor doctor on info.doctor_id = doctor.id
         WHERE 1=1
         <if test="id != null and id!=''">
-            AND id = #{id,jdbcType=VARCHAR}
+            AND info.id = #{id,jdbcType=VARCHAR}
         </if>
         <if test="studentName != null and studentName!=''">
-            AND student_name = #{studentName,jdbcType=VARCHAR}
+            AND info.student_name = #{studentName,jdbcType=VARCHAR}
         </if>
         <if test="sex != null and sex!=''">
-            AND sex = #{sex,jdbcType=TINYINT}
+            AND info.sex = #{sex,jdbcType=TINYINT}
         </if>
         <if test="familyAddress != null and familyAddress!=''">
-            AND family_address = #{familyAddress,jdbcType=VARCHAR}
+            AND info.family_address = #{familyAddress,jdbcType=VARCHAR}
         </if>
         <if test="censusAddress != null and censusAddress!=''">
-            AND census_address = #{censusAddress,jdbcType=VARCHAR}
+            AND info.census_address = #{censusAddress,jdbcType=VARCHAR}
         </if>
         <if test="studentNumber != null and studentNumber!=''">
-            AND student_number = #{studentNumber,jdbcType=VARCHAR}
+            AND info.student_number = #{studentNumber,jdbcType=VARCHAR}
         </if>
         <if test="schoolId != null and schoolId!=''">
-            AND school_id = #{schoolId,jdbcType=INTEGER}
+            AND info.school_id = #{schoolId,jdbcType=INTEGER}
         </if>
         <if test="classId != null and classId!=''">
-            AND class_id = #{classId,jdbcType=INTEGER}
+            AND info.class_id = #{classId,jdbcType=INTEGER}
         </if>
     </select>
+
     <!--批量导入学生档案信息-->
     <insert id="insertSelectiveList" parameterType="java.util.List">
         <foreach collection="list" item="item" index="index"

@@ -24,9 +24,9 @@ public class StudentInfoRecordVo {
     @ApiModelProperty("主键id")
     private String id;
 
-    @Excel(name = "姓名")
-    @ApiModelProperty("姓名")
-    private String userName;
+    @Excel(name = "学生姓名")
+    @ApiModelProperty("学生姓名")
+    private String studentName;
 
     @Excel(name = "性别")
     @ApiModelProperty("性别(1:男，2:女，0:未知性别)")
@@ -44,8 +44,18 @@ public class StudentInfoRecordVo {
     @ApiModelProperty("父母id")
     private String parentId;
 
+    @Excel(name = "父母名称")
+    @ApiModelProperty("父母名称")
+    private String parentName;
+
     @ApiModelProperty("教育局机构id")
     private Integer organId;
+
+    @ApiModelProperty("教育机构名称")
+    private String organName;
+
+    @ApiModelProperty("学校机构名称")
+    private String schoolName;
 
     @Excel(name = "学校机构id")
     @ApiModelProperty("学校机构id")
@@ -93,6 +103,9 @@ public class StudentInfoRecordVo {
     @Excel(name = "建档人id")
     @ApiModelProperty("建档人id（校医）")
     private Integer doctorId;
+
+    @ApiModelProperty("建档人（校医姓名）")
+    private String doctorName;
 
     @Excel(name = "责任医生")
     @ApiModelProperty("责任医生")
