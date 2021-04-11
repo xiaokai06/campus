@@ -86,15 +86,17 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
         try {
             PhyStudentInfoEntity phyStudentInfoEntity = new PhyStudentInfoEntity();
             JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
             phyStudentInfoEntity.setId(Sid.nextShort());
+            //校验身份证
             if (IdCardValidatorUtil.isValidCard(phyStudentInfoEntity.getIdCard())) {
                 phyStudentInfoEntity.setIdCard(phyStudentInfoEntity.getIdCard());
             }
             phyStudentInfoEntity.setCreateTime(new Date());
+
             int createInfoStr = healthRecordDao.createStudentInfoRecord(phyStudentInfoEntity);
             //校验数据插入
             if (createInfoStr > 0) {
@@ -124,7 +126,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
             int updateStudentInfo = healthRecordDao.updateStudentInfoRecord(phyStudentInfoEntity);
             if (updateStudentInfo > 0) {
-                return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity), "学生档案信息修改成功", "200");
+                return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,7 +150,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
         int deleteStudentInfo = healthRecordDao.deleteStudentInfoRecord(phyStudentInfoEntity);
         if (deleteStudentInfo > 0) {
-            return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity), "学生档案信息删除成功", "200");
+            return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity));
         }
         return new HQJsonResult();
     }
@@ -171,7 +173,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             phyStudentHealthInfoEntity.setCreateTime(new Date());
             int healthInfoStr = healthRecordDao.createStudentHealthInfo(phyStudentHealthInfoEntity);
             if (healthInfoStr > 0) {
-                return HQJsonResult.success(Collections.singletonList(phyStudentHealthInfoEntity), "学生健康档案信息创建成功", "200");
+                return HQJsonResult.success(Collections.singletonList(phyStudentHealthInfoEntity));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -194,7 +196,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         JavaBeanUtil.copyPropertiesIgnoreNull(studentHealthInfoDto, phyStudentHealthInfoEntity);
         PhyStudentHealthInfoEntity studentHealthInfoVo = healthRecordDao.selectStudentHealthInfo(phyStudentHealthInfoEntity);
         if (JsonUtils.checkObjAllFieldsIsNull(studentHealthInfoVo)) {
-            return HQJsonResult.success(Collections.singletonList(studentHealthInfoVo), "学生健康档案信息查询成功", "200");
+            return HQJsonResult.success(Collections.singletonList(studentHealthInfoVo));
         }
         return new HQJsonResult();
     }

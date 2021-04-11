@@ -137,14 +137,18 @@ public class CampusHRecordController {
      * 学生相片上传
      */
     @PostMapping("/upload")
-    public String upload(@RequestParam("data") MultipartFile data) throws Exception {
+    public String upload(@RequestParam("id") String id, @RequestParam("data") MultipartFile data) throws Exception {
         String fileName = data.getOriginalFilename();
         InputStream inputStream = data.getInputStream();
         minioClient.putObject(
-                PutObjectArgs.builder().bucket("campus").object(fileName).stream(
+                PutObjectArgs.builder().bucket("campus").object(id + "/" + fileName).stream(
                         inputStream, data.getSize(), -1)
                         .contentType(data.getContentType())
                         .build());
+        StudentInfoRecordDto studentInfoRecordDto = new StudentInfoRecordDto();
+        studentInfoRecordDto.setId(id);
+        studentInfoRecordDto.setImage(id + "/" + fileName);
+        campusHRecordService.updateStudentInfoRecord(studentInfoRecordDto);
         return "上传成功";
     }
 
@@ -159,7 +163,7 @@ public class CampusHRecordController {
     public String download(@RequestParam("fileName") String fileName) throws Exception {
         if (StringUtils.isNoneEmpty(fileName)) {
             String url = minioClient.presignedGetObject("campus", fileName, 60 * 60 * 24 * 7);
-            log.info(url);
+            log.info("下载学生相片地址为：" + url);
             return url;
         }
         return null;
