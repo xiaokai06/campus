@@ -8,11 +8,13 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="desk_id" jdbcType="INTEGER" property="deskId"/>
+    <result column="doctor_state" jdbcType="INTEGER" property="doctorState"/>
+    <result column="introduce" jdbcType="VARCHAR" property="introduce"/>
   </resultMap>
 
   <!-- 查询所有医生 -->
   <select id="selectAllDoctor" parameterType="com.huiyi.campus.dao.entity.sys.SysDoctorEntity" resultMap="BaseResultMap">
-    select id, doctor_name, create_time, update_time,desk_id
+    select id, doctor_name, create_time, update_time, desk_id, doctor_state, introduce
         from sys_doctor
             where 1=1
               <if test="doctorName != null and doctorName != ''">
@@ -36,6 +38,12 @@
       <if test="deskId != null">
         desk_id,
       </if>
+      <if test="doctorState != null">
+        doctor_state,
+      </if>
+      <if test="introduce != null">
+        introduce,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -49,6 +57,12 @@
       </if>
       <if test="deskId != null">
         #{deskId,jdbcType=INTEGER},
+      </if>
+      <if test="doctorState != null">
+        #{doctorState,jdbcType=INTEGER},
+      </if>
+      <if test="introduce != null">
+        #{introduce,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -65,6 +79,12 @@
       </if>
       <if test="deskId != null">
         desk_id=#{deskId,jdbcType=INTEGER},
+      </if>
+      <if test="doctorState != null">
+        doctor_state=#{doctorState,jdbcType=INTEGER},
+      </if>
+      <if test="introduce != null">
+        introduce=#{description,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
