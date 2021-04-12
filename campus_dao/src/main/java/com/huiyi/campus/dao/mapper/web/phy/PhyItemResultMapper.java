@@ -2,6 +2,8 @@ package com.huiyi.campus.dao.mapper.web.phy;
 
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
 
+import java.util.List;
+
 public interface PhyItemResultMapper {
     int deleteByPrimaryKey(String id);
 
@@ -14,4 +16,10 @@ public interface PhyItemResultMapper {
     int updateByPrimaryKeySelective(PhyItemResultEntity record);
 
     int updateByPrimaryKey(PhyItemResultEntity record);
+
+    int insertSelectiveList(List<PhyItemResultEntity> itemResultEntityList);
+
+    int updateItemResultList(List<PhyItemResultEntity> itemResultEntityList);
+
+    List<PhyItemResultEntity> selectBloodListByHealthId(String id);
 }

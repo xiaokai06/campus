@@ -1,4 +1,4 @@
-package com.huiyi.campus.dao.dto.health;
+package com.huiyi.campus.dao.vo.health;
 
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
 import io.swagger.annotations.ApiModel;
@@ -13,15 +13,17 @@ import java.util.List;
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
- * @Description: 学生健康档案信息Dto
- * @date: 2021-03-28 20:32
+ * @Description: 学生健康档案信息返回Vo
+ * @date: 2021-04-12 14:43
  * @Version V1.0
  */
 @Getter
 @Setter
-@ApiModel("学生健康档案信息Dto")
-public class StudentHealthInfoDto {
+@ApiModel("学生健康档案信息返回Vo")
+public class StudentHealthInfoVo {
 
+    @ApiModelProperty("主键id")
+    private String id;
     @ApiModelProperty("学生id")
     private String phyStudentId;
     @ApiModelProperty("身高")
@@ -198,6 +200,12 @@ public class StudentHealthInfoDto {
     private Date updateTime;
     @ApiModelProperty("更新人")
     private String updateUser;
+    @ApiModelProperty("合格标志 0合格 1未合格")
+    private String qualifiedStatus;
+    @ApiModelProperty("扩展字段4")
+    private String extend4;
+    @ApiModelProperty("扩展字段5")
+    private String extend5;
 
     @ApiModelProperty("检验项目结果数据")
     private List<PhyItemResultEntity> itemResultEntityList;

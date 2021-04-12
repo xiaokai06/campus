@@ -2,102 +2,103 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--suppress ALL -->
 <mapper namespace="com.huiyi.campus.dao.mapper.web.phy.PhyStudentHealthInfoMapper">
-  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="phy_student_id" jdbcType="VARCHAR" property="phyStudentId" />
-    <result column="height" jdbcType="DECIMAL" property="height" />
-    <result column="weight" jdbcType="DECIMAL" property="weight" />
-    <result column="blood" jdbcType="VARCHAR" property="blood" />
-    <result column="pulse" jdbcType="VARCHAR" property="pulse" />
-    <result column="bust" jdbcType="VARCHAR" property="bust" />
-    <result column="vital_capacity" jdbcType="VARCHAR" property="vitalCapacity" />
-    <result column="form_doctor" jdbcType="VARCHAR" property="formDoctor" />
-    <result column="naked_left" jdbcType="DECIMAL" property="nakedLeft" />
-    <result column="naked_right" jdbcType="DECIMAL" property="nakedRight" />
-    <result column="correct_left" jdbcType="DECIMAL" property="correctLeft" />
-    <result column="correct_right" jdbcType="DECIMAL" property="correctRight" />
-    <result column="color_vision" jdbcType="TINYINT" property="colorVision" />
-    <result column="color_vision_error_text" jdbcType="VARCHAR" property="colorVisionErrorText" />
-    <result column="trach_left" jdbcType="DECIMAL" property="trachLeft" />
-    <result column="trach_right" jdbcType="DECIMAL" property="trachRight" />
-    <result column="eyes_doctor" jdbcType="VARCHAR" property="eyesDoctor" />
-    <result column="ear" jdbcType="TINYINT" property="ear" />
-    <result column="nose" jdbcType="TINYINT" property="nose" />
-    <result column="throat" jdbcType="TINYINT" property="throat" />
-    <result column="nose_error_text" jdbcType="VARCHAR" property="noseErrorText" />
-    <result column="ear_error_text" jdbcType="VARCHAR" property="earErrorText" />
-    <result column="ear_nose_doctor" jdbcType="VARCHAR" property="earNoseDoctor" />
-    <result column="tooth" jdbcType="TINYINT" property="tooth" />
-    <result column="periodontal" jdbcType="TINYINT" property="periodontal" />
-    <result column="anamnesis" jdbcType="TINYINT" property="anamnesis" />
-    <result column="spleen" jdbcType="TINYINT" property="spleen" />
-    <result column="heart" jdbcType="TINYINT" property="heart" />
-    <result column="lung" jdbcType="TINYINT" property="lung" />
-    <result column="liver" jdbcType="TINYINT" property="liver" />
-    <result column="internal_other" jdbcType="VARCHAR" property="internalOther" />
-    <result column="liver_error_text" jdbcType="VARCHAR" property="liverErrorText" />
-    <result column="barrel_chest" jdbcType="TINYINT" property="barrelChest" />
-    <result column="barrel_chest_text" jdbcType="VARCHAR" property="barrelChestText" />
-    <result column="breath_sounds" jdbcType="TINYINT" property="breathSounds" />
-    <result column="breath_sounds_error_text" jdbcType="VARCHAR" property="breathSoundsErrorText" />
-    <result column="rae" jdbcType="TINYINT" property="rae" />
-    <result column="rae_text" jdbcType="VARCHAR" property="raeText" />
-    <result column="heart_error_text" jdbcType="VARCHAR" property="heartErrorText" />
-    <result column="heart_rate" jdbcType="VARCHAR" property="heartRate" />
-    <result column="heart_rhythm" jdbcType="TINYINT" property="heartRhythm" />
-    <result column="murmur" jdbcType="TINYINT" property="murmur" />
-    <result column="murmur_error_text" jdbcType="VARCHAR" property="murmurErrorText" />
-    <result column="spleen_error_text" jdbcType="VARCHAR" property="spleenErrorText" />
-    <result column="anamnesis_text" jdbcType="VARCHAR" property="anamnesisText" />
-    <result column="periodontal_error_text" jdbcType="VARCHAR" property="periodontalErrorText" />
-    <result column="internal_doctor" jdbcType="VARCHAR" property="internalDoctor" />
-    <result column="skin" jdbcType="TINYINT" property="skin" />
-    <result column="lymph" jdbcType="TINYINT" property="lymph" />
-    <result column="thyroid" jdbcType="TINYINT" property="thyroid" />
-    <result column="spine" jdbcType="TINYINT" property="spine" />
-    <result column="limb_joints" jdbcType="TINYINT" property="limbJoints" />
-    <result column="flatfoot" jdbcType="TINYINT" property="flatfoot" />
-    <result column="pudendum" jdbcType="TINYINT" property="pudendum" />
-    <result column="anus" jdbcType="TINYINT" property="anus" />
-    <result column="anus_text" jdbcType="VARCHAR" property="anusText" />
-    <result column="pudendum_error_text" jdbcType="VARCHAR" property="pudendumErrorText" />
-    <result column="flatfoot_text" jdbcType="VARCHAR" property="flatfootText" />
-    <result column="limb_joints_error_text" jdbcType="VARCHAR" property="limbJointsErrorText" />
-    <result column="spine_error_text" jdbcType="VARCHAR" property="spineErrorText" />
-    <result column="thyroid_text" jdbcType="VARCHAR" property="thyroidText" />
-    <result column="lymph_text" jdbcType="VARCHAR" property="lymphText" />
-    <result column="skin_text" jdbcType="VARCHAR" property="skinText" />
-    <result column="surgery_other" jdbcType="VARCHAR" property="surgeryOther" />
-    <result column="surgery_doctor" jdbcType="VARCHAR" property="surgeryDoctor" />
-    <result column="chest" jdbcType="TINYINT" property="chest" />
-    <result column="chest_error_text" jdbcType="VARCHAR" property="chestErrorText" />
-    <result column="chest_doctor" jdbcType="VARCHAR" property="chestDoctor" />
-    <result column="liver_function" jdbcType="TINYINT" property="liverFunction" />
-    <result column="blood_routine" jdbcType="TINYINT" property="bloodRoutine" />
-    <result column="blood_routine_error_text" jdbcType="VARCHAR" property="bloodRoutineErrorText" />
-    <result column="liver_function_error_text" jdbcType="VARCHAR" property="liverFunctionErrorText" />
-    <result column="phy_conclusion" jdbcType="TINYINT" property="phyConclusion" />
-    <result column="phy_conclusion_error_text" jdbcType="VARCHAR" property="phyConclusionErrorText" />
-    <result column="review" jdbcType="TINYINT" property="review" />
-    <result column="referral" jdbcType="TINYINT" property="referral" />
-    <result column="regular_censor" jdbcType="TINYINT" property="regularCensor" />
-    <result column="health_education" jdbcType="TINYINT" property="healthEducation" />
-    <result column="diet" jdbcType="TINYINT" property="diet" />
-    <result column="forging" jdbcType="TINYINT" property="forging" />
-    <result column="vaccination" jdbcType="TINYINT" property="vaccination" />
-    <result column="phy_guide_text" jdbcType="VARCHAR" property="phyGuideText" />
-    <result column="phy_doctor" jdbcType="VARCHAR" property="phyDoctor" />
-    <result column="del_flag" jdbcType="TINYINT" property="delFlag" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
-    <result column="qualified_status" jdbcType="VARCHAR" property="qualifiedStatus" />
-    <result column="extend4" jdbcType="VARCHAR" property="extend4" />
-    <result column="extend5" jdbcType="VARCHAR" property="extend5" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, phy_student_id, height, weight, blood, pulse, bust, vital_capacity, form_doctor,
+    <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="phy_student_id" jdbcType="VARCHAR" property="phyStudentId"/>
+        <result column="height" jdbcType="DECIMAL" property="height"/>
+        <result column="weight" jdbcType="DECIMAL" property="weight"/>
+        <result column="blood" jdbcType="VARCHAR" property="blood"/>
+        <result column="pulse" jdbcType="VARCHAR" property="pulse"/>
+        <result column="bust" jdbcType="VARCHAR" property="bust"/>
+        <result column="vital_capacity" jdbcType="VARCHAR" property="vitalCapacity"/>
+        <result column="form_doctor" jdbcType="VARCHAR" property="formDoctor"/>
+        <result column="naked_left" jdbcType="DECIMAL" property="nakedLeft"/>
+        <result column="naked_right" jdbcType="DECIMAL" property="nakedRight"/>
+        <result column="correct_left" jdbcType="DECIMAL" property="correctLeft"/>
+        <result column="correct_right" jdbcType="DECIMAL" property="correctRight"/>
+        <result column="color_vision" jdbcType="TINYINT" property="colorVision"/>
+        <result column="color_vision_error_text" jdbcType="VARCHAR" property="colorVisionErrorText"/>
+        <result column="trach_left" jdbcType="DECIMAL" property="trachLeft"/>
+        <result column="trach_right" jdbcType="DECIMAL" property="trachRight"/>
+        <result column="eyes_doctor" jdbcType="VARCHAR" property="eyesDoctor"/>
+        <result column="ear" jdbcType="TINYINT" property="ear"/>
+        <result column="nose" jdbcType="TINYINT" property="nose"/>
+        <result column="throat" jdbcType="TINYINT" property="throat"/>
+        <result column="nose_error_text" jdbcType="VARCHAR" property="noseErrorText"/>
+        <result column="ear_error_text" jdbcType="VARCHAR" property="earErrorText"/>
+        <result column="ear_nose_doctor" jdbcType="VARCHAR" property="earNoseDoctor"/>
+        <result column="tooth" jdbcType="TINYINT" property="tooth"/>
+        <result column="periodontal" jdbcType="TINYINT" property="periodontal"/>
+        <result column="anamnesis" jdbcType="TINYINT" property="anamnesis"/>
+        <result column="spleen" jdbcType="TINYINT" property="spleen"/>
+        <result column="heart" jdbcType="TINYINT" property="heart"/>
+        <result column="lung" jdbcType="TINYINT" property="lung"/>
+        <result column="liver" jdbcType="TINYINT" property="liver"/>
+        <result column="internal_other" jdbcType="VARCHAR" property="internalOther"/>
+        <result column="liver_error_text" jdbcType="VARCHAR" property="liverErrorText"/>
+        <result column="barrel_chest" jdbcType="TINYINT" property="barrelChest"/>
+        <result column="barrel_chest_text" jdbcType="VARCHAR" property="barrelChestText"/>
+        <result column="breath_sounds" jdbcType="TINYINT" property="breathSounds"/>
+        <result column="breath_sounds_error_text" jdbcType="VARCHAR" property="breathSoundsErrorText"/>
+        <result column="rae" jdbcType="TINYINT" property="rae"/>
+        <result column="rae_text" jdbcType="VARCHAR" property="raeText"/>
+        <result column="heart_error_text" jdbcType="VARCHAR" property="heartErrorText"/>
+        <result column="heart_rate" jdbcType="VARCHAR" property="heartRate"/>
+        <result column="heart_rhythm" jdbcType="TINYINT" property="heartRhythm"/>
+        <result column="murmur" jdbcType="TINYINT" property="murmur"/>
+        <result column="murmur_error_text" jdbcType="VARCHAR" property="murmurErrorText"/>
+        <result column="spleen_error_text" jdbcType="VARCHAR" property="spleenErrorText"/>
+        <result column="anamnesis_text" jdbcType="VARCHAR" property="anamnesisText"/>
+        <result column="periodontal_error_text" jdbcType="VARCHAR" property="periodontalErrorText"/>
+        <result column="internal_doctor" jdbcType="VARCHAR" property="internalDoctor"/>
+        <result column="skin" jdbcType="TINYINT" property="skin"/>
+        <result column="lymph" jdbcType="TINYINT" property="lymph"/>
+        <result column="thyroid" jdbcType="TINYINT" property="thyroid"/>
+        <result column="spine" jdbcType="TINYINT" property="spine"/>
+        <result column="limb_joints" jdbcType="TINYINT" property="limbJoints"/>
+        <result column="flatfoot" jdbcType="TINYINT" property="flatfoot"/>
+        <result column="pudendum" jdbcType="TINYINT" property="pudendum"/>
+        <result column="anus" jdbcType="TINYINT" property="anus"/>
+        <result column="anus_text" jdbcType="VARCHAR" property="anusText"/>
+        <result column="pudendum_error_text" jdbcType="VARCHAR" property="pudendumErrorText"/>
+        <result column="flatfoot_text" jdbcType="VARCHAR" property="flatfootText"/>
+        <result column="limb_joints_error_text" jdbcType="VARCHAR" property="limbJointsErrorText"/>
+        <result column="spine_error_text" jdbcType="VARCHAR" property="spineErrorText"/>
+        <result column="thyroid_text" jdbcType="VARCHAR" property="thyroidText"/>
+        <result column="lymph_text" jdbcType="VARCHAR" property="lymphText"/>
+        <result column="skin_text" jdbcType="VARCHAR" property="skinText"/>
+        <result column="surgery_other" jdbcType="VARCHAR" property="surgeryOther"/>
+        <result column="surgery_doctor" jdbcType="VARCHAR" property="surgeryDoctor"/>
+        <result column="chest" jdbcType="TINYINT" property="chest"/>
+        <result column="chest_error_text" jdbcType="VARCHAR" property="chestErrorText"/>
+        <result column="chest_doctor" jdbcType="VARCHAR" property="chestDoctor"/>
+        <result column="liver_function" jdbcType="TINYINT" property="liverFunction"/>
+        <result column="blood_routine" jdbcType="TINYINT" property="bloodRoutine"/>
+        <result column="blood_routine_error_text" jdbcType="VARCHAR" property="bloodRoutineErrorText"/>
+        <result column="liver_function_error_text" jdbcType="VARCHAR" property="liverFunctionErrorText"/>
+        <result column="phy_conclusion" jdbcType="TINYINT" property="phyConclusion"/>
+        <result column="phy_conclusion_error_text" jdbcType="VARCHAR" property="phyConclusionErrorText"/>
+        <result column="review" jdbcType="TINYINT" property="review"/>
+        <result column="referral" jdbcType="TINYINT" property="referral"/>
+        <result column="regular_censor" jdbcType="TINYINT" property="regularCensor"/>
+        <result column="health_education" jdbcType="TINYINT" property="healthEducation"/>
+        <result column="diet" jdbcType="TINYINT" property="diet"/>
+        <result column="forging" jdbcType="TINYINT" property="forging"/>
+        <result column="vaccination" jdbcType="TINYINT" property="vaccination"/>
+        <result column="phy_guide_text" jdbcType="VARCHAR" property="phyGuideText"/>
+        <result column="phy_doctor" jdbcType="VARCHAR" property="phyDoctor"/>
+        <result column="del_flag" jdbcType="TINYINT" property="delFlag"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="qualified_status" jdbcType="VARCHAR" property="qualifiedStatus"/>
+        <result column="extend4" jdbcType="VARCHAR" property="extend4"/>
+        <result column="extend5" jdbcType="VARCHAR" property="extend5"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+                , phy_student_id, height, weight, blood, pulse, bust, vital_capacity, form_doctor,
     naked_left, naked_right, correct_left, correct_right, color_vision, color_vision_error_text,
     trach_left, trach_right, eyes_doctor, ear, nose, throat, nose_error_text, ear_error_text,
     ear_nose_doctor, tooth, periodontal, anamnesis, spleen, heart, lung, liver, internal_other,
@@ -111,1014 +112,1019 @@
     phy_conclusion, phy_conclusion_error_text, review, referral, regular_censor, health_education,
     diet, forging, vaccination, phy_guide_text, phy_doctor, del_flag, create_time, create_user,
     update_time, update_user, qualified_status, extend4, extend5
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from phy_student_health_info
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from phy_student_health_info
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
-    insert into phy_student_health_info (id, phy_student_id, height,
-                                         weight, blood, pulse,
-                                         bust, vital_capacity, form_doctor,
-                                         naked_left, naked_right, correct_left,
-                                         correct_right, color_vision, color_vision_error_text,
-                                         trach_left, trach_right, eyes_doctor,
-                                         ear, nose, throat,
-                                         nose_error_text, ear_error_text, ear_nose_doctor,
-                                         tooth, periodontal, anamnesis,
-                                         spleen, heart, lung,
-                                         liver, internal_other, liver_error_text,
-                                         barrel_chest, barrel_chest_text, breath_sounds,
-                                         breath_sounds_error_text, rae, rae_text,
-                                         heart_error_text, heart_rate, heart_rhythm,
-                                         murmur, murmur_error_text, spleen_error_text,
-                                         anamnesis_text, periodontal_error_text, internal_doctor,
-                                         skin, lymph, thyroid,
-                                         spine, limb_joints, flatfoot,
-                                         pudendum, anus, anus_text,
-                                         pudendum_error_text, flatfoot_text, limb_joints_error_text,
-                                         spine_error_text, thyroid_text, lymph_text,
-                                         skin_text, surgery_other, surgery_doctor,
-                                         chest, chest_error_text, chest_doctor,
-                                         liver_function, blood_routine, blood_routine_error_text,
-                                         liver_function_error_text, phy_conclusion,
-                                         phy_conclusion_error_text, review, referral,
-                                         regular_censor, health_education, diet,
-                                         forging, vaccination, phy_guide_text,
-                                         phy_doctor, del_flag, create_time,
-                                         create_user, update_time, update_user,
-                                         qualified_status, extend4, extend5
-            )
-    values (#{id,jdbcType=VARCHAR}, #{phyStudentId,jdbcType=VARCHAR}, #{height,jdbcType=DECIMAL},
-            #{weight,jdbcType=DECIMAL}, #{blood,jdbcType=VARCHAR}, #{pulse,jdbcType=VARCHAR},
-            #{bust,jdbcType=VARCHAR}, #{vitalCapacity,jdbcType=VARCHAR}, #{formDoctor,jdbcType=VARCHAR},
-            #{nakedLeft,jdbcType=DECIMAL}, #{nakedRight,jdbcType=DECIMAL}, #{correctLeft,jdbcType=DECIMAL},
-            #{correctRight,jdbcType=DECIMAL}, #{colorVision,jdbcType=TINYINT}, #{colorVisionErrorText,jdbcType=VARCHAR},
-            #{trachLeft,jdbcType=DECIMAL}, #{trachRight,jdbcType=DECIMAL}, #{eyesDoctor,jdbcType=VARCHAR},
-            #{ear,jdbcType=TINYINT}, #{nose,jdbcType=TINYINT}, #{throat,jdbcType=TINYINT},
-            #{noseErrorText,jdbcType=VARCHAR}, #{earErrorText,jdbcType=VARCHAR}, #{earNoseDoctor,jdbcType=VARCHAR},
-            #{tooth,jdbcType=TINYINT}, #{periodontal,jdbcType=TINYINT}, #{anamnesis,jdbcType=TINYINT},
-            #{spleen,jdbcType=TINYINT}, #{heart,jdbcType=TINYINT}, #{lung,jdbcType=TINYINT},
-            #{liver,jdbcType=TINYINT}, #{internalOther,jdbcType=VARCHAR}, #{liverErrorText,jdbcType=VARCHAR},
-            #{barrelChest,jdbcType=TINYINT}, #{barrelChestText,jdbcType=VARCHAR}, #{breathSounds,jdbcType=TINYINT},
-            #{breathSoundsErrorText,jdbcType=VARCHAR}, #{rae,jdbcType=TINYINT}, #{raeText,jdbcType=VARCHAR},
-            #{heartErrorText,jdbcType=VARCHAR}, #{heartRate,jdbcType=VARCHAR}, #{heartRhythm,jdbcType=TINYINT},
-            #{murmur,jdbcType=TINYINT}, #{murmurErrorText,jdbcType=VARCHAR}, #{spleenErrorText,jdbcType=VARCHAR},
-            #{anamnesisText,jdbcType=VARCHAR}, #{periodontalErrorText,jdbcType=VARCHAR}, #{internalDoctor,jdbcType=VARCHAR},
-            #{skin,jdbcType=TINYINT}, #{lymph,jdbcType=TINYINT}, #{thyroid,jdbcType=TINYINT},
-            #{spine,jdbcType=TINYINT}, #{limbJoints,jdbcType=TINYINT}, #{flatfoot,jdbcType=TINYINT},
-            #{pudendum,jdbcType=TINYINT}, #{anus,jdbcType=TINYINT}, #{anusText,jdbcType=VARCHAR},
-            #{pudendumErrorText,jdbcType=VARCHAR}, #{flatfootText,jdbcType=VARCHAR}, #{limbJointsErrorText,jdbcType=VARCHAR},
-            #{spineErrorText,jdbcType=VARCHAR}, #{thyroidText,jdbcType=VARCHAR}, #{lymphText,jdbcType=VARCHAR},
-            #{skinText,jdbcType=VARCHAR}, #{surgeryOther,jdbcType=VARCHAR}, #{surgeryDoctor,jdbcType=VARCHAR},
-            #{chest,jdbcType=TINYINT}, #{chestErrorText,jdbcType=VARCHAR}, #{chestDoctor,jdbcType=VARCHAR},
-            #{liverFunction,jdbcType=TINYINT}, #{bloodRoutine,jdbcType=TINYINT}, #{bloodRoutineErrorText,jdbcType=VARCHAR},
-            #{liverFunctionErrorText,jdbcType=VARCHAR}, #{phyConclusion,jdbcType=TINYINT},
-            #{phyConclusionErrorText,jdbcType=VARCHAR}, #{review,jdbcType=TINYINT}, #{referral,jdbcType=TINYINT},
-            #{regularCensor,jdbcType=TINYINT}, #{healthEducation,jdbcType=TINYINT}, #{diet,jdbcType=TINYINT},
-            #{forging,jdbcType=TINYINT}, #{vaccination,jdbcType=TINYINT}, #{phyGuideText,jdbcType=VARCHAR},
-            #{phyDoctor,jdbcType=VARCHAR}, #{delFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
-            #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR},
-            #{qualifiedStatus,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR}
-                   )
-  </insert>
-  <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
-    insert into phy_student_health_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="phyStudentId != null">
-        phy_student_id,
-      </if>
-      <if test="height != null">
-        height,
-      </if>
-      <if test="weight != null">
-        weight,
-      </if>
-      <if test="blood != null">
-        blood,
-      </if>
-      <if test="pulse != null">
-        pulse,
-      </if>
-      <if test="bust != null">
-        bust,
-      </if>
-      <if test="vitalCapacity != null">
-        vital_capacity,
-      </if>
-      <if test="formDoctor != null">
-        form_doctor,
-      </if>
-      <if test="nakedLeft != null">
-        naked_left,
-      </if>
-      <if test="nakedRight != null">
-        naked_right,
-      </if>
-      <if test="correctLeft != null">
-        correct_left,
-      </if>
-      <if test="correctRight != null">
-        correct_right,
-      </if>
-      <if test="colorVision != null">
-        color_vision,
-      </if>
-      <if test="colorVisionErrorText != null">
-        color_vision_error_text,
-      </if>
-      <if test="trachLeft != null">
-        trach_left,
-      </if>
-      <if test="trachRight != null">
-        trach_right,
-      </if>
-      <if test="eyesDoctor != null">
-        eyes_doctor,
-      </if>
-      <if test="ear != null">
-        ear,
-      </if>
-      <if test="nose != null">
-        nose,
-      </if>
-      <if test="throat != null">
-        throat,
-      </if>
-      <if test="noseErrorText != null">
-        nose_error_text,
-      </if>
-      <if test="earErrorText != null">
-        ear_error_text,
-      </if>
-      <if test="earNoseDoctor != null">
-        ear_nose_doctor,
-      </if>
-      <if test="tooth != null">
-        tooth,
-      </if>
-      <if test="periodontal != null">
-        periodontal,
-      </if>
-      <if test="anamnesis != null">
-        anamnesis,
-      </if>
-      <if test="spleen != null">
-        spleen,
-      </if>
-      <if test="heart != null">
-        heart,
-      </if>
-      <if test="lung != null">
-        lung,
-      </if>
-      <if test="liver != null">
-        liver,
-      </if>
-      <if test="internalOther != null">
-        internal_other,
-      </if>
-      <if test="liverErrorText != null">
-        liver_error_text,
-      </if>
-      <if test="barrelChest != null">
-        barrel_chest,
-      </if>
-      <if test="barrelChestText != null">
-        barrel_chest_text,
-      </if>
-      <if test="breathSounds != null">
-        breath_sounds,
-      </if>
-      <if test="breathSoundsErrorText != null">
-        breath_sounds_error_text,
-      </if>
-      <if test="rae != null">
-        rae,
-      </if>
-      <if test="raeText != null">
-        rae_text,
-      </if>
-      <if test="heartErrorText != null">
-        heart_error_text,
-      </if>
-      <if test="heartRate != null">
-        heart_rate,
-      </if>
-      <if test="heartRhythm != null">
-        heart_rhythm,
-      </if>
-      <if test="murmur != null">
-        murmur,
-      </if>
-      <if test="murmurErrorText != null">
-        murmur_error_text,
-      </if>
-      <if test="spleenErrorText != null">
-        spleen_error_text,
-      </if>
-      <if test="anamnesisText != null">
-        anamnesis_text,
-      </if>
-      <if test="periodontalErrorText != null">
-        periodontal_error_text,
-      </if>
-      <if test="internalDoctor != null">
-        internal_doctor,
-      </if>
-      <if test="skin != null">
-        skin,
-      </if>
-      <if test="lymph != null">
-        lymph,
-      </if>
-      <if test="thyroid != null">
-        thyroid,
-      </if>
-      <if test="spine != null">
-        spine,
-      </if>
-      <if test="limbJoints != null">
-        limb_joints,
-      </if>
-      <if test="flatfoot != null">
-        flatfoot,
-      </if>
-      <if test="pudendum != null">
-        pudendum,
-      </if>
-      <if test="anus != null">
-        anus,
-      </if>
-      <if test="anusText != null">
-        anus_text,
-      </if>
-      <if test="pudendumErrorText != null">
-        pudendum_error_text,
-      </if>
-      <if test="flatfootText != null">
-        flatfoot_text,
-      </if>
-      <if test="limbJointsErrorText != null">
-        limb_joints_error_text,
-      </if>
-      <if test="spineErrorText != null">
-        spine_error_text,
-      </if>
-      <if test="thyroidText != null">
-        thyroid_text,
-      </if>
-      <if test="lymphText != null">
-        lymph_text,
-      </if>
-      <if test="skinText != null">
-        skin_text,
-      </if>
-      <if test="surgeryOther != null">
-        surgery_other,
-      </if>
-      <if test="surgeryDoctor != null">
-        surgery_doctor,
-      </if>
-      <if test="chest != null">
-        chest,
-      </if>
-      <if test="chestErrorText != null">
-        chest_error_text,
-      </if>
-      <if test="chestDoctor != null">
-        chest_doctor,
-      </if>
-      <if test="liverFunction != null">
-        liver_function,
-      </if>
-      <if test="bloodRoutine != null">
-        blood_routine,
-      </if>
-      <if test="bloodRoutineErrorText != null">
-        blood_routine_error_text,
-      </if>
-      <if test="liverFunctionErrorText != null">
-        liver_function_error_text,
-      </if>
-      <if test="phyConclusion != null">
-        phy_conclusion,
-      </if>
-      <if test="phyConclusionErrorText != null">
-        phy_conclusion_error_text,
-      </if>
-      <if test="review != null">
-        review,
-      </if>
-      <if test="referral != null">
-        referral,
-      </if>
-      <if test="regularCensor != null">
-        regular_censor,
-      </if>
-      <if test="healthEducation != null">
-        health_education,
-      </if>
-      <if test="diet != null">
-        diet,
-      </if>
-      <if test="forging != null">
-        forging,
-      </if>
-      <if test="vaccination != null">
-        vaccination,
-      </if>
-      <if test="phyGuideText != null">
-        phy_guide_text,
-      </if>
-      <if test="phyDoctor != null">
-        phy_doctor,
-      </if>
-      <if test="delFlag != null">
-        del_flag,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="createUser != null">
-        create_user,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-      <if test="updateUser != null">
-        update_user,
-      </if>
-      <if test="qualifiedStatus != null">
-        qualified_status,
-      </if>
-      <if test="extend4 != null">
-        extend4,
-      </if>
-      <if test="extend5 != null">
-        extend5,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="phyStudentId != null">
-        #{phyStudentId,jdbcType=VARCHAR},
-      </if>
-      <if test="height != null">
-        #{height,jdbcType=DECIMAL},
-      </if>
-      <if test="weight != null">
-        #{weight,jdbcType=DECIMAL},
-      </if>
-      <if test="blood != null">
-        #{blood,jdbcType=VARCHAR},
-      </if>
-      <if test="pulse != null">
-        #{pulse,jdbcType=VARCHAR},
-      </if>
-      <if test="bust != null">
-        #{bust,jdbcType=VARCHAR},
-      </if>
-      <if test="vitalCapacity != null">
-        #{vitalCapacity,jdbcType=VARCHAR},
-      </if>
-      <if test="formDoctor != null">
-        #{formDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="nakedLeft != null">
-        #{nakedLeft,jdbcType=DECIMAL},
-      </if>
-      <if test="nakedRight != null">
-        #{nakedRight,jdbcType=DECIMAL},
-      </if>
-      <if test="correctLeft != null">
-        #{correctLeft,jdbcType=DECIMAL},
-      </if>
-      <if test="correctRight != null">
-        #{correctRight,jdbcType=DECIMAL},
-      </if>
-      <if test="colorVision != null">
-        #{colorVision,jdbcType=TINYINT},
-      </if>
-      <if test="colorVisionErrorText != null">
-        #{colorVisionErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="trachLeft != null">
-        #{trachLeft,jdbcType=DECIMAL},
-      </if>
-      <if test="trachRight != null">
-        #{trachRight,jdbcType=DECIMAL},
-      </if>
-      <if test="eyesDoctor != null">
-        #{eyesDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="ear != null">
-        #{ear,jdbcType=TINYINT},
-      </if>
-      <if test="nose != null">
-        #{nose,jdbcType=TINYINT},
-      </if>
-      <if test="throat != null">
-        #{throat,jdbcType=TINYINT},
-      </if>
-      <if test="noseErrorText != null">
-        #{noseErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="earErrorText != null">
-        #{earErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="earNoseDoctor != null">
-        #{earNoseDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="tooth != null">
-        #{tooth,jdbcType=TINYINT},
-      </if>
-      <if test="periodontal != null">
-        #{periodontal,jdbcType=TINYINT},
-      </if>
-      <if test="anamnesis != null">
-        #{anamnesis,jdbcType=TINYINT},
-      </if>
-      <if test="spleen != null">
-        #{spleen,jdbcType=TINYINT},
-      </if>
-      <if test="heart != null">
-        #{heart,jdbcType=TINYINT},
-      </if>
-      <if test="lung != null">
-        #{lung,jdbcType=TINYINT},
-      </if>
-      <if test="liver != null">
-        #{liver,jdbcType=TINYINT},
-      </if>
-      <if test="internalOther != null">
-        #{internalOther,jdbcType=VARCHAR},
-      </if>
-      <if test="liverErrorText != null">
-        #{liverErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="barrelChest != null">
-        #{barrelChest,jdbcType=TINYINT},
-      </if>
-      <if test="barrelChestText != null">
-        #{barrelChestText,jdbcType=VARCHAR},
-      </if>
-      <if test="breathSounds != null">
-        #{breathSounds,jdbcType=TINYINT},
-      </if>
-      <if test="breathSoundsErrorText != null">
-        #{breathSoundsErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="rae != null">
-        #{rae,jdbcType=TINYINT},
-      </if>
-      <if test="raeText != null">
-        #{raeText,jdbcType=VARCHAR},
-      </if>
-      <if test="heartErrorText != null">
-        #{heartErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="heartRate != null">
-        #{heartRate,jdbcType=VARCHAR},
-      </if>
-      <if test="heartRhythm != null">
-        #{heartRhythm,jdbcType=TINYINT},
-      </if>
-      <if test="murmur != null">
-        #{murmur,jdbcType=TINYINT},
-      </if>
-      <if test="murmurErrorText != null">
-        #{murmurErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="spleenErrorText != null">
-        #{spleenErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="anamnesisText != null">
-        #{anamnesisText,jdbcType=VARCHAR},
-      </if>
-      <if test="periodontalErrorText != null">
-        #{periodontalErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="internalDoctor != null">
-        #{internalDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="skin != null">
-        #{skin,jdbcType=TINYINT},
-      </if>
-      <if test="lymph != null">
-        #{lymph,jdbcType=TINYINT},
-      </if>
-      <if test="thyroid != null">
-        #{thyroid,jdbcType=TINYINT},
-      </if>
-      <if test="spine != null">
-        #{spine,jdbcType=TINYINT},
-      </if>
-      <if test="limbJoints != null">
-        #{limbJoints,jdbcType=TINYINT},
-      </if>
-      <if test="flatfoot != null">
-        #{flatfoot,jdbcType=TINYINT},
-      </if>
-      <if test="pudendum != null">
-        #{pudendum,jdbcType=TINYINT},
-      </if>
-      <if test="anus != null">
-        #{anus,jdbcType=TINYINT},
-      </if>
-      <if test="anusText != null">
-        #{anusText,jdbcType=VARCHAR},
-      </if>
-      <if test="pudendumErrorText != null">
-        #{pudendumErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="flatfootText != null">
-        #{flatfootText,jdbcType=VARCHAR},
-      </if>
-      <if test="limbJointsErrorText != null">
-        #{limbJointsErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="spineErrorText != null">
-        #{spineErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="thyroidText != null">
-        #{thyroidText,jdbcType=VARCHAR},
-      </if>
-      <if test="lymphText != null">
-        #{lymphText,jdbcType=VARCHAR},
-      </if>
-      <if test="skinText != null">
-        #{skinText,jdbcType=VARCHAR},
-      </if>
-      <if test="surgeryOther != null">
-        #{surgeryOther,jdbcType=VARCHAR},
-      </if>
-      <if test="surgeryDoctor != null">
-        #{surgeryDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="chest != null">
-        #{chest,jdbcType=TINYINT},
-      </if>
-      <if test="chestErrorText != null">
-        #{chestErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="chestDoctor != null">
-        #{chestDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="liverFunction != null">
-        #{liverFunction,jdbcType=TINYINT},
-      </if>
-      <if test="bloodRoutine != null">
-        #{bloodRoutine,jdbcType=TINYINT},
-      </if>
-      <if test="bloodRoutineErrorText != null">
-        #{bloodRoutineErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="liverFunctionErrorText != null">
-        #{liverFunctionErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="phyConclusion != null">
-        #{phyConclusion,jdbcType=TINYINT},
-      </if>
-      <if test="phyConclusionErrorText != null">
-        #{phyConclusionErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="review != null">
-        #{review,jdbcType=TINYINT},
-      </if>
-      <if test="referral != null">
-        #{referral,jdbcType=TINYINT},
-      </if>
-      <if test="regularCensor != null">
-        #{regularCensor,jdbcType=TINYINT},
-      </if>
-      <if test="healthEducation != null">
-        #{healthEducation,jdbcType=TINYINT},
-      </if>
-      <if test="diet != null">
-        #{diet,jdbcType=TINYINT},
-      </if>
-      <if test="forging != null">
-        #{forging,jdbcType=TINYINT},
-      </if>
-      <if test="vaccination != null">
-        #{vaccination,jdbcType=TINYINT},
-      </if>
-      <if test="phyGuideText != null">
-        #{phyGuideText,jdbcType=VARCHAR},
-      </if>
-      <if test="phyDoctor != null">
-        #{phyDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="delFlag != null">
-        #{delFlag,jdbcType=TINYINT},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createUser != null">
-        #{createUser,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateUser != null">
-        #{updateUser,jdbcType=VARCHAR},
-      </if>
-      <if test="qualifiedStatus != null">
-        #{qualifiedStatus,jdbcType=VARCHAR},
-      </if>
-      <if test="extend4 != null">
-        #{extend4,jdbcType=VARCHAR},
-      </if>
-      <if test="extend5 != null">
-        #{extend5,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
-    update phy_student_health_info
-    <set>
-      <if test="phyStudentId != null">
-        phy_student_id = #{phyStudentId,jdbcType=VARCHAR},
-      </if>
-      <if test="height != null">
-        height = #{height,jdbcType=DECIMAL},
-      </if>
-      <if test="weight != null">
-        weight = #{weight,jdbcType=DECIMAL},
-      </if>
-      <if test="blood != null">
-        blood = #{blood,jdbcType=VARCHAR},
-      </if>
-      <if test="pulse != null">
-        pulse = #{pulse,jdbcType=VARCHAR},
-      </if>
-      <if test="bust != null">
-        bust = #{bust,jdbcType=VARCHAR},
-      </if>
-      <if test="vitalCapacity != null">
-        vital_capacity = #{vitalCapacity,jdbcType=VARCHAR},
-      </if>
-      <if test="formDoctor != null">
-        form_doctor = #{formDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="nakedLeft != null">
-        naked_left = #{nakedLeft,jdbcType=DECIMAL},
-      </if>
-      <if test="nakedRight != null">
-        naked_right = #{nakedRight,jdbcType=DECIMAL},
-      </if>
-      <if test="correctLeft != null">
-        correct_left = #{correctLeft,jdbcType=DECIMAL},
-      </if>
-      <if test="correctRight != null">
-        correct_right = #{correctRight,jdbcType=DECIMAL},
-      </if>
-      <if test="colorVision != null">
-        color_vision = #{colorVision,jdbcType=TINYINT},
-      </if>
-      <if test="colorVisionErrorText != null">
-        color_vision_error_text = #{colorVisionErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="trachLeft != null">
-        trach_left = #{trachLeft,jdbcType=DECIMAL},
-      </if>
-      <if test="trachRight != null">
-        trach_right = #{trachRight,jdbcType=DECIMAL},
-      </if>
-      <if test="eyesDoctor != null">
-        eyes_doctor = #{eyesDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="ear != null">
-        ear = #{ear,jdbcType=TINYINT},
-      </if>
-      <if test="nose != null">
-        nose = #{nose,jdbcType=TINYINT},
-      </if>
-      <if test="throat != null">
-        throat = #{throat,jdbcType=TINYINT},
-      </if>
-      <if test="noseErrorText != null">
-        nose_error_text = #{noseErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="earErrorText != null">
-        ear_error_text = #{earErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="earNoseDoctor != null">
-        ear_nose_doctor = #{earNoseDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="tooth != null">
-        tooth = #{tooth,jdbcType=TINYINT},
-      </if>
-      <if test="periodontal != null">
-        periodontal = #{periodontal,jdbcType=TINYINT},
-      </if>
-      <if test="anamnesis != null">
-        anamnesis = #{anamnesis,jdbcType=TINYINT},
-      </if>
-      <if test="spleen != null">
-        spleen = #{spleen,jdbcType=TINYINT},
-      </if>
-      <if test="heart != null">
-        heart = #{heart,jdbcType=TINYINT},
-      </if>
-      <if test="lung != null">
-        lung = #{lung,jdbcType=TINYINT},
-      </if>
-      <if test="liver != null">
-        liver = #{liver,jdbcType=TINYINT},
-      </if>
-      <if test="internalOther != null">
-        internal_other = #{internalOther,jdbcType=VARCHAR},
-      </if>
-      <if test="liverErrorText != null">
-        liver_error_text = #{liverErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="barrelChest != null">
-        barrel_chest = #{barrelChest,jdbcType=TINYINT},
-      </if>
-      <if test="barrelChestText != null">
-        barrel_chest_text = #{barrelChestText,jdbcType=VARCHAR},
-      </if>
-      <if test="breathSounds != null">
-        breath_sounds = #{breathSounds,jdbcType=TINYINT},
-      </if>
-      <if test="breathSoundsErrorText != null">
-        breath_sounds_error_text = #{breathSoundsErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="rae != null">
-        rae = #{rae,jdbcType=TINYINT},
-      </if>
-      <if test="raeText != null">
-        rae_text = #{raeText,jdbcType=VARCHAR},
-      </if>
-      <if test="heartErrorText != null">
-        heart_error_text = #{heartErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="heartRate != null">
-        heart_rate = #{heartRate,jdbcType=VARCHAR},
-      </if>
-      <if test="heartRhythm != null">
-        heart_rhythm = #{heartRhythm,jdbcType=TINYINT},
-      </if>
-      <if test="murmur != null">
-        murmur = #{murmur,jdbcType=TINYINT},
-      </if>
-      <if test="murmurErrorText != null">
-        murmur_error_text = #{murmurErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="spleenErrorText != null">
-        spleen_error_text = #{spleenErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="anamnesisText != null">
-        anamnesis_text = #{anamnesisText,jdbcType=VARCHAR},
-      </if>
-      <if test="periodontalErrorText != null">
-        periodontal_error_text = #{periodontalErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="internalDoctor != null">
-        internal_doctor = #{internalDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="skin != null">
-        skin = #{skin,jdbcType=TINYINT},
-      </if>
-      <if test="lymph != null">
-        lymph = #{lymph,jdbcType=TINYINT},
-      </if>
-      <if test="thyroid != null">
-        thyroid = #{thyroid,jdbcType=TINYINT},
-      </if>
-      <if test="spine != null">
-        spine = #{spine,jdbcType=TINYINT},
-      </if>
-      <if test="limbJoints != null">
-        limb_joints = #{limbJoints,jdbcType=TINYINT},
-      </if>
-      <if test="flatfoot != null">
-        flatfoot = #{flatfoot,jdbcType=TINYINT},
-      </if>
-      <if test="pudendum != null">
-        pudendum = #{pudendum,jdbcType=TINYINT},
-      </if>
-      <if test="anus != null">
-        anus = #{anus,jdbcType=TINYINT},
-      </if>
-      <if test="anusText != null">
-        anus_text = #{anusText,jdbcType=VARCHAR},
-      </if>
-      <if test="pudendumErrorText != null">
-        pudendum_error_text = #{pudendumErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="flatfootText != null">
-        flatfoot_text = #{flatfootText,jdbcType=VARCHAR},
-      </if>
-      <if test="limbJointsErrorText != null">
-        limb_joints_error_text = #{limbJointsErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="spineErrorText != null">
-        spine_error_text = #{spineErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="thyroidText != null">
-        thyroid_text = #{thyroidText,jdbcType=VARCHAR},
-      </if>
-      <if test="lymphText != null">
-        lymph_text = #{lymphText,jdbcType=VARCHAR},
-      </if>
-      <if test="skinText != null">
-        skin_text = #{skinText,jdbcType=VARCHAR},
-      </if>
-      <if test="surgeryOther != null">
-        surgery_other = #{surgeryOther,jdbcType=VARCHAR},
-      </if>
-      <if test="surgeryDoctor != null">
-        surgery_doctor = #{surgeryDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="chest != null">
-        chest = #{chest,jdbcType=TINYINT},
-      </if>
-      <if test="chestErrorText != null">
-        chest_error_text = #{chestErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="chestDoctor != null">
-        chest_doctor = #{chestDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="liverFunction != null">
-        liver_function = #{liverFunction,jdbcType=TINYINT},
-      </if>
-      <if test="bloodRoutine != null">
-        blood_routine = #{bloodRoutine,jdbcType=TINYINT},
-      </if>
-      <if test="bloodRoutineErrorText != null">
-        blood_routine_error_text = #{bloodRoutineErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="liverFunctionErrorText != null">
-        liver_function_error_text = #{liverFunctionErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="phyConclusion != null">
-        phy_conclusion = #{phyConclusion,jdbcType=TINYINT},
-      </if>
-      <if test="phyConclusionErrorText != null">
-        phy_conclusion_error_text = #{phyConclusionErrorText,jdbcType=VARCHAR},
-      </if>
-      <if test="review != null">
-        review = #{review,jdbcType=TINYINT},
-      </if>
-      <if test="referral != null">
-        referral = #{referral,jdbcType=TINYINT},
-      </if>
-      <if test="regularCensor != null">
-        regular_censor = #{regularCensor,jdbcType=TINYINT},
-      </if>
-      <if test="healthEducation != null">
-        health_education = #{healthEducation,jdbcType=TINYINT},
-      </if>
-      <if test="diet != null">
-        diet = #{diet,jdbcType=TINYINT},
-      </if>
-      <if test="forging != null">
-        forging = #{forging,jdbcType=TINYINT},
-      </if>
-      <if test="vaccination != null">
-        vaccination = #{vaccination,jdbcType=TINYINT},
-      </if>
-      <if test="phyGuideText != null">
-        phy_guide_text = #{phyGuideText,jdbcType=VARCHAR},
-      </if>
-      <if test="phyDoctor != null">
-        phy_doctor = #{phyDoctor,jdbcType=VARCHAR},
-      </if>
-      <if test="delFlag != null">
-        del_flag = #{delFlag,jdbcType=TINYINT},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createUser != null">
-        create_user = #{createUser,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateUser != null">
-        update_user = #{updateUser,jdbcType=VARCHAR},
-      </if>
-      <if test="qualifiedStatus != null">
-        qualified_status = #{qualifiedStatus,jdbcType=VARCHAR},
-      </if>
-      <if test="extend4 != null">
-        extend4 = #{extend4,jdbcType=VARCHAR},
-      </if>
-      <if test="extend5 != null">
-        extend5 = #{extend5,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
-    update phy_student_health_info
-    set phy_student_id = #{phyStudentId,jdbcType=VARCHAR},
-        height = #{height,jdbcType=DECIMAL},
-        weight = #{weight,jdbcType=DECIMAL},
-        blood = #{blood,jdbcType=VARCHAR},
-        pulse = #{pulse,jdbcType=VARCHAR},
-        bust = #{bust,jdbcType=VARCHAR},
-        vital_capacity = #{vitalCapacity,jdbcType=VARCHAR},
-        form_doctor = #{formDoctor,jdbcType=VARCHAR},
-        naked_left = #{nakedLeft,jdbcType=DECIMAL},
-        naked_right = #{nakedRight,jdbcType=DECIMAL},
-        correct_left = #{correctLeft,jdbcType=DECIMAL},
-        correct_right = #{correctRight,jdbcType=DECIMAL},
-        color_vision = #{colorVision,jdbcType=TINYINT},
-        color_vision_error_text = #{colorVisionErrorText,jdbcType=VARCHAR},
-        trach_left = #{trachLeft,jdbcType=DECIMAL},
-        trach_right = #{trachRight,jdbcType=DECIMAL},
-        eyes_doctor = #{eyesDoctor,jdbcType=VARCHAR},
-        ear = #{ear,jdbcType=TINYINT},
-        nose = #{nose,jdbcType=TINYINT},
-        throat = #{throat,jdbcType=TINYINT},
-        nose_error_text = #{noseErrorText,jdbcType=VARCHAR},
-        ear_error_text = #{earErrorText,jdbcType=VARCHAR},
-        ear_nose_doctor = #{earNoseDoctor,jdbcType=VARCHAR},
-        tooth = #{tooth,jdbcType=TINYINT},
-        periodontal = #{periodontal,jdbcType=TINYINT},
-        anamnesis = #{anamnesis,jdbcType=TINYINT},
-        spleen = #{spleen,jdbcType=TINYINT},
-        heart = #{heart,jdbcType=TINYINT},
-        lung = #{lung,jdbcType=TINYINT},
-        liver = #{liver,jdbcType=TINYINT},
-        internal_other = #{internalOther,jdbcType=VARCHAR},
-        liver_error_text = #{liverErrorText,jdbcType=VARCHAR},
-        barrel_chest = #{barrelChest,jdbcType=TINYINT},
-        barrel_chest_text = #{barrelChestText,jdbcType=VARCHAR},
-        breath_sounds = #{breathSounds,jdbcType=TINYINT},
-        breath_sounds_error_text = #{breathSoundsErrorText,jdbcType=VARCHAR},
-        rae = #{rae,jdbcType=TINYINT},
-        rae_text = #{raeText,jdbcType=VARCHAR},
-        heart_error_text = #{heartErrorText,jdbcType=VARCHAR},
-        heart_rate = #{heartRate,jdbcType=VARCHAR},
-        heart_rhythm = #{heartRhythm,jdbcType=TINYINT},
-        murmur = #{murmur,jdbcType=TINYINT},
-        murmur_error_text = #{murmurErrorText,jdbcType=VARCHAR},
-        spleen_error_text = #{spleenErrorText,jdbcType=VARCHAR},
-        anamnesis_text = #{anamnesisText,jdbcType=VARCHAR},
-        periodontal_error_text = #{periodontalErrorText,jdbcType=VARCHAR},
-        internal_doctor = #{internalDoctor,jdbcType=VARCHAR},
-        skin = #{skin,jdbcType=TINYINT},
-        lymph = #{lymph,jdbcType=TINYINT},
-        thyroid = #{thyroid,jdbcType=TINYINT},
-        spine = #{spine,jdbcType=TINYINT},
-        limb_joints = #{limbJoints,jdbcType=TINYINT},
-        flatfoot = #{flatfoot,jdbcType=TINYINT},
-        pudendum = #{pudendum,jdbcType=TINYINT},
-        anus = #{anus,jdbcType=TINYINT},
-        anus_text = #{anusText,jdbcType=VARCHAR},
-        pudendum_error_text = #{pudendumErrorText,jdbcType=VARCHAR},
-        flatfoot_text = #{flatfootText,jdbcType=VARCHAR},
-        limb_joints_error_text = #{limbJointsErrorText,jdbcType=VARCHAR},
-        spine_error_text = #{spineErrorText,jdbcType=VARCHAR},
-        thyroid_text = #{thyroidText,jdbcType=VARCHAR},
-        lymph_text = #{lymphText,jdbcType=VARCHAR},
-        skin_text = #{skinText,jdbcType=VARCHAR},
-        surgery_other = #{surgeryOther,jdbcType=VARCHAR},
-        surgery_doctor = #{surgeryDoctor,jdbcType=VARCHAR},
-        chest = #{chest,jdbcType=TINYINT},
-        chest_error_text = #{chestErrorText,jdbcType=VARCHAR},
-        chest_doctor = #{chestDoctor,jdbcType=VARCHAR},
-        liver_function = #{liverFunction,jdbcType=TINYINT},
-        blood_routine = #{bloodRoutine,jdbcType=TINYINT},
-        blood_routine_error_text = #{bloodRoutineErrorText,jdbcType=VARCHAR},
-        liver_function_error_text = #{liverFunctionErrorText,jdbcType=VARCHAR},
-        phy_conclusion = #{phyConclusion,jdbcType=TINYINT},
-        phy_conclusion_error_text = #{phyConclusionErrorText,jdbcType=VARCHAR},
-        review = #{review,jdbcType=TINYINT},
-        referral = #{referral,jdbcType=TINYINT},
-        regular_censor = #{regularCensor,jdbcType=TINYINT},
-        health_education = #{healthEducation,jdbcType=TINYINT},
-        diet = #{diet,jdbcType=TINYINT},
-        forging = #{forging,jdbcType=TINYINT},
-        vaccination = #{vaccination,jdbcType=TINYINT},
-        phy_guide_text = #{phyGuideText,jdbcType=VARCHAR},
-        phy_doctor = #{phyDoctor,jdbcType=VARCHAR},
-        del_flag = #{delFlag,jdbcType=TINYINT},
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-        create_user = #{createUser,jdbcType=VARCHAR},
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-        update_user = #{updateUser,jdbcType=VARCHAR},
-        qualified_status = #{qualifiedStatus,jdbcType=VARCHAR},
-        extend4 = #{extend4,jdbcType=VARCHAR},
-        extend5 = #{extend5,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
+    </sql>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from phy_student_health_info
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
+        insert into phy_student_health_info (id, phy_student_id, height,
+                                             weight, blood, pulse,
+                                             bust, vital_capacity, form_doctor,
+                                             naked_left, naked_right, correct_left,
+                                             correct_right, color_vision, color_vision_error_text,
+                                             trach_left, trach_right, eyes_doctor,
+                                             ear, nose, throat,
+                                             nose_error_text, ear_error_text, ear_nose_doctor,
+                                             tooth, periodontal, anamnesis,
+                                             spleen, heart, lung,
+                                             liver, internal_other, liver_error_text,
+                                             barrel_chest, barrel_chest_text, breath_sounds,
+                                             breath_sounds_error_text, rae, rae_text,
+                                             heart_error_text, heart_rate, heart_rhythm,
+                                             murmur, murmur_error_text, spleen_error_text,
+                                             anamnesis_text, periodontal_error_text, internal_doctor,
+                                             skin, lymph, thyroid,
+                                             spine, limb_joints, flatfoot,
+                                             pudendum, anus, anus_text,
+                                             pudendum_error_text, flatfoot_text, limb_joints_error_text,
+                                             spine_error_text, thyroid_text, lymph_text,
+                                             skin_text, surgery_other, surgery_doctor,
+                                             chest, chest_error_text, chest_doctor,
+                                             liver_function, blood_routine, blood_routine_error_text,
+                                             liver_function_error_text, phy_conclusion,
+                                             phy_conclusion_error_text, review, referral,
+                                             regular_censor, health_education, diet,
+                                             forging, vaccination, phy_guide_text,
+                                             phy_doctor, del_flag, create_time,
+                                             create_user, update_time, update_user,
+                                             qualified_status, extend4, extend5)
+        values (#{id,jdbcType=VARCHAR}, #{phyStudentId,jdbcType=VARCHAR}, #{height,jdbcType=DECIMAL},
+                #{weight,jdbcType=DECIMAL}, #{blood,jdbcType=VARCHAR}, #{pulse,jdbcType=VARCHAR},
+                #{bust,jdbcType=VARCHAR}, #{vitalCapacity,jdbcType=VARCHAR}, #{formDoctor,jdbcType=VARCHAR},
+                #{nakedLeft,jdbcType=DECIMAL}, #{nakedRight,jdbcType=DECIMAL}, #{correctLeft,jdbcType=DECIMAL},
+                #{correctRight,jdbcType=DECIMAL}, #{colorVision,jdbcType=TINYINT},
+                #{colorVisionErrorText,jdbcType=VARCHAR},
+                #{trachLeft,jdbcType=DECIMAL}, #{trachRight,jdbcType=DECIMAL}, #{eyesDoctor,jdbcType=VARCHAR},
+                #{ear,jdbcType=TINYINT}, #{nose,jdbcType=TINYINT}, #{throat,jdbcType=TINYINT},
+                #{noseErrorText,jdbcType=VARCHAR}, #{earErrorText,jdbcType=VARCHAR}, #{earNoseDoctor,jdbcType=VARCHAR},
+                #{tooth,jdbcType=TINYINT}, #{periodontal,jdbcType=TINYINT}, #{anamnesis,jdbcType=TINYINT},
+                #{spleen,jdbcType=TINYINT}, #{heart,jdbcType=TINYINT}, #{lung,jdbcType=TINYINT},
+                #{liver,jdbcType=TINYINT}, #{internalOther,jdbcType=VARCHAR}, #{liverErrorText,jdbcType=VARCHAR},
+                #{barrelChest,jdbcType=TINYINT}, #{barrelChestText,jdbcType=VARCHAR}, #{breathSounds,jdbcType=TINYINT},
+                #{breathSoundsErrorText,jdbcType=VARCHAR}, #{rae,jdbcType=TINYINT}, #{raeText,jdbcType=VARCHAR},
+                #{heartErrorText,jdbcType=VARCHAR}, #{heartRate,jdbcType=VARCHAR}, #{heartRhythm,jdbcType=TINYINT},
+                #{murmur,jdbcType=TINYINT}, #{murmurErrorText,jdbcType=VARCHAR}, #{spleenErrorText,jdbcType=VARCHAR},
+                #{anamnesisText,jdbcType=VARCHAR}, #{periodontalErrorText,jdbcType=VARCHAR},
+                #{internalDoctor,jdbcType=VARCHAR},
+                #{skin,jdbcType=TINYINT}, #{lymph,jdbcType=TINYINT}, #{thyroid,jdbcType=TINYINT},
+                #{spine,jdbcType=TINYINT}, #{limbJoints,jdbcType=TINYINT}, #{flatfoot,jdbcType=TINYINT},
+                #{pudendum,jdbcType=TINYINT}, #{anus,jdbcType=TINYINT}, #{anusText,jdbcType=VARCHAR},
+                #{pudendumErrorText,jdbcType=VARCHAR}, #{flatfootText,jdbcType=VARCHAR},
+                #{limbJointsErrorText,jdbcType=VARCHAR},
+                #{spineErrorText,jdbcType=VARCHAR}, #{thyroidText,jdbcType=VARCHAR}, #{lymphText,jdbcType=VARCHAR},
+                #{skinText,jdbcType=VARCHAR}, #{surgeryOther,jdbcType=VARCHAR}, #{surgeryDoctor,jdbcType=VARCHAR},
+                #{chest,jdbcType=TINYINT}, #{chestErrorText,jdbcType=VARCHAR}, #{chestDoctor,jdbcType=VARCHAR},
+                #{liverFunction,jdbcType=TINYINT}, #{bloodRoutine,jdbcType=TINYINT},
+                #{bloodRoutineErrorText,jdbcType=VARCHAR},
+                #{liverFunctionErrorText,jdbcType=VARCHAR}, #{phyConclusion,jdbcType=TINYINT},
+                #{phyConclusionErrorText,jdbcType=VARCHAR}, #{review,jdbcType=TINYINT}, #{referral,jdbcType=TINYINT},
+                #{regularCensor,jdbcType=TINYINT}, #{healthEducation,jdbcType=TINYINT}, #{diet,jdbcType=TINYINT},
+                #{forging,jdbcType=TINYINT}, #{vaccination,jdbcType=TINYINT}, #{phyGuideText,jdbcType=VARCHAR},
+                #{phyDoctor,jdbcType=VARCHAR}, #{delFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
+                #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR},
+                #{qualifiedStatus,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
+        insert into phy_student_health_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="phyStudentId != null">
+                phy_student_id,
+            </if>
+            <if test="height != null">
+                height,
+            </if>
+            <if test="weight != null">
+                weight,
+            </if>
+            <if test="blood != null">
+                blood,
+            </if>
+            <if test="pulse != null">
+                pulse,
+            </if>
+            <if test="bust != null">
+                bust,
+            </if>
+            <if test="vitalCapacity != null">
+                vital_capacity,
+            </if>
+            <if test="formDoctor != null">
+                form_doctor,
+            </if>
+            <if test="nakedLeft != null">
+                naked_left,
+            </if>
+            <if test="nakedRight != null">
+                naked_right,
+            </if>
+            <if test="correctLeft != null">
+                correct_left,
+            </if>
+            <if test="correctRight != null">
+                correct_right,
+            </if>
+            <if test="colorVision != null">
+                color_vision,
+            </if>
+            <if test="colorVisionErrorText != null">
+                color_vision_error_text,
+            </if>
+            <if test="trachLeft != null">
+                trach_left,
+            </if>
+            <if test="trachRight != null">
+                trach_right,
+            </if>
+            <if test="eyesDoctor != null">
+                eyes_doctor,
+            </if>
+            <if test="ear != null">
+                ear,
+            </if>
+            <if test="nose != null">
+                nose,
+            </if>
+            <if test="throat != null">
+                throat,
+            </if>
+            <if test="noseErrorText != null">
+                nose_error_text,
+            </if>
+            <if test="earErrorText != null">
+                ear_error_text,
+            </if>
+            <if test="earNoseDoctor != null">
+                ear_nose_doctor,
+            </if>
+            <if test="tooth != null">
+                tooth,
+            </if>
+            <if test="periodontal != null">
+                periodontal,
+            </if>
+            <if test="anamnesis != null">
+                anamnesis,
+            </if>
+            <if test="spleen != null">
+                spleen,
+            </if>
+            <if test="heart != null">
+                heart,
+            </if>
+            <if test="lung != null">
+                lung,
+            </if>
+            <if test="liver != null">
+                liver,
+            </if>
+            <if test="internalOther != null">
+                internal_other,
+            </if>
+            <if test="liverErrorText != null">
+                liver_error_text,
+            </if>
+            <if test="barrelChest != null">
+                barrel_chest,
+            </if>
+            <if test="barrelChestText != null">
+                barrel_chest_text,
+            </if>
+            <if test="breathSounds != null">
+                breath_sounds,
+            </if>
+            <if test="breathSoundsErrorText != null">
+                breath_sounds_error_text,
+            </if>
+            <if test="rae != null">
+                rae,
+            </if>
+            <if test="raeText != null">
+                rae_text,
+            </if>
+            <if test="heartErrorText != null">
+                heart_error_text,
+            </if>
+            <if test="heartRate != null">
+                heart_rate,
+            </if>
+            <if test="heartRhythm != null">
+                heart_rhythm,
+            </if>
+            <if test="murmur != null">
+                murmur,
+            </if>
+            <if test="murmurErrorText != null">
+                murmur_error_text,
+            </if>
+            <if test="spleenErrorText != null">
+                spleen_error_text,
+            </if>
+            <if test="anamnesisText != null">
+                anamnesis_text,
+            </if>
+            <if test="periodontalErrorText != null">
+                periodontal_error_text,
+            </if>
+            <if test="internalDoctor != null">
+                internal_doctor,
+            </if>
+            <if test="skin != null">
+                skin,
+            </if>
+            <if test="lymph != null">
+                lymph,
+            </if>
+            <if test="thyroid != null">
+                thyroid,
+            </if>
+            <if test="spine != null">
+                spine,
+            </if>
+            <if test="limbJoints != null">
+                limb_joints,
+            </if>
+            <if test="flatfoot != null">
+                flatfoot,
+            </if>
+            <if test="pudendum != null">
+                pudendum,
+            </if>
+            <if test="anus != null">
+                anus,
+            </if>
+            <if test="anusText != null">
+                anus_text,
+            </if>
+            <if test="pudendumErrorText != null">
+                pudendum_error_text,
+            </if>
+            <if test="flatfootText != null">
+                flatfoot_text,
+            </if>
+            <if test="limbJointsErrorText != null">
+                limb_joints_error_text,
+            </if>
+            <if test="spineErrorText != null">
+                spine_error_text,
+            </if>
+            <if test="thyroidText != null">
+                thyroid_text,
+            </if>
+            <if test="lymphText != null">
+                lymph_text,
+            </if>
+            <if test="skinText != null">
+                skin_text,
+            </if>
+            <if test="surgeryOther != null">
+                surgery_other,
+            </if>
+            <if test="surgeryDoctor != null">
+                surgery_doctor,
+            </if>
+            <if test="chest != null">
+                chest,
+            </if>
+            <if test="chestErrorText != null">
+                chest_error_text,
+            </if>
+            <if test="chestDoctor != null">
+                chest_doctor,
+            </if>
+            <if test="liverFunction != null">
+                liver_function,
+            </if>
+            <if test="bloodRoutine != null">
+                blood_routine,
+            </if>
+            <if test="bloodRoutineErrorText != null">
+                blood_routine_error_text,
+            </if>
+            <if test="liverFunctionErrorText != null">
+                liver_function_error_text,
+            </if>
+            <if test="phyConclusion != null">
+                phy_conclusion,
+            </if>
+            <if test="phyConclusionErrorText != null">
+                phy_conclusion_error_text,
+            </if>
+            <if test="review != null">
+                review,
+            </if>
+            <if test="referral != null">
+                referral,
+            </if>
+            <if test="regularCensor != null">
+                regular_censor,
+            </if>
+            <if test="healthEducation != null">
+                health_education,
+            </if>
+            <if test="diet != null">
+                diet,
+            </if>
+            <if test="forging != null">
+                forging,
+            </if>
+            <if test="vaccination != null">
+                vaccination,
+            </if>
+            <if test="phyGuideText != null">
+                phy_guide_text,
+            </if>
+            <if test="phyDoctor != null">
+                phy_doctor,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+            <if test="qualifiedStatus != null">
+                qualified_status,
+            </if>
+            <if test="extend4 != null">
+                extend4,
+            </if>
+            <if test="extend5 != null">
+                extend5,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="phyStudentId != null">
+                #{phyStudentId,jdbcType=VARCHAR},
+            </if>
+            <if test="height != null">
+                #{height,jdbcType=DECIMAL},
+            </if>
+            <if test="weight != null">
+                #{weight,jdbcType=DECIMAL},
+            </if>
+            <if test="blood != null">
+                #{blood,jdbcType=VARCHAR},
+            </if>
+            <if test="pulse != null">
+                #{pulse,jdbcType=VARCHAR},
+            </if>
+            <if test="bust != null">
+                #{bust,jdbcType=VARCHAR},
+            </if>
+            <if test="vitalCapacity != null">
+                #{vitalCapacity,jdbcType=VARCHAR},
+            </if>
+            <if test="formDoctor != null">
+                #{formDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="nakedLeft != null">
+                #{nakedLeft,jdbcType=DECIMAL},
+            </if>
+            <if test="nakedRight != null">
+                #{nakedRight,jdbcType=DECIMAL},
+            </if>
+            <if test="correctLeft != null">
+                #{correctLeft,jdbcType=DECIMAL},
+            </if>
+            <if test="correctRight != null">
+                #{correctRight,jdbcType=DECIMAL},
+            </if>
+            <if test="colorVision != null">
+                #{colorVision,jdbcType=TINYINT},
+            </if>
+            <if test="colorVisionErrorText != null">
+                #{colorVisionErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="trachLeft != null">
+                #{trachLeft,jdbcType=DECIMAL},
+            </if>
+            <if test="trachRight != null">
+                #{trachRight,jdbcType=DECIMAL},
+            </if>
+            <if test="eyesDoctor != null">
+                #{eyesDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="ear != null">
+                #{ear,jdbcType=TINYINT},
+            </if>
+            <if test="nose != null">
+                #{nose,jdbcType=TINYINT},
+            </if>
+            <if test="throat != null">
+                #{throat,jdbcType=TINYINT},
+            </if>
+            <if test="noseErrorText != null">
+                #{noseErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="earErrorText != null">
+                #{earErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="earNoseDoctor != null">
+                #{earNoseDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="tooth != null">
+                #{tooth,jdbcType=TINYINT},
+            </if>
+            <if test="periodontal != null">
+                #{periodontal,jdbcType=TINYINT},
+            </if>
+            <if test="anamnesis != null">
+                #{anamnesis,jdbcType=TINYINT},
+            </if>
+            <if test="spleen != null">
+                #{spleen,jdbcType=TINYINT},
+            </if>
+            <if test="heart != null">
+                #{heart,jdbcType=TINYINT},
+            </if>
+            <if test="lung != null">
+                #{lung,jdbcType=TINYINT},
+            </if>
+            <if test="liver != null">
+                #{liver,jdbcType=TINYINT},
+            </if>
+            <if test="internalOther != null">
+                #{internalOther,jdbcType=VARCHAR},
+            </if>
+            <if test="liverErrorText != null">
+                #{liverErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="barrelChest != null">
+                #{barrelChest,jdbcType=TINYINT},
+            </if>
+            <if test="barrelChestText != null">
+                #{barrelChestText,jdbcType=VARCHAR},
+            </if>
+            <if test="breathSounds != null">
+                #{breathSounds,jdbcType=TINYINT},
+            </if>
+            <if test="breathSoundsErrorText != null">
+                #{breathSoundsErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="rae != null">
+                #{rae,jdbcType=TINYINT},
+            </if>
+            <if test="raeText != null">
+                #{raeText,jdbcType=VARCHAR},
+            </if>
+            <if test="heartErrorText != null">
+                #{heartErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="heartRate != null">
+                #{heartRate,jdbcType=VARCHAR},
+            </if>
+            <if test="heartRhythm != null">
+                #{heartRhythm,jdbcType=TINYINT},
+            </if>
+            <if test="murmur != null">
+                #{murmur,jdbcType=TINYINT},
+            </if>
+            <if test="murmurErrorText != null">
+                #{murmurErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="spleenErrorText != null">
+                #{spleenErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="anamnesisText != null">
+                #{anamnesisText,jdbcType=VARCHAR},
+            </if>
+            <if test="periodontalErrorText != null">
+                #{periodontalErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="internalDoctor != null">
+                #{internalDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="skin != null">
+                #{skin,jdbcType=TINYINT},
+            </if>
+            <if test="lymph != null">
+                #{lymph,jdbcType=TINYINT},
+            </if>
+            <if test="thyroid != null">
+                #{thyroid,jdbcType=TINYINT},
+            </if>
+            <if test="spine != null">
+                #{spine,jdbcType=TINYINT},
+            </if>
+            <if test="limbJoints != null">
+                #{limbJoints,jdbcType=TINYINT},
+            </if>
+            <if test="flatfoot != null">
+                #{flatfoot,jdbcType=TINYINT},
+            </if>
+            <if test="pudendum != null">
+                #{pudendum,jdbcType=TINYINT},
+            </if>
+            <if test="anus != null">
+                #{anus,jdbcType=TINYINT},
+            </if>
+            <if test="anusText != null">
+                #{anusText,jdbcType=VARCHAR},
+            </if>
+            <if test="pudendumErrorText != null">
+                #{pudendumErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="flatfootText != null">
+                #{flatfootText,jdbcType=VARCHAR},
+            </if>
+            <if test="limbJointsErrorText != null">
+                #{limbJointsErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="spineErrorText != null">
+                #{spineErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="thyroidText != null">
+                #{thyroidText,jdbcType=VARCHAR},
+            </if>
+            <if test="lymphText != null">
+                #{lymphText,jdbcType=VARCHAR},
+            </if>
+            <if test="skinText != null">
+                #{skinText,jdbcType=VARCHAR},
+            </if>
+            <if test="surgeryOther != null">
+                #{surgeryOther,jdbcType=VARCHAR},
+            </if>
+            <if test="surgeryDoctor != null">
+                #{surgeryDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="chest != null">
+                #{chest,jdbcType=TINYINT},
+            </if>
+            <if test="chestErrorText != null">
+                #{chestErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="chestDoctor != null">
+                #{chestDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="liverFunction != null">
+                #{liverFunction,jdbcType=TINYINT},
+            </if>
+            <if test="bloodRoutine != null">
+                #{bloodRoutine,jdbcType=TINYINT},
+            </if>
+            <if test="bloodRoutineErrorText != null">
+                #{bloodRoutineErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="liverFunctionErrorText != null">
+                #{liverFunctionErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="phyConclusion != null">
+                #{phyConclusion,jdbcType=TINYINT},
+            </if>
+            <if test="phyConclusionErrorText != null">
+                #{phyConclusionErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="review != null">
+                #{review,jdbcType=TINYINT},
+            </if>
+            <if test="referral != null">
+                #{referral,jdbcType=TINYINT},
+            </if>
+            <if test="regularCensor != null">
+                #{regularCensor,jdbcType=TINYINT},
+            </if>
+            <if test="healthEducation != null">
+                #{healthEducation,jdbcType=TINYINT},
+            </if>
+            <if test="diet != null">
+                #{diet,jdbcType=TINYINT},
+            </if>
+            <if test="forging != null">
+                #{forging,jdbcType=TINYINT},
+            </if>
+            <if test="vaccination != null">
+                #{vaccination,jdbcType=TINYINT},
+            </if>
+            <if test="phyGuideText != null">
+                #{phyGuideText,jdbcType=VARCHAR},
+            </if>
+            <if test="phyDoctor != null">
+                #{phyDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="qualifiedStatus != null">
+                #{qualifiedStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="extend4 != null">
+                #{extend4,jdbcType=VARCHAR},
+            </if>
+            <if test="extend5 != null">
+                #{extend5,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
+        update phy_student_health_info
+        <set>
+            <if test="phyStudentId != null">
+                phy_student_id = #{phyStudentId,jdbcType=VARCHAR},
+            </if>
+            <if test="height != null">
+                height = #{height,jdbcType=DECIMAL},
+            </if>
+            <if test="weight != null">
+                weight = #{weight,jdbcType=DECIMAL},
+            </if>
+            <if test="blood != null">
+                blood = #{blood,jdbcType=VARCHAR},
+            </if>
+            <if test="pulse != null">
+                pulse = #{pulse,jdbcType=VARCHAR},
+            </if>
+            <if test="bust != null">
+                bust = #{bust,jdbcType=VARCHAR},
+            </if>
+            <if test="vitalCapacity != null">
+                vital_capacity = #{vitalCapacity,jdbcType=VARCHAR},
+            </if>
+            <if test="formDoctor != null">
+                form_doctor = #{formDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="nakedLeft != null">
+                naked_left = #{nakedLeft,jdbcType=DECIMAL},
+            </if>
+            <if test="nakedRight != null">
+                naked_right = #{nakedRight,jdbcType=DECIMAL},
+            </if>
+            <if test="correctLeft != null">
+                correct_left = #{correctLeft,jdbcType=DECIMAL},
+            </if>
+            <if test="correctRight != null">
+                correct_right = #{correctRight,jdbcType=DECIMAL},
+            </if>
+            <if test="colorVision != null">
+                color_vision = #{colorVision,jdbcType=TINYINT},
+            </if>
+            <if test="colorVisionErrorText != null">
+                color_vision_error_text = #{colorVisionErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="trachLeft != null">
+                trach_left = #{trachLeft,jdbcType=DECIMAL},
+            </if>
+            <if test="trachRight != null">
+                trach_right = #{trachRight,jdbcType=DECIMAL},
+            </if>
+            <if test="eyesDoctor != null">
+                eyes_doctor = #{eyesDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="ear != null">
+                ear = #{ear,jdbcType=TINYINT},
+            </if>
+            <if test="nose != null">
+                nose = #{nose,jdbcType=TINYINT},
+            </if>
+            <if test="throat != null">
+                throat = #{throat,jdbcType=TINYINT},
+            </if>
+            <if test="noseErrorText != null">
+                nose_error_text = #{noseErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="earErrorText != null">
+                ear_error_text = #{earErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="earNoseDoctor != null">
+                ear_nose_doctor = #{earNoseDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="tooth != null">
+                tooth = #{tooth,jdbcType=TINYINT},
+            </if>
+            <if test="periodontal != null">
+                periodontal = #{periodontal,jdbcType=TINYINT},
+            </if>
+            <if test="anamnesis != null">
+                anamnesis = #{anamnesis,jdbcType=TINYINT},
+            </if>
+            <if test="spleen != null">
+                spleen = #{spleen,jdbcType=TINYINT},
+            </if>
+            <if test="heart != null">
+                heart = #{heart,jdbcType=TINYINT},
+            </if>
+            <if test="lung != null">
+                lung = #{lung,jdbcType=TINYINT},
+            </if>
+            <if test="liver != null">
+                liver = #{liver,jdbcType=TINYINT},
+            </if>
+            <if test="internalOther != null">
+                internal_other = #{internalOther,jdbcType=VARCHAR},
+            </if>
+            <if test="liverErrorText != null">
+                liver_error_text = #{liverErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="barrelChest != null">
+                barrel_chest = #{barrelChest,jdbcType=TINYINT},
+            </if>
+            <if test="barrelChestText != null">
+                barrel_chest_text = #{barrelChestText,jdbcType=VARCHAR},
+            </if>
+            <if test="breathSounds != null">
+                breath_sounds = #{breathSounds,jdbcType=TINYINT},
+            </if>
+            <if test="breathSoundsErrorText != null">
+                breath_sounds_error_text = #{breathSoundsErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="rae != null">
+                rae = #{rae,jdbcType=TINYINT},
+            </if>
+            <if test="raeText != null">
+                rae_text = #{raeText,jdbcType=VARCHAR},
+            </if>
+            <if test="heartErrorText != null">
+                heart_error_text = #{heartErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="heartRate != null">
+                heart_rate = #{heartRate,jdbcType=VARCHAR},
+            </if>
+            <if test="heartRhythm != null">
+                heart_rhythm = #{heartRhythm,jdbcType=TINYINT},
+            </if>
+            <if test="murmur != null">
+                murmur = #{murmur,jdbcType=TINYINT},
+            </if>
+            <if test="murmurErrorText != null">
+                murmur_error_text = #{murmurErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="spleenErrorText != null">
+                spleen_error_text = #{spleenErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="anamnesisText != null">
+                anamnesis_text = #{anamnesisText,jdbcType=VARCHAR},
+            </if>
+            <if test="periodontalErrorText != null">
+                periodontal_error_text = #{periodontalErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="internalDoctor != null">
+                internal_doctor = #{internalDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="skin != null">
+                skin = #{skin,jdbcType=TINYINT},
+            </if>
+            <if test="lymph != null">
+                lymph = #{lymph,jdbcType=TINYINT},
+            </if>
+            <if test="thyroid != null">
+                thyroid = #{thyroid,jdbcType=TINYINT},
+            </if>
+            <if test="spine != null">
+                spine = #{spine,jdbcType=TINYINT},
+            </if>
+            <if test="limbJoints != null">
+                limb_joints = #{limbJoints,jdbcType=TINYINT},
+            </if>
+            <if test="flatfoot != null">
+                flatfoot = #{flatfoot,jdbcType=TINYINT},
+            </if>
+            <if test="pudendum != null">
+                pudendum = #{pudendum,jdbcType=TINYINT},
+            </if>
+            <if test="anus != null">
+                anus = #{anus,jdbcType=TINYINT},
+            </if>
+            <if test="anusText != null">
+                anus_text = #{anusText,jdbcType=VARCHAR},
+            </if>
+            <if test="pudendumErrorText != null">
+                pudendum_error_text = #{pudendumErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="flatfootText != null">
+                flatfoot_text = #{flatfootText,jdbcType=VARCHAR},
+            </if>
+            <if test="limbJointsErrorText != null">
+                limb_joints_error_text = #{limbJointsErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="spineErrorText != null">
+                spine_error_text = #{spineErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="thyroidText != null">
+                thyroid_text = #{thyroidText,jdbcType=VARCHAR},
+            </if>
+            <if test="lymphText != null">
+                lymph_text = #{lymphText,jdbcType=VARCHAR},
+            </if>
+            <if test="skinText != null">
+                skin_text = #{skinText,jdbcType=VARCHAR},
+            </if>
+            <if test="surgeryOther != null">
+                surgery_other = #{surgeryOther,jdbcType=VARCHAR},
+            </if>
+            <if test="surgeryDoctor != null">
+                surgery_doctor = #{surgeryDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="chest != null">
+                chest = #{chest,jdbcType=TINYINT},
+            </if>
+            <if test="chestErrorText != null">
+                chest_error_text = #{chestErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="chestDoctor != null">
+                chest_doctor = #{chestDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="liverFunction != null">
+                liver_function = #{liverFunction,jdbcType=TINYINT},
+            </if>
+            <if test="bloodRoutine != null">
+                blood_routine = #{bloodRoutine,jdbcType=TINYINT},
+            </if>
+            <if test="bloodRoutineErrorText != null">
+                blood_routine_error_text = #{bloodRoutineErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="liverFunctionErrorText != null">
+                liver_function_error_text = #{liverFunctionErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="phyConclusion != null">
+                phy_conclusion = #{phyConclusion,jdbcType=TINYINT},
+            </if>
+            <if test="phyConclusionErrorText != null">
+                phy_conclusion_error_text = #{phyConclusionErrorText,jdbcType=VARCHAR},
+            </if>
+            <if test="review != null">
+                review = #{review,jdbcType=TINYINT},
+            </if>
+            <if test="referral != null">
+                referral = #{referral,jdbcType=TINYINT},
+            </if>
+            <if test="regularCensor != null">
+                regular_censor = #{regularCensor,jdbcType=TINYINT},
+            </if>
+            <if test="healthEducation != null">
+                health_education = #{healthEducation,jdbcType=TINYINT},
+            </if>
+            <if test="diet != null">
+                diet = #{diet,jdbcType=TINYINT},
+            </if>
+            <if test="forging != null">
+                forging = #{forging,jdbcType=TINYINT},
+            </if>
+            <if test="vaccination != null">
+                vaccination = #{vaccination,jdbcType=TINYINT},
+            </if>
+            <if test="phyGuideText != null">
+                phy_guide_text = #{phyGuideText,jdbcType=VARCHAR},
+            </if>
+            <if test="phyDoctor != null">
+                phy_doctor = #{phyDoctor,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="qualifiedStatus != null">
+                qualified_status = #{qualifiedStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="extend4 != null">
+                extend4 = #{extend4,jdbcType=VARCHAR},
+            </if>
+            <if test="extend5 != null">
+                extend5 = #{extend5,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
+        update phy_student_health_info
+        set phy_student_id            = #{phyStudentId,jdbcType=VARCHAR},
+            height                    = #{height,jdbcType=DECIMAL},
+            weight                    = #{weight,jdbcType=DECIMAL},
+            blood                     = #{blood,jdbcType=VARCHAR},
+            pulse                     = #{pulse,jdbcType=VARCHAR},
+            bust                      = #{bust,jdbcType=VARCHAR},
+            vital_capacity            = #{vitalCapacity,jdbcType=VARCHAR},
+            form_doctor               = #{formDoctor,jdbcType=VARCHAR},
+            naked_left                = #{nakedLeft,jdbcType=DECIMAL},
+            naked_right               = #{nakedRight,jdbcType=DECIMAL},
+            correct_left              = #{correctLeft,jdbcType=DECIMAL},
+            correct_right             = #{correctRight,jdbcType=DECIMAL},
+            color_vision              = #{colorVision,jdbcType=TINYINT},
+            color_vision_error_text   = #{colorVisionErrorText,jdbcType=VARCHAR},
+            trach_left                = #{trachLeft,jdbcType=DECIMAL},
+            trach_right               = #{trachRight,jdbcType=DECIMAL},
+            eyes_doctor               = #{eyesDoctor,jdbcType=VARCHAR},
+            ear                       = #{ear,jdbcType=TINYINT},
+            nose                      = #{nose,jdbcType=TINYINT},
+            throat                    = #{throat,jdbcType=TINYINT},
+            nose_error_text           = #{noseErrorText,jdbcType=VARCHAR},
+            ear_error_text            = #{earErrorText,jdbcType=VARCHAR},
+            ear_nose_doctor           = #{earNoseDoctor,jdbcType=VARCHAR},
+            tooth                     = #{tooth,jdbcType=TINYINT},
+            periodontal               = #{periodontal,jdbcType=TINYINT},
+            anamnesis                 = #{anamnesis,jdbcType=TINYINT},
+            spleen                    = #{spleen,jdbcType=TINYINT},
+            heart                     = #{heart,jdbcType=TINYINT},
+            lung                      = #{lung,jdbcType=TINYINT},
+            liver                     = #{liver,jdbcType=TINYINT},
+            internal_other            = #{internalOther,jdbcType=VARCHAR},
+            liver_error_text          = #{liverErrorText,jdbcType=VARCHAR},
+            barrel_chest              = #{barrelChest,jdbcType=TINYINT},
+            barrel_chest_text         = #{barrelChestText,jdbcType=VARCHAR},
+            breath_sounds             = #{breathSounds,jdbcType=TINYINT},
+            breath_sounds_error_text  = #{breathSoundsErrorText,jdbcType=VARCHAR},
+            rae                       = #{rae,jdbcType=TINYINT},
+            rae_text                  = #{raeText,jdbcType=VARCHAR},
+            heart_error_text          = #{heartErrorText,jdbcType=VARCHAR},
+            heart_rate                = #{heartRate,jdbcType=VARCHAR},
+            heart_rhythm              = #{heartRhythm,jdbcType=TINYINT},
+            murmur                    = #{murmur,jdbcType=TINYINT},
+            murmur_error_text         = #{murmurErrorText,jdbcType=VARCHAR},
+            spleen_error_text         = #{spleenErrorText,jdbcType=VARCHAR},
+            anamnesis_text            = #{anamnesisText,jdbcType=VARCHAR},
+            periodontal_error_text    = #{periodontalErrorText,jdbcType=VARCHAR},
+            internal_doctor           = #{internalDoctor,jdbcType=VARCHAR},
+            skin                      = #{skin,jdbcType=TINYINT},
+            lymph                     = #{lymph,jdbcType=TINYINT},
+            thyroid                   = #{thyroid,jdbcType=TINYINT},
+            spine                     = #{spine,jdbcType=TINYINT},
+            limb_joints               = #{limbJoints,jdbcType=TINYINT},
+            flatfoot                  = #{flatfoot,jdbcType=TINYINT},
+            pudendum                  = #{pudendum,jdbcType=TINYINT},
+            anus                      = #{anus,jdbcType=TINYINT},
+            anus_text                 = #{anusText,jdbcType=VARCHAR},
+            pudendum_error_text       = #{pudendumErrorText,jdbcType=VARCHAR},
+            flatfoot_text             = #{flatfootText,jdbcType=VARCHAR},
+            limb_joints_error_text    = #{limbJointsErrorText,jdbcType=VARCHAR},
+            spine_error_text          = #{spineErrorText,jdbcType=VARCHAR},
+            thyroid_text              = #{thyroidText,jdbcType=VARCHAR},
+            lymph_text                = #{lymphText,jdbcType=VARCHAR},
+            skin_text                 = #{skinText,jdbcType=VARCHAR},
+            surgery_other             = #{surgeryOther,jdbcType=VARCHAR},
+            surgery_doctor            = #{surgeryDoctor,jdbcType=VARCHAR},
+            chest                     = #{chest,jdbcType=TINYINT},
+            chest_error_text          = #{chestErrorText,jdbcType=VARCHAR},
+            chest_doctor              = #{chestDoctor,jdbcType=VARCHAR},
+            liver_function            = #{liverFunction,jdbcType=TINYINT},
+            blood_routine             = #{bloodRoutine,jdbcType=TINYINT},
+            blood_routine_error_text  = #{bloodRoutineErrorText,jdbcType=VARCHAR},
+            liver_function_error_text = #{liverFunctionErrorText,jdbcType=VARCHAR},
+            phy_conclusion            = #{phyConclusion,jdbcType=TINYINT},
+            phy_conclusion_error_text = #{phyConclusionErrorText,jdbcType=VARCHAR},
+            review                    = #{review,jdbcType=TINYINT},
+            referral                  = #{referral,jdbcType=TINYINT},
+            regular_censor            = #{regularCensor,jdbcType=TINYINT},
+            health_education          = #{healthEducation,jdbcType=TINYINT},
+            diet                      = #{diet,jdbcType=TINYINT},
+            forging                   = #{forging,jdbcType=TINYINT},
+            vaccination               = #{vaccination,jdbcType=TINYINT},
+            phy_guide_text            = #{phyGuideText,jdbcType=VARCHAR},
+            phy_doctor                = #{phyDoctor,jdbcType=VARCHAR},
+            del_flag                  = #{delFlag,jdbcType=TINYINT},
+            create_time               = #{createTime,jdbcType=TIMESTAMP},
+            create_user               = #{createUser,jdbcType=VARCHAR},
+            update_time               = #{updateTime,jdbcType=TIMESTAMP},
+            update_user               = #{updateUser,jdbcType=VARCHAR},
+            qualified_status          = #{qualifiedStatus,jdbcType=VARCHAR},
+            extend4                   = #{extend4,jdbcType=VARCHAR},
+            extend5                   = #{extend5,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <!--查询健康信息-->
+    <select id="selectByPrimaryKey" resultType="com.huiyi.campus.dao.vo.health.StudentHealthInfoVo">
+        select
+        <include refid="Base_Column_List"/>
+        from phy_student_health_info
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
 </mapper>

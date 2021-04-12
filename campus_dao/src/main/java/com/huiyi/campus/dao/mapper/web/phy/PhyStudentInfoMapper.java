@@ -25,4 +25,6 @@ public interface PhyStudentInfoMapper extends BaseMapper<PhyStudentInfoEntity> {
     List<StudentInfoRecordVo> selectAll(StudentInfoRecordDto studentInfoRecordDto);
 
     int insertSelectiveList(List<PhyStudentInfoEntity> phyStudentInfoEntityList);
+
+    int deleteByPrimaryKeyAndHealthAndItem(String id);
 }

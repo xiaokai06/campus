@@ -356,7 +356,7 @@
     </update>
     <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
         update phy_student_info
-        set student_name      = #{studentName,jdbcType=VARCHAR},
+        set student_name   = #{studentName,jdbcType=VARCHAR},
             sex            = #{sex,jdbcType=TINYINT},
             age            = #{age,jdbcType=INTEGER},
             birth_date     = #{birthDate,jdbcType=VARCHAR},
@@ -620,4 +620,16 @@
             </trim>
         </foreach>
     </insert>
+    <!--删除学生健康档案信息-->
+    <delete id="deleteByPrimaryKeyAndHealthAndItem">
+        DELETE phy_student_info,
+                phy_student_health_info,
+                phy_item_result
+        FROM
+	        phy_student_info
+	    LEFT JOIN phy_student_health_info ON phy_student_info.id = phy_student_health_info.phy_student_id
+	    LEFT JOIN phy_item_result ON phy_student_health_info.id = phy_item_result.phy_health_id
+        WHERE
+	        phy_student_info.id = #{id,jdbcType=VARCHAR}
+    </delete>
 </mapper>
