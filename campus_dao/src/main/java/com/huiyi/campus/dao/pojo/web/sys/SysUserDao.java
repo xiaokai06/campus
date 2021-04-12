@@ -1,8 +1,12 @@
 package com.huiyi.campus.dao.pojo.web.sys;
 
+import com.github.pagehelper.PageHelper;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysUserMapper;
+import com.huiyi.campus.dao.mapper.web.sys.SysUserRoleMapper;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,15 +14,19 @@ import java.util.List;
 /**
  * @author: yzg
  * @time: 2021-03-30 10:02
- * @description:
+ * @description: 用户管理
  */
 @Repository
 public class SysUserDao {
 
-    SysUserMapper sysUserMapper;
+    private static final Log logger = LogFactory.getLog(SysUserDao.class);
 
-    SysUserDao(SysUserMapper sysUserMapper) {
+    SysUserMapper sysUserMapper;
+    SysUserRoleMapper sysUserRoleMapper;
+
+    SysUserDao(SysUserMapper sysUserMapper, SysUserRoleMapper sysUserRoleMapper) {
         this.sysUserMapper = sysUserMapper;
+        this.sysUserRoleMapper = sysUserRoleMapper;
     }
 
     /**
@@ -35,7 +43,7 @@ public class SysUserDao {
      * @param updatePwdDto
      * @return
      */
-    public Integer updateUserPwd(UpdatePwdDto updatePwdDto) {
+    public int updateUserPwd(UpdatePwdDto updatePwdDto) {
         return sysUserMapper.updatePwdByNickName(updatePwdDto);
     }
 
@@ -45,6 +53,7 @@ public class SysUserDao {
      * @return
      */
     public List<SysUserEntity> selectAllUserInfo(SysUserEntity sysUserEntity) {
+        PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());
         return sysUserMapper.selectAllUserInfo(sysUserEntity);
     }
 
@@ -53,10 +62,11 @@ public class SysUserDao {
      * @param sysUserEntity
      * @return
      */
-    public Integer insertUserInfo(SysUserEntity sysUserEntity) {
+    public int insertUserInfo(SysUserEntity sysUserEntity) {
         int i = sysUserMapper.insertSelective(sysUserEntity);
         if (i > 0) {
-            sysUserMapper.insertUserRole(sysUserEntity);
+            logger.info("新增用户，用户id：" + sysUserEntity.getId() + ", 角色id:" + sysUserEntity.getRoleId());
+            sysUserRoleMapper.insertUserRole(sysUserEntity);
         }
         return i;
     }
@@ -66,10 +76,10 @@ public class SysUserDao {
      * @param sysUserEntity
      * @return
      */
-    public Integer updateUserInfo(SysUserEntity sysUserEntity) {
+    public int updateUserInfo(SysUserEntity sysUserEntity) {
         int i = sysUserMapper.updateByPrimaryKeySelective(sysUserEntity);
         if (i > 0) {
-            sysUserMapper.updateUserRole(sysUserEntity);
+            sysUserRoleMapper.updateUserRole(sysUserEntity);
         }
         return i;
     }
@@ -79,10 +89,10 @@ public class SysUserDao {
      * @param id
      * @return
      */
-    public Integer deleteUserInfoById(Integer id) {
+    public int deleteUserInfoById(Integer id) {
         int i = sysUserMapper.deleteByPrimaryKey(id);
         if (i > 0) {
-            sysUserMapper.deleteUserRole(id);
+            sysUserRoleMapper.deleteUserRole(id);
         }
         return i;
     }

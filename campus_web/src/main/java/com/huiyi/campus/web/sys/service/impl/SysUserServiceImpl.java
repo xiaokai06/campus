@@ -6,9 +6,9 @@ import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.common.utils.*;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
+import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
-import com.huiyi.campus.dao.pojo.web.sys.SysSchoolOrganDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysUserService;
@@ -19,8 +19,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * @author: yzg
@@ -39,18 +37,15 @@ public class SysUserServiceImpl implements SysUserService {
     SysUserDao sysUserDao;
     TokenService tokenService;
     SysRoleMenuDao sysRoleMenuDao;
-    SysSchoolOrganDao sysSchoolOrganDao;
 
     SysUserServiceImpl(SysUserDao sysUserDao, RSAUtils rsaUtils, TokenService tokenService,
-                       AESUtils aesUtils, RedisUtils redisUtils, SysRoleMenuDao sysRoleMenuDao,
-                       SysSchoolOrganDao sysSchoolOrganDao) {
+                       AESUtils aesUtils, RedisUtils redisUtils, SysRoleMenuDao sysRoleMenuDao) {
         this.rsaUtils = rsaUtils;
         this.aesUtils = aesUtils;
         this.redisUtils = redisUtils;
         this.sysUserDao = sysUserDao;
         this.tokenService = tokenService;
         this.sysRoleMenuDao = sysRoleMenuDao;
-        this.sysSchoolOrganDao = sysSchoolOrganDao;
     }
 
     /**
@@ -99,17 +94,6 @@ public class SysUserServiceImpl implements SysUserService {
                 sysUser.setId(sysUserInfo.getId());
                 sysUser.setLastVisit(DateUtils.getTime());
                 sysUserDao.updateUserInfo(sysUser);
-                Integer schoolId = sysUserInfo.getSchoolId();
-                Integer organId = sysUserInfo.getOrganId();
-                Set<Integer> idList = new TreeSet<>();
-                if (null != organId) {
-                    List<Integer> list = sysSchoolOrganDao.selectSchoolByOrganId(organId);
-                    list.add(schoolId);
-                    idList.addAll(list);
-                } else {
-                    idList.add(schoolId);
-                }
-                tokenVo.setIdList(idList);
                 return ResultBody.success(tokenVo);
             } else {
                 return ResultBody.error("用户名或密码输入错误，请重新输入....");
@@ -180,7 +164,7 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public ResultBody getMenuByUserId(String nickName) {
-        List<Integer> menuList;
+        List<SysMenuEntity> menuList;
         if (CommConstants.USER_ADMIN.equals(nickName)) {
             menuList = sysRoleMenuDao.selectMenuByUserId(null);
         } else {
@@ -241,6 +225,9 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public ResultBody deleteUserInfoById(Integer id) {
+        if (1 == id) {
+            return ResultBody.error(CommonEnum.NO_DELETE);
+        }
         return ResultBody.delete(sysUserDao.deleteUserInfoById(id));
     }
 

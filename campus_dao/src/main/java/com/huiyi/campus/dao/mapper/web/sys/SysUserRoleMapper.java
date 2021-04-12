@@ -1,17 +1,26 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
-import com.huiyi.campus.dao.entity.sys.SysUserRoleEntity;
+import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 
 public interface SysUserRoleMapper {
-    int deleteByPrimaryKey(Integer id);
+    /**
+     * 新增用户-角色关联表信息
+     * @param sysUserEntity
+     * @return
+     */
+    int insertUserRole(SysUserEntity sysUserEntity);
 
-    int insert(SysUserRoleEntity record);
+    /**
+     * 修改用户-角色关联表信息
+     * @param sysUserEntity
+     * @return
+     */
+    int updateUserRole(SysUserEntity sysUserEntity);
 
-    int insertSelective(SysUserRoleEntity record);
-
-    SysUserRoleEntity selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysUserRoleEntity record);
-
-    int updateByPrimaryKey(SysUserRoleEntity record);
+    /**
+     * 删除用户-角色关联表信息
+     * @param id
+     * @return
+     */
+    int deleteUserRole(Integer id);
 }

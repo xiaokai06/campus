@@ -9,6 +9,11 @@ import java.util.List;
  */
 public interface SysSchoolOrganMapper {
 
+    /**
+     * 通过机构ID查询旗下的学校
+     * @param id
+     * @return
+     */
     List<Integer> selectSchoolByOrganId(Integer id);
 
 }

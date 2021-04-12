@@ -59,22 +59,19 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             IsLogin userLoginToken = method.getAnnotation(IsLogin.class);
             if (userLoginToken.required()) {
                 // 执行认证
-                if (aesToken == null) {
-                    logger.info("无token，请重新登录");
-                    throw new RuntimeException("无token，请重新登录");
+                if (StringUtils.isEmpty(aesToken)) {
+                    logger.info(CommonEnum.INVALID_TOKEN.getResultMsg());
+                    throw new RuntimeException(CommonEnum.INVALID_TOKEN.getResultMsg());
                 }
                 String token = aesUtils.decrypt(aesToken);
                 try {
                     String nickName = JWT.decode(token).getAudience().get(0);
-                    if (!StringUtils.isEmpty(nickName)) {
-                        boolean bl = redisUtils.hasKey(CommConstants.USER_INFO + nickName);
-                        if (!bl) {
-                            SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
-                            if (null == sysUserEntity) {
-                                throw new RuntimeException("用户不存在，请重新登录");
-                            }
-                        } else {
-                            throw new RuntimeException(CommonEnum.LOGIN_TIMEOUT.getResultMsg());
+                    boolean bl = redisUtils.hasKey(CommConstants.USER_INFO + nickName);
+                    if (!bl) {
+                        SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
+                        if (null == sysUserEntity) {
+                            logger.info(CommonEnum.NO_EXIST.getResultMsg());
+                            throw new RuntimeException(CommonEnum.NO_EXIST.getResultMsg());
                         }
                     }
                 } catch (JWTDecodeException j) {

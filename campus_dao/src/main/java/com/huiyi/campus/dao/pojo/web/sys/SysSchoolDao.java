@@ -34,7 +34,7 @@ public class SysSchoolDao {
      * @param sysSchoolEntity
      * @return
      */
-    public Integer insertSchoolInfo(SysSchoolEntity sysSchoolEntity) {
+    public int insertSchoolInfo(SysSchoolEntity sysSchoolEntity) {
         return sysSchoolMapper.insertSchoolInfo(sysSchoolEntity);
     }
 
@@ -43,7 +43,7 @@ public class SysSchoolDao {
      * @param sysSchoolEntity
      * @return
      */
-    public Integer updateSchoolInfo(SysSchoolEntity sysSchoolEntity) {
+    public int updateSchoolInfo(SysSchoolEntity sysSchoolEntity) {
         return sysSchoolMapper.updateSchoolInfo(sysSchoolEntity);
     }
 
@@ -52,7 +52,7 @@ public class SysSchoolDao {
      * @param id
      * @return
      */
-    public Integer deleteSchoolInfo(Integer id) {
+    public int deleteSchoolInfo(Integer id) {
         return sysSchoolMapper.deleteSchoolInfo(id);
     }
 

@@ -2,6 +2,7 @@ package com.huiyi.campus.dao.entity.sys;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,9 +14,10 @@ import java.io.Serializable;
  * @time: 2021-04-06 14:49
  * @description: 机构实体类
  */
-@Setter
 @Getter
+@Setter
 @ToString
+@EqualsAndHashCode
 @ApiModel("机构实体类")
 public class SysOrganEntity implements Serializable {
 

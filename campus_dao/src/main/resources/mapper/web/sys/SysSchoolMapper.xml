@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysSchoolMapper">
+    <select id="selectAllSchool" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity" resultMap="BaseResultMap">
+        select s.id, s.school_name, s.school_address, s.create_time, s.update_time, n.organ_id
+            from sys_school s left join sys_school_organ n on s.id = n.school_id
+                <if test="schoolName != null and schoolName != ''">
+                    and s.school_name = #{schoolName,jdbcType=VARCHAR}
+                </if>
+                <if test="schoolAddress != null and schoolAddress != ''">
+                    and s.school_address = #{schoolAddress,jdbcType=VARCHAR}
+                </if>
+    </select>
+
     <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysSchoolEntity">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
@@ -8,14 +19,6 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
-
-    <select id="selectAllSchool" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity"
-            resultMap="BaseResultMap">
-        select id, school_name, school_address, create_time, update_time
-        from sys_school
-        where school_name = #{schoolName,jdbcType=VARCHAR}
-          and school_address = #{schoolAddress,jdbcType=VARCHAR}
-    </select>
 
     <insert id="insertSchoolInfo" useGeneratedKeys="true" keyProperty="id"
             parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity">

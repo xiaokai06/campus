@@ -29,11 +29,11 @@ public class SysRoleMenuDao {
         this.sysRoleMenuMapper = sysRoleMenuMapper;
     }
 
-    public List<Integer> selectMenuByUserId(Integer userId) {
+    public List<SysMenuEntity> selectMenuByUserId(Integer userId) {
         if (null != userId) {
             return sysRoleMenuMapper.selectMenuById(userId);
         }
-        return sysRoleMenuMapper.selectAllMenu(null).stream().map(SysMenuEntity::getId).collect(Collectors.toList());
+        return sysRoleMenuMapper.selectAllMenu(null);
     }
 
     public List<SysRoleEntity> getAllRole(SysRoleEntity sysRoleEntity) {

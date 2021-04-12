@@ -7,21 +7,45 @@ import java.util.List;
 
 public interface SysUserMapper {
 
+    /**
+     * 通过主键ID删除用户（更新del_flag字段）
+     * @param id
+     * @return
+     */
     int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(SysUserEntity record);
+    /**
+     * 新增用户
+     * @param sysUserEntity
+     * @return
+     */
+    int insertSelective(SysUserEntity sysUserEntity);
 
-    int updateByPrimaryKeySelective(SysUserEntity record);
+    /**
+     * 修改用户
+     * @param sysUserEntity
+     * @return
+     */
+    int updateByPrimaryKeySelective(SysUserEntity sysUserEntity);
 
+    /**
+     * 通过用户昵称查询用户信息
+     * @param nickName
+     * @return
+     */
     SysUserEntity selectUserInfoByNickName(String nickName);
 
-    Integer updatePwdByNickName(UpdatePwdDto updatePwdDto);
+    /**
+     * 通过用户昵称修改密码
+     * @param updatePwdDto
+     * @return
+     */
+    int updatePwdByNickName(UpdatePwdDto updatePwdDto);
 
+    /**
+     * 查询所有用户
+     * @param sysUserEntity
+     * @return
+     */
     List<SysUserEntity> selectAllUserInfo(SysUserEntity sysUserEntity);
-
-    int insertUserRole(SysUserEntity sysUserEntity);
-
-    int updateUserRole(SysUserEntity sysUserEntity);
-
-    int deleteUserRole(Integer id);
 }

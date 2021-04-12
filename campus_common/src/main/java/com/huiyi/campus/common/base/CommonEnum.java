@@ -13,6 +13,7 @@ public enum CommonEnum implements BaseErrorInfoInterface {
     SIGNATURE_NOT_MATCH("401", "请求的数字签名不匹配!"),
     INTERNAL_SERVER_ERROR("500", "服务器内部错误!"),
     LOGIN_TIMEOUT("504", "登录超时，请重新登录!"),
+    NO_DELETE("505", "该用户不可删除！"),
     NO_EXIST("506", "该用户不存在，请重新登录!"),
     INVALID_TOKEN("507", "token无效，无法登录"),
     REPETITION("508", "该用户昵称已存在，请重新输入!"),

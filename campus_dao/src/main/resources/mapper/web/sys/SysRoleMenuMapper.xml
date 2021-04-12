@@ -3,8 +3,8 @@
 <mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysRoleMenuMapper">
 
   <!-- 通过用户ID查询菜单权限 -->
-  <select id="selectMenuById" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-    select s.menu_id
+  <select id="selectMenuById" parameterType="java.lang.Integer" resultMap="MenuResultMap">
+    select s.menu_id as id,u.menu_name,u.root_path,u.path
     from sys_role_menu s
                  left join sys_menu u on s.menu_id = u.id
     where role_id = (select role_id from sys_user_role where user_id = #{userId})
@@ -121,10 +121,12 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="menu_level" jdbcType="VARCHAR" property="menuLevel" />
     <result column="sort" jdbcType="VARCHAR" property="sort" />
+    <result column="root_path" jdbcType="VARCHAR" property="rootPath"/>
+    <result column="path" jdbcType="VARCHAR" property="path"/>
   </resultMap>
 
   <sql id="Menu_Column_List">
-    id, menu_name, create_time, update_time, menu_level, sort
+    id, menu_name, create_time, update_time, menu_level, sort, root_path, path
   </sql>
 
   <!-- 超管角色查询所有菜单 -->
