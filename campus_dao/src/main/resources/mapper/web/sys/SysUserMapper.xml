@@ -18,12 +18,27 @@
         <result column="organ_id" jdbcType="INTEGER" property="organId"/>
     </resultMap>
 
-    <!-- 删除用户信息 -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        update sys_user
-        set del_flag=1
-        where id = #{id}
-    </delete>
+    <!-- 通过昵称查询用户密码 -->
+    <select id="selectUserInfoByNickName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select id,pass_word,organ_id,school_id from sys_user where del_flag=0
+        <if test="nickName != null and nickName != ''">
+            and nick_name=#{nickName}
+        </if>
+    </select>
+
+    <!-- 查询所有用户信息 -->
+    <select id="selectAllUserInfo" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity"
+            resultMap="BaseResultMap">
+        select u.id,u.nick_name,u.user_name,u.phone,u.email,u.remark,u.sex,u.last_visit,u.create_time,u.update_time,u.school_id,u.organ_id,ur.role_id
+        from sys_user u left join sys_user_role ur on u.id=ur.user_id
+        where u.del_flag=0
+        <if test="nickName != null and nickName != ''">
+            and u.nick_name=#{nickName}
+        </if>
+        <if test="phone != null and phone != ''">
+            and u.phone=#{phone}
+        </if>
+    </select>
 
     <!-- 新增用户信息 -->
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
@@ -136,14 +151,6 @@
         where id = #{id,jdbcType=INTEGER} and del_flag=0
     </update>
 
-    <!-- 通过昵称查询用户密码 -->
-    <select id="selectUserInfoByNickName" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select id,pass_word,organ_id,school_id from sys_user where del_flag=0
-        <if test="nickName != null and nickName != ''">
-            and nick_name=#{nickName}
-        </if>
-    </select>
-
     <!-- 通过昵称修改用户密码 -->
     <update id="updatePwdByNickName" parameterType="com.huiyi.campus.dao.dto.sys.UpdatePwdDto">
         update sys_user set pass_word=#{newPwd} where del_flag=0
@@ -152,17 +159,9 @@
         </if>
     </update>
 
-    <!-- 查询所有用户信息 -->
-    <select id="selectAllUserInfo" parameterType="com.huiyi.campus.dao.entity.sys.SysUserEntity"
-            resultMap="BaseResultMap">
-        select u.id,u.nick_name,u.user_name,u.phone,u.email,u.remark,u.sex,u.last_visit,u.create_time,u.update_time,u.school_id,u.organ_id,ur.role_id
-            from sys_user u left join sys_user_role ur on u.id=ur.user_id
-                where u.del_flag=0
-                <if test="nickName != null and nickName != ''">
-                    and u.nick_name=#{nickName}
-                </if>
-                <if test="phone != null and phone != ''">
-                    and u.phone=#{phone}
-                </if>
-    </select>
+    <!-- 删除用户信息 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        update sys_user set del_flag=1 where id = #{id}
+    </delete>
+
 </mapper>

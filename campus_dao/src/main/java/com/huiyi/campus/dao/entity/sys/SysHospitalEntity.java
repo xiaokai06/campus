@@ -8,7 +8,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -38,9 +37,9 @@ public class SysHospitalEntity implements Serializable {
     private String hospitalLeader;
 
     @ApiModelProperty("创建时间")
-    private Date createTime;
+    private String createTime;
 
     @ApiModelProperty("更新时间")
-    private Date updateTime;
+    private String updateTime;
 
 }

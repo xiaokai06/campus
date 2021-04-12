@@ -13,8 +13,11 @@
   <!-- 查询所有医生 -->
   <select id="selectAllDoctor" parameterType="com.huiyi.campus.dao.entity.sys.SysDoctorEntity" resultMap="BaseResultMap">
     select id, doctor_name, create_time, update_time,desk_id
-    from sys_doctor
-    where doctor_name=#{userName,jdbcType=VARCHAR}
+        from sys_doctor
+            where 1=1
+              <if test="doctorName != null and doctorName != ''">
+                and doctor_name=#{doctorName,jdbcType=VARCHAR}
+              </if>
   </select>
 
   <!-- 新增医生 -->
