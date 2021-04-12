@@ -40,7 +40,7 @@ spring:
 #mybatis配置
 mybatis-plus:
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     mapper-locations: classpath*:mapper/*Mapper.xml
     type-aliases-package: com.huiyi.campus.dao.mapper
     mapperScanPackage: com.huiyi.campus.dao.mapper

@@ -151,6 +151,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
         int deleteStudentInfo = healthRecordDao.deleteByPrimaryKeyAndHealthAndItem(phyStudentInfoEntity);
         if (deleteStudentInfo > 0) {
+            log.info("学生档案信息删除成功,学生ID为：" + studentInfoRecordDto.getId());
             return HQJsonResult.success();
         }
         return new HQJsonResult();

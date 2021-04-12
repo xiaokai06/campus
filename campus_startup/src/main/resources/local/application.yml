@@ -74,9 +74,8 @@ management:
 # 日志文件访问配置
 logging:
   level:
-    com:
-      huiyi:
-        pacs: debug
+    com.huiyi.campus.dao.mapper: debug
+    com.huiyi.campus: debug
     root: info
   file: campus-health/logs/campus-info.log
   config: classpath:logback-spring.xml

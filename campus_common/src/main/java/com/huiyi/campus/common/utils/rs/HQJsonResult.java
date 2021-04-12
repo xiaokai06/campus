@@ -289,7 +289,7 @@ public class HQJsonResult<T> {
 
         @Override
         public String getCodeAsString() {
-            return "0";
+            return "200";
         }
 
         @Override
