@@ -23,6 +23,9 @@
                 <if test="schoolAddress != null and schoolAddress != ''">
                     and s.school_address = #{schoolAddress,jdbcType=VARCHAR}
                 </if>
+                <if test="organId != null and organId != null">
+                    and s.organ_id = #{organId,jdbcType=INTEGER}
+                </if>
     </select>
 
     <!-- 新增学校 -->

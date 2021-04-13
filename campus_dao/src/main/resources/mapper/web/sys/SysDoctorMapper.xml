@@ -21,6 +21,9 @@
               <if test="doctorName != null and doctorName != ''">
                 and sd.doctor_name=#{doctorName,jdbcType=VARCHAR}
               </if>
+              <if test="deskId != null and deskId != ''">
+                and sd.desk_id=#{deskId,jdbcType=INTEGER}
+              </if>
   </select>
 
   <!-- 新增医生 -->
