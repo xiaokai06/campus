@@ -124,6 +124,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         try {
             PhyStudentInfoEntity phyStudentInfoEntity = new PhyStudentInfoEntity();
             JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
+            phyStudentInfoEntity.setUpdateTime(new Date());
             int updateStudentInfo = healthRecordDao.updateStudentInfoRecord(phyStudentInfoEntity);
             if (updateStudentInfo > 0) {
                 return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity));
@@ -182,6 +183,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
                     studentHealthInfoDto.getItemResultEntityList().forEach(str -> {
                         str.setId(Sid.nextShort());
                         str.setPhyHealthId(phyStudentHealthInfoEntity.getId());
+                        str.setCreateTime(new Date());
                     });
                     int bloodAndliverRoutine = healthRecordDao.insertItemResult(studentHealthInfoDto.getItemResultEntityList());
                     if (bloodAndliverRoutine < 0) {
@@ -244,10 +246,14 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         }
         try {
             PhyStudentHealthInfoEntity phyStudentHealthInfoEntity = new PhyStudentHealthInfoEntity();
+            studentHealthInfoDto.setUpdateTime(new Date());
             JavaBeanUtil.copyPropertiesIgnoreNull(studentHealthInfoDto, phyStudentHealthInfoEntity);
             int updateStudentHealth = healthRecordDao.updateStudentHealthInfo(phyStudentHealthInfoEntity);
             //校验肝功能与血常规检查是否正常
             if (1 == (studentHealthInfoDto.getBloodRoutine()) || 1 == (studentHealthInfoDto.getLiverFunction())) {
+                studentHealthInfoDto.getItemResultEntityList().forEach(str->{
+                    str.setUpdateTime(new Date());
+                });
                 int bloodAndLiverRoutine = healthRecordDao.updateItemResult(studentHealthInfoDto.getItemResultEntityList());
                 if (bloodAndLiverRoutine < 0) {
                     log.info("血常规与肝功能报告结果修改异常：" + bloodAndLiverRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());

@@ -49,8 +49,8 @@ public class NWebSocketServer {
     /**
      * webScoket服务启动器
      */
-    public void start(){
-        this.future = server.bind(9091);
+    public void start() throws InterruptedException {
+        this.future = server.bind(9091).sync();
       log.info("netty websocket server 启动完毕......");
     }
 

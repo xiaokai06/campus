@@ -111,9 +111,9 @@ public class StudentInfoRecordVo {
     @ApiModelProperty("责任医生")
     private String dutyDoctor;
 
-    @Excel(name = "体检日期")
-    @ApiModelProperty("体检日期")
-    private Date phyDate;
+    @Excel(name = "建档日期")
+    @ApiModelProperty("建档日期")
+    private Date phyFileDate;
 
     @Excel(name = "创建时间")
     @ApiModelProperty("创建时间")

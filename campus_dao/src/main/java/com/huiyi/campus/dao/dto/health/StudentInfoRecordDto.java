@@ -61,7 +61,7 @@ public class StudentInfoRecordDto {
     @ApiModelProperty("责任医生")
     private String dutyDoctor;
     @ApiModelProperty("建档日期")
-    private String phyDate;
+    private String phyFileDate;
     @ApiModelProperty("操作人员id (注：当前操作人员)")
     private Integer operatorId;
     @ApiModelProperty("页码")

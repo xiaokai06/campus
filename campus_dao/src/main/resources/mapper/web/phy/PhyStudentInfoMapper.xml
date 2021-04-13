@@ -23,7 +23,7 @@
         <result column="enter_time" jdbcType="TIMESTAMP" property="enterTime"/>
         <result column="doctor_id" jdbcType="INTEGER" property="doctorId"/>
         <result column="duty_doctor" jdbcType="VARCHAR" property="dutyDoctor"/>
-        <result column="phy_date" jdbcType="TIMESTAMP" property="phyDate"/>
+        <result column="phy_file_date" jdbcType="TIMESTAMP" property="phyFileDate"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
         <result column="operator_id" jdbcType="INTEGER" property="operatorId"/>
@@ -38,7 +38,7 @@
         id
                 , student_name, sex, age, birth_date, parent_id, school_id, organ_id, student_number,
     major_class, class_id, nationality, id_card, phone_number, image, family_address,
-    census_address, enter_time, doctor_id, duty_doctor, phy_date, create_time, update_time,
+    census_address, enter_time, doctor_id, duty_doctor, phy_file_date, create_time, update_time,
     operator_id, del_flag, extend1, extend2, extend3, extend4, extend5
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -59,7 +59,7 @@
                                       major_class, class_id, nationality,
                                       id_card, phone_number, image,
                                       family_address, census_address, enter_time,
-                                      doctor_id, duty_doctor, phy_date,
+                                      doctor_id, duty_doctor, phy_file_date,
                                       create_time, update_time, operator_id,
                                       del_flag, extend1, extend2,
                                       extend3, extend4, extend5)
@@ -69,7 +69,7 @@
                 #{majorClass,jdbcType=VARCHAR}, #{classId,jdbcType=VARCHAR}, #{nationality,jdbcType=TINYINT},
                 #{idCard,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR},
                 #{familyAddress,jdbcType=VARCHAR}, #{censusAddress,jdbcType=VARCHAR}, #{enterTime,jdbcType=TIMESTAMP},
-                #{doctorId,jdbcType=INTEGER}, #{dutyDoctor,jdbcType=VARCHAR}, #{phyDate,jdbcType=TIMESTAMP},
+                #{doctorId,jdbcType=INTEGER}, #{dutyDoctor,jdbcType=VARCHAR}, #{phyFileDate,jdbcType=TIMESTAMP},
                 #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER},
                 #{delFlag,jdbcType=TINYINT}, #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR},
                 #{extend3,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
@@ -137,8 +137,8 @@
             <if test="dutyDoctor != null">
                 duty_doctor,
             </if>
-            <if test="phyDate != null">
-                phy_date,
+            <if test="phyFileDate != null">
+                phy_file_date,
             </if>
             <if test="createTime != null">
                 create_time,
@@ -229,8 +229,8 @@
             <if test="dutyDoctor != null">
                 #{dutyDoctor,jdbcType=VARCHAR},
             </if>
-            <if test="phyDate != null">
-                #{phyDate,jdbcType=TIMESTAMP},
+            <if test="phyFileDate != null">
+                #{phyFileDate,jdbcType=TIMESTAMP},
             </if>
             <if test="createTime != null">
                 #{createTime,jdbcType=TIMESTAMP},
@@ -321,8 +321,8 @@
             <if test="dutyDoctor != null">
                 duty_doctor = #{dutyDoctor,jdbcType=VARCHAR},
             </if>
-            <if test="phyDate != null">
-                phy_date = #{phyDate,jdbcType=TIMESTAMP},
+            <if test="phyFileDate != null">
+                phy_file_date = #{phyFileDate,jdbcType=TIMESTAMP},
             </if>
             <if test="createTime != null">
                 create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -375,7 +375,7 @@
             enter_time     = #{enterTime,jdbcType=TIMESTAMP},
             doctor_id      = #{doctorId,jdbcType=INTEGER},
             duty_doctor    = #{dutyDoctor,jdbcType=VARCHAR},
-            phy_date       = #{phyDate,jdbcType=TIMESTAMP},
+            phy_file_date       = #{phyFileDate,jdbcType=TIMESTAMP},
             create_time    = #{createTime,jdbcType=TIMESTAMP},
             update_time    = #{updateTime,jdbcType=TIMESTAMP},
             operator_id    = #{operatorId,jdbcType=INTEGER},
@@ -410,7 +410,7 @@
         info.enter_time as "enterTime",
         doctor.doctor_name as "doctorName",
         info.duty_doctor as "dutyDoctor",
-        info.phy_date as "phyDate",
+        info.phy_file_date as "phyFileDate",
         info.create_time as "createTime",
         info.operator_id as "operatorId"
         FROM
@@ -507,8 +507,8 @@
                 <if test="item.dutyDoctor != null">
                     duty_doctor,
                 </if>
-                <if test="item.phyDate != null">
-                    phy_date,
+                <if test="item.phyFileDate != null">
+                    phy_file_date,
                 </if>
                 <if test="item.createTime != null">
                     create_time,
@@ -590,8 +590,8 @@
                 <if test="item.dutyDoctor != null">
                     #{item.dutyDoctor,jdbcType=VARCHAR},
                 </if>
-                <if test="item.phyDate != null">
-                    #{item.phyDate,jdbcType=TIMESTAMP},
+                <if test="item.phyFileDate != null">
+                    #{item.phyFileDate,jdbcType=TIMESTAMP},
                 </if>
                 <if test="item.createTime != null">
                     #{item.createTime,jdbcType=TIMESTAMP},

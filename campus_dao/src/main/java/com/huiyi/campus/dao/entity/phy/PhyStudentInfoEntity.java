@@ -60,8 +60,8 @@ public class PhyStudentInfoEntity implements Serializable {
     private Integer doctorId;
     @ApiModelProperty("责任医生")
     private String dutyDoctor;
-    @ApiModelProperty("体检日期")
-    private String phyDate;
+    @ApiModelProperty("建档日期")
+    private String phyFileDate;
     @ApiModelProperty("创建时间")
     private Date createTime;
     @ApiModelProperty("更新时间")

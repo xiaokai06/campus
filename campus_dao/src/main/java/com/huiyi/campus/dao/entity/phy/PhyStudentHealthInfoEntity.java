@@ -191,6 +191,8 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     private String phyDoctor;
     @ApiModelProperty("删除标志(0:未删，1:已删)")
     private Integer delFlag;
+    @ApiModelProperty("体检日期")
+    private String phyDate;
     @ApiModelProperty("创建时间")
     private Date createTime;
     @ApiModelProperty("创建人")

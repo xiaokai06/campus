@@ -88,6 +88,7 @@
         <result column="phy_guide_text" jdbcType="VARCHAR" property="phyGuideText"/>
         <result column="phy_doctor" jdbcType="VARCHAR" property="phyDoctor"/>
         <result column="del_flag" jdbcType="TINYINT" property="delFlag"/>
+        <result column="phy_date" jdbcType="TIMESTAMP" property="phyDate"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
@@ -110,7 +111,7 @@
     skin_text, surgery_other, surgery_doctor, chest, chest_error_text, chest_doctor,
     liver_function, blood_routine, blood_routine_error_text, liver_function_error_text,
     phy_conclusion, phy_conclusion_error_text, review, referral, regular_censor, health_education,
-    diet, forging, vaccination, phy_guide_text, phy_doctor, del_flag, create_time, create_user,
+    diet, forging, vaccination, phy_guide_text, phy_doctor, del_flag, phy_date,create_time, create_user,
     update_time, update_user, qualified_status, extend4, extend5
     </sql>
 
@@ -148,7 +149,7 @@
                                              phy_conclusion_error_text, review, referral,
                                              regular_censor, health_education, diet,
                                              forging, vaccination, phy_guide_text,
-                                             phy_doctor, del_flag, create_time,
+                                             phy_doctor, del_flag, phy_date,create_time,
                                              create_user, update_time, update_user,
                                              qualified_status, extend4, extend5)
         values (#{id,jdbcType=VARCHAR}, #{phyStudentId,jdbcType=VARCHAR}, #{height,jdbcType=DECIMAL},
@@ -183,7 +184,7 @@
                 #{phyConclusionErrorText,jdbcType=VARCHAR}, #{review,jdbcType=TINYINT}, #{referral,jdbcType=TINYINT},
                 #{regularCensor,jdbcType=TINYINT}, #{healthEducation,jdbcType=TINYINT}, #{diet,jdbcType=TINYINT},
                 #{forging,jdbcType=TINYINT}, #{vaccination,jdbcType=TINYINT}, #{phyGuideText,jdbcType=VARCHAR},
-                #{phyDoctor,jdbcType=VARCHAR}, #{delFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
+                #{phyDoctor,jdbcType=VARCHAR}, #{delFlag,jdbcType=TINYINT}, #{phyDate,jdbcType=TIMESTAMP},#{createTime,jdbcType=TIMESTAMP},
                 #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR},
                 #{qualifiedStatus,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
     </insert>
@@ -444,6 +445,9 @@
             </if>
             <if test="delFlag != null">
                 del_flag,
+            </if>
+            <if test="phyDate != null">
+                phy_date,
             </if>
             <if test="createTime != null">
                 create_time,
@@ -723,6 +727,9 @@
             <if test="delFlag != null">
                 #{delFlag,jdbcType=TINYINT},
             </if>
+            <if test="phyDate != null">
+                #{phyDate,jdbcType=TIMESTAMP},
+            </if>
             <if test="createTime != null">
                 #{createTime,jdbcType=TIMESTAMP},
             </if>
@@ -1001,6 +1008,9 @@
             <if test="delFlag != null">
                 del_flag = #{delFlag,jdbcType=TINYINT},
             </if>
+            <if test="phyDate != null">
+                phy_date = #{phyDate,jdbcType=TIMESTAMP},
+            </if>
             <if test="createTime != null">
                 create_time = #{createTime,jdbcType=TIMESTAMP},
             </if>
@@ -1111,6 +1121,7 @@
             phy_guide_text            = #{phyGuideText,jdbcType=VARCHAR},
             phy_doctor                = #{phyDoctor,jdbcType=VARCHAR},
             del_flag                  = #{delFlag,jdbcType=TINYINT},
+            phy_date                  = #{phyDate,jdbcType=TIMESTAMP},
             create_time               = #{createTime,jdbcType=TIMESTAMP},
             create_user               = #{createUser,jdbcType=VARCHAR},
             update_time               = #{updateTime,jdbcType=TIMESTAMP},
