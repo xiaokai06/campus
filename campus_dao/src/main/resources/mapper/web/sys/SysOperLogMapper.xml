@@ -27,8 +27,8 @@
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="updateTime != null">
-        update_time,
+      <if test="operIp != null">
+        oper_ip,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -53,8 +53,8 @@
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+      <if test="operIp != null">
+        #{operIp,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
