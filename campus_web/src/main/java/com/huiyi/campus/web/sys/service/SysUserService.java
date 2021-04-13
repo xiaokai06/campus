@@ -68,4 +68,11 @@ public interface SysUserService {
      */
     ResultBody deleteUserInfoById(Integer id);
 
+    /**
+     * 重置密码
+     * @param updatePwdDto
+     * @return
+     */
+    ResultBody resetPwd(UpdatePwdDto updatePwdDto);
+
 }

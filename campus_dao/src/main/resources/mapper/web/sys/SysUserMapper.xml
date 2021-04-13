@@ -158,7 +158,7 @@
         where id = #{id,jdbcType=INTEGER} and del_flag=0
     </update>
 
-    <!-- 通过昵称修改用户密码 -->
+    <!-- 通过昵称修改用户密码（重置密码） -->
     <update id="updatePwdByNickName" parameterType="com.huiyi.campus.dao.dto.sys.UpdatePwdDto">
         update sys_user set pass_word=#{newPwd} where del_flag=0
         <if test="nickName != null and nickName != ''">

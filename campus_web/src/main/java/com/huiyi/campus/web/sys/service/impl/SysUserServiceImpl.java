@@ -17,6 +17,7 @@ import com.huiyi.campus.web.sys.service.SysUserService;
 import com.huiyi.campus.web.sys.service.TokenService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +40,8 @@ public class SysUserServiceImpl implements SysUserService {
     SysUserDao sysUserDao;
     TokenService tokenService;
     SysRoleMenuDao sysRoleMenuDao;
+    @Value("${rsa.defaultPwd}")
+    private String pwd;
 
     SysUserServiceImpl(SysUserDao sysUserDao, RSAUtils rsaUtils, TokenService tokenService,
                        AESUtils aesUtils, RedisUtils redisUtils, SysRoleMenuDao sysRoleMenuDao) {
@@ -238,6 +241,17 @@ public class SysUserServiceImpl implements SysUserService {
             return ResultBody.error(CommonEnum.NO_DELETE);
         }
         return ResultBody.delete(sysUserDao.deleteUserInfoById(id));
+    }
+
+    /**
+     * 重置密码
+     * @param updatePwdDto 参数
+     * @return 返回值
+     */
+    @Override
+    public ResultBody resetPwd(UpdatePwdDto updatePwdDto) {
+        updatePwdDto.setNewPwd(pwd);
+        return ResultBody.success(sysUserDao.updateUserPwd(updatePwdDto));
     }
 
 }

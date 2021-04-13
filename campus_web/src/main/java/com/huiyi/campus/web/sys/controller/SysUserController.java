@@ -55,6 +55,14 @@ public class SysUserController {
     }
 
     @IsLogin
+    @ApiOperation("重置密码")
+    @PostMapping("/resetPwd")
+    @OperLog(operModule = "用户管理-重置密码", operType = CommConstants.RESET, operDesc = "用户管理-重置密码")
+    public ResultBody resetPwd(@RequestBody UpdatePwdDto updatePwdDto) {
+        return sysUserService.resetPwd(updatePwdDto);
+    }
+
+    @IsLogin
     @ApiOperation("通过用户昵称获取菜单权限")
     @GetMapping("/getMenuByNickName")
     public ResultBody getMenuByNickName(@RequestParam String nickName) {

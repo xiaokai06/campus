@@ -26,6 +26,8 @@ public class CommConstants {
 
     public static final String EXIT = "exit";
 
+    public static final String RESET = "reset";
+
     public static final String EMPTY = "";
 
     public static final String NOT_LOGIN = "没有登录";
