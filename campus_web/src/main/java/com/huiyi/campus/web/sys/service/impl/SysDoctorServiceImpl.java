@@ -24,8 +24,8 @@ public class SysDoctorServiceImpl implements SysDoctorService {
 
     /**
      * 查询所有医生
-     * @param sysDoctorEntity
-     * @return
+     * @param sysDoctorEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody selectAllDoctor(SysDoctorEntity sysDoctorEntity) {
@@ -34,8 +34,8 @@ public class SysDoctorServiceImpl implements SysDoctorService {
 
     /**
      * 新增医生
-     * @param sysDoctorEntity
-     * @return
+     * @param sysDoctorEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody insertDoctorInfo(SysDoctorEntity sysDoctorEntity) {
@@ -44,8 +44,8 @@ public class SysDoctorServiceImpl implements SysDoctorService {
 
     /**
      * 修改医生
-     * @param sysDoctorEntity
-     * @return
+     * @param sysDoctorEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody updateDoctorInfo(SysDoctorEntity sysDoctorEntity) {
@@ -54,8 +54,8 @@ public class SysDoctorServiceImpl implements SysDoctorService {
 
     /**
      * 删除医生
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     @Override
     public ResultBody deleteDoctorInfo(Integer id) {

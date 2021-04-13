@@ -31,8 +31,8 @@ public class SysUserDao {
 
     /**
      * 通过用户昵称查询用户信息
-     * @param nickName
-     * @return
+     * @param nickName 参数
+     * @return 返回值
      */
     public SysUserEntity selectUserByNickName(String nickName) {
         return sysUserMapper.selectUserInfoByNickName(nickName);
@@ -40,8 +40,8 @@ public class SysUserDao {
 
     /**
      * 修改密码
-     * @param updatePwdDto
-     * @return
+     * @param updatePwdDto 参数
+     * @return 返回值
      */
     public int updateUserPwd(UpdatePwdDto updatePwdDto) {
         return sysUserMapper.updatePwdByNickName(updatePwdDto);
@@ -49,8 +49,8 @@ public class SysUserDao {
 
     /**
      * 查询所有用户信息
-     * @param sysUserEntity
-     * @return
+     * @param sysUserEntity 参数
+     * @return 返回值
      */
     public List<SysUserEntity> selectAllUserInfo(SysUserEntity sysUserEntity) {
         PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());
@@ -59,8 +59,8 @@ public class SysUserDao {
 
     /**
      * 新增用户
-     * @param sysUserEntity
-     * @return
+     * @param sysUserEntity 参数
+     * @return 返回值
      */
     public int insertUserInfo(SysUserEntity sysUserEntity) {
         int i = sysUserMapper.insertSelective(sysUserEntity);
@@ -73,8 +73,8 @@ public class SysUserDao {
 
     /**
      * 修改用户
-     * @param sysUserEntity
-     * @return
+     * @param sysUserEntity 参数
+     * @return 返回值
      */
     public int updateUserInfo(SysUserEntity sysUserEntity) {
         int i = sysUserMapper.updateByPrimaryKeySelective(sysUserEntity);
@@ -86,8 +86,8 @@ public class SysUserDao {
 
     /**
      * 通过ID删除用户
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     public int deleteUserInfoById(Integer id) {
         int i = sysUserMapper.deleteByPrimaryKey(id);

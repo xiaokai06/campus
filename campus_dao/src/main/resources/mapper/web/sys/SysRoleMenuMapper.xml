@@ -116,6 +116,7 @@
   <resultMap id="MenuResultMap" type="com.huiyi.campus.dao.entity.sys.SysMenuEntity">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="menu_level" jdbcType="VARCHAR" property="menuLevel" />
@@ -125,7 +126,7 @@
   </resultMap>
 
   <sql id="Menu_Column_List">
-    id, menu_name, create_time, update_time, menu_level, sort, root_path, path
+    id, parent_id, menu_name, create_time, update_time, menu_level, sort, root_path, path
   </sql>
 
   <!-- 超管角色查询所有菜单 -->

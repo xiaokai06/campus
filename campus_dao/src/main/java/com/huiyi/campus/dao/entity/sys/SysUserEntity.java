@@ -45,6 +45,9 @@ public class SysUserEntity implements Serializable {
     @ApiModelProperty("角色ID")
     private Integer roleId;
 
+    @ApiModelProperty("角色名称")
+    private String roleName;
+
     @ApiModelProperty("最后登录时间")
     private String lastVisit;
 
@@ -57,8 +60,14 @@ public class SysUserEntity implements Serializable {
     @ApiModelProperty("学校ID")
     private Integer schoolId;
 
+    @ApiModelProperty("学校名称")
+    private String schoolName;
+
     @ApiModelProperty("机构ID")
     private Integer organId;
+
+    @ApiModelProperty("机构名称")
+    private String organName;
 
     @ApiModelProperty("页码")
     private Integer pageNum;

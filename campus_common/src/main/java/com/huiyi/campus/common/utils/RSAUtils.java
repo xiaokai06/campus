@@ -2,6 +2,8 @@ package com.huiyi.campus.common.utils;
 
 //import org.apache.tomcat.util.codec.binary.Base64;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +24,7 @@ import java.util.HashMap;
 @Component
 public class RSAUtils {
 
+    private static final Log logger = LogFactory.getLog(RSAUtils.class);
     private static final HashMap<Integer, String> keyMap = new HashMap<>();
 
     @Value("${rsa.publicKey}")
@@ -63,6 +66,7 @@ public class RSAUtils {
             cipher.init(Cipher.ENCRYPT_MODE, pubKey);
             return Base64.encodeBase64String(cipher.doFinal(str.getBytes(StandardCharsets.UTF_8)));
         } catch (Exception e) {
+            logger.info("RSA加密非法字符串！");
             throw new RuntimeException("非法密文！！！");
         }
     }
@@ -86,6 +90,7 @@ public class RSAUtils {
             cipher.init(Cipher.DECRYPT_MODE, priKey);
             return new String(cipher.doFinal(inputByte));
         } catch (Exception e) {
+            logger.info("RSA解密非法字符串！");
             throw new RuntimeException("非法密文！！！");
         }
     }

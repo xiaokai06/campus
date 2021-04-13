@@ -1,7 +1,9 @@
 package com.huiyi.campus.web.sys.controller;
 
 import com.huiyi.campus.common.annotaion.IsLogin;
+import com.huiyi.campus.common.annotaion.OperLog;
 import com.huiyi.campus.common.base.ResultBody;
+import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
 import com.huiyi.campus.web.sys.service.SysRoleMenuService;
@@ -36,6 +38,7 @@ public class SysRoleMenuController {
     @IsLogin
     @ApiOperation("新增角色")
     @PostMapping("/insertRoleInfo")
+    @OperLog(operModule = "角色管理-新增", operType = CommConstants.ADD, operDesc = "角色管理-新增角色")
     public ResultBody insertRoleInfo(@RequestBody SysRoleEntity sysRoleEntity) {
         return sysRoleMenuService.insertRoleInfo(sysRoleEntity);
     }
@@ -43,6 +46,7 @@ public class SysRoleMenuController {
     @IsLogin
     @ApiOperation("修改角色")
     @PostMapping("/updateRoleInfo")
+    @OperLog(operModule = "角色管理-修改", operType = CommConstants.UPDATE, operDesc = "角色管理-修改角色")
     public ResultBody updateRoleInfo(@RequestBody SysRoleEntity sysRoleEntity) {
         return sysRoleMenuService.updateRoleInfo(sysRoleEntity);
     }
@@ -50,6 +54,7 @@ public class SysRoleMenuController {
     @IsLogin
     @ApiOperation("删除角色")
     @GetMapping("/deleteRoleInfo")
+    @OperLog(operModule = "角色管理-删除", operType = CommConstants.DELETE, operDesc = "角色管理-删除角色")
     public ResultBody deleteRoleInfo(@RequestParam Integer id) {
         return sysRoleMenuService.deleteRoleInfo(id);
     }
@@ -64,6 +69,7 @@ public class SysRoleMenuController {
     @IsLogin
     @ApiOperation("新增菜单")
     @PostMapping("/insertMenuInfo")
+    @OperLog(operModule = "菜单管理-新增", operType = CommConstants.ADD, operDesc = "菜单管理-新增菜单")
     public ResultBody insertMenuInfo(@RequestBody SysMenuEntity sysMenuEntity) {
         return sysRoleMenuService.insertMenuInfo(sysMenuEntity);
     }
@@ -71,6 +77,7 @@ public class SysRoleMenuController {
     @IsLogin
     @ApiOperation("修改菜单")
     @PostMapping("/updateMenuInfo")
+    @OperLog(operModule = "菜单管理-修改", operType = CommConstants.UPDATE, operDesc = "菜单管理-修改菜单")
     public ResultBody updateMenuInfo(@RequestBody SysMenuEntity sysMenuEntity) {
         return sysRoleMenuService.updateMenuInfo(sysMenuEntity);
     }
@@ -78,6 +85,7 @@ public class SysRoleMenuController {
     @IsLogin
     @ApiOperation("删除菜单")
     @GetMapping("/deleteMenuInfo")
+    @OperLog(operModule = "菜单管理-删除", operType = CommConstants.DELETE, operDesc = "菜单管理-删除菜单")
     public ResultBody deleteMenuInfo(@RequestParam Integer id) {
         return sysRoleMenuService.deleteMenuInfo(id);
     }

@@ -27,6 +27,9 @@ public class SysDoctorEntity implements Serializable {
     @ApiModelProperty("科室ID")
     private Integer deskId;
 
+    @ApiModelProperty("科室名称")
+    private String deskName;
+
     @ApiModelProperty("医生状态（0:正常，1:离职）")
     private Integer doctorState;
 

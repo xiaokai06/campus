@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,6 +24,9 @@ public class SysMenuEntity implements Serializable {
 
     @ApiModelProperty("菜单名称")
     private String menuName;
+
+    @ApiModelProperty("父级ID")
+    private Integer parentId;
 
     @ApiModelProperty("创建时间")
     private String createTime;
@@ -41,6 +45,8 @@ public class SysMenuEntity implements Serializable {
 
     @ApiModelProperty("子路径")
     private String path;
+
+    private List<SysMenuEntity> list;
 
 }
 

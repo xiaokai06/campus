@@ -34,8 +34,8 @@ public class AESUtils {
 			byte[] b = cipher.doFinal(content.getBytes(StandardCharsets.UTF_8));
 			return Base64.encodeBase64String(b);
 		} catch (Exception e) {
-			logger.error("非法密文！！！");
-			return null;
+			logger.info("AES加密非法字符串！");
+			throw new RuntimeException("非法密文！！！");
 		}
 	}
 
@@ -51,8 +51,8 @@ public class AESUtils {
 			byte[] decryptBytes = cipher.doFinal(decodeBase64);
 			return new String(decryptBytes);
 		} catch (Exception e) {
-			logger.error("非法密文！！！");
-			return null;
+			logger.info("AES解密非法字符串！");
+			throw new RuntimeException("非法密文！！！");
 		}
 	}
 }

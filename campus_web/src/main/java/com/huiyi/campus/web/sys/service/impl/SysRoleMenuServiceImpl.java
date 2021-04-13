@@ -7,6 +7,11 @@ import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
 import com.huiyi.campus.web.sys.service.SysRoleMenuService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author: yzg
@@ -25,8 +30,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
     /**
      * 获取所有角色
-     * @param sysRoleEntity
-     * @return
+     * @param sysRoleEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody getAllRole(SysRoleEntity sysRoleEntity) {
@@ -35,8 +40,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
     /**
      * 新增角色
-     * @param sysRoleEntity
-     * @return
+     * @param sysRoleEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody insertRoleInfo(SysRoleEntity sysRoleEntity) {
@@ -45,8 +50,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
     /**
      * 修改角色
-     * @param sysRoleEntity
-     * @return
+     * @param sysRoleEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody updateRoleInfo(SysRoleEntity sysRoleEntity) {
@@ -55,8 +60,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
     /**
      * 删除角色
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     @Override
     public ResultBody deleteRoleInfo(Integer id) {
@@ -65,18 +70,39 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
     /**
      * 获取所有菜单
-     * @param sysMenuEntity
-     * @return
+     * @param sysMenuEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody getAllMenu(SysMenuEntity sysMenuEntity) {
-        return ResultBody.success(sysRoleMenuDao.getAllMenu(sysMenuEntity));
+        List<SysMenuEntity> list = sysRoleMenuDao.getAllMenu(sysMenuEntity);
+        Map<Integer, List<SysMenuEntity>> map = list.stream().collect(Collectors.groupingBy(SysMenuEntity::getParentId));
+        for (Integer parentId : map.keySet()) {
+            List<SysMenuEntity> result = map.get(parentId);
+            if (!CollectionUtils.isEmpty(result)) {
+                for (SysMenuEntity firstMenu : result) {
+                    List<SysMenuEntity> resultList = map.get(firstMenu.getId());
+                    if (!CollectionUtils.isEmpty(resultList)) {
+                        for (SysMenuEntity secondMenu : resultList) {
+                            List<SysMenuEntity> menuList = map.get(secondMenu.getId());
+                            if (!CollectionUtils.isEmpty(menuList)) {
+                                secondMenu.setList(menuList);
+                            } else {
+                                firstMenu.setList(resultList);
+                            }
+                        }
+                    }
+                }
+            }
+            return ResultBody.success(result);
+        }
+        return ResultBody.success();
     }
 
     /**
      * 新增菜单
-     * @param sysMenuEntity
-     * @return
+     * @param sysMenuEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody insertMenuInfo(SysMenuEntity sysMenuEntity) {
@@ -85,8 +111,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
     /**
      * 修改菜单
-     * @param sysMenuEntity
-     * @return
+     * @param sysMenuEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody updateMenuInfo(SysMenuEntity sysMenuEntity) {
@@ -95,8 +121,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
     /**
      * 删除菜单
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     @Override
     public ResultBody deleteMenuInfo(Integer id) {

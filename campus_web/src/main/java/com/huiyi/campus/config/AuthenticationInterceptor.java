@@ -7,11 +7,15 @@ import com.huiyi.campus.common.annotaion.PassToken;
 import com.huiyi.campus.common.base.CommonEnum;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.common.utils.*;
+import com.huiyi.campus.dao.entity.sys.SysLoginLogEntity;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
+import com.huiyi.campus.dao.pojo.web.sys.SysLoginLogDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
+import java.util.Date;
+import java.util.Objects;
 
 /**
  * @author yzg
@@ -37,6 +43,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     RSAUtils rsaUtils;
     @Autowired
     SysUserDao sysUserDao;
+    @Autowired
+    SysLoginLogDao sysLoginLogDao;
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) {
@@ -51,6 +59,15 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         if (method.isAnnotationPresent(PassToken.class)) {
             PassToken passToken = method.getAnnotation(PassToken.class);
             if (passToken.required()) {
+                SysLoginLogEntity sysLoginLogEntity = new SysLoginLogEntity();
+                HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(
+                        RequestContextHolder.getRequestAttributes())).getRequest();
+                String operUser = request.getHeader(CommConstants.ACC);
+                sysLoginLogEntity.setLoginUname(operUser);
+                sysLoginLogEntity.setLoginIp(IpUtils.getIpAddress(request));
+                sysLoginLogEntity.setLoginTime(new Date());
+                sysLoginLogEntity.setCreateTime(new Date());
+                sysLoginLogDao.insertLoginLog(sysLoginLogEntity);
                 return true;
             }
         }
@@ -72,6 +89,9 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                         if (null == sysUserEntity) {
                             logger.info(CommonEnum.NO_EXIST.getResultMsg());
                             throw new RuntimeException(CommonEnum.NO_EXIST.getResultMsg());
+                        } else {
+                            logger.info(CommonEnum.LOGIN_TIMEOUT.getResultMsg());
+                            throw new RuntimeException(CommonEnum.LOGIN_TIMEOUT.getResultMsg());
                         }
                     }
                 } catch (JWTDecodeException j) {

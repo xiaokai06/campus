@@ -24,8 +24,8 @@ public class SysDeskServiceImpl implements SysDeskService {
 
     /**
      * 查询所有科室
-     * @param sysDeskEntity
-     * @return
+     * @param sysDeskEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody getAllDesk(SysDeskEntity sysDeskEntity) {
@@ -34,8 +34,8 @@ public class SysDeskServiceImpl implements SysDeskService {
 
     /**
      * 新增科室
-     * @param sysDeskEntity
-     * @return
+     * @param sysDeskEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody insertDesk(SysDeskEntity sysDeskEntity) {
@@ -44,8 +44,8 @@ public class SysDeskServiceImpl implements SysDeskService {
 
     /**
      * 修改科室
-     * @param sysDeskEntity
-     * @return
+     * @param sysDeskEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody updateDesk(SysDeskEntity sysDeskEntity) {
@@ -54,8 +54,8 @@ public class SysDeskServiceImpl implements SysDeskService {
 
     /**
      * 删除科室
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     @Override
     public ResultBody deleteDesk(Integer id) {

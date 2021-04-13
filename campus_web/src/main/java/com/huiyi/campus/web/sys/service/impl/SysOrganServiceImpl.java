@@ -24,8 +24,8 @@ public class SysOrganServiceImpl implements SysOrganService {
 
     /**
      * 查询所有机构
-     * @param sysOrganEntity
-     * @return
+     * @param sysOrganEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody selectAllOrgan(SysOrganEntity sysOrganEntity) {
@@ -34,8 +34,8 @@ public class SysOrganServiceImpl implements SysOrganService {
 
     /**
      * 新增机构
-     * @param sysOrganEntity
-     * @return
+     * @param sysOrganEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody insertOrganInfo(SysOrganEntity sysOrganEntity) {
@@ -44,8 +44,8 @@ public class SysOrganServiceImpl implements SysOrganService {
 
     /**
      * 修改机构
-     * @param sysOrganEntity
-     * @return
+     * @param sysOrganEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody updateOrganInfo(SysOrganEntity sysOrganEntity) {
@@ -54,8 +54,8 @@ public class SysOrganServiceImpl implements SysOrganService {
 
     /**
      * 删除机构
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     @Override
     public ResultBody deleteOrganInfo(Integer id) {

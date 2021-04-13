@@ -8,11 +8,15 @@
         <result column="school_address" jdbcType="VARCHAR" property="schoolAddress"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="organ_id" jdbcType="INTEGER" property="organId"/>
+        <result column="organ_name" jdbcType="VARCHAR" property="organName"/>
     </resultMap>
 
+    <!-- 查询学校 -->
     <select id="selectAllSchool" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity" resultMap="BaseResultMap">
-        select s.id, s.school_name, s.school_address, s.create_time, s.update_time, n.organ_id
-            from sys_school s left join sys_school_organ n on s.id = n.school_id
+        select s.id,s.school_name,s.school_address,s.create_time,s.update_time,s.organ_id,so.organ_name
+            from sys_school s left join sys_organ so on s.organ_id=so.id
+                where 1=1
                 <if test="schoolName != null and schoolName != ''">
                     and s.school_name = #{schoolName,jdbcType=VARCHAR}
                 </if>
@@ -21,6 +25,7 @@
                 </if>
     </select>
 
+    <!-- 新增学校 -->
     <insert id="insertSchoolInfo" useGeneratedKeys="true" keyProperty="id"
             parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity">
         insert into sys_school
@@ -37,6 +42,9 @@
             <if test="createTime != null">
                 create_time,
             </if>
+            <if test="organId != null">
+                organ_id,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -51,9 +59,13 @@
             <if test="createTime != null">
                 #{createTime},
             </if>
+            <if test="organId != null">
+                #{organId,jdbcType=INTEGER},
+            </if>
         </trim>
     </insert>
 
+    <!-- 修改学校 -->
     <update id="updateSchoolInfo" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity">
         update sys_school
         <set>
@@ -66,29 +78,16 @@
             <if test="createTime != null">
                 create_time = #{createTime},
             </if>
+            <if test="organId != null">
+                organ_id = #{organId,jdbcType=INTEGER},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
 
+    <!-- 删除学校 -->
     <delete id="deleteSchoolInfo" parameterType="java.lang.Integer">
         delete from sys_school where id = #{id,jdbcType=INTEGER}
     </delete>
 
-    <!--根据用户ID查询当前所归属学校-->
-    <select id="selectSchoolByUserId" resultMap="BaseResultMap">
-        SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time
-        FROM sys_school school
-                     LEFT JOIN sys_user u
-                ON school.id = u.school_id
-        WHERE u.id = #{userId,jdbcType=INTEGER}
-    </select>
-
-    <!--根据教育局ID与用户ID查询学校-->
-    <select id="selectSchoolByUserIdAndOrganId" resultMap="BaseResultMap">
-        SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time
-        FROM sys_school school
-                     INNER JOIN sys_school_organ o ON school.id = o.school_id
-                     INNER JOIN sys_user u ON o.organ_id = u.organ_id
-        WHERE u.id = #{userId,jdbcType=INTEGER}
-    </select>
 </mapper>

@@ -23,7 +23,7 @@ public class SysSchoolDao {
     /**
      * 查询学校
      * @param sysSchoolEntity
-     * @return
+     * @return 返回值
      */
     public List<SysSchoolEntity> selectAllSchool(SysSchoolEntity sysSchoolEntity) {
         return sysSchoolMapper.selectAllSchool(sysSchoolEntity);
@@ -32,7 +32,7 @@ public class SysSchoolDao {
     /**
      * 新增学校
      * @param sysSchoolEntity
-     * @return
+     * @return 返回值
      */
     public int insertSchoolInfo(SysSchoolEntity sysSchoolEntity) {
         return sysSchoolMapper.insertSchoolInfo(sysSchoolEntity);
@@ -41,7 +41,7 @@ public class SysSchoolDao {
     /**
      * 修改学校
      * @param sysSchoolEntity
-     * @return
+     * @return 返回值
      */
     public int updateSchoolInfo(SysSchoolEntity sysSchoolEntity) {
         return sysSchoolMapper.updateSchoolInfo(sysSchoolEntity);
@@ -50,7 +50,7 @@ public class SysSchoolDao {
     /**
      * 删除学校
      * @param id
-     * @return
+     * @return 返回值
      */
     public int deleteSchoolInfo(Integer id) {
         return sysSchoolMapper.deleteSchoolInfo(id);

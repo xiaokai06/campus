@@ -24,8 +24,8 @@ public class SysSchoolServiceImpl implements SysSchoolService {
 
     /**
      * 获取所有学校
-     * @param sysSchoolEntity
-     * @return
+     * @param sysSchoolEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody selectAllSchool(SysSchoolEntity sysSchoolEntity) {
@@ -34,8 +34,8 @@ public class SysSchoolServiceImpl implements SysSchoolService {
 
     /**
      * 新增学校
-     * @param sysSchoolEntity
-     * @return
+     * @param sysSchoolEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody insertSchoolInfo(SysSchoolEntity sysSchoolEntity) {
@@ -44,8 +44,8 @@ public class SysSchoolServiceImpl implements SysSchoolService {
 
     /**
      * 修改学校
-     * @param sysSchoolEntity
-     * @return
+     * @param sysSchoolEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody updateSchoolInfo(SysSchoolEntity sysSchoolEntity) {
@@ -54,8 +54,8 @@ public class SysSchoolServiceImpl implements SysSchoolService {
 
     /**
      * 删除学校
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     @Override
     public ResultBody deleteSchoolInfo(Integer id) {

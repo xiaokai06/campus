@@ -1,7 +1,9 @@
 package com.huiyi.campus.web.sys.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageInfo;
 import com.huiyi.campus.common.base.CommonEnum;
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.common.utils.*;
@@ -50,8 +52,8 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 通过用户昵称查询用户信息
-     * @param sysUserEntity
-     * @return
+     * @param sysUserEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody selectUserInfoByNickName(SysUserEntity sysUserEntity) {
@@ -104,8 +106,8 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 退出系统
-     * @param nickName
-     * @return
+     * @param nickName 参数
+     * @return 返回值
      */
     @Override
     public ResultBody exitSystem(String nickName) {
@@ -120,8 +122,8 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 修改密码
-     * @param updatePwdDto
-     * @return
+     * @param updatePwdDto 参数
+     * @return 返回值
      */
     @Override
     public ResultBody updatePwdByOldPwd(UpdatePwdDto updatePwdDto) {
@@ -162,6 +164,11 @@ public class SysUserServiceImpl implements SysUserService {
         return ResultBody.update(0);
     }
 
+    /**
+     * 通过用户昵称获取菜单权限
+     * @param nickName 参数
+     * @return 返回值
+     */
     @Override
     public ResultBody getMenuByUserId(String nickName) {
         List<SysMenuEntity> menuList;
@@ -177,18 +184,20 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 获取所有用户信息
-     * @param sysUserEntity
-     * @return
+     * @param sysUserEntity 参数
+     * @return 返回值
      */
     @Override
-    public ResultBody getAllUserInfo(SysUserEntity sysUserEntity) {
-        return ResultBody.success(sysUserDao.selectAllUserInfo(sysUserEntity));
+    public CrRpcResult getAllUserInfo(SysUserEntity sysUserEntity) {
+        List<SysUserEntity> list = sysUserDao.selectAllUserInfo(sysUserEntity);
+        PageInfo<SysUserEntity> pageInfo = new PageInfo<>(list);
+        return CrRpcResult.success(pageInfo);
     }
 
     /**
      * 新增用户
-     * @param sysUserEntity
-     * @return
+     * @param sysUserEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody insertUserInfo(SysUserEntity sysUserEntity) {
@@ -210,8 +219,8 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 修改用户
-     * @param sysUserEntity
-     * @return
+     * @param sysUserEntity 参数
+     * @return 返回值
      */
     @Override
     public ResultBody updateUserInfo(SysUserEntity sysUserEntity) {
@@ -220,8 +229,8 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 通过ID删除用户
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     @Override
     public ResultBody deleteUserInfoById(Integer id) {

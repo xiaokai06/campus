@@ -19,8 +19,8 @@ public class TokenServiceImpl implements TokenService {
 
     /**
      * 通过用户昵称生成token
-     * @param nickName
-     * @return
+     * @param nickName 参数
+     * @return 返回值
      */
     @Override
     public String getToken(String nickName) {

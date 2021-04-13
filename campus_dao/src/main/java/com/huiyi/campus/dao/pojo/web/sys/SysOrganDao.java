@@ -22,8 +22,8 @@ public class SysOrganDao {
 
     /**
      * 查询所有机构
-     * @param sysOrganEntity
-     * @return
+     * @param sysOrganEntity 参数
+     * @return 返回值
      */
     public List<SysOrganEntity> selectAllOrgan(SysOrganEntity sysOrganEntity) {
         return sysOrganMapper.selectAllOrgan(sysOrganEntity);
@@ -31,8 +31,8 @@ public class SysOrganDao {
 
     /**
      * 新增机构
-     * @param sysOrganEntity
-     * @return
+     * @param sysOrganEntity 参数
+     * @return 返回值
      */
     public int insertOrganInfo(SysOrganEntity sysOrganEntity) {
         return sysOrganMapper.insertOrganInfo(sysOrganEntity);
@@ -40,8 +40,8 @@ public class SysOrganDao {
 
     /**
      * 修改机构
-     * @param sysOrganEntity
-     * @return
+     * @param sysOrganEntity 参数
+     * @return 返回值
      */
     public int updateOrganInfo(SysOrganEntity sysOrganEntity) {
         return sysOrganMapper.updateOrganInfo(sysOrganEntity);
@@ -49,8 +49,8 @@ public class SysOrganDao {
 
     /**
      * 删除机构
-     * @param id
-     * @return
+     * @param id 参数
+     * @return 返回值
      */
     public int deleteOrganInfo(Integer id) {
         return sysOrganMapper.deleteOrganInfo(id);

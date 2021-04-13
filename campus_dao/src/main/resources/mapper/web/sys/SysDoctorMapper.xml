@@ -8,17 +8,18 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="desk_id" jdbcType="INTEGER" property="deskId"/>
+    <result column="desk_name" jdbcType="VARCHAR" property="deskName"/>
     <result column="doctor_state" jdbcType="INTEGER" property="doctorState"/>
     <result column="introduce" jdbcType="VARCHAR" property="introduce"/>
   </resultMap>
 
   <!-- 查询所有医生 -->
   <select id="selectAllDoctor" parameterType="com.huiyi.campus.dao.entity.sys.SysDoctorEntity" resultMap="BaseResultMap">
-    select id, doctor_name, create_time, update_time, desk_id, doctor_state, introduce
-        from sys_doctor
+    select sd.id, sd.doctor_name, sd.create_time, sd.update_time, sd.desk_id, sd.doctor_state, sd.introduce, sk.desk_name
+        from sys_doctor sd left join sys_desk sk on sd.desk_id=sk.id
             where 1=1
               <if test="doctorName != null and doctorName != ''">
-                and doctor_name=#{doctorName,jdbcType=VARCHAR}
+                and sd.doctor_name=#{doctorName,jdbcType=VARCHAR}
               </if>
   </select>
 
@@ -84,7 +85,7 @@
         doctor_state=#{doctorState,jdbcType=INTEGER},
       </if>
       <if test="introduce != null">
-        introduce=#{description,jdbcType=VARCHAR},
+        introduce=#{introduce,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

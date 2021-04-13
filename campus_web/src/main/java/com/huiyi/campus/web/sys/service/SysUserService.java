@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.sys.service;
 
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
@@ -44,7 +45,7 @@ public interface SysUserService {
      * @param sysUserEntity
      * @return
      */
-    ResultBody getAllUserInfo(SysUserEntity sysUserEntity);
+    CrRpcResult getAllUserInfo(SysUserEntity sysUserEntity);
 
     /**
      * 新增用户
