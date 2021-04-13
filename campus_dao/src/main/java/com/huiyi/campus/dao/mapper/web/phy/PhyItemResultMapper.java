@@ -21,5 +21,5 @@ public interface PhyItemResultMapper {
 
     int updateItemResultList(List<PhyItemResultEntity> itemResultEntityList);
 
-    List<PhyItemResultEntity> selectBloodListByHealthId(String id);
+    List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId);
 }

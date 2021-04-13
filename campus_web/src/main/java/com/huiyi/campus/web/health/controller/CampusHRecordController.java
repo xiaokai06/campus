@@ -6,6 +6,8 @@ import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import java.io.InputStream;
  * @date: 2021-03-28 13:35
  * @Version V1.0
  */
+@Api(tags = "校园健康档案")
 @Slf4j
 @RestController
 @RequestMapping("/hrecord")
@@ -38,6 +41,7 @@ public class CampusHRecordController {
      * @param studentInfoRecordDto
      * @return
      */
+    @ApiOperation("获取所有学生档案信息接口")
     @PostMapping("/queryStudentInfoRecord")
     public HQJsonResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto);
@@ -48,6 +52,7 @@ public class CampusHRecordController {
      *
      * @return
      */
+    @ApiOperation("创建学生档案信息接口")
     @PostMapping("/createStudentInfoRecord")
     public HQJsonResult createStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.createStudentInfoRecord(studentInfoRecordDto);
@@ -59,6 +64,7 @@ public class CampusHRecordController {
      * @param studentInfoRecordDto
      * @return
      */
+    @ApiOperation("修改学生档案信息接口")
     @PostMapping("/updateStudentInfoRecord")
     public HQJsonResult updateStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.updateStudentInfoRecord(studentInfoRecordDto);
@@ -70,17 +76,19 @@ public class CampusHRecordController {
      * @param studentInfoRecordDto
      * @return
      */
+    @ApiOperation("删除学生档案信息接口")
     @PostMapping("/deleteStudentInfoRecord")
     public HQJsonResult deleteStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.deleteStudentInfoRecord(studentInfoRecordDto);
     }
 
     /**
-     * 创建学生健康档案信息
+     * 创建和修改学生健康档案信息
      *
      * @return
      */
-    @PostMapping("/createStudentHealthInfo")
+    @ApiOperation("创建和修改学生健康档案信息接口")
+    @PostMapping("/createAndUpdateStudentHealthInfo")
     public HQJsonResult createStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.createStudentHealthInfo(studentHealthInfoDto);
     }
@@ -91,6 +99,7 @@ public class CampusHRecordController {
      * @param studentHealthInfoDto
      * @return
      */
+    @ApiOperation("查询学生健康档案信息接口")
     @PostMapping("/selectStudentHealthInfo")
     public HQJsonResult selectStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.selectStudentHealthInfo(studentHealthInfoDto);
@@ -103,6 +112,7 @@ public class CampusHRecordController {
      * @param studentHealthInfoDto
      * @return
      */
+    @ApiOperation("修改学生健康档案信息接口")
     @PostMapping("/updateStudentHealthInfo")
     public HQJsonResult updateStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.updateStudentHealthInfo(studentHealthInfoDto);
@@ -114,6 +124,7 @@ public class CampusHRecordController {
      * @param file
      * @return
      */
+    @ApiOperation("学生档案信息数据导入接口")
     @ResponseBody
     @PostMapping("/importStudentInfoFile")
     public String importStudentInfoFile(@RequestParam("file") MultipartFile file) {
@@ -127,6 +138,7 @@ public class CampusHRecordController {
      * @param response
      * @return
      */
+    @ApiOperation("学生档案信息数据导出接口")
     @ResponseBody
     @PostMapping("/exportStudentInfoFile")
     public String exportStudentInfoFile(@RequestBody StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response) {
@@ -136,6 +148,7 @@ public class CampusHRecordController {
     /**
      * 学生相片上传
      */
+    @ApiOperation("学生相片上传接口")
     @PostMapping("/upload")
     public String upload(@RequestParam("id") String id, @RequestParam("data") MultipartFile data) throws Exception {
         String fileName = data.getOriginalFilename();
@@ -159,6 +172,7 @@ public class CampusHRecordController {
      * @return
      * @throws Exception
      */
+    @ApiOperation("学生相片下载接口")
     @PostMapping("/download")
     public String download(@RequestParam("fileName") String fileName) throws Exception {
         if (StringUtils.isNoneEmpty(fileName)) {

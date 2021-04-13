@@ -7,8 +7,7 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface SysAreasMapper extends BaseMapper<SysAreasEntity> {
+public interface SysAreasMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(SysAreasEntity record);

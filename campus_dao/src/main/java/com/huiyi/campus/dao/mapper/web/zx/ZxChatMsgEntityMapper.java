@@ -7,8 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface ZxChatMsgEntityMapper extends BaseMapper<ZxChatMsgEntity> {
+
+public interface ZxChatMsgEntityMapper {
     int deleteByPrimaryKey(String id);
 
     int insert(ZxChatMsgEntity record);

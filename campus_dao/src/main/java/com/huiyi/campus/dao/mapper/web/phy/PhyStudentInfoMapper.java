@@ -8,8 +8,7 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface PhyStudentInfoMapper extends BaseMapper<PhyStudentInfoEntity> {
+public interface PhyStudentInfoMapper {
     int deleteByPrimaryKey(String id);
 
     int insert(PhyStudentInfoEntity record);

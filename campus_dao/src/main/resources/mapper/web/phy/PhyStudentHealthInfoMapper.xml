@@ -1125,6 +1125,12 @@
         select
         <include refid="Base_Column_List"/>
         from phy_student_health_info
-        where id = #{id,jdbcType=VARCHAR}
+        where 1=1
+        <if test="id != null and id!=''">
+            AND id = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="phyStudentId != null and phyStudentId!=''">
+            AND phy_student_id = #{phyStudentId,jdbcType=VARCHAR}
+        </if>
     </select>
 </mapper>

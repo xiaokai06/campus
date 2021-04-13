@@ -7,7 +7,7 @@
         <result column="phy_health_id" jdbcType="VARCHAR" property="phyHealthId"/>
         <result column="rptunitid" jdbcType="INTEGER" property="rptunitid"/>
         <result column="rpt_itemid" jdbcType="INTEGER" property="rptItemid"/>
-        <result column="result_num" jdbcType="INTEGER" property="resultNum"/>
+        <result column="result_num" jdbcType="DECIMAL" property="resultNum"/>
         <result column="result_str" jdbcType="VARCHAR" property="resultStr"/>
         <result column="result_txt" jdbcType="VARCHAR" property="resultTxt"/>
         <result column="result_unit" jdbcType="VARCHAR" property="resultUnit"/>
@@ -19,8 +19,7 @@
         <result column="extend2" jdbcType="VARCHAR" property="extend2"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id
-                , phy_health_id, rptunitid, rpt_itemid, result_num, result_str, result_txt, result_unit,
+        id, phy_health_id, rptunitid, rpt_itemid, result_num, result_str, result_txt, result_unit,
     create_time, create_user, update_time, update_user, extend1, extend2
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -41,7 +40,7 @@
                                      create_user, update_time, update_user,
                                      extend1, extend2)
         values (#{id,jdbcType=VARCHAR}, #{phyHealthId,jdbcType=VARCHAR}, #{rptunitid,jdbcType=INTEGER},
-                #{rptItemid,jdbcType=INTEGER}, #{resultNum,jdbcType=INTEGER}, #{resultStr,jdbcType=VARCHAR},
+                #{rptItemid,jdbcType=INTEGER}, #{resultNum,jdbcType=DECIMAL}, #{resultStr,jdbcType=VARCHAR},
                 #{resultTxt,jdbcType=VARCHAR}, #{resultUnit,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
                 #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR},
                 #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR})
@@ -106,7 +105,7 @@
                 #{rptItemid,jdbcType=INTEGER},
             </if>
             <if test="resultNum != null">
-                #{resultNum,jdbcType=INTEGER},
+                #{resultNum,jdbcType=DECIMAL},
             </if>
             <if test="resultStr != null">
                 #{resultStr,jdbcType=VARCHAR},
@@ -150,7 +149,7 @@
                 rpt_itemid = #{rptItemid,jdbcType=INTEGER},
             </if>
             <if test="resultNum != null">
-                result_num = #{resultNum,jdbcType=INTEGER},
+                result_num = #{resultNum,jdbcType=DECIMAL},
             </if>
             <if test="resultStr != null">
                 result_str = #{resultStr,jdbcType=VARCHAR},
@@ -187,7 +186,7 @@
         set phy_health_id = #{phyHealthId,jdbcType=VARCHAR},
             rptunitid     = #{rptunitid,jdbcType=INTEGER},
             rpt_itemid    = #{rptItemid,jdbcType=INTEGER},
-            result_num    = #{resultNum,jdbcType=INTEGER},
+            result_num    = #{resultNum,jdbcType=DECIMAL},
             result_str    = #{resultStr,jdbcType=VARCHAR},
             result_txt    = #{resultTxt,jdbcType=VARCHAR},
             result_unit   = #{resultUnit,jdbcType=VARCHAR},
@@ -262,7 +261,7 @@
                     #{item.rptItemid,jdbcType=INTEGER},
                 </if>
                 <if test="item.resultNum != null">
-                    #{item.resultNum,jdbcType=INTEGER},
+                    #{item.resultNum,jdbcType=DECIMAL},
                 </if>
                 <if test="item.resultStr != null">
                     #{item.resultStr,jdbcType=VARCHAR},
@@ -310,7 +309,7 @@
                     rpt_itemid = #{item.rptItemid,jdbcType=INTEGER},
                 </if>
                 <if test="item.resultNum != null">
-                    result_num = #{item.resultNum,jdbcType=INTEGER},
+                    result_num = #{item.resultNum,jdbcType=DECIMAL},
                 </if>
                 <if test="item.resultStr != null">
                     result_str = #{item.resultStr,jdbcType=VARCHAR},
@@ -347,6 +346,6 @@
     <select id="selectBloodListByHealthId" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM phy_item_result WHERE phy_health_id = #{phyHealthId,jdbcType=VARCHAR},
+        FROM phy_item_result WHERE phy_health_id = #{phyHealthId,jdbcType=VARCHAR}
     </select>
 </mapper>

@@ -5,15 +5,14 @@ import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
 import com.huiyi.campus.dao.vo.health.StudentHealthInfoVo;
 import org.mapstruct.Mapper;
 
-@Mapper
-public interface PhyStudentHealthInfoMapper extends BaseMapper<PhyStudentHealthInfoEntity> {
+public interface PhyStudentHealthInfoMapper {
     int deleteByPrimaryKey(String id);
 
     int insert(PhyStudentHealthInfoEntity record);
 
     int insertSelective(PhyStudentHealthInfoEntity record);
 
-    StudentHealthInfoVo selectByPrimaryKey(String id);
+    StudentHealthInfoVo selectByPrimaryKey(PhyStudentHealthInfoEntity record);
 
     int updateByPrimaryKeySelective(PhyStudentHealthInfoEntity record);
 

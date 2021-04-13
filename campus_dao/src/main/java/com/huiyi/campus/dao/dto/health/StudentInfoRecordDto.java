@@ -56,10 +56,12 @@ public class StudentInfoRecordDto {
     private Date enterTime;
     @ApiModelProperty("建档人id（校医）")
     private Integer doctorId;
+    @ApiModelProperty("创建时间")
+    private String createTime;
     @ApiModelProperty("责任医生")
     private String dutyDoctor;
-    @ApiModelProperty("体检日期")
-    private Date phyDate;
+    @ApiModelProperty("建档日期")
+    private String phyDate;
     @ApiModelProperty("操作人员id (注：当前操作人员)")
     private Integer operatorId;
     @ApiModelProperty("页码")

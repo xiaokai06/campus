@@ -87,7 +87,7 @@ public class HealthRecordDao {
      * @return
      */
     public StudentHealthInfoVo selectStudentHealthInfo(PhyStudentHealthInfoEntity phyStudentHealthInfoEntity) {
-        return phyStudentHealthInfoMapper.selectByPrimaryKey(phyStudentHealthInfoEntity.getId());
+        return phyStudentHealthInfoMapper.selectByPrimaryKey(phyStudentHealthInfoEntity);
 
     }
 

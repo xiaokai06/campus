@@ -22,6 +22,8 @@ import java.util.List;
 @ApiModel("学生健康档案信息Dto")
 public class StudentHealthInfoDto {
 
+    @ApiModelProperty("体检id")
+    private String id;
     @ApiModelProperty("学生id")
     private String phyStudentId;
     @ApiModelProperty("身高")
@@ -102,7 +104,7 @@ public class StudentHealthInfoDto {
     private String heartErrorText;
     @ApiModelProperty("心率")
     private String heartRate;
-    @ApiModelProperty("心律 0齐 1不齐 2绝对不齐")
+    @ApiModelProperty("心率 0齐 1不齐 2绝对不齐")
     private Integer heartRhythm;
     @ApiModelProperty("杂音 0 无 1有")
     private Integer murmur;
