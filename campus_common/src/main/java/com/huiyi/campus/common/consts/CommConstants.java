@@ -14,6 +14,11 @@ public class CommConstants {
      */
     public static final int EXPIRE_TIME = 86400;
 
+    /**
+     * 默认失效时间30分钟
+     */
+    public static final int DEFAULT_EXPIRE_TIME = 1800;
+
     public static final String TOKEN = "token";
 
     public static final String ACC = "acc";
@@ -28,7 +33,7 @@ public class CommConstants {
 
     public static final String RESET = "reset";
 
-    public static final String EMPTY = "";
+    public static final String DEFAULT_PWD = "123456";
 
     public static final String NOT_LOGIN = "没有登录";
 

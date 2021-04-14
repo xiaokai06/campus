@@ -85,6 +85,14 @@ public class SysUserDao {
     }
 
     /**
+     * 通过用户ID修改用户信息
+     * @param sysUserEntity
+     */
+    public void updateUserInfoById(SysUserEntity sysUserEntity) {
+        sysUserMapper.updateByPrimaryKeySelective(sysUserEntity);
+    }
+
+    /**
      * 通过ID删除用户
      * @param id 参数
      * @return 返回值

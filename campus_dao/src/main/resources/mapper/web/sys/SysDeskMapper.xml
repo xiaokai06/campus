@@ -15,7 +15,7 @@
         from sys_desk
             where 1=1
               <if test="deskName != null and deskName != ''">
-                and desk_name=#{deskName,jdbcType=VARCHAR}
+                and desk_name like CONCAT('%', #{deskName,jdbcType=VARCHAR}, '%')
               </if>
   </select>
 

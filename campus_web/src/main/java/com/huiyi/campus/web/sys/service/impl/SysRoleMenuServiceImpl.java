@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.sys.service.impl;
 
+import com.huiyi.campus.common.base.CommonEnum;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
@@ -55,6 +56,9 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
      */
     @Override
     public ResultBody updateRoleInfo(SysRoleEntity sysRoleEntity) {
+        if (1 == sysRoleEntity.getId()) {
+            return ResultBody.error("超管角色不可修改！");
+        }
         return ResultBody.update(sysRoleMenuDao.updateRoleInfo(sysRoleEntity));
     }
 
@@ -65,6 +69,9 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
      */
     @Override
     public ResultBody deleteRoleInfo(Integer id) {
+        if (1 == id) {
+            return ResultBody.error(CommonEnum.NO_DELETE);
+        }
         return ResultBody.delete(sysRoleMenuDao.deleteRoleInfo(id));
     }
 

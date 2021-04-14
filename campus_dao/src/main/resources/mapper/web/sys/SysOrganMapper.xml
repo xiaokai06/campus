@@ -15,10 +15,10 @@
         select id, organ_name, organ_code, create_time, update_time
             from sys_organ where 1=1
                 <if test="organName != null and organName != ''">
-                    and organ_name = #{organName,jdbcType=VARCHAR}
+                    and organ_name like CONCAT('%', #{organName,jdbcType=VARCHAR}, '%')
                 </if>
                 <if test="organCode != null and organCode != ''">
-                    and organ_code = #{organCode,jdbcType=VARCHAR}
+                    and organ_code like CONCAT('%', #{organCode,jdbcType=VARCHAR}, '%')
                 </if>
     </select>
 

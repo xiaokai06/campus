@@ -18,10 +18,10 @@
             from sys_school s left join sys_organ so on s.organ_id=so.id
                 where 1=1
                 <if test="schoolName != null and schoolName != ''">
-                    and s.school_name = #{schoolName,jdbcType=VARCHAR}
+                    and s.school_name like CONCAT('%', #{schoolName,jdbcType=VARCHAR}, '%')
                 </if>
                 <if test="schoolAddress != null and schoolAddress != ''">
-                    and s.school_address = #{schoolAddress,jdbcType=VARCHAR}
+                    and s.school_address like CONCAT('%', #{schoolAddress,jdbcType=VARCHAR}, '%')
                 </if>
                 <if test="organId != null and organId != null">
                     and s.organ_id = #{organId,jdbcType=INTEGER}

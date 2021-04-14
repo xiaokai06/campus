@@ -41,7 +41,9 @@ public class ServiceAspect {
     /**
      * 拦截web层service方法
      */
-    @Pointcut("execution(* com.huiyi.campus.web.*.*(..))")
+    @Pointcut("execution(* com.huiyi.campus.web.sys.service.*.*(..)) " +
+            "|| execution(* com.huiyi.campus.web.health.service.*.*(..))" +
+            "|| execution(* com.huiyi.campus.web.common.service.*.*(..))")
     public void servicePointCut() {
     }
 

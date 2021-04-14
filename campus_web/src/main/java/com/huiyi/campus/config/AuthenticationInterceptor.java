@@ -59,10 +59,10 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         if (method.isAnnotationPresent(PassToken.class)) {
             PassToken passToken = method.getAnnotation(PassToken.class);
             if (passToken.required()) {
-                SysLoginLogEntity sysLoginLogEntity = new SysLoginLogEntity();
                 HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(
                         RequestContextHolder.getRequestAttributes())).getRequest();
                 String operUser = request.getHeader(CommConstants.ACC);
+                SysLoginLogEntity sysLoginLogEntity = new SysLoginLogEntity();
                 sysLoginLogEntity.setLoginUname(operUser);
                 sysLoginLogEntity.setLoginIp(IpUtils.getIpAddress(request));
                 sysLoginLogEntity.setLoginTime(new Date());

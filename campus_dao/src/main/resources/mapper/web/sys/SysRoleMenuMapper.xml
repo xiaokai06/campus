@@ -45,7 +45,7 @@
     from sys_role
         where 1=1
           <if test="roleName != null and roleName != ''">
-            and role_name=#{roleName,jdbcType=VARCHAR}
+            and role_name like CONCAT('%', #{roleName,jdbcType=VARCHAR}, '%')
           </if>
   </select>
 
@@ -136,7 +136,7 @@
     from sys_menu
         where 1=1
           <if test="menuName != null and menuName != ''">
-            and menu_name = #{menuName,jdbcType=INTEGER}
+            and menu_name like CONCAT('%', #{menuName,jdbcType=INTEGER}, '%')
           </if>
   </select>
 
