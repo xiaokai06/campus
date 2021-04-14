@@ -183,5 +183,15 @@ public class CampusHRecordController {
         return null;
     }
 
+    /**
+     * 根据学生id查询体检日期
+     * @param studentHealthInfoDto
+     * @return
+     */
+    @PostMapping("/selectPhyDateByPhyStudentId")
+    public HQJsonResult selectPhyDateByPhyStudentId(@RequestBody StudentHealthInfoDto studentHealthInfoDto){
+        return campusHRecordService.selectPhyDateByPhyStudentId(studentHealthInfoDto);
+    }
+
 
 }

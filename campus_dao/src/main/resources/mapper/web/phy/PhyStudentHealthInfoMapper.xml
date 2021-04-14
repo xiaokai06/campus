@@ -149,7 +149,7 @@
                                              phy_conclusion_error_text, review, referral,
                                              regular_censor, health_education, diet,
                                              forging, vaccination, phy_guide_text,
-                                             phy_doctor, del_flag, phy_date,create_time,
+                                             phy_doctor, del_flag, phy_date, create_time,
                                              create_user, update_time, update_user,
                                              qualified_status, extend4, extend5)
         values (#{id,jdbcType=VARCHAR}, #{phyStudentId,jdbcType=VARCHAR}, #{height,jdbcType=DECIMAL},
@@ -184,7 +184,8 @@
                 #{phyConclusionErrorText,jdbcType=VARCHAR}, #{review,jdbcType=TINYINT}, #{referral,jdbcType=TINYINT},
                 #{regularCensor,jdbcType=TINYINT}, #{healthEducation,jdbcType=TINYINT}, #{diet,jdbcType=TINYINT},
                 #{forging,jdbcType=TINYINT}, #{vaccination,jdbcType=TINYINT}, #{phyGuideText,jdbcType=VARCHAR},
-                #{phyDoctor,jdbcType=VARCHAR}, #{delFlag,jdbcType=TINYINT}, #{phyDate,jdbcType=TIMESTAMP},#{createTime,jdbcType=TIMESTAMP},
+                #{phyDoctor,jdbcType=VARCHAR}, #{delFlag,jdbcType=TINYINT}, #{phyDate,jdbcType=TIMESTAMP},
+                #{createTime,jdbcType=TIMESTAMP},
                 #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR},
                 #{qualifiedStatus,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
     </insert>
@@ -1140,6 +1141,19 @@
         <if test="id != null and id!=''">
             AND id = #{id,jdbcType=VARCHAR}
         </if>
+        <if test="phyStudentId != null and phyStudentId!=''">
+            AND phy_student_id = #{phyStudentId,jdbcType=VARCHAR}
+        </if>
+        <if test="phyDate != null and phyDate!=''">
+            AND phy_date = #{phyDate,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <!--根据学生id查询体检日期-->
+    <select id="selectPhyDateByPhyStudentId" resultType="com.huiyi.campus.dao.vo.health.StudentHealthInfoPhyDateVo">
+        select
+        <include refid="Base_Column_List"/>
+        from phy_student_health_info
+        where 1=1
         <if test="phyStudentId != null and phyStudentId!=''">
             AND phy_student_id = #{phyStudentId,jdbcType=VARCHAR}
         </if>

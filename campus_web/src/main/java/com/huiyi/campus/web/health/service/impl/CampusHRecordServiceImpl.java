@@ -15,6 +15,7 @@ import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
 import com.huiyi.campus.dao.pojo.web.health.HealthRecordDao;
+import com.huiyi.campus.dao.vo.health.StudentHealthInfoPhyDateVo;
 import com.huiyi.campus.dao.vo.health.StudentHealthInfoVo;
 import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
@@ -171,27 +172,51 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         try {
             PhyStudentHealthInfoEntity phyStudentHealthInfoEntity = new PhyStudentHealthInfoEntity();
             JavaBeanUtil.copyPropertiesIgnoreNull(studentHealthInfoDto, phyStudentHealthInfoEntity);
-                phyStudentHealthInfoEntity.setId(Sid.nextShort());
-                studentHealthInfoDto.setId(phyStudentHealthInfoEntity.getId());
-                phyStudentHealthInfoEntity.setCreateTime(new Date());
-                int healthInfoStr = healthRecordDao.createStudentHealthInfo(phyStudentHealthInfoEntity);
-                //校验肝功能与血常规检查是否正常
-                if (1 == (studentHealthInfoDto.getBloodRoutine()) || 1 == (studentHealthInfoDto.getLiverFunction())) {
-                    studentHealthInfoDto.getItemResultEntityList().forEach(str -> {
-                        str.setId(Sid.nextShort());
-                        str.setPhyHealthId(phyStudentHealthInfoEntity.getId());
-                        str.setCreateTime(new Date());
-                    });
-                    int bloodAndliverRoutine = healthRecordDao.insertItemResult(studentHealthInfoDto.getItemResultEntityList());
-                    if (bloodAndliverRoutine < 0) {
-                        log.info("肝功能与血常规报告结果入库异常：" + bloodAndliverRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
-                    }
+            phyStudentHealthInfoEntity.setId(Sid.nextShort());
+            studentHealthInfoDto.setId(phyStudentHealthInfoEntity.getId());
+            phyStudentHealthInfoEntity.setCreateTime(new Date());
+            int healthInfoStr = healthRecordDao.createStudentHealthInfo(phyStudentHealthInfoEntity);
+            //校验肝功能与血常规检查是否正常
+            if (1 == (studentHealthInfoDto.getBloodRoutine()) || 1 == (studentHealthInfoDto.getLiverFunction())) {
+                studentHealthInfoDto.getItemResultEntityList().forEach(str -> {
+                    str.setId(Sid.nextShort());
+                    str.setPhyHealthId(phyStudentHealthInfoEntity.getId());
+                    str.setCreateTime(new Date());
+                });
+                int bloodAndliverRoutine = healthRecordDao.insertItemResult(studentHealthInfoDto.getItemResultEntityList());
+                if (bloodAndliverRoutine < 0) {
+                    log.info("肝功能与血常规报告结果入库异常：" + bloodAndliverRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                 }
-                //校验健康信息新增入库是否成功
-                if (healthInfoStr > 0) {
-                    return HQJsonResult.success(Collections.singletonList(studentHealthInfoDto));
-                }
+            }
+            //校验健康信息新增入库是否成功
+            if (healthInfoStr > 0) {
+                return HQJsonResult.success(Collections.singletonList(studentHealthInfoDto));
+            }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new HQJsonResult();
+    }
+
+    /**
+     * 根据学生id查询体检日期
+     *
+     * @param studentHealthInfoDto
+     * @return
+     */
+    @Override
+    public HQJsonResult selectPhyDateByPhyStudentId(StudentHealthInfoDto studentHealthInfoDto) {
+        if (JsonUtils.checkObjAllFieldsIsNull(studentHealthInfoDto)) {
+            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
+        }
+        try {
+            PhyStudentHealthInfoEntity phyStudentHealthInfoEntity = new PhyStudentHealthInfoEntity();
+            JavaBeanUtil.copyPropertiesIgnoreNull(studentHealthInfoDto, phyStudentHealthInfoEntity);
+            List<StudentHealthInfoPhyDateVo> studentHealthInfoPhyDateVoList = healthRecordDao.selectPhyDateByPhyStudentId(phyStudentHealthInfoEntity);
+            if (!studentHealthInfoPhyDateVoList.isEmpty()) {
+                return HQJsonResult.success(Collections.singletonList(studentHealthInfoPhyDateVoList));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -313,5 +338,6 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         }
         return null;
     }
+
 
 }

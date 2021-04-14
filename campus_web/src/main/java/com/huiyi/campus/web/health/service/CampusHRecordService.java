@@ -25,4 +25,6 @@ public interface CampusHRecordService {
     String exportStudentInfoFile(StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response);
 
     String importStudentInfoFile(MultipartFile file);
+
+    HQJsonResult selectPhyDateByPhyStudentId(StudentHealthInfoDto studentHealthInfoDto);
 }

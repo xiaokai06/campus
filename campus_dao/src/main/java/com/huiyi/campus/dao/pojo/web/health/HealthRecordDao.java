@@ -7,6 +7,7 @@ import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
 import com.huiyi.campus.dao.mapper.web.phy.PhyItemResultMapper;
 import com.huiyi.campus.dao.mapper.web.phy.PhyStudentHealthInfoMapper;
 import com.huiyi.campus.dao.mapper.web.phy.PhyStudentInfoMapper;
+import com.huiyi.campus.dao.vo.health.StudentHealthInfoPhyDateVo;
 import com.huiyi.campus.dao.vo.health.StudentHealthInfoVo;
 import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -139,5 +140,14 @@ public class HealthRecordDao {
      */
     public List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId) {
         return phyItemResultMapper.selectBloodListByHealthId(phyHealthId);
+    }
+
+    /**
+     * 根据学生id查询体检日期
+     * @param phyStudentHealthInfoEntity
+     * @return
+     */
+    public List<StudentHealthInfoPhyDateVo> selectPhyDateByPhyStudentId(PhyStudentHealthInfoEntity phyStudentHealthInfoEntity) {
+        return phyStudentHealthInfoMapper.selectPhyDateByPhyStudentId(phyStudentHealthInfoEntity);
     }
 }
