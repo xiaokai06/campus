@@ -83,12 +83,12 @@ public class CampusHRecordController {
     }
 
     /**
-     * 创建和修改学生健康档案信息
+     * 创建学生健康档案信息
      *
      * @return
      */
     @ApiOperation("创建和修改学生健康档案信息接口")
-    @PostMapping("/createAndUpdateStudentHealthInfo")
+    @PostMapping("/createStudentHealthInfo")
     public HQJsonResult createStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.createStudentHealthInfo(studentHealthInfoDto);
     }

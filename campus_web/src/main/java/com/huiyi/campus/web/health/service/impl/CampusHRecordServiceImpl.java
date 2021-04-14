@@ -171,9 +171,6 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         try {
             PhyStudentHealthInfoEntity phyStudentHealthInfoEntity = new PhyStudentHealthInfoEntity();
             JavaBeanUtil.copyPropertiesIgnoreNull(studentHealthInfoDto, phyStudentHealthInfoEntity);
-            if (StringUtils.isNotEmpty(phyStudentHealthInfoEntity.getId())) {
-                return updateStudentHealthInfo(studentHealthInfoDto);
-            } else if (StringUtils.isEmpty(phyStudentHealthInfoEntity.getId())) {
                 phyStudentHealthInfoEntity.setId(Sid.nextShort());
                 studentHealthInfoDto.setId(phyStudentHealthInfoEntity.getId());
                 phyStudentHealthInfoEntity.setCreateTime(new Date());
@@ -194,7 +191,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
                 if (healthInfoStr > 0) {
                     return HQJsonResult.success(Collections.singletonList(studentHealthInfoDto));
                 }
-            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -251,7 +248,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             int updateStudentHealth = healthRecordDao.updateStudentHealthInfo(phyStudentHealthInfoEntity);
             //校验肝功能与血常规检查是否正常
             if (1 == (studentHealthInfoDto.getBloodRoutine()) || 1 == (studentHealthInfoDto.getLiverFunction())) {
-                studentHealthInfoDto.getItemResultEntityList().forEach(str->{
+                studentHealthInfoDto.getItemResultEntityList().forEach(str -> {
                     str.setUpdateTime(new Date());
                 });
                 int bloodAndLiverRoutine = healthRecordDao.updateItemResult(studentHealthInfoDto.getItemResultEntityList());

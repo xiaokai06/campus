@@ -202,6 +202,8 @@ public class StudentHealthInfoDto {
     private Date updateTime;
     @ApiModelProperty("更新人")
     private String updateUser;
+    @ApiModelProperty("合格标志 0合格 1未合格")
+    private String qualifiedStatus;
 
     @ApiModelProperty("检验项目结果数据")
     private List<PhyItemResultEntity> itemResultEntityList;
