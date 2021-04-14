@@ -186,6 +186,10 @@ public class SysUserServiceImpl implements SysUserService {
         if (1 == sysUserEntity.getRoleId()) {
             return ResultBody.error("超管角色用户不可创建！");
         }
+        SysUserEntity sysUser = sysUserDao.selectUserByNickName(sysUserEntity.getNickName());
+        if (null != sysUser) {
+            return ResultBody.error(CommonEnum.REPETITION);
+        }
         // TODO:对于前端传递过来的密码加密字符串先解密后加密再存储到数据库
         String pwd = sysUserEntity.getPassWord();
         String decAes = decryptResult(pwd, "新增用户");
@@ -204,6 +208,10 @@ public class SysUserServiceImpl implements SysUserService {
     public ResultBody updateUserInfo(SysUserEntity sysUserEntity) {
         if (1 == sysUserEntity.getId()) {
             return ResultBody.error(CommonEnum.NO_DELETE);
+        }
+        SysUserEntity sysUser = sysUserDao.selectUserByNickName(sysUserEntity.getNickName());
+        if (null != sysUser) {
+            return ResultBody.error(CommonEnum.REPETITION);
         }
         return ResultBody.update(sysUserDao.updateUserInfo(sysUserEntity));
     }

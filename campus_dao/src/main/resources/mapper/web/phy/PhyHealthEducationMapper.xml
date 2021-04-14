@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.phy.PhyHealthEducationMapper">
+
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.phy.PhyHealthEducationEntity">
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="title" jdbcType="VARCHAR" property="title"/>
+    <result column="content" jdbcType="VARCHAR" property="content"/>
+    <result column="oper_user" jdbcType="VARCHAR" property="operUser"/>
+    <result column="school_id" jdbcType="INTEGER" property="schoolId"/>
+    <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl"/>
+    <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
+    <result column="head_flag" jdbcType="INTEGER" property="headFlag"/>
+  </resultMap>
+
+  <!-- 查询所有健康宣教 -->
+  <select id="selectHealthEducation" parameterType="com.huiyi.campus.dao.entity.phy.PhyHealthEducationEntity" resultMap="BaseResultMap">
+    select p.id,p.title,p.content,p.oper_user,p.school_id,s.school_name,p.image_url,p.create_time,p.head_flag
+        from phy_health_education p
+            left join sys_school s on p.school_id=s.id where 1=1
+              <if test="createTime != null and createTime != ''">
+                and p.create_time=#{createTime}
+              </if>
+              <if test="title != null and title != ''">
+                and p.title like concat('%', #{title}, '%')
+              </if>
+  </select>
+
+  <!-- 新增健康宣教 -->
+  <insert id="insertHealthEducation" useGeneratedKeys="true" keyProperty="id" parameterType="com.huiyi.campus.dao.entity.phy.PhyHealthEducationEntity">
+    insert into phy_health_education
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="operUser != null">
+        oper_user,
+      </if>
+      <if test="schoolId != null">
+        school_id,
+      </if>
+      <if test="imageUrl != null">
+        image_url,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="headFlag != null">
+        head_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title},
+      </if>
+      <if test="content != null">
+        #{content},
+      </if>
+      <if test="operUser != null">
+        #{operUser},
+      </if>
+      <if test="schoolId != null">
+        #{schoolId},
+      </if>
+      <if test="imageUrl != null">
+        #{imageUrl},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="headFlag != null">
+        #{headFlag},
+      </if>
+    </trim>
+  </insert>
+
+  <!-- 修改健康宣教 -->
+  <update id="updateHealthEducation" parameterType="com.huiyi.campus.dao.entity.phy.PhyHealthEducationEntity">
+    update phy_health_education
+    <set>
+      <if test="title != null">
+        title=#{title},
+      </if>
+      <if test="content != null">
+        content=#{content},
+      </if>
+      <if test="operUser != null">
+        oper_user=#{operUser},
+      </if>
+      <if test="schoolId != null">
+        school_id=#{schoolId},
+      </if>
+      <if test="imageUrl != null">
+        image_url=#{imageUrl},
+      </if>
+      <if test="createTime != null">
+        create_time=#{createTime},
+      </if>
+      <if test="headFlag != null">
+        head_flag=#{headFlag},
+      </if>
+    </set>
+    where id=#{id}
+  </update>
+
+  <!-- 删除健康宣教 -->
+  <delete id="deleteHealthEducation" parameterType="java.lang.Integer">
+    delete from phy_health_education where id=#{id}
+  </delete>
+
+</mapper>

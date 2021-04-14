@@ -6,6 +6,9 @@ import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.web.sys.service.SysOrganService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 /**
  * @author: yzg
@@ -39,6 +42,10 @@ public class SysOrganServiceImpl implements SysOrganService {
      */
     @Override
     public ResultBody insertOrganInfo(SysOrganEntity sysOrganEntity) {
+        List<SysOrganEntity> list = sysOrganDao.selectAllOrgan(sysOrganEntity);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该机构名称已存在，请重新输入！");
+        }
         return ResultBody.insert(sysOrganDao.insertOrganInfo(sysOrganEntity), sysOrganEntity.getId());
     }
 
@@ -49,6 +56,10 @@ public class SysOrganServiceImpl implements SysOrganService {
      */
     @Override
     public ResultBody updateOrganInfo(SysOrganEntity sysOrganEntity) {
+        List<SysOrganEntity> list = sysOrganDao.selectAllOrgan(sysOrganEntity);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该机构名称已存在，请重新输入！");
+        }
         return ResultBody.update(sysOrganDao.updateOrganInfo(sysOrganEntity));
     }
 

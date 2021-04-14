@@ -6,6 +6,9 @@ import com.huiyi.campus.dao.pojo.web.sys.SysDeskDao;
 import com.huiyi.campus.web.sys.service.SysDeskService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 /**
  * @author: yzg
@@ -39,6 +42,10 @@ public class SysDeskServiceImpl implements SysDeskService {
      */
     @Override
     public ResultBody insertDesk(SysDeskEntity sysDeskEntity) {
+        List<SysDeskEntity> list = sysDeskDao.selectAllDesk(sysDeskEntity);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该科室名称已存在，请重新输入！");
+        }
         return ResultBody.insert(sysDeskDao.insertDesk(sysDeskEntity), sysDeskEntity.getId());
     }
 
@@ -49,6 +56,10 @@ public class SysDeskServiceImpl implements SysDeskService {
      */
     @Override
     public ResultBody updateDesk(SysDeskEntity sysDeskEntity) {
+        List<SysDeskEntity> list = sysDeskDao.selectAllDesk(sysDeskEntity);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该科室名称已存在，请重新输入！");
+        }
         return ResultBody.update(sysDeskDao.updateDesk(sysDeskEntity));
     }
 

@@ -46,6 +46,10 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
      */
     @Override
     public ResultBody insertRoleInfo(SysRoleEntity sysRoleEntity) {
+        List<SysRoleEntity> list = sysRoleMenuDao.getAllRole(sysRoleEntity);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该角色名称已存在，请重新输入！");
+        }
         return ResultBody.insert(sysRoleMenuDao.insertRoleInfo(sysRoleEntity), sysRoleEntity.getId());
     }
 
@@ -58,6 +62,10 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
     public ResultBody updateRoleInfo(SysRoleEntity sysRoleEntity) {
         if (1 == sysRoleEntity.getId()) {
             return ResultBody.error("超管角色不可修改！");
+        }
+        List<SysRoleEntity> list = sysRoleMenuDao.getAllRole(sysRoleEntity);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该角色名称已存在，请重新输入！");
         }
         return ResultBody.update(sysRoleMenuDao.updateRoleInfo(sysRoleEntity));
     }
@@ -113,6 +121,10 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
      */
     @Override
     public ResultBody insertMenuInfo(SysMenuEntity sysMenuEntity) {
+        List<SysMenuEntity> list = sysRoleMenuDao.getAllMenu(sysMenuEntity);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该菜单名称已存在，请重新输入！");
+        }
         return ResultBody.insert(sysRoleMenuDao.insertMenuInfo(sysMenuEntity), sysMenuEntity.getId());
     }
 
@@ -123,6 +135,10 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
      */
     @Override
     public ResultBody updateMenuInfo(SysMenuEntity sysMenuEntity) {
+        List<SysMenuEntity> list = sysRoleMenuDao.getAllMenu(sysMenuEntity);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该菜单名称已存在，请重新输入！");
+        }
         return ResultBody.update(sysRoleMenuDao.updateMenuInfo(sysMenuEntity));
     }
 

@@ -25,6 +25,9 @@ public class SysMenuEntity implements Serializable {
     @ApiModelProperty("菜单名称")
     private String menuName;
 
+    @ApiModelProperty("菜单类型（1:目录，2:菜单，3:按钮）")
+    private Integer menuType;
+
     @ApiModelProperty("父级ID")
     private Integer parentId;
 
@@ -43,8 +46,17 @@ public class SysMenuEntity implements Serializable {
     @ApiModelProperty("根路径")
     private String rootPath;
 
+    @ApiModelProperty("二级路径")
+    private String twoPath;
+
     @ApiModelProperty("子路径")
     private String path;
+
+    @ApiModelProperty("是否隐藏（0：false，1：true）")
+    private Integer hiddenFlag;
+
+    @ApiModelProperty("图标")
+    private String icon;
 
     private List<SysMenuEntity> list;
 
