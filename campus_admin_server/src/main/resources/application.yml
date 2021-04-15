@@ -1,0 +1,30 @@
+
+##lobak日志记录
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    root: info
+  file: campus-health/logs/campus-admin-server-info.log
+
+server:
+  port: 9003
+
+
+
+eureka:
+  instance:
+    hostname: eureka-server  #eureka实例的主机名
+  client:
+    register-with-eureka: false #不注册本身到Eureka注册中心
+    fetch-registry: false #不从Eureka注册中心获取服务的注册信息
+    service-url:
+      defaultZone: http://localhost:9003/eureka/
+##暴露所有监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS #总是展示详情信息

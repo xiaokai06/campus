@@ -96,7 +96,7 @@ public class DingtalkNotifier extends AbstractStatusChangeNotifier {
                                 .format(template, titleAlarm, instance.getRegistration().getName(), event.getInstance(),
                                         ((InstanceStatusChangedEvent) event).getStatusInfo().getStatus(), "健康检查没通过通知",
                                         instance.getRegistration().getServiceUrl(), JSONObject.toJSONString(instance.getStatusInfo().getDetails()));
-//                        DingtalkUtils.pushInfoToDingding(messageText, "b240b227f5add0fsdfdfsdf5aca64450e71e54721bf08d7ee17114");
+                        DingtalkUtils.pushInfoToDingding(messageText, "1b70b1148521f22b938dfdbab3f027a8fb2f1085d4fa85b2fd59ab76a9852b1c");
                         break;
                     // 服务离线
                     case "OFFLINE":
@@ -105,7 +105,7 @@ public class DingtalkNotifier extends AbstractStatusChangeNotifier {
                                 .format(template, titleAlarm, instance.getRegistration().getName(), event.getInstance(),
                                         ((InstanceStatusChangedEvent) event).getStatusInfo().getStatus(), "服务离线通知",
                                         instance.getRegistration().getServiceUrl(), JSONObject.toJSONString(instance.getStatusInfo().getDetails()));
-                        DingtalkUtils.pushInfoToDingding(messageText, "b240b227f5add0fsdfdfsdf5aca64450e71e54721bf08d7ee17114");
+                        DingtalkUtils.pushInfoToDingding(messageText, "1b70b1148521f22b938dfdbab3f027a8fb2f1085d4fa85b2fd59ab76a9852b1c");
                         break;
                     //服务上线
                     case "UP":
@@ -114,7 +114,7 @@ public class DingtalkNotifier extends AbstractStatusChangeNotifier {
                                 .format(template, titleNotice, instance.getRegistration().getName(), event.getInstance(),
                                         ((InstanceStatusChangedEvent) event).getStatusInfo().getStatus(), "服务上线通知",
                                         instance.getRegistration().getServiceUrl(), JSONObject.toJSONString(instance.getStatusInfo().getDetails()));
-                        DingtalkUtils.pushInfoToDingding(messageText, "b240b227f5add0fsdfdfsdf5aca64450e71e54721bf08d7ee17114");
+                        DingtalkUtils.pushInfoToDingding(messageText, "1b70b1148521f22b938dfdbab3f027a8fb2f1085d4fa85b2fd59ab76a9852b1c");
                         System.out.println(messageText);
                         break;
                     // 服务未知异常
@@ -124,11 +124,12 @@ public class DingtalkNotifier extends AbstractStatusChangeNotifier {
                                 .format(template, titleAlarm, instance.getRegistration().getName(), event.getInstance(),
                                         ((InstanceStatusChangedEvent) event).getStatusInfo().getStatus(), "服务未知异常通知",
                                         instance.getRegistration().getServiceUrl(), JSONObject.toJSONString(instance.getStatusInfo().getDetails()));
-                        DingtalkUtils.pushInfoToDingding(messageText, "b240b227f5add0fsdfdfsdf5aca64450e71e54721bf08d7ee17114");
+                        DingtalkUtils.pushInfoToDingding(messageText, "1b70b1148521f22b938dfdbab3f027a8fb2f1085d4fa85b2fd59ab76a9852b1c");
                         break;
                     default:
                         break;
                 }
+                log.info(messageText);
             } else {
                 log.info("Instance {} ({}) {}", instance.getRegistration().getName(), event.getInstance(),
                         event.getType());

@@ -2,21 +2,9 @@ spring:
   application:
     #   项目应用名
     name: campus_health_service
-#    # 微服务注册
-#  cloud:
-#    nacos:
-#      discovery:
-#        #必须配置ip地址
-#        server-addr: 47.93.112.92:8848
-#        # 将自己的服务注册到注册中心
-#        register-enabled: true
-#      config:
-#        server-addr: 47.93.112.92:8848
-#        enabled: true
-#        file-extension: yaml
   #   需要加载的配置文件
   profiles:
-    active: datasource,cache,bootstrap
+    active: datasource,cache
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
   http:
@@ -35,41 +23,6 @@ server:
     buffer-size: 1024
     buffers-per-region: 1024
     direct-buffers: true
-#  tomcat:
-#    uri-encoding: UTF-8
-#    max-http-header-size: 8192
-
-# 开放端点用于SpringBoot Admin的监控-健康检查访问: http://ip:port/sys/actuator/health
-management:
-  # 设置端点暴露的哪些内容，默认["health","info"]，设置"*"代表暴露所有可访问的端点
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  # 端点健康情况，默认值"never"，设置为"always"可以显示硬盘使用情况和线程情况
-  endpoint:
-    health:
-      show-details: always
-  ## spring-boot-admin 配置
-#  boot:
-#    admin:
-#      client:
-#        username: admin
-#        password: admin
-#        enabled: true
-#        url: http://localhost:8769
-#        #        period: 10000
-#        #        connect-timeout: 5000
-#        #        read-timeout: 5000
-#        # 为了显示客户端的ip否则是以主机名显示的，这样需要添加hosts影射。
-#        instance:
-#          prefer-ip: true
-#          metadata-map:
-#            management:
-#              context-path: /campus/actuator
-#          health-check-url: http://localhost:${server.port}/campus/actuator/health
-#          status-page-url: http://localhost:${server.port}/campus/actuator/info
-#          home-page-url: http://localhost:${server.port}/
 
 # 日志文件访问配置
 logging:
@@ -86,14 +39,35 @@ minio:
   secretKey: admin123456
   bucketImageName: campus
 
-#login:
-#  count: 3 # 系统最多允许多少台设备登录同一账号
-# PageHelper分页插件
-#pagehelper:
-#  helperDialect: mysql
-#  reasonable: true
-#  supportMethodsArguments: false
-#  params: count=countSql
+
+
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    service-url:
+      defaultZone: http://127.0.0.1:9003/eureka/
+  instance:
+    metadata-map:
+      management:
+        context-path: ${server.servlet.context-path}/actuator
+    home-page-url: http://localhost:${server.port}/
+    status-page-url: http://localhost:${server.port}/${server.servlet.context-path}/actuator/info
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    instance-id: ${spring.application.name}-${server.port}   #自定义服务名称
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    logfile:
+      external-file: campus-health/logs/campus-info.log
+    health:
+      show-details: ALWAYS
+
 
 
 
