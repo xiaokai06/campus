@@ -17,11 +17,7 @@
         <!--druid数据连接池-->
         <druid.boot.version>1.1.20</druid.boot.version>
         <spring-boot-starter-data-redis.version>2.2.7.RELEASE</spring-boot-starter-data-redis.version>
-
-        <!---->
         <spring-boot-admin-client.version>2.2.3</spring-boot-admin-client.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <dependencies>
@@ -50,27 +46,16 @@
             <artifactId>campus_common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
         <!--加入spring-boot-admin连接端-->
         <dependency>
             <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-server</artifactId>
-            <version>2.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-server-ui</artifactId>
-            <version>2.2.3</version>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring-boot-admin-client.version}</version>
         </dependency>
         <!--健康检查-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!--微服务注册-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <!--mysql依赖Jar-->
         <dependency>
@@ -90,28 +75,7 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>${spring-boot-starter-data-redis.version}</version>
         </dependency>
-
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <!--SpringCloud-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!--Spring Alibaba Cloud-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <profiles>
         <!-- 开发环境 -->

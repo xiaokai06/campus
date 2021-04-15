@@ -1,4 +1,14 @@
 spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:9003/
+        instance:
+          service-url: http://localhost:${server.port}/${server.servlet.context-path}
+          prefer-ip: true
+          name: ${spring.application.name}
+          read-timeout: 10000
+
   application:
     #   项目应用名
     name: campus_health_service
@@ -30,7 +40,11 @@ logging:
     com.huiyi.campus.dao.mapper: debug
     com.huiyi.campus: debug
     root: info
+  #  file: /opt/campus/health/campus-health/logs/campus-info.log
   file: campus-health/logs/campus-info.log
+  pattern:
+    #日志高亮
+    file: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx'
   config: classpath:logback-spring.xml
 #  minio对象存储配置
 minio:
@@ -38,37 +52,12 @@ minio:
   accessKey: admin
   secretKey: admin123456
   bucketImageName: campus
-
-
-
-eureka:
-  client:
-    registryFetchIntervalSeconds: 5
-    service-url:
-      defaultZone: http://127.0.0.1:9003/eureka/
-  instance:
-    metadata-map:
-      management:
-        context-path: ${server.servlet.context-path}/actuator
-    home-page-url: http://localhost:${server.port}/
-    status-page-url: http://localhost:${server.port}/${server.servlet.context-path}/actuator/info
-    leaseRenewalIntervalInSeconds: 10
-    health-check-url-path: /actuator/health
-    instance-id: ${spring.application.name}-${server.port}   #自定义服务名称
-    prefer-ip-address: true
-
+#项目健康监控
 management:
   endpoints:
     web:
       exposure:
         include: "*"
   endpoint:
-    logfile:
-      external-file: campus-health/logs/campus-info.log
     health:
       show-details: ALWAYS
-
-
-
-
-

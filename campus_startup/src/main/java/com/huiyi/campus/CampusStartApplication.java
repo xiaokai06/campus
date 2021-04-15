@@ -1,18 +1,13 @@
 package com.huiyi.campus;
 
 import com.huiyi.campus.common.utils.SpringUtil;
-import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -25,25 +20,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Slf4j
 @ServletComponentScan
-@EnableEurekaClient
-@EnableAdminServer
 @EnableTransactionManagement
 @SpringBootApplication(scanBasePackages = "com.huiyi.campus")
 @MapperScan("com.huiyi.campus.dao.mapper")
 public class CampusStartApplication implements WebMvcConfigurer {
-    @Autowired
-    RestTemplate restTemplate;
-
-    /**
-     * 实例化RestTemplate
-     *
-     * @return
-     */
-    @LoadBalanced
-    @Bean
-    public RestTemplate rest() {
-        return new RestTemplate();
-    }
 
     @Bean
     public SpringUtil getSpingUtil() {
