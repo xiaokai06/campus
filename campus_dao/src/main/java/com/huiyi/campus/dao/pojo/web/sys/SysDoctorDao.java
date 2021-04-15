@@ -30,6 +30,15 @@ public class SysDoctorDao {
     }
 
     /**
+     * 通过科室ID查询医生
+     * @param id 科室ID
+     * @return 返回值
+     */
+    public List<Integer> selectDoctorByDeskId(Integer id) {
+        return sysDoctorMapper.selectDoctorByDeskId(id);
+    }
+
+    /**
      * 新增医生
      * @param sysDoctorEntity 参数
      * @return 返回值

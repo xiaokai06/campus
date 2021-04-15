@@ -10,8 +10,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="menu_level" jdbcType="VARCHAR" property="menuLevel" />
     <result column="sort" jdbcType="VARCHAR" property="sort" />
-    <result column="root_path" jdbcType="VARCHAR" property="rootPath"/>
-    <result column="two_path" jdbcType="VARCHAR" property="twoPath"/>
+    <result column="component" jdbcType="VARCHAR" property="component"/>
     <result column="path" jdbcType="VARCHAR" property="path"/>
     <result column="icon" jdbcType="VARCHAR" property="icon"/>
     <result column="menu_type" jdbcType="INTEGER" property="menuType"/>
@@ -19,7 +18,7 @@
   </resultMap>
 
   <sql id="Menu_Column_List">
-    id, parent_id, menu_name, create_time, update_time, menu_level, sort, root_path, two_path, path, icon, menu_type, hidden_flag
+    id, parent_id, menu_name, create_time, update_time, menu_level, sort, component, path, icon, menu_type, hidden_flag
   </sql>
 
   <!-- 超管角色查询所有菜单 -->
@@ -35,7 +34,7 @@
 
   <!-- 通过用户ID查询菜单权限 -->
   <select id="selectMenuById" parameterType="java.lang.Integer" resultMap="MenuResultMap">
-    select s.menu_id as id,u.menu_name,u.root_path,u.two_path,u.path,u.icon,u.menu_type,u.hidden_flag
+    select s.menu_id as id,u.menu_name,u.component,u.path,u.icon,u.menu_type,u.hidden_flag
     from sys_role_menu s
                  left join sys_menu u on s.menu_id = u.id
     where role_id = (select role_id from sys_user_role where user_id = #{userId})

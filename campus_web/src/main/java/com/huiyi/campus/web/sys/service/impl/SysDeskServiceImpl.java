@@ -3,6 +3,7 @@ package com.huiyi.campus.web.sys.service.impl;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysDeskEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysDeskDao;
+import com.huiyi.campus.dao.pojo.web.sys.SysDoctorDao;
 import com.huiyi.campus.web.sys.service.SysDeskService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,9 +21,11 @@ import java.util.List;
 public class SysDeskServiceImpl implements SysDeskService {
 
     SysDeskDao sysDeskDao;
+    SysDoctorDao sysDoctorDao;
 
-    SysDeskServiceImpl(SysDeskDao sysDeskDao) {
+    SysDeskServiceImpl(SysDeskDao sysDeskDao, SysDoctorDao sysDoctorDao) {
         this.sysDeskDao = sysDeskDao;
+        this.sysDoctorDao = sysDoctorDao;
     }
 
     /**
@@ -70,6 +73,10 @@ public class SysDeskServiceImpl implements SysDeskService {
      */
     @Override
     public ResultBody deleteDesk(Integer id) {
+        List<Integer> list = sysDoctorDao.selectDoctorByDeskId(id);
+        if (!CollectionUtils.isEmpty(list)) {
+            return ResultBody.error("该科室已有医生，无法删除！");
+        }
         return ResultBody.delete(sysDeskDao.deleteDesk(id));
     }
 }

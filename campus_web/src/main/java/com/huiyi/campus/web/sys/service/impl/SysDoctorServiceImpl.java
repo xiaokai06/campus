@@ -2,7 +2,9 @@ package com.huiyi.campus.web.sys.service.impl;
 
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysDoctorEntity;
+import com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysDoctorDao;
+import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDoctorDao;
 import com.huiyi.campus.web.sys.service.SysDoctorService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,9 +19,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class SysDoctorServiceImpl implements SysDoctorService {
 
     SysDoctorDao sysDoctorDao;
+    SysSchoolDoctorDao sysSchoolDoctorDao;
 
-    SysDoctorServiceImpl(SysDoctorDao sysDoctorDao) {
+    SysDoctorServiceImpl(SysDoctorDao sysDoctorDao, SysSchoolDoctorDao sysSchoolDoctorDao) {
         this.sysDoctorDao = sysDoctorDao;
+        this.sysSchoolDoctorDao = sysSchoolDoctorDao;
     }
 
     /**
@@ -39,7 +43,9 @@ public class SysDoctorServiceImpl implements SysDoctorService {
      */
     @Override
     public ResultBody insertDoctorInfo(SysDoctorEntity sysDoctorEntity) {
-        return ResultBody.insert(sysDoctorDao.insertDoctorInfo(sysDoctorEntity), sysDoctorEntity.getId());
+        int i = sysDoctorDao.insertDoctorInfo(sysDoctorEntity);
+        Integer id = sysDoctorEntity.getId();
+        return ResultBody.insert(i, id);
     }
 
     /**
@@ -54,11 +60,17 @@ public class SysDoctorServiceImpl implements SysDoctorService {
 
     /**
      * 删除医生
-     * @param id 参数
+     * @param sysSchoolDoctorEntity 参数
      * @return 返回值
      */
     @Override
-    public ResultBody deleteDoctorInfo(Integer id) {
-        return ResultBody.delete(sysDoctorDao.deleteDoctorInfo(id));
+    public ResultBody deleteDoctorInfo(SysSchoolDoctorEntity sysSchoolDoctorEntity) {
+        Integer doctorId = sysSchoolDoctorEntity.getDoctorId();
+        Integer schoolId = sysSchoolDoctorEntity.getSchoolId();
+        int i = sysDoctorDao.deleteDoctorInfo(doctorId);
+        if (i > 0) {
+            sysSchoolDoctorDao.deleteSchoolByDoctorId(schoolId, doctorId);
+        }
+        return ResultBody.delete(i);
     }
 }

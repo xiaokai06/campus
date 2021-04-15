@@ -26,6 +26,11 @@
               </if>
   </select>
 
+  <!-- 通过科室ID查询医生 -->
+  <select id="selectDoctorByDeskId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select id from sys_doctor where desk_id=#{id}
+  </select>
+
   <!-- 新增医生 -->
   <insert id="insertDoctorInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.huiyi.campus.dao.entity.sys.SysDoctorEntity">
     insert into sys_doctor

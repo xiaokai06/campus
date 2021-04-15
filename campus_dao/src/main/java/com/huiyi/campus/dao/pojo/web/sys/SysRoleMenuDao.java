@@ -67,10 +67,8 @@ public class SysRoleMenuDao {
             Integer roleId = sysRoleEntity.getId();
             List<Integer> menuIds = sysRoleEntity.getMenuIds();
             if (!Collections.isEmpty(menuIds)) {
-                int j = sysRoleMenuMapper.insertRoleMenuInfo(roleId, menuIds);
-                if (j > 0) {
-                    logger.info("新增的角色ID为：" + roleId + ", 菜单权限为：" + menuIds);
-                }
+                sysRoleMenuMapper.insertRoleMenuInfo(roleId, menuIds);
+                logger.info("新增的角色ID为：" + roleId + ", 菜单权限为：" + menuIds);
             }
         }
         return i;
@@ -82,16 +80,15 @@ public class SysRoleMenuDao {
         List<Integer> idList = sysRoleEntity.getMenuIds();
         if (!Collections.isEmpty(idList)) {
             sysRoleMenuMapper.deleteMenuByRoleId(roleId);
-            int i = sysRoleMenuMapper.insertRoleMenuInfo(roleId, idList);
-            if (i > 0) {
-                logger.info("修改的角色ID为：" + roleId + ", 新的菜单权限ID为：" + idList);
-            }
+            sysRoleMenuMapper.insertRoleMenuInfo(roleId, idList);
+            logger.info("修改的角色ID为：" + roleId + ", 新的菜单权限ID为：" + idList);
         }
         return id;
     }
 
     public int deleteRoleInfo(Integer id) {
-        return sysRoleMenuMapper.deleteRoleInfo(id);
+        int i = sysRoleMenuMapper.deleteRoleInfo(id);
+        return i > 0 ? sysRoleMenuMapper.deleteMenuByRoleId(id) : i;
     }
 
     public List<SysMenuEntity> getAllMenu(SysMenuEntity sysMenuEntity) {

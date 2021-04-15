@@ -19,8 +19,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author: yzg
@@ -153,15 +156,35 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public ResultBody getMenuByUserId(String nickName) {
-        List<SysMenuEntity> menuList;
+        List<SysMenuEntity> list;
         if (CommConstants.USER_ADMIN.equals(nickName)) {
-            menuList = sysRoleMenuDao.selectMenuByUserId(null);
+            list = sysRoleMenuDao.selectMenuByUserId(null);
         } else {
             SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
             Integer userId = sysUserEntity.getId();
-            menuList = sysRoleMenuDao.selectMenuByUserId(userId);
+            list = sysRoleMenuDao.selectMenuByUserId(userId);
         }
-        return ResultBody.success(menuList);
+        Map<Integer, List<SysMenuEntity>> map = list.stream().collect(Collectors.groupingBy(SysMenuEntity::getParentId));
+        for (Integer parentId : map.keySet()) {
+            List<SysMenuEntity> result = map.get(parentId);
+            if (!CollectionUtils.isEmpty(result)) {
+                for (SysMenuEntity firstMenu : result) {
+                    List<SysMenuEntity> resultList = map.get(firstMenu.getId());
+                    if (!CollectionUtils.isEmpty(resultList)) {
+                        for (SysMenuEntity secondMenu : resultList) {
+                            List<SysMenuEntity> menuList = map.get(secondMenu.getId());
+                            if (!CollectionUtils.isEmpty(menuList)) {
+                                secondMenu.setList(menuList);
+                            } else {
+                                firstMenu.setList(resultList);
+                            }
+                        }
+                    }
+                }
+            }
+            return ResultBody.success(result);
+        }
+        return ResultBody.success();
     }
 
     /**
@@ -192,9 +215,10 @@ public class SysUserServiceImpl implements SysUserService {
         }
         // TODO:对于前端传递过来的密码加密字符串先解密后加密再存储到数据库
         String pwd = sysUserEntity.getPassWord();
-        String decAes = decryptResult(pwd, "新增用户");
+        String desc = "新增用户";
+        String decAes = decryptResult(pwd, desc);
         if (!StringUtils.isEmpty(decAes)) {
-            sysUserEntity.setPassWord(encryptResult(decAes, "新增用户"));
+            sysUserEntity.setPassWord(encryptResult(decAes, desc));
         }
         return ResultBody.insert(sysUserDao.insertUserInfo(sysUserEntity), sysUserEntity.getId());
     }

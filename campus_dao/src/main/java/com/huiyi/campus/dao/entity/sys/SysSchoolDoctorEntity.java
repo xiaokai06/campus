@@ -14,7 +14,7 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 @ApiModel("学校医生")
-public class SysSchoolDoctor implements Serializable {
+public class SysSchoolDoctorEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

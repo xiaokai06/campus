@@ -14,6 +14,13 @@ public interface SysDoctorMapper {
     List<SysDoctorEntity> selectAllDoctor(SysDoctorEntity sysDoctorEntity);
 
     /**
+     * 通过科室ID查询医生
+     * @param id
+     * @return
+     */
+    List<Integer> selectDoctorByDeskId(Integer id);
+
+    /**
      * 新增医生
      * @param sysDoctorEntity
      * @return

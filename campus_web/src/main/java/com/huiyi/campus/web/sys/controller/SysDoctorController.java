@@ -5,6 +5,7 @@ import com.huiyi.campus.common.annotaion.OperLog;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysDoctorEntity;
+import com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity;
 import com.huiyi.campus.web.sys.service.SysDoctorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
@@ -53,10 +54,10 @@ public class SysDoctorController {
 
     @IsLogin
     @ApiOperation("删除医生")
-    @GetMapping("/deleteDoctor")
+    @PostMapping("/deleteDoctor")
     @OperLog(operModule = "医生字典-删除", operType = CommConstants.DELETE, operDesc = "医生字典-删除医生")
-    public ResultBody deleteDoctor(@RequestBody Integer id) {
-        return sysDoctorService.deleteDoctorInfo(id);
+    public ResultBody deleteDoctor(@RequestBody SysSchoolDoctorEntity sysSchoolDoctorEntity) {
+        return sysDoctorService.deleteDoctorInfo(sysSchoolDoctorEntity);
     }
 
 }

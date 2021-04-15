@@ -3,6 +3,7 @@ package com.huiyi.campus.web.sys.service.impl;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
+import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDoctorDao;
 import com.huiyi.campus.web.sys.service.SysSchoolService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,9 +18,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class SysSchoolServiceImpl implements SysSchoolService {
 
     SysSchoolDao sysSchoolDao;
+    SysSchoolDoctorDao sysSchoolDoctorDao;
 
-    SysSchoolServiceImpl(SysSchoolDao sysSchoolDao) {
+    SysSchoolServiceImpl(SysSchoolDao sysSchoolDao, SysSchoolDoctorDao sysSchoolDoctorDao) {
         this.sysSchoolDao = sysSchoolDao;
+        this.sysSchoolDoctorDao = sysSchoolDoctorDao;
     }
 
     /**
@@ -59,6 +62,10 @@ public class SysSchoolServiceImpl implements SysSchoolService {
      */
     @Override
     public ResultBody deleteSchoolInfo(Integer id) {
-        return ResultBody.delete(sysSchoolDao.deleteSchoolInfo(id));
+        int i = sysSchoolDao.deleteSchoolInfo(id);
+        if (i > 0) {
+            sysSchoolDoctorDao.deleteDoctorBySchoolId(id);
+        }
+        return ResultBody.delete(i);
     }
 }

@@ -35,21 +35,21 @@ public class PhyHealthEducationController {
 
     @IsLogin
     @ApiOperation("新增健康宣教")
-    @PostMapping("/insertPhyHe")
+    @PostMapping("/insertHealthEducation")
     public ResultBody insertHealthEducation(@RequestBody PhyHealthEducationEntity phyHealthEducationEntity) {
         return phyHealthEducationService.insertHealthEducation(phyHealthEducationEntity);
     }
 
     @IsLogin
     @ApiOperation("修改健康宣教")
-    @PostMapping("/updatePhyHe")
+    @PostMapping("/updateHealthEducation")
     public ResultBody updateHealthEducation(@RequestBody PhyHealthEducationEntity phyHealthEducationEntity) {
         return phyHealthEducationService.updateHealthEducation(phyHealthEducationEntity);
     }
 
     @IsLogin
     @ApiOperation("删除健康宣教")
-    @GetMapping("/deletePhyHe")
+    @GetMapping("/deleteHealthEducation")
     public ResultBody deleteHealthEducation(@RequestParam Integer id) {
         return phyHealthEducationService.deleteHealthEducation(id);
     }

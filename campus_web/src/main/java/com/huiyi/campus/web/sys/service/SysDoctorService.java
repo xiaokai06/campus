@@ -2,6 +2,7 @@ package com.huiyi.campus.web.sys.service;
 
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysDoctorEntity;
+import com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity;
 
 /**
  * @author: yzg
@@ -33,9 +34,9 @@ public interface SysDoctorService {
 
     /**
      * 删除医生
-     * @param id
+     * @param sysSchoolDoctorEntity
      * @return
      */
-    ResultBody deleteDoctorInfo(Integer id);
+    ResultBody deleteDoctorInfo(SysSchoolDoctorEntity sysSchoolDoctorEntity);
 
 }
