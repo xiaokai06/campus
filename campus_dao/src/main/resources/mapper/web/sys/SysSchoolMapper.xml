@@ -28,43 +28,38 @@
                 </if>
     </select>
 
+    <!-- 通过机构ID删除学校 -->
+    <delete id="deleteSchoolByOrganId" parameterType="java.lang.Integer">
+        delete from sys_school where organ_id=#{id,jdbcType=INTEGER}
+    </delete>
+
     <!-- 新增学校 -->
     <insert id="insertSchoolInfo" useGeneratedKeys="true" keyProperty="id"
             parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity">
         insert into sys_school
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
             <if test="schoolName != null">
                 school_name,
             </if>
             <if test="schoolAddress != null">
                 school_address,
             </if>
-            <if test="createTime != null">
-                create_time,
-            </if>
             <if test="organId != null">
                 organ_id,
             </if>
+                create_time,
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=INTEGER},
-            </if>
             <if test="schoolName != null">
                 #{schoolName,jdbcType=VARCHAR},
             </if>
             <if test="schoolAddress != null">
                 #{schoolAddress,jdbcType=VARCHAR},
             </if>
-            <if test="createTime != null">
-                #{createTime},
-            </if>
             <if test="organId != null">
                 #{organId,jdbcType=INTEGER},
             </if>
+                now(),
         </trim>
     </insert>
 

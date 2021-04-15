@@ -24,12 +24,10 @@
       <if test="operMethod != null">
         oper_method,
       </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
       <if test="operIp != null">
         oper_ip,
       </if>
+        create_time,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="operUser != null">
@@ -50,12 +48,10 @@
       <if test="operMethod != null">
         #{operMethod,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="operIp != null">
         #{operIp,jdbcType=VARCHAR},
       </if>
+        now(),
     </trim>
   </insert>
 

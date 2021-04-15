@@ -1,6 +1,7 @@
 package com.huiyi.campus.web.sys.service.impl;
 
 import com.huiyi.campus.common.base.ResultBody;
+import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysDeskEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysDeskDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysDoctorDao;
@@ -47,7 +48,7 @@ public class SysDeskServiceImpl implements SysDeskService {
     public ResultBody insertDesk(SysDeskEntity sysDeskEntity) {
         List<SysDeskEntity> list = sysDeskDao.selectAllDesk(sysDeskEntity);
         if (!CollectionUtils.isEmpty(list)) {
-            return ResultBody.error("该科室名称已存在，请重新输入！");
+            return ResultBody.error(CommConstants.DESK_REPETITION);
         }
         return ResultBody.insert(sysDeskDao.insertDesk(sysDeskEntity), sysDeskEntity.getId());
     }
@@ -59,10 +60,6 @@ public class SysDeskServiceImpl implements SysDeskService {
      */
     @Override
     public ResultBody updateDesk(SysDeskEntity sysDeskEntity) {
-        List<SysDeskEntity> list = sysDeskDao.selectAllDesk(sysDeskEntity);
-        if (!CollectionUtils.isEmpty(list)) {
-            return ResultBody.error("该科室名称已存在，请重新输入！");
-        }
         return ResultBody.update(sysDeskDao.updateDesk(sysDeskEntity));
     }
 
@@ -73,10 +70,10 @@ public class SysDeskServiceImpl implements SysDeskService {
      */
     @Override
     public ResultBody deleteDesk(Integer id) {
-        List<Integer> list = sysDoctorDao.selectDoctorByDeskId(id);
-        if (!CollectionUtils.isEmpty(list)) {
-            return ResultBody.error("该科室已有医生，无法删除！");
+        int i = sysDeskDao.deleteDesk(id);
+        if (i > 0) {
+            sysDoctorDao.deleteDoctorByDeskId(id);
         }
-        return ResultBody.delete(sysDeskDao.deleteDesk(id));
+        return ResultBody.delete(i);
     }
 }

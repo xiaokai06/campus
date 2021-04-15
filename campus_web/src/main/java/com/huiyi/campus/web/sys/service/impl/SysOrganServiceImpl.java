@@ -1,8 +1,10 @@
 package com.huiyi.campus.web.sys.service.impl;
 
 import com.huiyi.campus.common.base.ResultBody;
+import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
+import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
 import com.huiyi.campus.web.sys.service.SysOrganService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,9 +22,11 @@ import java.util.List;
 public class SysOrganServiceImpl implements SysOrganService {
 
     SysOrganDao sysOrganDao;
+    SysSchoolDao sysSchoolDao;
 
-    SysOrganServiceImpl(SysOrganDao sysOrganDao) {
+    SysOrganServiceImpl(SysOrganDao sysOrganDao, SysSchoolDao sysSchoolDao) {
         this.sysOrganDao = sysOrganDao;
+        this.sysSchoolDao = sysSchoolDao;
     }
 
     /**
@@ -44,7 +48,7 @@ public class SysOrganServiceImpl implements SysOrganService {
     public ResultBody insertOrganInfo(SysOrganEntity sysOrganEntity) {
         List<SysOrganEntity> list = sysOrganDao.selectAllOrgan(sysOrganEntity);
         if (!CollectionUtils.isEmpty(list)) {
-            return ResultBody.error("该机构名称已存在，请重新输入！");
+            return ResultBody.error(CommConstants.ORGAN_REPETITION);
         }
         return ResultBody.insert(sysOrganDao.insertOrganInfo(sysOrganEntity), sysOrganEntity.getId());
     }
@@ -56,10 +60,6 @@ public class SysOrganServiceImpl implements SysOrganService {
      */
     @Override
     public ResultBody updateOrganInfo(SysOrganEntity sysOrganEntity) {
-        List<SysOrganEntity> list = sysOrganDao.selectAllOrgan(sysOrganEntity);
-        if (!CollectionUtils.isEmpty(list)) {
-            return ResultBody.error("该机构名称已存在，请重新输入！");
-        }
         return ResultBody.update(sysOrganDao.updateOrganInfo(sysOrganEntity));
     }
 
@@ -70,6 +70,10 @@ public class SysOrganServiceImpl implements SysOrganService {
      */
     @Override
     public ResultBody deleteOrganInfo(Integer id) {
-        return ResultBody.delete(sysOrganDao.deleteOrganInfo(id));
+        int i = sysOrganDao.deleteOrganInfo(id);
+        if (i > 0) {
+            sysSchoolDao.deleteSchoolByOrganId(id);
+        }
+        return ResultBody.delete(i);
     }
 }

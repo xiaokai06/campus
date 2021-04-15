@@ -14,6 +14,13 @@ public interface SysSchoolMapper {
     List<SysSchoolEntity> selectAllSchool(SysSchoolEntity sysSchoolEntity);
 
     /**
+     * 通过机构ID删除学校
+     * @param id
+     * @return
+     */
+    List<Integer> deleteSchoolByOrganId(Integer id);
+
+    /**
      * 新增学校
      * @param sysSchoolEntity 参数
      * @return 返回值

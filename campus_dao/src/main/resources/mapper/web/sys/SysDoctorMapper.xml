@@ -11,24 +11,21 @@
     <result column="desk_name" jdbcType="VARCHAR" property="deskName"/>
     <result column="doctor_state" jdbcType="INTEGER" property="doctorState"/>
     <result column="introduce" jdbcType="VARCHAR" property="introduce"/>
+    <result column="school_id" jdbcType="INTEGER" property="schoolId"/>
+    <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
   </resultMap>
 
   <!-- 查询所有医生 -->
   <select id="selectAllDoctor" parameterType="com.huiyi.campus.dao.entity.sys.SysDoctorEntity" resultMap="BaseResultMap">
-    select sd.id, sd.doctor_name, sd.create_time, sd.update_time, sd.desk_id, sd.doctor_state, sd.introduce, sk.desk_name
-        from sys_doctor sd left join sys_desk sk on sd.desk_id=sk.id
-            where 1=1
-              <if test="doctorName != null and doctorName != ''">
-                and sd.doctor_name like CONCAT('%', #{doctorName,jdbcType=VARCHAR}, '%')
-              </if>
-              <if test="deskId != null and deskId != ''">
-                and sd.desk_id=#{deskId,jdbcType=INTEGER}
-              </if>
-  </select>
-
-  <!-- 通过科室ID查询医生 -->
-  <select id="selectDoctorByDeskId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-    select id from sys_doctor where desk_id=#{id}
+    select sd.id, sd.doctor_name, sd.create_time, sd.update_time, sd.desk_id, sd.doctor_state, sd.introduce, sk.desk_name, ss.id as school_id, ss.school_name
+        from sys_doctor sd left join sys_desk sk on sd.desk_id=sk.id left join sys_school_doctor ssd on sd.id = ssd.doctor_id
+            left join sys_school ss on ssd.school_id=ss.id where 1=1
+                <if test="doctorName != null and doctorName != ''">
+                  and sd.doctor_name like CONCAT('%', #{doctorName,jdbcType=VARCHAR}, '%')
+                </if>
+                <if test="deskId != null and deskId != ''">
+                  and sd.desk_id=#{deskId,jdbcType=INTEGER}
+                </if>
   </select>
 
   <!-- 新增医生 -->
@@ -41,9 +38,6 @@
       <if test="doctorName != null">
         doctor_name,
       </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
       <if test="deskId != null">
         desk_id,
       </if>
@@ -53,6 +47,7 @@
       <if test="introduce != null">
         introduce,
       </if>
+        create_time,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -60,9 +55,6 @@
       </if>
       <if test="doctorName != null">
         #{doctorName,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="deskId != null">
         #{deskId,jdbcType=INTEGER},
@@ -73,6 +65,7 @@
       <if test="introduce != null">
         #{introduce,jdbcType=VARCHAR},
       </if>
+        now(),
     </trim>
   </insert>
 
@@ -103,5 +96,10 @@
   <delete id="deleteDoctorInfo" parameterType="java.lang.Integer">
     delete from sys_doctor where id = #{id,jdbcType=INTEGER}
   </delete>
+
+  <!-- 通过科室ID删除医生 -->
+  <select id="deleteDoctorByDeskId" parameterType="java.lang.Integer">
+    delete from sys_doctor where desk_id=#{id}
+  </select>
 
 </mapper>

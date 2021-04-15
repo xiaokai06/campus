@@ -44,8 +44,12 @@ public class SysDoctorServiceImpl implements SysDoctorService {
     @Override
     public ResultBody insertDoctorInfo(SysDoctorEntity sysDoctorEntity) {
         int i = sysDoctorDao.insertDoctorInfo(sysDoctorEntity);
-        Integer id = sysDoctorEntity.getId();
-        return ResultBody.insert(i, id);
+        Integer doctorId = sysDoctorEntity.getId();
+        if (i > 0) {
+            Integer schoolId = sysDoctorEntity.getSchoolId();
+            sysSchoolDoctorDao.insertDoctorBySchoolId(doctorId, schoolId);
+        }
+        return ResultBody.insert(i, doctorId);
     }
 
     /**
@@ -55,7 +59,13 @@ public class SysDoctorServiceImpl implements SysDoctorService {
      */
     @Override
     public ResultBody updateDoctorInfo(SysDoctorEntity sysDoctorEntity) {
-        return ResultBody.update(sysDoctorDao.updateDoctorInfo(sysDoctorEntity));
+        int i = sysDoctorDao.updateDoctorInfo(sysDoctorEntity);
+        Integer doctorId = sysDoctorEntity.getId();
+        if (i > 0) {
+            Integer schoolId = sysDoctorEntity.getSchoolId();
+            sysSchoolDoctorDao.updateSchoolByDoctorId(doctorId, schoolId);
+        }
+        return ResultBody.update(i);
     }
 
     /**

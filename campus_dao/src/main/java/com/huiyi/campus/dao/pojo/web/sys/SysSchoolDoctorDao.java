@@ -1,6 +1,5 @@
 package com.huiyi.campus.dao.pojo.web.sys;
 
-import com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysSchoolDoctorMapper;
 import org.springframework.stereotype.Repository;
 
@@ -20,11 +19,20 @@ public class SysSchoolDoctorDao {
 
     /**
      * 通过学校ID新增医生ID
-     * @param sysSchoolDoctorEntity 参数
-     * @return 返回值
+     * @param doctorId 医生ID
+     * @param schoolId 学校ID
      */
-    public int insertDoctorBySchoolId(SysSchoolDoctorEntity sysSchoolDoctorEntity) {
-        return sysSchoolDoctorMapper.insertDoctorBySchoolId(sysSchoolDoctorEntity);
+    public void insertDoctorBySchoolId(Integer doctorId, Integer schoolId) {
+        sysSchoolDoctorMapper.insertDoctorBySchoolId(doctorId, schoolId);
+    }
+
+    /**
+     * 通过医生ID更新学校ID
+     * @param doctorId
+     * @param schoolId
+     */
+    public void updateSchoolByDoctorId(Integer doctorId, Integer schoolId) {
+        sysSchoolDoctorMapper.updateSchoolByDoctorId(doctorId, schoolId);
     }
 
     /**

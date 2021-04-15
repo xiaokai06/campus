@@ -15,9 +15,7 @@
       <if test="loginTime != null">
         login_time,
       </if>
-      <if test="createTime != null">
         create_time,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="loginUname != null">
@@ -29,9 +27,7 @@
       <if test="loginTime != null">
         #{loginTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
+        now(),
     </trim>
   </insert>
 

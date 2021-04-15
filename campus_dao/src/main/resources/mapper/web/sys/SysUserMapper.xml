@@ -76,15 +76,13 @@
             <if test="remark != null">
                 remark,
             </if>
-            <if test="createTime != null">
-                create_time,
-            </if>
             <if test="schoolId != null">
                 school_id,
             </if>
             <if test="organId != null">
                 organ_id,
             </if>
+                create_time,
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -111,15 +109,13 @@
             <if test="remark != null">
                 #{remark,jdbcType=VARCHAR},
             </if>
-            <if test="createTime != null">
-                #{createTime},
-            </if>
             <if test="schoolId != null">
                 #{schoolId,jdbcType=INTEGER},
             </if>
             <if test="organId != null">
                 #{organId,jdbcType=INTEGER},
             </if>
+                now(),
         </trim>
     </insert>
 

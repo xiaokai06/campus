@@ -44,4 +44,19 @@ public class CommConstants {
     /** 管理员昵称 */
     public static final String USER_ADMIN = "admin";
 
+    public static final String ORGAN_REPETITION = "该机构名称已存在，请重新输入！";
+
+    public static final String ROLE_REPETITION = "该角色名称已存在，请重新输入！";
+
+    public static final String MENU_REPETITION = "该菜单名称已存在，请重新输入！";
+
+    public static final String DESK_REPETITION = "该科室名称已存在，请重新输入！";
+
+    public static final String NOT_CREATE = "超管角色用户不可创建！";
+
+    public static final String NOT_EDIT = "超管角色不可修改！";
+
+    public static final String NOT_RESET = "该用户不可重置！";
+
+
 }

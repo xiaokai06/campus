@@ -207,7 +207,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public ResultBody insertUserInfo(SysUserEntity sysUserEntity) {
         if (1 == sysUserEntity.getRoleId()) {
-            return ResultBody.error("超管角色用户不可创建！");
+            return ResultBody.error(CommConstants.NOT_CREATE);
         }
         SysUserEntity sysUser = sysUserDao.selectUserByNickName(sysUserEntity.getNickName());
         if (null != sysUser) {
@@ -233,10 +233,6 @@ public class SysUserServiceImpl implements SysUserService {
         if (1 == sysUserEntity.getId()) {
             return ResultBody.error(CommonEnum.NO_DELETE);
         }
-        SysUserEntity sysUser = sysUserDao.selectUserByNickName(sysUserEntity.getNickName());
-        if (null != sysUser) {
-            return ResultBody.error(CommonEnum.REPETITION);
-        }
         return ResultBody.update(sysUserDao.updateUserInfo(sysUserEntity));
     }
 
@@ -261,7 +257,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public ResultBody resetPwd(UpdatePwdDto updatePwdDto) {
         if (CommConstants.USER_ADMIN.equals(updatePwdDto.getNickName())) {
-            return ResultBody.error(CommonEnum.NO_DELETE);
+            return ResultBody.error(CommConstants.NOT_RESET);
         }
         updatePwdDto.setNewPwd(encryptResult(CommConstants.DEFAULT_PWD, "重置密码"));
         return ResultBody.success(sysUserDao.updateUserPwd(updatePwdDto));
