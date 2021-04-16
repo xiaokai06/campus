@@ -39,6 +39,15 @@ public class SysUserDao {
     }
 
     /**
+     * 用于判断该昵称是否存在
+     * @param nickName
+     * @return
+     */
+    public SysUserEntity selectUserInfo(String nickName) {
+        return sysUserMapper.selectUserInfo(nickName);
+    }
+
+    /**
      * 修改密码
      * @param updatePwdDto 参数
      * @return 返回值

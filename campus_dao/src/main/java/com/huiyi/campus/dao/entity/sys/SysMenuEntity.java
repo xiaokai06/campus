@@ -34,9 +34,6 @@ public class SysMenuEntity implements Serializable {
     @ApiModelProperty("创建时间")
     private String createTime;
 
-    @ApiModelProperty("修改时间")
-    private String updateTime;
-
     @ApiModelProperty("菜单等级")
     private Integer menuLevel;
 

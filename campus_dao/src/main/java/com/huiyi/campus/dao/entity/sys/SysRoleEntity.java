@@ -28,9 +28,6 @@ public class SysRoleEntity implements Serializable {
     @ApiModelProperty("创建时间")
     private String createTime;
 
-    @ApiModelProperty("修改时间")
-    private String updateTime;
-
     @ApiModelProperty("角色状态")
     private Integer roleStatus;
 

@@ -36,6 +36,13 @@ public interface SysUserMapper {
     SysUserEntity selectUserInfoByNickName(String nickName);
 
     /**
+     * 用于判断该昵称是否存在
+     * @param nickName
+     * @return
+     */
+    SysUserEntity selectUserInfo(String nickName);
+
+    /**
      * 通过用户昵称修改密码
      * @param updatePwdDto
      * @return

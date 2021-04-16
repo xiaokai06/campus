@@ -209,17 +209,13 @@ public class SysUserServiceImpl implements SysUserService {
         if (1 == sysUserEntity.getRoleId()) {
             return ResultBody.error(CommConstants.NOT_CREATE);
         }
-        SysUserEntity sysUser = sysUserDao.selectUserByNickName(sysUserEntity.getNickName());
+        SysUserEntity sysUser = sysUserDao.selectUserInfo(sysUserEntity.getNickName());
         if (null != sysUser) {
             return ResultBody.error(CommonEnum.REPETITION);
         }
-        // TODO:对于前端传递过来的密码加密字符串先解密后加密再存储到数据库
-        String pwd = sysUserEntity.getPassWord();
+        // TODO:新增用户密码默认123456
         String desc = "新增用户";
-        String decAes = decryptResult(pwd, desc);
-        if (!StringUtils.isEmpty(decAes)) {
-            sysUserEntity.setPassWord(encryptResult(decAes, desc));
-        }
+        sysUserEntity.setPassWord(encryptResult(CommConstants.DEFAULT_PWD, desc));
         return ResultBody.insert(sysUserDao.insertUserInfo(sysUserEntity), sysUserEntity.getId());
     }
 

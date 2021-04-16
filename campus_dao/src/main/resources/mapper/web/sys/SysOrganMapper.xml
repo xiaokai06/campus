@@ -1,46 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysOrganMapper">
-
     <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysOrganEntity">
         <result property="id" jdbcType="INTEGER" column="id"/>
         <result property="organName" jdbcType="VARCHAR" column="organ_name"/>
         <result property="organCode" jdbcType="VARCHAR" column="organ_code"/>
         <result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>
-        <result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/>
     </resultMap>
 
     <!-- 查询机构 -->
-    <select id="selectAllOrgan" parameterType="com.huiyi.campus.dao.entity.sys.SysOrganEntity" resultMap="BaseResultMap">
-        select id, organ_name, organ_code, create_time, update_time
-            from sys_organ where 1=1
-                <if test="organName != null and organName != ''">
-                    and organ_name like CONCAT('%', #{organName,jdbcType=VARCHAR}, '%')
-                </if>
-                <if test="organCode != null and organCode != ''">
-                    and organ_code like CONCAT('%', #{organCode,jdbcType=VARCHAR}, '%')
-                </if>
+    <select id="selectAllOrgan" parameterType="com.huiyi.campus.dao.entity.sys.SysOrganEntity"
+            resultMap="BaseResultMap">
+        select id, organ_name, organ_code, create_time
+        from sys_organ
+        <where>
+            <if test="organName != null and organName != ''">
+                organ_name like CONCAT('%', #{organName,jdbcType=VARCHAR}, '%')
+            </if>
+            <if test="organCode != null and organCode != ''">
+                and organ_code like CONCAT('%', #{organCode,jdbcType=VARCHAR}, '%')
+            </if>
+        </where>
     </select>
 
     <!-- 新增机构 -->
-    <insert id="insertOrganInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.huiyi.campus.dao.entity.sys.SysOrganEntity">
-        insert into sys_organ(
+    <insert id="insertOrganInfo" useGeneratedKeys="true" keyProperty="id"
+            parameterType="com.huiyi.campus.dao.entity.sys.SysOrganEntity">
+        insert into sys_organ
+        <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="organName != null and organName != ''">
                 organ_name,
             </if>
             <if test="organCode != null and organCode != ''">
                 organ_code,
             </if>
-            create_time
-        ) values (
+            create_time,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="organName != null and organName != ''">
                 #{organName,jdbcType=VARCHAR},
             </if>
             <if test="organCode != null and organCode != ''">
                 #{organCode,jdbcType=VARCHAR},
             </if>
-            now()
-        )
+            now(),
+        </trim>
     </insert>
 
     <!-- 修改机构 -->
@@ -54,12 +58,20 @@
                 organ_code=#{organCode,jdbcType=VARCHAR},
             </if>
         </set>
-        where id=#{id,jdbcType=INTEGER}
+        <where>
+            <if test="id != null and id != ''">
+                id=#{id,jdbcType=INTEGER}
+            </if>
+        </where>
     </update>
 
     <!-- 通过id删除机构 -->
     <delete id="deleteOrganInfo" parameterType="java.lang.Integer">
-        delete from sys_organ where id=#{id,jdbcType=INTEGER}
+        delete from sys_organ
+        <where>
+            <if test="id != null and id != ''">
+                id=#{id,jdbcType=INTEGER}
+            </if>
+        </where>
     </delete>
-
 </mapper>

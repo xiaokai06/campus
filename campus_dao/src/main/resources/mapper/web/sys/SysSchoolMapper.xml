@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysSchoolMapper">
-
     <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysSchoolEntity">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
         <result column="school_address" jdbcType="VARCHAR" property="schoolAddress"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
         <result column="organ_id" jdbcType="INTEGER" property="organId"/>
         <result column="organ_name" jdbcType="VARCHAR" property="organName"/>
     </resultMap>
 
     <!-- 查询学校 -->
-    <select id="selectAllSchool" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity" resultMap="BaseResultMap">
-        select s.id,s.school_name,s.school_address,s.create_time,s.update_time,s.organ_id,so.organ_name
-            from sys_school s left join sys_organ so on s.organ_id=so.id
-                where 1=1
-                <if test="schoolName != null and schoolName != ''">
-                    and s.school_name like CONCAT('%', #{schoolName,jdbcType=VARCHAR}, '%')
-                </if>
-                <if test="schoolAddress != null and schoolAddress != ''">
-                    and s.school_address like CONCAT('%', #{schoolAddress,jdbcType=VARCHAR}, '%')
-                </if>
-                <if test="organId != null and organId != null">
-                    and s.organ_id = #{organId,jdbcType=INTEGER}
-                </if>
+    <select id="selectAllSchool" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity"
+            resultMap="BaseResultMap">
+        select s.id,s.school_name,s.school_address,s.create_time,s.organ_id,so.organ_name
+        from sys_school s left join sys_organ so on s.organ_id=so.id
+        <where>
+            <if test="schoolName != null and schoolName != ''">
+                s.school_name like CONCAT('%', #{schoolName,jdbcType=VARCHAR}, '%')
+            </if>
+            <if test="schoolAddress != null and schoolAddress != ''">
+                and s.school_address like CONCAT('%', #{schoolAddress,jdbcType=VARCHAR}, '%')
+            </if>
+            <if test="organId != null and organId != null">
+                and s.organ_id = #{organId,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
 
     <!-- 通过机构ID删除学校 -->
     <delete id="deleteSchoolByOrganId" parameterType="java.lang.Integer">
-        delete from sys_school where organ_id=#{id,jdbcType=INTEGER}
+        delete
+        from sys_school
+        <where>
+            <if test="id != null">
+                organ_id = #{id,jdbcType=INTEGER}
+            </if>
+        </where>
     </delete>
 
     <!-- 新增学校 -->
@@ -47,7 +53,7 @@
             <if test="organId != null">
                 organ_id,
             </if>
-                create_time,
+            create_time,
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="schoolName != null">
@@ -59,7 +65,7 @@
             <if test="organId != null">
                 #{organId,jdbcType=INTEGER},
             </if>
-                now(),
+            now(),
         </trim>
     </insert>
 
@@ -73,28 +79,39 @@
             <if test="schoolAddress != null">
                 school_address = #{schoolAddress,jdbcType=VARCHAR},
             </if>
-            <if test="createTime != null">
-                create_time = #{createTime},
-            </if>
             <if test="organId != null">
                 organ_id = #{organId,jdbcType=INTEGER},
             </if>
         </set>
-        where id = #{id,jdbcType=INTEGER}
+        <where>
+            <if test="id != null">
+                id = #{id,jdbcType=INTEGER}
+            </if>
+        </where>
     </update>
 
     <!-- 删除学校 -->
     <delete id="deleteSchoolInfo" parameterType="java.lang.Integer">
-        delete from sys_school where id = #{id,jdbcType=INTEGER}
+        delete
+        from sys_school
+        <where>
+            <if test="id != null">
+                id = #{id,jdbcType=INTEGER}
+            </if>
+        </where>
     </delete>
 
     <!--根据用户ID查询当前所归属学校-->
     <select id="selectSchoolByUserId" resultMap="BaseResultMap">
         SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time
         FROM sys_school school
-                     LEFT JOIN sys_user u
-                ON school.id = u.school_id
-        WHERE u.id = #{userId,jdbcType=INTEGER}
+        LEFT JOIN sys_user u
+        ON school.id = u.school_id
+        <where>
+            <if test="userId != null">
+                u.id = #{userId,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
 
     <!--根据教育局ID与用户ID查询学校-->
@@ -102,7 +119,10 @@
         SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time
         FROM sys_school school
         INNER JOIN sys_user u ON school.organ_id = u.organ_id
-        WHERE u.id = #{userId,jdbcType=INTEGER}
+        <where>
+            <if test="userId != null">
+                u.id = #{userId,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
-
 </mapper>

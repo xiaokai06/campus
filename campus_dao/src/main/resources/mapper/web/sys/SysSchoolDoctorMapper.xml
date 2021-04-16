@@ -1,47 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysSchoolDoctorMapper">
+    <!-- 通过学校ID新增医生ID -->
+    <insert id="insertDoctorBySchoolId" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity">
+        insert into sys_school_doctor
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="doctorId != null">
+                doctor_id,
+            </if>
+            <if test="schoolId != null">
+                school_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="doctorId != null">
+                #{doctorId,jdbcType=INTEGER},
+            </if>
+            <if test="schoolId != null">
+                #{schoolId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
 
-  <!-- 通过学校ID新增医生ID -->
-  <insert id="insertDoctorBySchoolId" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity">
-    insert into sys_school_doctor
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="doctorId != null">
-        doctor_id,
-      </if>
-      <if test="schoolId != null">
-        school_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="doctorId != null">
-        #{doctorId,jdbcType=INTEGER},
-      </if>
-      <if test="schoolId != null">
-        #{schoolId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
+    <!-- 通过医生ID更新学校 -->
+    <update id="updateSchoolByDoctorId" parameterType="java.lang.Integer">
+        update sys_school_doctor
+        <set>
+            <if test="schoolId != null and schoolId != ''">
+                school_id=#{schoolId,jdbcType=INTEGER}
+            </if>
+        </set>
+        <where>
+            <if test="doctorId != null and doctorId != ''">
+                doctor_id=#{doctorId,jdbcType=INTEGER}
+            </if>
+        </where>
+    </update>
 
-  <!-- 通过医生ID更新学校 -->
-  <update id="updateSchoolByDoctorId" parameterType="java.lang.Integer">
-    update sys_school_doctor
-    <set>
-      <if test="schoolId != null and schoolId != ''">
-        school_id=#{schoolId,jdbcType=INTEGER}
-      </if>
-    </set>
-    where doctor_id=#{doctorId,jdbcType=INTEGER}
-  </update>
+    <!-- 通过学校ID删除医生ID -->
+    <delete id="deleteDoctorBySchoolId" parameterType="java.lang.Integer">
+        delete
+        from sys_school_doctor
+        <where>
+            <if test="id != null and id != ''">
+                school_id=#{id,jdbcType=INTEGER}
+            </if>
+        </where>
+    </delete>
 
-  <!-- 通过学校ID删除医生ID -->
-  <delete id="deleteDoctorBySchoolId" parameterType="java.lang.Integer">
-    delete from sys_school_doctor where school_id=#{id}
-  </delete>
-
-  <!-- 通过医生ID删除学校ID -->
-  <delete id="deleteSchoolByDoctorId" parameterType="java.lang.Integer">
-    delete from sys_school_doctor where school_id=#{schoolId} and doctor_id=#{doctorId}
-  </delete>
-
+    <!-- 通过医生ID删除学校ID -->
+    <delete id="deleteSchoolByDoctorId" parameterType="java.lang.Integer">
+        delete
+        from sys_school_doctor
+        <where>
+            <if test="schoolId != null">
+                school_id=#{schoolId,jdbcType=INTEGER}
+            </if>
+            <if test="doctorId != null">
+                and doctor_id = #{doctorId,jdbcType=INTEGER}
+            </if>
+        </where>
+    </delete>
 </mapper>
