@@ -10,14 +10,14 @@ public interface SysSchoolDoctorMapper {
      * @param doctorId 医生ID
      * @return 返回值
      */
-    void insertDoctorBySchoolId(@Param("schoolId") Integer schoolId, @Param("doctorId") Integer doctorId);
+    void insertDoctorBySchoolId(@Param("doctorId") Integer doctorId, @Param("schoolId") Integer schoolId);
 
     /**
      * 通过医生ID更新学校ID
      * @param schoolId
      * @param doctorId
      */
-    void updateSchoolByDoctorId(@Param("schoolId") Integer schoolId, @Param("doctorId") Integer doctorId);
+    void updateSchoolByDoctorId(@Param("doctorId") Integer doctorId, @Param("schoolId") Integer schoolId);
 
     /**
      * 通过学校ID删除医生ID

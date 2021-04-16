@@ -6,6 +6,8 @@ import com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysDoctorDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDoctorDao;
 import com.huiyi.campus.web.sys.service.SysDoctorService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class SysDoctorServiceImpl implements SysDoctorService {
+
+    private static final Logger logger = LoggerFactory.getLogger(SysDoctorServiceImpl.class);
 
     SysDoctorDao sysDoctorDao;
     SysSchoolDoctorDao sysSchoolDoctorDao;
@@ -44,12 +48,13 @@ public class SysDoctorServiceImpl implements SysDoctorService {
     @Override
     public ResultBody insertDoctorInfo(SysDoctorEntity sysDoctorEntity) {
         int i = sysDoctorDao.insertDoctorInfo(sysDoctorEntity);
-        Integer doctorId = sysDoctorEntity.getId();
         if (i > 0) {
+            Integer doctorId = sysDoctorEntity.getId();
             Integer schoolId = sysDoctorEntity.getSchoolId();
+            logger.info("新增完医生获取到的医生ID为：" + doctorId + ", 学校ID为：" + schoolId);
             sysSchoolDoctorDao.insertDoctorBySchoolId(doctorId, schoolId);
         }
-        return ResultBody.insert(i, doctorId);
+        return ResultBody.insert(i, sysDoctorEntity.getId());
     }
 
     /**
