@@ -214,8 +214,7 @@ public class SysUserServiceImpl implements SysUserService {
             return ResultBody.error(CommonEnum.REPETITION);
         }
         // TODO:新增用户密码默认123456
-        String desc = "新增用户";
-        sysUserEntity.setPassWord(encryptResult(CommConstants.DEFAULT_PWD, desc));
+        sysUserEntity.setPassWord(encryptResult(CommConstants.DEFAULT_PWD, "新增用户"));
         return ResultBody.insert(sysUserDao.insertUserInfo(sysUserEntity), sysUserEntity.getId());
     }
 
@@ -226,8 +225,8 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public ResultBody updateUserInfo(SysUserEntity sysUserEntity) {
-        if (1 == sysUserEntity.getId()) {
-            return ResultBody.error(CommonEnum.NO_DELETE);
+        if (1 == sysUserEntity.getRoleId()) {
+            return ResultBody.error(CommConstants.NOT_EDIT);
         }
         return ResultBody.update(sysUserDao.updateUserInfo(sysUserEntity));
     }

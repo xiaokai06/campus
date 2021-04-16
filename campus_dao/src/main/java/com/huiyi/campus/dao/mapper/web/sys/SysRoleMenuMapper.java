@@ -28,7 +28,7 @@ public interface SysRoleMenuMapper {
      * @param idList
      * @return
      */
-    List<SysRoleMenuEntity> selectMenuByRoleId(List<Integer> idList);
+    List<SysRoleMenuEntity> selectMenuByRoleId(@Param("idList") List<Integer> idList);
 
     /**
      * 新增角色

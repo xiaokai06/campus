@@ -10,6 +10,8 @@ import java.lang.annotation.*;
 @Documented
 public @interface OperLog {
 
+    boolean required() default true;
+
     String operModule() default "";
 
     String operType() default "";
