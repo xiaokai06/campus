@@ -22,7 +22,7 @@ public class FamilyInformationController {
      *
      * @return
      */
-    @PostMapping("/")
+    @PostMapping("/selectFamily")
     public HQJsonResult selectFamily() {
         return null;
     }
@@ -32,7 +32,7 @@ public class FamilyInformationController {
      *
      * @return
      */
-    @PostMapping("/")
+    @PostMapping("/addFamilyMember")
     public HQJsonResult addFamilyMember() {
         return null;
     }
@@ -42,7 +42,7 @@ public class FamilyInformationController {
      *
      * @return
      */
-    @PostMapping("/")
+    @PostMapping("/updateFamilyMember")
     public HQJsonResult updateFamilyMember() {
         return null;
     }
@@ -52,7 +52,7 @@ public class FamilyInformationController {
      *
      * @return
      */
-    @PostMapping("/")
+    @PostMapping("/deleteFamilyMember")
     public HQJsonResult deleteFamilyMember() {
         return null;
     }
