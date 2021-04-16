@@ -18,7 +18,7 @@ public interface SysSchoolMapper {
      * @param id
      * @return
      */
-    List<Integer> deleteSchoolByOrganId(Integer id);
+    int deleteSchoolByOrganId(Integer id);
 
     /**
      * 新增学校

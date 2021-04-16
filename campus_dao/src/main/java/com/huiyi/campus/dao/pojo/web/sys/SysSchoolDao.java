@@ -34,7 +34,7 @@ public class SysSchoolDao {
      * @param id
      * @return
      */
-    public List<Integer> deleteSchoolByOrganId(Integer id) {
+    public int deleteSchoolByOrganId(Integer id) {
         return sysSchoolMapper.deleteSchoolByOrganId(id);
     }
 
