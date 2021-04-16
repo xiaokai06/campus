@@ -34,7 +34,7 @@
 
   <!-- 通过用户ID查询菜单权限 -->
   <select id="selectMenuById" parameterType="java.lang.Integer" resultMap="MenuResultMap">
-    select s.menu_id as id,u.menu_name,u.component,u.path,u.icon,u.menu_type,u.hidden_flag
+    select s.menu_id as id,u.menu_name,u.component,u.path,u.icon,u.menu_type,u.hidden_flag,u.parent_id
     from sys_role_menu s
                  left join sys_menu u on s.menu_id = u.id
     where role_id = (select role_id from sys_user_role where user_id = #{userId})
