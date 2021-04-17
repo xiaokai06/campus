@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @date: 2021-03-22 11:42
  * @Version V1.0
  */
-@Component
+//@Component
 public class NettyBooter implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
