@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.common.controller;
 
+import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.dao.dto.common.SchoolDto;
 import com.huiyi.campus.web.common.service.CommonService;
@@ -25,6 +26,7 @@ public class CommonController {
      *
      * @return
      */
+    @IsLogin
     @GetMapping("/area")
     public HQJsonResult area() {
         return commonService.area();
@@ -36,6 +38,7 @@ public class CommonController {
      * @param schoolDto
      * @return
      */
+    @IsLogin
     @PostMapping("/selectSchoolByUserId")
     public HQJsonResult selectSchoolByUserId(@RequestBody SchoolDto schoolDto) {
         return commonService.selectSchoolByUserId(schoolDto);
@@ -55,6 +58,7 @@ public class CommonController {
     /**
      * 参数字典表查询
      */
+    @IsLogin
     @GetMapping("/selectType")
     public HQJsonResult selectType() {
         return commonService.selectType();

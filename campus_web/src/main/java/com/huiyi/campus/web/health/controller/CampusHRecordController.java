@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.health.controller;
 
+import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
@@ -41,6 +42,7 @@ public class CampusHRecordController {
      * @param studentInfoRecordDto
      * @return
      */
+    @IsLogin
     @ApiOperation("获取所有学生档案信息接口")
     @PostMapping("/queryStudentInfoRecord")
     public HQJsonResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
@@ -52,6 +54,7 @@ public class CampusHRecordController {
      *
      * @return
      */
+    @IsLogin
     @ApiOperation("创建学生档案信息接口")
     @PostMapping("/createStudentInfoRecord")
     public HQJsonResult createStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
@@ -64,6 +67,7 @@ public class CampusHRecordController {
      * @param studentInfoRecordDto
      * @return
      */
+    @IsLogin
     @ApiOperation("修改学生档案信息接口")
     @PostMapping("/updateStudentInfoRecord")
     public HQJsonResult updateStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
@@ -76,6 +80,7 @@ public class CampusHRecordController {
      * @param studentInfoRecordDto
      * @return
      */
+    @IsLogin
     @ApiOperation("删除学生档案信息接口")
     @PostMapping("/deleteStudentInfoRecord")
     public HQJsonResult deleteStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
@@ -87,6 +92,7 @@ public class CampusHRecordController {
      *
      * @return
      */
+    @IsLogin
     @ApiOperation("创建和修改学生健康档案信息接口")
     @PostMapping("/createStudentHealthInfo")
     public HQJsonResult createStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
@@ -99,6 +105,7 @@ public class CampusHRecordController {
      * @param studentHealthInfoDto
      * @return
      */
+    @IsLogin
     @ApiOperation("查询学生健康档案信息接口")
     @PostMapping("/selectStudentHealthInfo")
     public HQJsonResult selectStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
@@ -112,6 +119,7 @@ public class CampusHRecordController {
      * @param studentHealthInfoDto
      * @return
      */
+    @IsLogin
     @ApiOperation("修改学生健康档案信息接口")
     @PostMapping("/updateStudentHealthInfo")
     public HQJsonResult updateStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
@@ -124,6 +132,7 @@ public class CampusHRecordController {
      * @param file
      * @return
      */
+    @IsLogin
     @ApiOperation("学生档案信息数据导入接口")
     @ResponseBody
     @PostMapping("/importStudentInfoFile")
@@ -138,6 +147,7 @@ public class CampusHRecordController {
      * @param response
      * @return
      */
+    @IsLogin
     @ApiOperation("学生档案信息数据导出接口")
     @ResponseBody
     @PostMapping("/exportStudentInfoFile")
@@ -148,6 +158,7 @@ public class CampusHRecordController {
     /**
      * 学生相片上传
      */
+    @IsLogin
     @ApiOperation("学生相片上传接口")
     @PostMapping("/upload")
     public String upload(@RequestParam("id") String id, @RequestParam("data") MultipartFile data) throws Exception {
@@ -172,6 +183,7 @@ public class CampusHRecordController {
      * @return
      * @throws Exception
      */
+    @IsLogin
     @ApiOperation("学生相片下载接口")
     @PostMapping("/download")
     public String download(@RequestParam("fileName") String fileName) throws Exception {
@@ -188,6 +200,7 @@ public class CampusHRecordController {
      * @param studentHealthInfoDto
      * @return
      */
+    @IsLogin
     @PostMapping("/selectPhyDateByPhyStudentId")
     public HQJsonResult selectPhyDateByPhyStudentId(@RequestBody StudentHealthInfoDto studentHealthInfoDto){
         return campusHRecordService.selectPhyDateByPhyStudentId(studentHealthInfoDto);
