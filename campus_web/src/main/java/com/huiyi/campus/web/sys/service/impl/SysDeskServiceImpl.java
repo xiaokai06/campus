@@ -65,7 +65,7 @@ public class SysDeskServiceImpl implements SysDeskService {
 
     /**
      * 删除科室
-     * @param id 参数
+     * @param id 科室ID
      * @return 返回值
      */
     @Override

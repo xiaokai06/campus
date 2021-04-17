@@ -47,11 +47,11 @@ public class SysDoctorServiceImpl implements SysDoctorService {
      */
     @Override
     public ResultBody insertDoctorInfo(SysDoctorEntity sysDoctorEntity) {
+        Integer doctorId = sysDoctorEntity.getId();
+        Integer schoolId = sysDoctorEntity.getSchoolId();
+        logger.info("新增医生获取到的医生ID为：" + doctorId + ", 学校ID为：" + schoolId);
         int i = sysDoctorDao.insertDoctorInfo(sysDoctorEntity);
-        if (i > 0) {
-            Integer doctorId = sysDoctorEntity.getId();
-            Integer schoolId = sysDoctorEntity.getSchoolId();
-            logger.info("新增完医生获取到的医生ID为：" + doctorId + ", 学校ID为：" + schoolId);
+        if (i > 0 && null != doctorId && null != schoolId) {
             sysSchoolDoctorDao.insertDoctorBySchoolId(doctorId, schoolId);
         }
         return ResultBody.insert(i, sysDoctorEntity.getId());
@@ -64,11 +64,16 @@ public class SysDoctorServiceImpl implements SysDoctorService {
      */
     @Override
     public ResultBody updateDoctorInfo(SysDoctorEntity sysDoctorEntity) {
-        int i = sysDoctorDao.updateDoctorInfo(sysDoctorEntity);
         Integer doctorId = sysDoctorEntity.getId();
-        if (i > 0) {
-            Integer schoolId = sysDoctorEntity.getSchoolId();
-            sysSchoolDoctorDao.updateSchoolByDoctorId(doctorId, schoolId);
+        Integer schoolId = sysDoctorEntity.getSchoolId();
+        logger.info("修改医生获取到的医生ID为：" + doctorId + ", 学校ID为：" + schoolId);
+        int i = sysDoctorDao.updateDoctorInfo(sysDoctorEntity);
+        if (i > 0 && null != doctorId && null != schoolId) {
+            int j = sysSchoolDoctorDao.updateSchoolByDoctorId(doctorId, schoolId);
+            // TODO:针对一开始医生没有归属学校，后面修改为归属某家学校
+            if (j <= 0) {
+                sysSchoolDoctorDao.insertDoctorBySchoolId(doctorId, schoolId);
+            }
         }
         return ResultBody.update(i);
     }
@@ -83,7 +88,8 @@ public class SysDoctorServiceImpl implements SysDoctorService {
         Integer doctorId = sysSchoolDoctorEntity.getDoctorId();
         Integer schoolId = sysSchoolDoctorEntity.getSchoolId();
         int i = sysDoctorDao.deleteDoctorInfo(doctorId);
-        if (i > 0) {
+        logger.info("删除医生获取到的医生ID为：" + doctorId + ", 学校ID为：" + schoolId);
+        if (i > 0 && null != doctorId && null != schoolId) {
             sysSchoolDoctorDao.deleteSchoolByDoctorId(schoolId, doctorId);
         }
         return ResultBody.delete(i);

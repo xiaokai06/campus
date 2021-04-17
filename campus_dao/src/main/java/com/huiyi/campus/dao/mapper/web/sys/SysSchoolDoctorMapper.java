@@ -17,7 +17,7 @@ public interface SysSchoolDoctorMapper {
      * @param schoolId
      * @param doctorId
      */
-    void updateSchoolByDoctorId(@Param("doctorId") Integer doctorId, @Param("schoolId") Integer schoolId);
+    int updateSchoolByDoctorId(@Param("doctorId") Integer doctorId, @Param("schoolId") Integer schoolId);
 
     /**
      * 通过学校ID删除医生ID

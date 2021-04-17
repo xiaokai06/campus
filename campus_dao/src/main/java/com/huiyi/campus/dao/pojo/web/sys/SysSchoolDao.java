@@ -32,10 +32,9 @@ public class SysSchoolDao {
     /**
      * 通过机构ID查询学校
      * @param id
-     * @return
      */
-    public int deleteSchoolByOrganId(Integer id) {
-        return sysSchoolMapper.deleteSchoolByOrganId(id);
+    public void deleteSchoolByOrganId(Integer id) {
+        sysSchoolMapper.deleteSchoolByOrganId(id);
     }
 
     /**

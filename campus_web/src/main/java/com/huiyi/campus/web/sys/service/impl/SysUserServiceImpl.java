@@ -77,8 +77,8 @@ public class SysUserServiceImpl implements SysUserService {
                 String key = CommConstants.USER_INFO + nickName;
                 if (redisUtils.hasKey(key)) {
                     String str = JSON.toJSONString(redisUtils.get(key));
-                    TokenVo tokenVo1 = JSON.parseObject(str, TokenVo.class);
-                    String token = tokenVo1.getToken();
+                    TokenVo cacheToken = JSON.parseObject(str, TokenVo.class);
+                    String token = cacheToken.getToken();
                     logger.info("从缓存中获取到的token为：" + token);
                     tokenVo.setToken(token);
                 } else {
@@ -136,11 +136,11 @@ public class SysUserServiceImpl implements SysUserService {
                 return ResultBody.error("旧密码输入错误，请重新输入....");
             }
             String newPwd = updatePwdDto.getNewPwd();
+            String newAes = decryptResult(newPwd, "修改密码-新密码");
             logger.info("（修改密码-新密码）前端传递过来的新密码为：" + newPwd);
             String confirmPwd = updatePwdDto.getConfirmPwd();
-            logger.info("（修改密码-确认密码）前端传递过来的确认密码为：" + confirmPwd);
-            String newAes = decryptResult(newPwd, "修改密码-新密码");
             String confirmAes = decryptResult(confirmPwd, "修改密码-确认密码");
+            logger.info("（修改密码-确认密码）前端传递过来的确认密码为：" + confirmPwd);
             if (!newAes.equals(confirmAes)) {
                 return ResultBody.error("新密码和确认密码输入不一致，请重新输入....");
             }

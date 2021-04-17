@@ -3,6 +3,7 @@ package com.huiyi.campus.config;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.huiyi.campus.common.annotaion.IsLogin;
+import com.huiyi.campus.common.annotaion.OperLog;
 import com.huiyi.campus.common.annotaion.PassToken;
 import com.huiyi.campus.common.base.CommonEnum;
 import com.huiyi.campus.common.consts.CommConstants;
@@ -23,8 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author yzg
@@ -53,6 +53,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         if (!(object instanceof HandlerMethod)) {
             return true;
         }
+
         HandlerMethod handlerMethod = (HandlerMethod) object;
         Method method = handlerMethod.getMethod();
         //检查是否有passToken注释，有则跳过认证
@@ -69,6 +70,31 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 sysLoginLogEntity.setCreateTime(new Date());
                 sysLoginLogDao.insertLoginLog(sysLoginLogEntity);
                 return true;
+            }
+        }
+        //检查删除接口传递的参数是否为空或null值情况
+        if (method.isAnnotationPresent(OperLog.class)) {
+            OperLog opLog = method.getAnnotation(OperLog.class);
+            if (opLog.required()) {
+                String operType = opLog.operType();
+                if (operType.equals(CommConstants.DELETE)) {
+                    Map ParameterMap =  httpServletRequest.getParameterMap();
+                    String url = httpServletRequest.getRequestURI();
+                    Map<String, String> reqMap = new HashMap<>();
+                    Set<Map.Entry<String,String[]>> entry = ParameterMap.entrySet();
+                    for (Map.Entry<String, String[]> me : entry) {
+                        String key = me.getKey();
+                        String value = me.getValue()[0];
+                        reqMap.put(key, value);
+                    }
+                    logger.info("》》》》》》》》》》》》》》接口地址：" + url +", 拦截器获取的请求参数为：" + reqMap);
+                    for (String key : reqMap.keySet()) {
+                        String value = reqMap.get(key);
+                        if (StringUtils.isEmpty(value)) {
+                            throw new RuntimeException("请求参数非法！（拦截器拦截删除接口，传输参数为空或null）");
+                        }
+                    }
+                }
             }
         }
         //检查有没有已经登录的注解

@@ -31,8 +31,8 @@ public class SysSchoolDoctorDao {
      * @param doctorId
      * @param schoolId
      */
-    public void updateSchoolByDoctorId(Integer doctorId, Integer schoolId) {
-        sysSchoolDoctorMapper.updateSchoolByDoctorId(doctorId, schoolId);
+    public int updateSchoolByDoctorId(Integer doctorId, Integer schoolId) {
+        return sysSchoolDoctorMapper.updateSchoolByDoctorId(doctorId, schoolId);
     }
 
     /**

@@ -65,7 +65,7 @@ public class SysOrganServiceImpl implements SysOrganService {
 
     /**
      * 删除机构
-     * @param id 参数
+     * @param id 机构ID
      * @return 返回值
      */
     @Override

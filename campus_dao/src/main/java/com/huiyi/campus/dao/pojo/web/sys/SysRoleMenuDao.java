@@ -79,7 +79,9 @@ public class SysRoleMenuDao {
         int id = sysRoleMenuMapper.updateRoleInfo(sysRoleEntity);
         List<Integer> idList = sysRoleEntity.getMenuIds();
         if (!Collections.isEmpty(idList)) {
-            sysRoleMenuMapper.deleteMenuByRoleId(roleId);
+            if (null != roleId) {
+                sysRoleMenuMapper.deleteMenuByRoleId(roleId);
+            }
             sysRoleMenuMapper.insertRoleMenuInfo(roleId, idList);
             logger.info("修改的角色ID为：" + roleId + ", 新的菜单权限ID为：" + idList);
         }
