@@ -101,21 +101,27 @@
     <delete id="deleteDoctorInfo" parameterType="java.lang.Integer">
         delete
         from sys_doctor
-        <where>
-            <if test="id != null">
-                id = #{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id = #{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 
     <!-- 通过科室ID删除医生 -->
     <select id="deleteDoctorByDeskId" parameterType="java.lang.Integer">
         delete
         from sys_doctor
-        <where>
-            <if test="id != null">
-                desk_id = #{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where desk_id = #{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </select>
 </mapper>

@@ -31,7 +31,7 @@
         </where>
     </select>
 
-    <!-- 通过用户ID查询菜单权限 -->
+    <!-- 通过角色ID查询菜单权限 -->
     <select id="selectMenuById" parameterType="java.lang.Integer" resultMap="MenuResultMap">
         select s.menu_id as id,
                u.menu_name,
@@ -43,7 +43,18 @@
                u.parent_id
         from sys_role_menu s
                      left join sys_menu u on s.menu_id = u.id
-        where role_id = (select role_id from sys_user_role where user_id = #{userId})
+        where role_id = #{roleId,jdbcType=INTEGER}
+    </select>
+
+    <!-- 通过用户id查询角色ID -->
+    <select id="selectRoleIdByUserId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select ur.role_id from sys_user_role ur left join sys_role sr on ur.role_id=sr.id
+        <where>
+            sr.role_status=0
+            <if test="userId != null">
+                and ur.user_id = #{userId,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
 
     <resultMap id="RoleMenuResult" type="com.huiyi.campus.dao.entity.sys.SysRoleMenuEntity">
@@ -146,11 +157,14 @@
     <delete id="deleteRoleInfo" parameterType="java.lang.Integer">
         delete
         from sys_role
-        <where>
-            <if test="id != null and id != ''">
-                id=#{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id=#{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1>2
+            </otherwise>
+        </choose>
     </delete>
 
     <!-- 新增菜单信息 -->
@@ -262,11 +276,14 @@
     <delete id="deleteMenuInfo" parameterType="java.lang.Integer">
         delete
         from sys_menu
-        <where>
-            <if test="id != null and id != ''">
-                id=#{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id=#{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 
     <!-- 新增角色和菜单权限 -->
@@ -286,10 +303,13 @@
     <delete id="deleteMenuByRoleId" parameterType="java.lang.Integer">
         delete
         from sys_role_menu
-        <where>
-            <if test="roleId != null and roleId != ''">
-                role_id=#{roleId,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where role_id=#{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1>2
+            </otherwise>
+        </choose>
     </delete>
 </mapper>

@@ -32,11 +32,14 @@
     <delete id="deleteSchoolByOrganId" parameterType="java.lang.Integer">
         delete
         from sys_school
-        <where>
-            <if test="id != null">
-                organ_id = #{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where organ_id = #{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 
     <!-- 新增学校 -->
@@ -94,11 +97,14 @@
     <delete id="deleteSchoolInfo" parameterType="java.lang.Integer">
         delete
         from sys_school
-        <where>
-            <if test="id != null">
-                id = #{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id = #{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 
     <!--根据用户ID查询当前所归属学校-->

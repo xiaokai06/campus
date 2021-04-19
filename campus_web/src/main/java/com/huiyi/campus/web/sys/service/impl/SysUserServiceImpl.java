@@ -144,7 +144,14 @@ public class SysUserServiceImpl implements SysUserService {
             if (!newAes.equals(confirmAes)) {
                 return ResultBody.error("新密码和确认密码输入不一致，请重新输入....");
             }
-            return ResultBody.update(sysUserDao.updateUserPwd(updatePwdDto));
+            int i = sysUserDao.updateUserPwd(updatePwdDto);
+            if (i > 0) {
+                String key = CommConstants.USER_INFO + nickName;
+                if (redisUtils.hasKey(key)) {
+                    redisUtils.del(key);
+                }
+            }
+            return ResultBody.update(i);
         }
         return ResultBody.update(0);
     }
@@ -163,6 +170,9 @@ public class SysUserServiceImpl implements SysUserService {
             SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
             Integer userId = sysUserEntity.getId();
             list = sysRoleMenuDao.selectMenuByUserId(userId);
+        }
+        if (null == list) {
+            return ResultBody.error(CommConstants.NOT_SECURITY);
         }
         Map<Integer, List<SysMenuEntity>> map = list.stream().collect(Collectors.groupingBy(SysMenuEntity::getParentId));
         for (Integer parentId : map.keySet()) {

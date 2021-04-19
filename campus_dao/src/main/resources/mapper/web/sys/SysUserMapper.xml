@@ -176,21 +176,26 @@
     <!-- 通过昵称修改用户密码（重置密码） -->
     <update id="updatePwdByNickName" parameterType="com.huiyi.campus.dao.dto.sys.UpdatePwdDto">
         update sys_user set pass_word=#{newPwd}
-        <where>
-            del_flag=0
-            <if test="nickName != null and nickName != ''">
-                and nick_name=#{nickName}
-            </if>
-        </where>
+        <choose>
+            <when test="nickName != null and nickName != ''">
+                where del_flag=0 and nick_name=#{nickName,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </update>
 
     <!-- 删除用户信息 -->
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         update sys_user set del_flag=1
-        <where>
-            <if test="id != null">
-                id=#{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id=#{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 </mapper>

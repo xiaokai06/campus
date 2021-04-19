@@ -61,10 +61,13 @@
     <delete id="deleteDesk" parameterType="java.lang.Integer">
         delete
         from sys_desk
-        <where>
-            <if test="id != null">
-                id = #{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id = #{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 </mapper>

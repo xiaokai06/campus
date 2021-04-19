@@ -10,11 +10,18 @@ import java.util.List;
 public interface SysRoleMenuMapper {
 
     /**
-     * 通过用户ID查询菜单权限
+     * 通过用户ID查询角色ID
      * @param userId
      * @return
      */
-    List<SysMenuEntity> selectMenuById(Integer userId);
+    Integer selectRoleIdByUserId(Integer userId);
+
+    /**
+     * 通过角色ID查询菜单权限
+     * @param roleId
+     * @return
+     */
+    List<SysMenuEntity> selectMenuById(Integer roleId);
 
     /**
      * 查询所有的角色

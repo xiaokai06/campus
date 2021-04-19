@@ -68,10 +68,13 @@
     <!-- 通过id删除机构 -->
     <delete id="deleteOrganInfo" parameterType="java.lang.Integer">
         delete from sys_organ
-        <where>
-            <if test="id != null and id != ''">
-                id=#{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id=#{id,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 </mapper>
