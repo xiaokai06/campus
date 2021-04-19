@@ -31,7 +31,7 @@ import java.io.InputStream;
  * @date: 2021-03-28 13:35
  * @Version V1.0
  */
-@Api(tags = "校园健康档案")
+@Api(tags = "校园健康档案服务")
 @Slf4j
 @RestController
 @RequestMapping("/hrecord")
