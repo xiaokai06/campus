@@ -224,6 +224,18 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
     }
 
     /**
+     * 根据学生id查询
+     *
+     * @param studentId
+     * @return
+     */
+    @Override
+    public PhyStudentInfoEntity selectByStudentId(String studentId) {
+        return healthRecordDao.selectByStudentId(studentId);
+    }
+
+
+    /**
      * 查询学生健康档案信息
      *
      * @param studentHealthInfoDto

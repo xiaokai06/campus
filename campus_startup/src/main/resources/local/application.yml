@@ -51,6 +51,9 @@ minio:
   accessKey: admin
   secretKey: admin123456
   bucketImageName: campus
+  studentImage: studentImage
+
+
 #项目健康监控
 #management:
 #  endpoints:

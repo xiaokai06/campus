@@ -26,4 +26,6 @@ public interface PhyStudentInfoMapper {
     int insertSelectiveList(List<PhyStudentInfoEntity> phyStudentInfoEntityList);
 
     int deleteByPrimaryKeyAndHealthAndItem(String id);
+
+    StudentInfoRecordVo selectStudentByStudentNumber(StudentInfoRecordDto studentInfoRecordDto);
 }

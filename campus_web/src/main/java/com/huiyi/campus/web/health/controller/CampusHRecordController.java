@@ -1,9 +1,14 @@
 package com.huiyi.campus.web.health.controller;
 
 import com.huiyi.campus.common.annotaion.IsLogin;
+import com.huiyi.campus.common.consts.PhyRecordConstans;
+import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
+import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
+import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
+import com.huiyi.campus.dao.vo.health.ImageVo;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
@@ -12,6 +17,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,10 +37,15 @@ import java.io.InputStream;
 @RequestMapping("/hrecord")
 public class CampusHRecordController {
 
+    @Value("${minio.bucketImageName}")
+    private String bucketImageName;
+    @Value("${minio.studentImage}")
+    private String studentImage;
     @Autowired
     CampusHRecordService campusHRecordService;
     @Autowired
     MinioClient minioClient;
+
 
     /**
      * 获取所有学生档案信息
@@ -161,19 +172,19 @@ public class CampusHRecordController {
     @IsLogin
     @ApiOperation("学生相片上传接口")
     @PostMapping("/upload")
-    public String upload(@RequestParam("id") String id, @RequestParam("data") MultipartFile data) throws Exception {
+    public HQJsonResult upload(@RequestParam("studentId") String studentId, @RequestParam("data") MultipartFile data) throws Exception {
         String fileName = data.getOriginalFilename();
         InputStream inputStream = data.getInputStream();
         minioClient.putObject(
-                PutObjectArgs.builder().bucket("campus").object(id + "/" + fileName).stream(
+                PutObjectArgs.builder().bucket(bucketImageName).object(studentImage + "/" + studentId + "/" + fileName).stream(
                         inputStream, data.getSize(), -1)
                         .contentType(data.getContentType())
                         .build());
         StudentInfoRecordDto studentInfoRecordDto = new StudentInfoRecordDto();
-        studentInfoRecordDto.setId(id);
-        studentInfoRecordDto.setImage(id + "/" + fileName);
+        studentInfoRecordDto.setId(studentId);
+        studentInfoRecordDto.setImage(studentImage + "/" + studentId + "/" + fileName);
         campusHRecordService.updateStudentInfoRecord(studentInfoRecordDto);
-        return "上传成功";
+        return HQJsonResult.withSuccessMessage(PhyRecordConstans.STUDENT_IMAGE_CN);
     }
 
     /**
@@ -186,25 +197,31 @@ public class CampusHRecordController {
     @IsLogin
     @ApiOperation("学生相片下载接口")
     @PostMapping("/download")
-    public String download(@RequestParam("fileName") String fileName) throws Exception {
-        if (StringUtils.isNoneEmpty(fileName)) {
-            String url = minioClient.presignedGetObject("campus", fileName, 60 * 60 * 24 * 7);
-            log.info("下载学生相片地址为：" + url);
-            return url;
+    public HQJsonResult download(@RequestParam("fileName") String fileName, @RequestParam("studentId") String studentId) throws Exception {
+        PhyStudentInfoEntity phyStudentInfoEntity = campusHRecordService.selectByStudentId(studentId);
+        if (JsonUtils.checkObjAllFieldsIsNull(phyStudentInfoEntity)) {
+            return HQJsonResult.error(SystemErrorEnum.CR_GET_REQ_ERROR);
         }
-        return null;
+        if (StringUtils.isNoneEmpty(fileName)) {
+            String url = minioClient.presignedGetObject(bucketImageName, fileName, 60 * 60 * 24 * 7);
+            log.info("学生ID为:" + phyStudentInfoEntity.getId() + " 下载学生相片地址为：" + url);
+            ImageVo imageVo = new ImageVo();
+            imageVo.setUrl(url);
+            return HQJsonResult.success(imageVo);
+        }
+        return new HQJsonResult();
     }
 
     /**
      * 根据学生id查询体检日期
+     *
      * @param studentHealthInfoDto
      * @return
      */
     @IsLogin
     @PostMapping("/selectPhyDateByPhyStudentId")
-    public HQJsonResult selectPhyDateByPhyStudentId(@RequestBody StudentHealthInfoDto studentHealthInfoDto){
+    public HQJsonResult selectPhyDateByPhyStudentId(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.selectPhyDateByPhyStudentId(studentHealthInfoDto);
     }
-
 
 }

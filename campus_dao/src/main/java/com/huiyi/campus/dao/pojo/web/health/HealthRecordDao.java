@@ -144,10 +144,31 @@ public class HealthRecordDao {
 
     /**
      * 根据学生id查询体检日期
+     *
      * @param phyStudentHealthInfoEntity
      * @return
      */
     public List<StudentHealthInfoPhyDateVo> selectPhyDateByPhyStudentId(PhyStudentHealthInfoEntity phyStudentHealthInfoEntity) {
         return phyStudentHealthInfoMapper.selectPhyDateByPhyStudentId(phyStudentHealthInfoEntity);
+    }
+
+    /**
+     * 根据学生编号查询学生信息是否存在
+     *
+     * @param studentInfoRecordDto
+     * @return
+     */
+    public StudentInfoRecordVo selectStudentByStudentNumber(StudentInfoRecordDto studentInfoRecordDto) {
+        return phyStudentInfoMapper.selectStudentByStudentNumber(studentInfoRecordDto);
+    }
+
+    /**
+     * 根据学生id查询
+     * @param studentId
+     * @return
+     */
+    public PhyStudentInfoEntity selectByStudentId(String studentId) {
+        String id = studentId;
+        return phyStudentInfoMapper.selectByPrimaryKey(id);
     }
 }
