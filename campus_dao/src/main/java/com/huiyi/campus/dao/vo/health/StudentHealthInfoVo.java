@@ -206,8 +206,8 @@ public class StudentHealthInfoVo {
     private String qualifiedStatus;
     @ApiModelProperty("口腔医师签名")
     private String OralCavityDoctor;
-    @ApiModelProperty("扩展字段5")
-    private String extend5;
+    @ApiModelProperty("肺异常备注")
+    private String lungErrorText;
 
     @ApiModelProperty("检验项目结果数据")
     private List<PhyItemResultEntity> itemResultEntityList;

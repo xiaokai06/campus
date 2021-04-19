@@ -95,7 +95,7 @@
         <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
         <result column="qualified_status" jdbcType="VARCHAR" property="qualifiedStatus"/>
         <result column="oral_cavity_doctor" jdbcType="VARCHAR" property="OralCavityDoctor"/>
-        <result column="extend5" jdbcType="VARCHAR" property="extend5"/>
+        <result column="lung_error_text" jdbcType="VARCHAR" property="lungErrorText"/>
     </resultMap>
     <sql id="Base_Column_List">
         id
@@ -112,7 +112,7 @@
     liver_function, blood_routine, blood_routine_error_text, liver_function_error_text,
     phy_conclusion, phy_conclusion_error_text, review, referral, regular_censor, health_education,
     diet, forging, vaccination, phy_guide_text, phy_doctor, del_flag, phy_date,create_time, create_user,
-    update_time, update_user, qualified_status, oral_cavity_doctor, extend5
+    update_time, update_user, qualified_status, oral_cavity_doctor, lung_error_text
     </sql>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
@@ -151,7 +151,7 @@
                                              forging, vaccination, phy_guide_text,
                                              phy_doctor, del_flag, phy_date, create_time,
                                              create_user, update_time, update_user,
-                                             qualified_status, oral_cavity_doctor, extend5)
+                                             qualified_status, oral_cavity_doctor, lung_error_text)
         values (#{id,jdbcType=VARCHAR}, #{phyStudentId,jdbcType=VARCHAR}, #{height,jdbcType=DECIMAL},
                 #{weight,jdbcType=DECIMAL}, #{blood,jdbcType=VARCHAR}, #{pulse,jdbcType=VARCHAR},
                 #{bust,jdbcType=VARCHAR}, #{vitalCapacity,jdbcType=VARCHAR}, #{formDoctor,jdbcType=VARCHAR},
@@ -187,7 +187,7 @@
                 #{phyDoctor,jdbcType=VARCHAR}, #{delFlag,jdbcType=TINYINT}, #{phyDate,jdbcType=TIMESTAMP},
                 #{createTime,jdbcType=TIMESTAMP},
                 #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR},
-                #{qualifiedStatus,jdbcType=VARCHAR}, #{OralCavityDoctor,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
+                #{qualifiedStatus,jdbcType=VARCHAR}, #{OralCavityDoctor,jdbcType=VARCHAR}, #{lungErrorText,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
         insert into phy_student_health_info
@@ -468,8 +468,8 @@
             <if test="OralCavityDoctor != null">
                 oral_cavity_doctor,
             </if>
-            <if test="extend5 != null">
-                extend5,
+            <if test="lungErrorText != null">
+                lung_error_text,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -749,8 +749,8 @@
             <if test="OralCavityDoctor != null">
                 #{OralCavityDoctor,jdbcType=VARCHAR},
             </if>
-            <if test="extend5 != null">
-                #{extend5,jdbcType=VARCHAR},
+            <if test="lungErrorText != null">
+                #{lungErrorText,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -1030,8 +1030,8 @@
             <if test="OralCavityDoctor != null">
                 oral_cavity_doctor = #{OralCavityDoctor,jdbcType=VARCHAR},
             </if>
-            <if test="extend5 != null">
-                extend5 = #{extend5,jdbcType=VARCHAR},
+            <if test="lungErrorText != null">
+                lung_error_text = #{lungErrorText,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=VARCHAR}
@@ -1129,7 +1129,7 @@
             update_user               = #{updateUser,jdbcType=VARCHAR},
             qualified_status          = #{qualifiedStatus,jdbcType=VARCHAR},
             oral_cavity_doctor        = #{OralCavityDoctor,jdbcType=VARCHAR},
-            extend5                   = #{extend5,jdbcType=VARCHAR}
+            lung_error_text           = #{lungErrorText,jdbcType=VARCHAR}
         where id = #{id,jdbcType=VARCHAR}
     </update>
     <!--查询健康信息-->

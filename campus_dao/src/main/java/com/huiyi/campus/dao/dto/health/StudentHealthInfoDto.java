@@ -84,6 +84,8 @@ public class StudentHealthInfoDto {
     private Integer heart;
     @ApiModelProperty("肺 0 正常 1异常")
     private Integer lung;
+    @ApiModelProperty("肺异常备注")
+    private String lungErrorText;
     @ApiModelProperty("肝 0正常 1异常")
     private Integer liver;
     @ApiModelProperty("内科其他")
