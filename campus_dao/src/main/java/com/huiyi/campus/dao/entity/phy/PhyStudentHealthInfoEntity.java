@@ -73,6 +73,8 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     private Integer tooth;
     @ApiModelProperty("牙周 0正常 1异常")
     private Integer periodontal;
+    @ApiModelProperty("口腔医师签名")
+    private String OralCavityDoctor;
     @ApiModelProperty("既往病史 0 无 1有")
     private Integer anamnesis;
     @ApiModelProperty("脾 0正常 1异常")
@@ -203,8 +205,6 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     private String updateUser;
     @ApiModelProperty("合格标志 0合格 1未合格")
     private String qualifiedStatus;
-    @ApiModelProperty("扩展字段4")
-    private String extend4;
     @ApiModelProperty("扩展字段5")
     private String extend5;
 

@@ -204,8 +204,8 @@ public class StudentHealthInfoVo {
     private String updateUser;
     @ApiModelProperty("合格标志 0合格 1未合格")
     private String qualifiedStatus;
-    @ApiModelProperty("扩展字段4")
-    private String extend4;
+    @ApiModelProperty("口腔医师签名")
+    private String OralCavityDoctor;
     @ApiModelProperty("扩展字段5")
     private String extend5;
 

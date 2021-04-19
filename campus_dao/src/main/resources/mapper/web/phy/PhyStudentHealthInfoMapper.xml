@@ -94,7 +94,7 @@
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
         <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
         <result column="qualified_status" jdbcType="VARCHAR" property="qualifiedStatus"/>
-        <result column="extend4" jdbcType="VARCHAR" property="extend4"/>
+        <result column="oral_cavity_doctor" jdbcType="VARCHAR" property="OralCavityDoctor"/>
         <result column="extend5" jdbcType="VARCHAR" property="extend5"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -112,7 +112,7 @@
     liver_function, blood_routine, blood_routine_error_text, liver_function_error_text,
     phy_conclusion, phy_conclusion_error_text, review, referral, regular_censor, health_education,
     diet, forging, vaccination, phy_guide_text, phy_doctor, del_flag, phy_date,create_time, create_user,
-    update_time, update_user, qualified_status, extend4, extend5
+    update_time, update_user, qualified_status, oral_cavity_doctor, extend5
     </sql>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
@@ -151,7 +151,7 @@
                                              forging, vaccination, phy_guide_text,
                                              phy_doctor, del_flag, phy_date, create_time,
                                              create_user, update_time, update_user,
-                                             qualified_status, extend4, extend5)
+                                             qualified_status, oral_cavity_doctor, extend5)
         values (#{id,jdbcType=VARCHAR}, #{phyStudentId,jdbcType=VARCHAR}, #{height,jdbcType=DECIMAL},
                 #{weight,jdbcType=DECIMAL}, #{blood,jdbcType=VARCHAR}, #{pulse,jdbcType=VARCHAR},
                 #{bust,jdbcType=VARCHAR}, #{vitalCapacity,jdbcType=VARCHAR}, #{formDoctor,jdbcType=VARCHAR},
@@ -187,7 +187,7 @@
                 #{phyDoctor,jdbcType=VARCHAR}, #{delFlag,jdbcType=TINYINT}, #{phyDate,jdbcType=TIMESTAMP},
                 #{createTime,jdbcType=TIMESTAMP},
                 #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR},
-                #{qualifiedStatus,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
+                #{qualifiedStatus,jdbcType=VARCHAR}, #{OralCavityDoctor,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity">
         insert into phy_student_health_info
@@ -465,8 +465,8 @@
             <if test="qualifiedStatus != null">
                 qualified_status,
             </if>
-            <if test="extend4 != null">
-                extend4,
+            <if test="OralCavityDoctor != null">
+                oral_cavity_doctor,
             </if>
             <if test="extend5 != null">
                 extend5,
@@ -746,8 +746,8 @@
             <if test="qualifiedStatus != null">
                 #{qualifiedStatus,jdbcType=VARCHAR},
             </if>
-            <if test="extend4 != null">
-                #{extend4,jdbcType=VARCHAR},
+            <if test="OralCavityDoctor != null">
+                #{OralCavityDoctor,jdbcType=VARCHAR},
             </if>
             <if test="extend5 != null">
                 #{extend5,jdbcType=VARCHAR},
@@ -1027,8 +1027,8 @@
             <if test="qualifiedStatus != null">
                 qualified_status = #{qualifiedStatus,jdbcType=VARCHAR},
             </if>
-            <if test="extend4 != null">
-                extend4 = #{extend4,jdbcType=VARCHAR},
+            <if test="OralCavityDoctor != null">
+                oral_cavity_doctor = #{OralCavityDoctor,jdbcType=VARCHAR},
             </if>
             <if test="extend5 != null">
                 extend5 = #{extend5,jdbcType=VARCHAR},
@@ -1128,7 +1128,7 @@
             update_time               = #{updateTime,jdbcType=TIMESTAMP},
             update_user               = #{updateUser,jdbcType=VARCHAR},
             qualified_status          = #{qualifiedStatus,jdbcType=VARCHAR},
-            extend4                   = #{extend4,jdbcType=VARCHAR},
+            oral_cavity_doctor        = #{OralCavityDoctor,jdbcType=VARCHAR},
             extend5                   = #{extend5,jdbcType=VARCHAR}
         where id = #{id,jdbcType=VARCHAR}
     </update>

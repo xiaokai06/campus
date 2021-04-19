@@ -74,6 +74,8 @@ public class StudentHealthInfoDto {
     private Integer tooth;
     @ApiModelProperty("牙周 0正常 1异常")
     private Integer periodontal;
+    @ApiModelProperty("口腔医师签名")
+    private String OralCavityDoctor;
     @ApiModelProperty("既往病史 0 无 1有")
     private Integer anamnesis;
     @ApiModelProperty("脾 0正常 1异常")
