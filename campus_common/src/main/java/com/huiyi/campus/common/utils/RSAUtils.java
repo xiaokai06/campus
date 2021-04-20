@@ -1,6 +1,5 @@
 package com.huiyi.campus.common.utils;
 
-//import org.apache.tomcat.util.codec.binary.Base64;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

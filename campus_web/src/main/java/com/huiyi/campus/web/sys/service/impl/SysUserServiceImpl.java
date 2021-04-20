@@ -66,6 +66,7 @@ public class SysUserServiceImpl implements SysUserService {
         if (null == sysUserInfo) {
             return ResultBody.error(CommonEnum.NO_EXIST.getResultMsg());
         }
+        Integer id = sysUserInfo.getId();
         String passWord = sysUserInfo.getPassWord();
         logger.info("前端传递的数据，用户昵称：" + nickName + ", 密码为：" + pwd);
         if (!StringUtils.isEmpty(passWord) && !StringUtils.isEmpty(pwd)) {
@@ -89,6 +90,12 @@ public class SysUserServiceImpl implements SysUserService {
                     tokenVo.setToken(aesToken);
                     redisUtils.set(key, tokenVo, CommConstants.EXPIRE_TIME);
                 }
+                tokenVo.setId(id);
+                tokenVo.setNickName(sysUserInfo.getNickName());
+                tokenVo.setUserName(sysUserInfo.getUserName());
+                tokenVo.setEmail(sysUserInfo.getEmail());
+                tokenVo.setPhone(sysUserInfo.getPhone());
+                tokenVo.setSex(sysUserInfo.getSex());
                 SysUserEntity sysUser = new SysUserEntity();
                 sysUser.setId(sysUserInfo.getId());
                 sysUser.setLastVisit(DateUtils.getTime());
