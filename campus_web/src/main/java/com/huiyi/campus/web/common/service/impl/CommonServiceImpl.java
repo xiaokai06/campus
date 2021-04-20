@@ -139,4 +139,18 @@ public class CommonServiceImpl implements CommonService {
         }
         return HQJsonResult.success(resultVoList);
     }
+
+    /**
+     * 根据用户id查询教育局机构id
+     * @param schoolDto
+     * @return
+     */
+    @Override
+    public HQJsonResult selectOrganByUserId(SchoolDto schoolDto) {
+        if (JsonUtils.checkObjAllFieldsIsNull(schoolDto)) {
+            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
+        }
+
+        return null;
+    }
 }

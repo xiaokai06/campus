@@ -53,7 +53,7 @@ public class CampusHRecordController {
      * @param studentInfoRecordDto
      * @return
      */
-    @IsLogin
+//    @IsLogin
     @ApiOperation("获取所有学生档案信息接口")
     @PostMapping("/queryStudentInfoRecord")
     public HQJsonResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {

@@ -18,4 +18,6 @@ public interface CommonService {
     HQJsonResult selectClassBySchoolId(SchoolDto schoolDto);
 
     HQJsonResult selectType();
+
+    HQJsonResult selectOrganByUserId(SchoolDto schoolDto);
 }

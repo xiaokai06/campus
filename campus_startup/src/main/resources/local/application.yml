@@ -63,3 +63,4 @@ minio:
 #  endpoint:
 #    health:
 #      show-details: ALWAYS
+

@@ -44,6 +44,12 @@ mybatis-plus:
 splitOrgId:
   splitSQL: SELECT :str AS value_str FROM DUAL
   oneMax: 1
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: false
+  params: count=countSql
 
 #
 #  server:

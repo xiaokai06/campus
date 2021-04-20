@@ -43,6 +43,13 @@ public class CommonController {
     public HQJsonResult selectSchoolByUserId(@RequestBody SchoolDto schoolDto) {
         return commonService.selectSchoolByUserId(schoolDto);
     }
+    /**
+     * 根据用户id查询教育局机构id
+     */
+    @PostMapping("/selectOrganByUserId")
+    public HQJsonResult selectOrganByUserId(@RequestBody SchoolDto schoolDto){
+        return commonService.selectOrganByUserId(schoolDto);
+    }
 
     /**
      * 根据学校ID查询专业班级
