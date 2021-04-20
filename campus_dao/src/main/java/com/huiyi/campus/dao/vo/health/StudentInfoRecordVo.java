@@ -88,9 +88,33 @@ public class StudentInfoRecordVo {
     @ApiModelProperty("相片")
     private String image;
 
+    @Excel(name = "家庭住址省")
+    @ApiModelProperty("家庭住址省")
+    private String familyAddressProv;
+
+    @Excel(name = "家庭住址市")
+    @ApiModelProperty("家庭住址市")
+    private String familyAddressCity;
+
+    @Excel(name = "家庭住址区")
+    @ApiModelProperty("家庭住址区")
+    private String familyAddressArea;
+
     @Excel(name = "家庭住址")
     @ApiModelProperty("家庭住址")
     private String familyAddress;
+
+    @Excel(name = "户籍地址省")
+    @ApiModelProperty("户籍地址省")
+    private String censusAddresspRrov;
+
+    @Excel(name = "户籍地址市")
+    @ApiModelProperty("户籍地址市")
+    private String censusAddresspCity;
+
+    @Excel(name = "户籍地址区")
+    @ApiModelProperty("户籍地址区")
+    private String censusAddresspArea;
 
     @Excel(name = "户籍地址")
     @ApiModelProperty("户籍地址")

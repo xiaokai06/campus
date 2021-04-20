@@ -48,9 +48,21 @@ public class StudentInfoRecordDto {
     private String phoneNumber;
     @ApiModelProperty("相片")
     private String image;
-    @ApiModelProperty("家庭住址")
+    @ApiModelProperty("家庭住址省")
+    private String familyAddressProv;
+    @ApiModelProperty("家庭住址市")
+    private String familyAddressCity;
+    @ApiModelProperty("家庭住址区")
+    private String familyAddressArea;
+    @ApiModelProperty("家庭详细住址")
     private String familyAddress;
-    @ApiModelProperty("户籍地址")
+    @ApiModelProperty("户籍地址省")
+    private String censusAddresspRrov;
+    @ApiModelProperty("户籍地址市")
+    private String censusAddresspCity;
+    @ApiModelProperty("户籍地址区")
+    private String censusAddresspArea;
+    @ApiModelProperty("户籍详细地址")
     private String censusAddress;
     @ApiModelProperty("入学时间")
     private Date enterTime;

@@ -18,7 +18,13 @@
         <result column="id_card" jdbcType="VARCHAR" property="idCard"/>
         <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber"/>
         <result column="image" jdbcType="VARCHAR" property="image"/>
+        <result column="family_address_prov" jdbcType="VARCHAR" property="familyAddressProv"/>
+        <result column="family_address_city" jdbcType="VARCHAR" property="familyAddressCity"/>
+        <result column="family_address_area" jdbcType="VARCHAR" property="familyAddressArea"/>
         <result column="family_address" jdbcType="VARCHAR" property="familyAddress"/>
+        <result column="census_address_prov" jdbcType="VARCHAR" property="censusAddresspRrov"/>
+        <result column="census_address_city" jdbcType="VARCHAR" property="censusAddresspCity"/>
+        <result column="census_address_area" jdbcType="VARCHAR" property="censusAddresspArea"/>
         <result column="census_address" jdbcType="VARCHAR" property="censusAddress"/>
         <result column="enter_time" jdbcType="TIMESTAMP" property="enterTime"/>
         <result column="doctor_id" jdbcType="INTEGER" property="doctorId"/>
@@ -28,18 +34,13 @@
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
         <result column="operator_id" jdbcType="INTEGER" property="operatorId"/>
         <result column="del_flag" jdbcType="TINYINT" property="delFlag"/>
-        <result column="extend1" jdbcType="VARCHAR" property="extend1"/>
-        <result column="extend2" jdbcType="VARCHAR" property="extend2"/>
-        <result column="extend3" jdbcType="VARCHAR" property="extend3"/>
-        <result column="extend4" jdbcType="VARCHAR" property="extend4"/>
-        <result column="extend5" jdbcType="VARCHAR" property="extend5"/>
     </resultMap>
     <sql id="Base_Column_List">
         id
                 , student_name, sex, age, birth_date, parent_id, school_id, organ_id, student_number,
     major_class, class_id, nationality, id_card, phone_number, image, family_address,
     census_address, enter_time, doctor_id, duty_doctor, phy_file_date, create_time, update_time,
-    operator_id, del_flag, extend1, extend2, extend3, extend4, extend5
+    operator_id, del_flag, family_address_prov, family_address_city, family_address_area, census_address_prov, census_address_city ,census_address_area
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
@@ -61,8 +62,8 @@
                                       family_address, census_address, enter_time,
                                       doctor_id, duty_doctor, phy_file_date,
                                       create_time, update_time, operator_id,
-                                      del_flag, extend1, extend2,
-                                      extend3, extend4, extend5)
+                                      del_flag, family_address_prov, family_address_city,
+                                      family_address_area, census_address_prov, census_address_city, census_address_area)
         values (#{id,jdbcType=VARCHAR}, #{studentName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
                 #{age,jdbcType=INTEGER}, #{birthDate,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR},
                 #{schoolId,jdbcType=INTEGER}, #{organId,jdbcType=INTEGER}, #{studentNumber,jdbcType=VARCHAR},
@@ -71,8 +72,8 @@
                 #{familyAddress,jdbcType=VARCHAR}, #{censusAddress,jdbcType=VARCHAR}, #{enterTime,jdbcType=TIMESTAMP},
                 #{doctorId,jdbcType=INTEGER}, #{dutyDoctor,jdbcType=VARCHAR}, #{phyFileDate,jdbcType=TIMESTAMP},
                 #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER},
-                #{delFlag,jdbcType=TINYINT}, #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR},
-                #{extend3,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
+                #{delFlag,jdbcType=TINYINT}, #{familyAddressProv,jdbcType=VARCHAR}, #{familyAddressCity,jdbcType=VARCHAR},
+                #{familyAddressArea,jdbcType=VARCHAR}, #{censusAddresspRrov,jdbcType=VARCHAR}, #{censusAddresspCity,jdbcType=VARCHAR}, #{censusAddresspArea,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
         insert into phy_student_info
@@ -152,20 +153,23 @@
             <if test="delFlag != null">
                 del_flag,
             </if>
-            <if test="extend1 != null">
-                extend1,
+            <if test="familyAddressProv != null">
+                family_address_prov,
             </if>
-            <if test="extend2 != null">
-                extend2,
+            <if test="familyAddressCity != null">
+                family_address_city,
             </if>
-            <if test="extend3 != null">
-                extend3,
+            <if test="familyAddressArea != null">
+                family_address_area,
             </if>
-            <if test="extend4 != null">
-                extend4,
+            <if test="censusAddresspRrov != null">
+                census_address_prov,
             </if>
-            <if test="extend5 != null">
-                extend5,
+            <if test="censusAddresspCity != null">
+                census_address_city,
+            </if>
+            <if test="censusAddresspArea != null">
+            census_address_area,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -244,20 +248,23 @@
             <if test="delFlag != null">
                 #{delFlag,jdbcType=TINYINT},
             </if>
-            <if test="extend1 != null">
-                #{extend1,jdbcType=VARCHAR},
+            <if test="familyAddressProv != null">
+                #{familyAddressProv,jdbcType=VARCHAR},
             </if>
-            <if test="extend2 != null">
-                #{extend2,jdbcType=VARCHAR},
+            <if test="familyAddressCity != null">
+                #{familyAddressCity,jdbcType=VARCHAR},
             </if>
-            <if test="extend3 != null">
-                #{extend3,jdbcType=VARCHAR},
+            <if test="familyAddressArea != null">
+                #{familyAddressArea,jdbcType=VARCHAR},
             </if>
-            <if test="extend4 != null">
-                #{extend4,jdbcType=VARCHAR},
+            <if test="censusAddresspRrov != null">
+                #{censusAddresspRrov,jdbcType=VARCHAR},
             </if>
-            <if test="extend5 != null">
-                #{extend5,jdbcType=VARCHAR},
+            <if test="censusAddresspCity != null">
+                #{censusAddresspCity,jdbcType=VARCHAR},
+            </if>
+            <if test="censusAddresspArea != null">
+                #{censusAddresspArea,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -336,20 +343,23 @@
             <if test="delFlag != null">
                 del_flag = #{delFlag,jdbcType=TINYINT},
             </if>
-            <if test="extend1 != null">
-                extend1 = #{extend1,jdbcType=VARCHAR},
+            <if test="familyAddressProv != null">
+                family_address_prov = #{familyAddressProv,jdbcType=VARCHAR},
             </if>
-            <if test="extend2 != null">
-                extend2 = #{extend2,jdbcType=VARCHAR},
+            <if test="familyAddressCity != null">
+                family_address_city = #{familyAddressCity,jdbcType=VARCHAR},
             </if>
-            <if test="extend3 != null">
-                extend3 = #{extend3,jdbcType=VARCHAR},
+            <if test="familyAddressArea != null">
+                family_address_area = #{familyAddressArea,jdbcType=VARCHAR},
             </if>
-            <if test="extend4 != null">
-                extend4 = #{extend4,jdbcType=VARCHAR},
+            <if test="censusAddresspRrov != null">
+                census_address_prov = #{censusAddresspRrov,jdbcType=VARCHAR},
             </if>
-            <if test="extend5 != null">
-                extend5 = #{extend5,jdbcType=VARCHAR},
+            <if test="censusAddresspCity != null">
+                census_address_city = #{censusAddresspCity,jdbcType=VARCHAR},
+            </if>
+            <if test="censusAddresspArea != null">
+                census_address_area = #{censusAddresspArea,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=VARCHAR}
@@ -380,11 +390,12 @@
             update_time    = #{updateTime,jdbcType=TIMESTAMP},
             operator_id    = #{operatorId,jdbcType=INTEGER},
             del_flag       = #{delFlag,jdbcType=TINYINT},
-            extend1        = #{extend1,jdbcType=VARCHAR},
-            extend2        = #{extend2,jdbcType=VARCHAR},
-            extend3        = #{extend3,jdbcType=VARCHAR},
-            extend4        = #{extend4,jdbcType=VARCHAR},
-            extend5        = #{extend5,jdbcType=VARCHAR}
+            family_address_prov        = #{familyAddressProv,jdbcType=VARCHAR},
+            family_address_city        = #{familyAddressCity,jdbcType=VARCHAR},
+            family_address_area        = #{familyAddressArea,jdbcType=VARCHAR},
+            census_address_prov        = #{censusAddresspRrov,jdbcType=VARCHAR},
+            census_address_city        = #{censusAddresspCity,jdbcType=VARCHAR},
+            census_address_area        = #{censusAddresspArea,jdbcType=VARCHAR}
         where id = #{id,jdbcType=VARCHAR}
     </update>
     <!--查询所有学生档案信息-->
@@ -405,7 +416,13 @@
         info.id_card as "idCard",
         info.phone_number as "phoneNumber",
         info.image as "image",
+        info.family_address_prov as "familyAddressProv",
+        info.family_address_city as "familyAddressCity",
+        info.family_address_area as "familyAddressArea",
         info.family_address as "familyAddress",
+        info.census_address_prov as "censusAddresspRrov",
+        info.census_address_city as "censusAddresspCity",
+        info.census_address_area as "censusAddresspArea",
         info.census_address as "censusAddress",
         info.enter_time as "enterTime",
         doctor.doctor_name as "doctorName",
@@ -430,8 +447,26 @@
         <if test="sex != null and sex!=''">
             AND info.sex = #{sex,jdbcType=TINYINT}
         </if>
+        <if test="familyAddressProv != null and familyAddressProv!=''">
+            AND info.family_address_prov = #{familyAddressProv,jdbcType=VARCHAR}
+        </if>
+        <if test="familyAddressCity != null and familyAddressCity!=''">
+            AND info.family_address_city = #{familyAddressCity,jdbcType=VARCHAR}
+        </if>
+        <if test="familyAddressArea != null and familyAddressArea!=''">
+            AND info.family_address_area = #{familyAddressArea,jdbcType=VARCHAR}
+        </if>
         <if test="familyAddress != null and familyAddress!=''">
             AND info.family_address = #{familyAddress,jdbcType=VARCHAR}
+        </if>
+        <if test="censusAddresspRrov != null and censusAddresspRrov!=''">
+            AND info.census_address_prov = #{censusAddresspRrov,jdbcType=VARCHAR}
+        </if>
+        <if test="censusAddresspCity != null and censusAddresspCity!=''">
+            AND info.census_address_city = #{censusAddresspCity,jdbcType=VARCHAR}
+        </if>
+        <if test="censusAddresspCity != null and censusAddresspCity!=''">
+            AND info.census_address_area = #{censusAddresspCity,jdbcType=VARCHAR}
         </if>
         <if test="censusAddress != null and censusAddress!=''">
             AND info.census_address = #{censusAddress,jdbcType=VARCHAR}
@@ -519,20 +554,23 @@
                 <if test="item.operatorId != null">
                     operator_id,
                 </if>
-                <if test="item.extend1 != null">
-                    extend1,
+                <if test="item.familyAddressProv != null">
+                    family_address_prov,
                 </if>
-                <if test="item.extend2 != null">
-                    extend2,
+                <if test="item.familyAddressCity != null">
+                    family_address_city,
                 </if>
-                <if test="item.extend3 != null">
-                    extend3,
+                <if test="item.familyAddressArea != null">
+                    family_address_area,
                 </if>
-                <if test="item.extend4 != null">
-                    extend4,
+                <if test="item.censusAddresspRrov != null">
+                    census_address_prov,
                 </if>
-                <if test="item.extend5 != null">
-                    extend5,
+                <if test="item.censusAddresspCity != null">
+                    census_address_city,
+                </if>
+                <if test="item.censusAddresspArea != null">
+                    census_address_area,
                 </if>
             </trim>
             <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -602,20 +640,23 @@
                 <if test="item.operatorId != null">
                     #{item.operatorId,jdbcType=INTEGER},
                 </if>
-                <if test="item.extend1 != null">
-                    #{item.extend1,jdbcType=VARCHAR},
+                <if test="item.familyAddressProv != null">
+                    #{item.familyAddressProv,jdbcType=VARCHAR},
                 </if>
-                <if test="item.extend2 != null">
-                    #{item.extend2,jdbcType=VARCHAR},
+                <if test="item.familyAddressCity != null">
+                    #{item.familyAddressCity,jdbcType=VARCHAR},
                 </if>
-                <if test="item.extend3 != null">
-                    #{item.extend3,jdbcType=VARCHAR},
+                <if test="item.familyAddressArea != null">
+                    #{item.familyAddressArea,jdbcType=VARCHAR},
                 </if>
-                <if test="item.extend4 != null">
-                    #{item.extend4,jdbcType=VARCHAR},
+                <if test="item.censusAddresspRrov != null">
+                    #{item.censusAddresspRrov,jdbcType=VARCHAR},
                 </if>
-                <if test="item.extend5 != null">
-                    #{item.extend5,jdbcType=VARCHAR},
+                <if test="item.censusAddresspCity != null">
+                    #{item.censusAddresspCity,jdbcType=VARCHAR},
+                </if>
+                <if test="item.censusAddresspArea != null">
+                    #{item.censusAddresspArea,jdbcType=VARCHAR},
                 </if>
             </trim>
         </foreach>
