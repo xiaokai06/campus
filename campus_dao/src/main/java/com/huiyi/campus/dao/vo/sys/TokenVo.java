@@ -36,4 +36,10 @@ public class TokenVo {
     @ApiModelProperty("token")
     private String token;
 
+    @ApiModelProperty("学校ID")
+    private Integer schoolId;
+
+    @ApiModelProperty("机构ID")
+    private Integer organId;
+
 }

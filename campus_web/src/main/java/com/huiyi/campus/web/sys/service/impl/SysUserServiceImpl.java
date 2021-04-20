@@ -96,6 +96,8 @@ public class SysUserServiceImpl implements SysUserService {
                 tokenVo.setEmail(sysUserInfo.getEmail());
                 tokenVo.setPhone(sysUserInfo.getPhone());
                 tokenVo.setSex(sysUserInfo.getSex());
+                tokenVo.setSchoolId(sysUserInfo.getSchoolId());
+                tokenVo.setOrganId(sysUserInfo.getOrganId());
                 SysUserEntity sysUser = new SysUserEntity();
                 sysUser.setId(sysUserInfo.getId());
                 sysUser.setLastVisit(DateUtils.getTime());
