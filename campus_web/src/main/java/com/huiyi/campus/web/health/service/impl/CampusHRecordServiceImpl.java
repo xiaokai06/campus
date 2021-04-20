@@ -313,7 +313,9 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
             return null;
         }
+        PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
         List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
+        PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
         if (studentInfoRecordVoList != null && !studentInfoRecordVoList.isEmpty()) {
             try {
                 ExcelUtils.exportExcel(studentInfoRecordVoList, null, "学生表", StudentInfoRecordVo.class, "学生档案信息", response);
