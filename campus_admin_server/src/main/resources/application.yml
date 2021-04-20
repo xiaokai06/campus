@@ -9,11 +9,11 @@ server:
   port: 9003
 
 ##暴露所有监控端点
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-#  endpoint:
-#    health:
-#      show-details: ALWAYS #总是展示详情信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS #总是展示详情信息

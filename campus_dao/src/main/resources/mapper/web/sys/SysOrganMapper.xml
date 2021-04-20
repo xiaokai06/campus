@@ -77,4 +77,19 @@
             </otherwise>
         </choose>
     </delete>
+
+    <!--根据机构id查询上级机构-->
+    <select id="selectOrganByUserId" resultMap="BaseResultMap">
+        select organ.*
+        from sys_organ
+                     INNER JOIN sys_organ organ on sys_organ.id = organ.parent_id
+        where sys_organ.id = #{organId,jdbcType=INTEGER}
+    </select>
+    <!--根据机构ID查询当前机构-->
+    <select id="selectByOrganId" resultMap="BaseResultMap">
+        select sys_organ.*
+        from sys_organ
+                     LEFT JOIN sys_organ organ on sys_organ.id = organ.parent_id
+        where sys_organ.id = #{organId,jdbcType=INTEGER}
+    </select>
 </mapper>

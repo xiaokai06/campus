@@ -39,4 +39,7 @@ public interface SysOrganMapper {
      */
     int deleteOrganInfo(Integer id);
 
+    List<SysOrganEntity> selectOrganByUserId(Integer organId);
+
+    List<SysOrganEntity> selectByOrganId(Integer organId);
 }

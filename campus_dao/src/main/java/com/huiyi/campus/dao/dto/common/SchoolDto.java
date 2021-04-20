@@ -15,4 +15,5 @@ import lombok.Setter;
 public class SchoolDto {
    private Integer userId;
    private Integer schoolId;
+   private Integer organId;
 }

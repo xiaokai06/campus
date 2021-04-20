@@ -1,6 +1,6 @@
 package com.huiyi.campus;
 
-//import de.codecentric.boot.admin.server.config.EnableAdminServer;
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @Version V1.0
  */
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
-//@EnableAdminServer
+@EnableAdminServer
 public class CampusAdminServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(CampusAdminServerApplication.class, args);

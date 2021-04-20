@@ -38,7 +38,7 @@ public class CommonController {
      * @param schoolDto
      * @return
      */
-    @IsLogin
+//    @IsLogin
     @PostMapping("/selectSchoolByUserId")
     public HQJsonResult selectSchoolByUserId(@RequestBody SchoolDto schoolDto) {
         return commonService.selectSchoolByUserId(schoolDto);
@@ -46,9 +46,9 @@ public class CommonController {
     /**
      * 根据用户id查询教育局机构id
      */
-    @PostMapping("/selectOrganByUserId")
-    public HQJsonResult selectOrganByUserId(@RequestBody SchoolDto schoolDto){
-        return commonService.selectOrganByUserId(schoolDto);
+    @PostMapping("/selectOrganByOrganId")
+    public HQJsonResult selectOrganByOrganId(@RequestBody SchoolDto schoolDto){
+        return commonService.selectOrganByOrganId(schoolDto);
     }
 
     /**

@@ -1,10 +1,7 @@
 package com.huiyi.campus.dao.pojo.web.common;
 
 import com.huiyi.campus.dao.dto.common.SchoolDto;
-import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
-import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
-import com.huiyi.campus.dao.entity.sys.TsTypeEntity;
-import com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity;
+import com.huiyi.campus.dao.entity.sys.*;
 import com.huiyi.campus.dao.mapper.web.sys.*;
 import com.huiyi.campus.dao.vo.common.SysAreasVo;
 import com.huiyi.campus.dao.vo.common.TsTypeGroupVo;
@@ -37,6 +34,9 @@ public class CommonDao {
 
     @Autowired
     TsTypeMapper tsTypeMapper;
+
+    @Autowired
+    SysOrganMapper sysOrganMapper;
     /**
      * 省市区三级联动查询
      *
@@ -81,5 +81,18 @@ public class CommonDao {
 
     public List<TsTypeEntity> selectType(Integer id) {
         return tsTypeMapper.selectByPrimaryKeyList(id);
+    }
+
+    /**
+     * 根据教育机构ID查询当前教育局机构信息
+     * @param schoolDto
+     * @return
+     */
+    public List<SysOrganEntity> selectOrganByUserId(SchoolDto schoolDto) {
+        List<SysOrganEntity> organEntityList =sysOrganMapper.selectOrganByUserId(schoolDto.getOrganId());
+        if (organEntityList.isEmpty()){
+            organEntityList = sysOrganMapper.selectByOrganId(schoolDto.getOrganId());
+        }
+        return organEntityList;
     }
 }

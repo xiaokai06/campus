@@ -4,10 +4,7 @@ import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 import com.huiyi.campus.dao.dto.common.SchoolDto;
-import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
-import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
-import com.huiyi.campus.dao.entity.sys.TsTypeEntity;
-import com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity;
+import com.huiyi.campus.dao.entity.sys.*;
 import com.huiyi.campus.dao.pojo.web.common.CommonDao;
 import com.huiyi.campus.dao.vo.common.SysAreasVo;
 import com.huiyi.campus.dao.vo.common.TsTypeGroupVo;
@@ -141,16 +138,19 @@ public class CommonServiceImpl implements CommonService {
     }
 
     /**
-     * 根据用户id查询教育局机构id
+     * 根据机构id查询教育局机构
      * @param schoolDto
      * @return
      */
     @Override
-    public HQJsonResult selectOrganByUserId(SchoolDto schoolDto) {
+    public HQJsonResult selectOrganByOrganId(SchoolDto schoolDto) {
         if (JsonUtils.checkObjAllFieldsIsNull(schoolDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-
-        return null;
+        List<SysOrganEntity> organEntityList = commonDao.selectOrganByUserId(schoolDto);
+        if (!organEntityList.isEmpty()){
+            return HQJsonResult.success(organEntityList);
+        }
+        return new HQJsonResult();
     }
 }

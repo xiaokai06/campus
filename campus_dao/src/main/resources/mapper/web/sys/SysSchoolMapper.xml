@@ -109,7 +109,7 @@
 
     <!--根据用户ID查询当前所归属学校-->
     <select id="selectSchoolByUserId" resultMap="BaseResultMap">
-        SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time
+        SELECT school.id, school.school_name, school.school_address, school.organ_id,school.create_time, school.update_time
         FROM sys_school school
         LEFT JOIN sys_user u
         ON school.id = u.school_id
@@ -122,7 +122,7 @@
 
     <!--根据教育局ID与用户ID查询学校-->
     <select id="selectSchoolByUserIdAndOrganId" resultMap="BaseResultMap">
-        SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time
+        SELECT school.id, school.school_name, school.school_address, school.organ_id,school.create_time, school.update_time
         FROM sys_school school
         INNER JOIN sys_user u ON school.organ_id = u.organ_id
         <where>
