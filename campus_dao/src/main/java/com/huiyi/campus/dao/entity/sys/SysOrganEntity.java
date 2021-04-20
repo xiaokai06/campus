@@ -36,6 +36,6 @@ public class SysOrganEntity implements Serializable {
     private String createTime;
 
     @ApiModelProperty("上级机构ID")
-    private Integer organId;
+    private Integer parentId;
 
 }
