@@ -56,4 +56,13 @@ public class SysOrganDao {
         return sysOrganMapper.deleteOrganInfo(id);
     }
 
+    /**
+     * 通过机构ID查询子级
+     * @param organId
+     * @return
+     */
+    public List<Integer> selectIdByOrganId(Integer organId) {
+        return sysOrganMapper.selectIdByOrganId(organId);
+    }
+
 }

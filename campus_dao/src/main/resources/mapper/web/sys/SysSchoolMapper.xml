@@ -11,19 +11,25 @@
     </resultMap>
 
     <!-- 查询学校 -->
-    <select id="selectAllSchool" parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity"
-            resultMap="BaseResultMap">
+    <select id="selectAllSchool" resultMap="BaseResultMap">
         select s.id,s.school_name,s.school_address,s.create_time,s.organ_id,so.organ_name
         from sys_school s left join sys_organ so on s.organ_id=so.id
         <where>
-            <if test="schoolName != null and schoolName != ''">
-                s.school_name like CONCAT('%', #{schoolName,jdbcType=VARCHAR}, '%')
+            <if test="sysSchool.schoolName != null and sysSchool.schoolName != ''">
+                s.school_name like CONCAT('%', #{sysSchool.schoolName,jdbcType=VARCHAR}, '%')
             </if>
-            <if test="schoolAddress != null and schoolAddress != ''">
-                and s.school_address like CONCAT('%', #{schoolAddress,jdbcType=VARCHAR}, '%')
+            <if test="sysSchool.schoolAddress != null and sysSchool.schoolAddress != ''">
+                and s.school_address like CONCAT('%', #{sysSchool.schoolAddress,jdbcType=VARCHAR}, '%')
             </if>
-            <if test="organId != null and organId != null">
-                and s.organ_id = #{organId,jdbcType=INTEGER}
+            <if test="sysSchool.organId != null and sysSchool.organId != null">
+                and s.organ_id = #{sysSchool.organId,jdbcType=INTEGER}
+            </if>
+            <if test="list != null and list.size() > 0">
+                and s.organ_id in (
+                    <foreach collection="list" item="item" separator=",">
+                        #{item}
+                    </foreach>
+                )
             </if>
         </where>
     </select>
@@ -106,6 +112,20 @@
             </otherwise>
         </choose>
     </delete>
+
+    <!-- 通过机构ID查询学校ID -->
+    <select id="selectIdByOrganId" parameterType="java.util.List" resultType="java.lang.Integer">
+        select id from sys_school
+        <where>
+            <if test="list != null and list.size() > 0">
+                organ_id in (
+                    <foreach collection="list" item="item" separator=",">
+                        #{item}
+                    </foreach>
+                )
+            </if>
+        </where>
+    </select>
 
     <!--根据用户ID查询当前所归属学校-->
     <select id="selectSchoolByUserId" resultMap="BaseResultMap">

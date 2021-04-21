@@ -2,11 +2,15 @@ package com.huiyi.campus.web.sys.service.impl;
 
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
+import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDoctorDao;
 import com.huiyi.campus.web.sys.service.SysSchoolService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author: yzg
@@ -17,10 +21,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class SysSchoolServiceImpl implements SysSchoolService {
 
+    SysOrganDao sysOrganDao;
     SysSchoolDao sysSchoolDao;
     SysSchoolDoctorDao sysSchoolDoctorDao;
 
-    SysSchoolServiceImpl(SysSchoolDao sysSchoolDao, SysSchoolDoctorDao sysSchoolDoctorDao) {
+    SysSchoolServiceImpl(SysSchoolDao sysSchoolDao, SysSchoolDoctorDao sysSchoolDoctorDao,
+                         SysOrganDao sysOrganDao) {
+        this.sysOrganDao = sysOrganDao;
         this.sysSchoolDao = sysSchoolDao;
         this.sysSchoolDoctorDao = sysSchoolDoctorDao;
     }
@@ -32,7 +39,12 @@ public class SysSchoolServiceImpl implements SysSchoolService {
      */
     @Override
     public ResultBody selectAllSchool(SysSchoolEntity sysSchoolEntity) {
-        return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity));
+        Integer organId = sysSchoolEntity.getOrgId();
+        List<Integer> list = new ArrayList<>();
+        if (null != organId && organId != 0) {
+            list = sysOrganDao.selectIdByOrganId(organId);
+        }
+        return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));
     }
 
     /**

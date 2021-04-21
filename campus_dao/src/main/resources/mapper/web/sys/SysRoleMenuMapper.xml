@@ -10,13 +10,14 @@
         <result column="sort" jdbcType="VARCHAR" property="sort"/>
         <result column="component" jdbcType="VARCHAR" property="component"/>
         <result column="path" jdbcType="VARCHAR" property="path"/>
+        <result column="path_name" jdbcType="VARCHAR" property="pathName"/>
         <result column="icon" jdbcType="VARCHAR" property="icon"/>
         <result column="menu_type" jdbcType="INTEGER" property="menuType"/>
         <result column="hidden_flag" jdbcType="INTEGER" property="hiddenFlag"/>
     </resultMap>
 
     <sql id="Menu_Column_List">
-        id, parent_id, menu_name, create_time, menu_level, sort, component, path, icon, menu_type, hidden_flag
+        id, parent_id, menu_name, create_time, menu_level, sort, component, path, path_name, icon, menu_type, hidden_flag
     </sql>
 
     <!-- 超管角色查询所有菜单 -->
@@ -37,6 +38,7 @@
                u.menu_name,
                u.component,
                u.path,
+               u.path_name,
                u.icon,
                u.menu_type,
                u.hidden_flag,

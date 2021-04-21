@@ -23,10 +23,11 @@ public class SysSchoolDao {
     /**
      * 查询学校
      * @param sysSchoolEntity 参数
+     * @param list 机构ID
      * @return 返回值
      */
-    public List<SysSchoolEntity> selectAllSchool(SysSchoolEntity sysSchoolEntity) {
-        return sysSchoolMapper.selectAllSchool(sysSchoolEntity);
+    public List<SysSchoolEntity> selectAllSchool(SysSchoolEntity sysSchoolEntity, List<Integer> list) {
+        return sysSchoolMapper.selectAllSchool(sysSchoolEntity, list);
     }
 
     /**
@@ -62,6 +63,15 @@ public class SysSchoolDao {
      */
     public int deleteSchoolInfo(Integer id) {
         return sysSchoolMapper.deleteSchoolInfo(id);
+    }
+
+    /**
+     * 通过机构ID查询学校ID
+     * @param list
+     * @return
+     */
+    public List<Integer> selectIdByOrganId(List<Integer> list) {
+        return sysSchoolMapper.selectIdByOrganId(list);
     }
 
 }

@@ -52,6 +52,9 @@ public class SysMenuEntity implements Serializable {
     @ApiModelProperty("组件路径")
     private String component;
 
+    @ApiModelProperty("路径名称")
+    private String pathName;
+
     private List<SysMenuEntity> list;
 
 }

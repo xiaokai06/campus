@@ -7,13 +7,6 @@ package com.huiyi.campus.common.consts;
  */
 public class CommConstants {
 
-    public static final String ID = "id";
-
-    /**
-     * 失效时间一天
-     */
-    public static final int EXPIRE_TIME = 86400;
-
     /**
      * 默认失效时间30分钟
      */
@@ -33,16 +26,11 @@ public class CommConstants {
 
     public static final String RESET = "reset";
 
-    public static final String DEFAULT_PWD = "123456";
-
     public static final String NOT_LOGIN = "没有登录";
 
     public static final String UNKNOWN = "unknown";
 
     public static final String USER_INFO = "user:";
-
-    /** 管理员昵称 */
-    public static final String USER_ADMIN = "admin";
 
     public static final String ORGAN_REPETITION = "机构名称已存在，请重新输入！";
 

@@ -59,11 +59,13 @@ public class SysUserDao {
     /**
      * 查询所有用户信息
      * @param sysUserEntity 参数
+     * @param organList 机构ID
+     * @param schoolList 学校ID
      * @return 返回值
      */
-    public List<SysUserEntity> selectAllUserInfo(SysUserEntity sysUserEntity) {
-        PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());
-        return sysUserMapper.selectAllUserInfo(sysUserEntity);
+    public List<SysUserEntity> selectAllUserInfo(SysUserEntity sysUserEntity, List<Integer> organList, List<Integer> schoolList) {
+        PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize(), false);
+        return sysUserMapper.selectAllUserInfo(sysUserEntity, organList, schoolList);
     }
 
     /**

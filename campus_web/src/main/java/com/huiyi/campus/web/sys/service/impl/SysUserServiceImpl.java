@@ -10,17 +10,21 @@ import com.huiyi.campus.common.utils.*;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
+import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
+import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysUserService;
 import com.huiyi.campus.web.sys.service.TokenService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -40,16 +44,25 @@ public class SysUserServiceImpl implements SysUserService {
     AESUtils aesUtils;
     RedisUtils redisUtils;
     SysUserDao sysUserDao;
+    SysOrganDao sysOrganDao;
+    SysSchoolDao sysSchoolDao;
     TokenService tokenService;
     SysRoleMenuDao sysRoleMenuDao;
+    @Value("${user.defaultPwd}")
+    private String defaultPwd;
+    @Value("${user.administrator}")
+    private String administrator;
 
     SysUserServiceImpl(SysUserDao sysUserDao, RSAUtils rsaUtils, TokenService tokenService,
-                       AESUtils aesUtils, RedisUtils redisUtils, SysRoleMenuDao sysRoleMenuDao) {
+                       AESUtils aesUtils, RedisUtils redisUtils, SysRoleMenuDao sysRoleMenuDao,
+                       SysOrganDao sysOrganDao, SysSchoolDao sysSchoolDao) {
         this.rsaUtils = rsaUtils;
         this.aesUtils = aesUtils;
         this.redisUtils = redisUtils;
         this.sysUserDao = sysUserDao;
+        this.sysOrganDao = sysOrganDao;
         this.tokenService = tokenService;
+        this.sysSchoolDao = sysSchoolDao;
         this.sysRoleMenuDao = sysRoleMenuDao;
     }
 
@@ -88,7 +101,7 @@ public class SysUserServiceImpl implements SysUserService {
                     String aesToken = aesUtils.encrypt(token);
                     logger.info("AES加密后的token为：" + aesToken);
                     tokenVo.setToken(aesToken);
-                    redisUtils.set(key, tokenVo, CommConstants.EXPIRE_TIME);
+                    redisUtils.set(key, tokenVo, CommConstants.DEFAULT_EXPIRE_TIME);
                 }
                 tokenVo.setId(id);
                 tokenVo.setNickName(sysUserInfo.getNickName());
@@ -179,7 +192,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public ResultBody getMenuByUserId(String nickName) {
         List<SysMenuEntity> list;
-        if (CommConstants.USER_ADMIN.equals(nickName)) {
+        if (administrator.equals(nickName)) {
             list = sysRoleMenuDao.selectMenuByUserId(null);
         } else {
             SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
@@ -219,7 +232,18 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public CrRpcResult getAllUserInfo(SysUserEntity sysUserEntity) {
-        List<SysUserEntity> list = sysUserDao.selectAllUserInfo(sysUserEntity);
+        Integer organId = sysUserEntity.getOrganId();
+        Integer schoolId = sysUserEntity.getSchoolId();
+        List<Integer> organList = new ArrayList<>();
+        List<Integer> schoolList = new ArrayList<>();
+        if (null != organId && organId != 0) {
+            organList = sysOrganDao.selectIdByOrganId(organId);
+            schoolList = sysSchoolDao.selectIdByOrganId(organList);
+        }
+        if (null != schoolId && schoolId != 0) {
+            schoolList.add(schoolId);
+        }
+        List<SysUserEntity> list = sysUserDao.selectAllUserInfo(sysUserEntity, organList, schoolList);
         PageInfo<SysUserEntity> pageInfo = new PageInfo<>(list);
         return CrRpcResult.success(pageInfo);
     }
@@ -238,8 +262,7 @@ public class SysUserServiceImpl implements SysUserService {
         if (null != sysUser) {
             return ResultBody.error(CommonEnum.REPETITION);
         }
-        // TODO:新增用户密码默认123456
-        sysUserEntity.setPassWord(encryptResult(CommConstants.DEFAULT_PWD, "新增用户"));
+        sysUserEntity.setPassWord(encryptResult("新增用户"));
         return ResultBody.insert(sysUserDao.insertUserInfo(sysUserEntity), sysUserEntity.getId());
     }
 
@@ -276,21 +299,21 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public ResultBody resetPwd(UpdatePwdDto updatePwdDto) {
-        if (CommConstants.USER_ADMIN.equals(updatePwdDto.getNickName())) {
+        if (administrator.equals(updatePwdDto.getNickName())) {
             return ResultBody.error(CommConstants.NOT_RESET);
         }
-        updatePwdDto.setNewPwd(encryptResult(CommConstants.DEFAULT_PWD, "重置密码"));
+        updatePwdDto.setNewPwd(encryptResult("重置密码"));
         return ResultBody.success(sysUserDao.updateUserPwd(updatePwdDto));
     }
 
     /**
      * 加密最终得到的字符串
-     * @param str 需要加密的字符串
      * @param type 功能模块
      * @return 返回值
      */
-    private String encryptResult(String str, String type) {
-        String first = aesUtils.encrypt(str);
+    private String encryptResult(String type) {
+        // TODO:新增用户和重置密码都默认123456
+        String first = aesUtils.encrypt(defaultPwd);
         logger.info("（"+ type +"）第一次AES加密--后端--得到的字符串为：" + first);
         String second = rsaUtils.encrypt(first);
         logger.info("（"+ type +"）第二次RSA加密--后端--得到的字符串为：" + second);

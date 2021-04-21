@@ -39,6 +39,13 @@ public interface SysOrganMapper {
      */
     int deleteOrganInfo(Integer id);
 
+    /**
+     * 根据机构ID查询子级
+     * @param organId
+     * @return
+     */
+    List<Integer> selectIdByOrganId(Integer organId);
+
     List<SysOrganEntity> selectOrganByUserId(Integer organId);
 
     List<SysOrganEntity> selectByOrganId(Integer organId);

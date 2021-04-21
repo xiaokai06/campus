@@ -4,6 +4,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.Cipher;
@@ -21,7 +22,8 @@ public class AESUtils {
 	private static final Log logger = LogFactory.getLog(AESUtils.class);
 
 	// TODO: 由于AES的秘钥规定是16位秘钥,不是16位就会报错
-	public final static String C_KEY = "www_huiyi_com_cn";
+	@Value("${aes.salt}")
+	private String C_KEY;
 
 	/**
 	 * 加密
