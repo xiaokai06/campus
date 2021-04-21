@@ -60,5 +60,7 @@ public class CommConstants {
 
     public static final String NOT_SECURITY = "无菜单权限！";
 
+    public static final String EDUCATION_LEADER = "教育局";
+
 
 }

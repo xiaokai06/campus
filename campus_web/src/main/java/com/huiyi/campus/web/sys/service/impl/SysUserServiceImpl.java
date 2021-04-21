@@ -98,6 +98,12 @@ public class SysUserServiceImpl implements SysUserService {
                 tokenVo.setSex(sysUserInfo.getSex());
                 tokenVo.setSchoolId(sysUserInfo.getSchoolId());
                 tokenVo.setOrganId(sysUserInfo.getOrganId());
+                tokenVo.setRoleId(sysUserInfo.getRoleId());
+                tokenVo.setEducationFlag(0); // 默认为非教育局负责人
+                String roleName = sysUserInfo.getRoleName();
+                if (!StringUtils.isEmpty(roleName) && roleName.contains(CommConstants.EDUCATION_LEADER)){
+                    tokenVo.setEducationFlag(1);
+                }
                 SysUserEntity sysUser = new SysUserEntity();
                 sysUser.setId(sysUserInfo.getId());
                 sysUser.setLastVisit(DateUtils.getTime());

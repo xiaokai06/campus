@@ -42,4 +42,10 @@ public class TokenVo {
     @ApiModelProperty("机构ID")
     private Integer organId;
 
+    @ApiModelProperty("角色ID")
+    private Integer roleId;
+
+    @ApiModelProperty("是否为教育局负责人（1:是，0:否）")
+    private Integer educationFlag;
+
 }
