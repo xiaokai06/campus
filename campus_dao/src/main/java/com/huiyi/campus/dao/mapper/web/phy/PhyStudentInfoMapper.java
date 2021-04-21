@@ -28,4 +28,6 @@ public interface PhyStudentInfoMapper {
     int deleteByPrimaryKeyAndHealthAndItem(String id);
 
     StudentInfoRecordVo selectStudentByStudentNumber(StudentInfoRecordDto studentInfoRecordDto);
+
+    StudentInfoRecordVo selectByPrimaryStudentKey(PhyStudentInfoEntity phyStudentInfoEntity);
 }

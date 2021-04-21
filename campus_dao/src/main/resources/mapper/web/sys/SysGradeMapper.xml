@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysGradeMapper">
+    <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysGradeEntity">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="grade_name" jdbcType="VARCHAR" property="gradeName"/>
+        <result column="school_id" jdbcType="INTEGER" property="schoolId"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="update_time" jdbcType="VARCHAR" property="updateTime"/>
+        <result column="remark5" jdbcType="VARCHAR" property="remark5"/>
+        <result column="remark6" jdbcType="VARCHAR" property="remark6"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+                , grade_name, school_id, create_user, create_time, update_user, update_time, remark5,
+    remark6
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_grade
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from sys_grade
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeEntity">
+        insert into sys_grade (id, grade_name, school_id,
+                               create_user, create_time, update_user,
+                               update_time, remark5, remark6)
+        values (#{id,jdbcType=VARCHAR}, #{gradeName,jdbcType=VARCHAR}, #{schoolId,jdbcType=INTEGER},
+                #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR},
+                #{updateTime,jdbcType=VARCHAR}, #{remark5,jdbcType=VARCHAR}, #{remark6,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeEntity">
+        insert into sys_grade
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="gradeName != null">
+                grade_name,
+            </if>
+            <if test="schoolId != null">
+                school_id,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="remark5 != null">
+                remark5,
+            </if>
+            <if test="remark6 != null">
+                remark6,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="gradeName != null">
+                #{gradeName,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolId != null">
+                #{schoolId,jdbcType=INTEGER},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=VARCHAR},
+            </if>
+            <if test="remark5 != null">
+                #{remark5,jdbcType=VARCHAR},
+            </if>
+            <if test="remark6 != null">
+                #{remark6,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeEntity">
+        update sys_grade
+        <set>
+            <if test="gradeName != null">
+                grade_name = #{gradeName,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolId != null">
+                school_id = #{schoolId,jdbcType=INTEGER},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=VARCHAR},
+            </if>
+            <if test="remark5 != null">
+                remark5 = #{remark5,jdbcType=VARCHAR},
+            </if>
+            <if test="remark6 != null">
+                remark6 = #{remark6,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeEntity">
+        update sys_grade
+        set grade_name  = #{gradeName,jdbcType=VARCHAR},
+            school_id   = #{schoolId,jdbcType=INTEGER},
+            create_user = #{createUser,jdbcType=VARCHAR},
+            create_time = #{createTime,jdbcType=VARCHAR},
+            update_user = #{updateUser,jdbcType=VARCHAR},
+            update_time = #{updateTime,jdbcType=VARCHAR},
+            remark5     = #{remark5,jdbcType=VARCHAR},
+            remark6     = #{remark6,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <!--查询年级数据-->
+    <select id="selectGradeList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_grade
+        where 1=1
+        <if test="id != null and id!=''">
+            AND id = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="id != null and id!=''">
+            AND school_id = #{schoolId,jdbcType=INTEGER}
+        </if>
+    </select>
+    <!--根据学校Id查询年级班级数据-->
+    <select id="queryGradeClass" resultType="com.huiyi.campus.dao.vo.sys.SysGradeVo">
+        SELECT grade.id              as "gradeId",
+               grade.grade_name      as "gradeName",
+               grade.school_id       as "schoolId",
+               grade.create_user     as "createUser",
+               grade.create_time     as "createTime",
+               grade.update_user     as "updateUser",
+               grade.update_time     as "updateTime",
+               class.id              as "classId",
+               class.class_name      as "className",
+               class.grade_parent_id as "gradeParentId",
+               class.create_user     as "classCreateUser",
+               class.create_time     as "classCreateTime",
+               class.update_user     as "classUpdateUser",
+               class.update_time     as "classUpdateTime"
+        FROM sys_grade grade
+                     LEFT JOIN sys_grade_class class ON grade.id = class.grade_parent_id
+        WHERE grade.school_id = #{schoolId,jdbcType=INTEGER}
+    </select>
+</mapper>

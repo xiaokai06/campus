@@ -98,8 +98,9 @@ public class CommonServiceImpl implements CommonService {
         if (JsonUtils.checkObjAllFieldsIsNull(schoolDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        List<SysGradeClassEntity> classEntityList = commonDao.selectClassBySchoolId(schoolDto);
-        return HQJsonResult.success(classEntityList);
+//        List<SysGradeClassEntity> classEntityList = commonDao.selectClassBySchoolId(schoolDto);
+//        return HQJsonResult.success(classEntityList);
+        return HQJsonResult.success();
     }
 
     /**

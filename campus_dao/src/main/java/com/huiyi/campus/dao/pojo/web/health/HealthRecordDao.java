@@ -171,4 +171,13 @@ public class HealthRecordDao {
         String id = studentId;
         return phyStudentInfoMapper.selectByPrimaryKey(id);
     }
+
+    /**
+     * 查询学生档案信息
+     * @param phyStudentInfoEntity
+     * @return
+     */
+    public StudentInfoRecordVo selectStudentInfoRecord(PhyStudentInfoEntity phyStudentInfoEntity) {
+        return phyStudentInfoMapper.selectByPrimaryStudentKey(phyStudentInfoEntity);
+    }
 }

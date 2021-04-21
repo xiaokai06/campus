@@ -38,8 +38,8 @@ public class PhyStudentInfoEntity implements Serializable {
     private Integer organId;
     @ApiModelProperty("学生编号")
     private String studentNumber;
-    @ApiModelProperty("专业班级")
-    private String majorClass;
+    @ApiModelProperty("年级id")
+    private String gradeId;
     @ApiModelProperty("班级id")
     private String classId;
     @ApiModelProperty("国籍 0本国国籍 1外国国籍")

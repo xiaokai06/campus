@@ -30,4 +30,6 @@ public interface CampusHRecordService {
     HQJsonResult selectPhyDateByPhyStudentId(StudentHealthInfoDto studentHealthInfoDto);
 
     PhyStudentInfoEntity selectByStudentId(String studentId);
+
+    HQJsonResult selectStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
 }

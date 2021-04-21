@@ -58,7 +58,7 @@ public class CommonController {
      * @param schoolDto
      * @return
      */
-    @IsLogin
+//    @IsLogin
     @PostMapping("/selectClassBySchoolId")
     public HQJsonResult selectClassBySchoolId(@RequestBody SchoolDto schoolDto) {
         return commonService.selectClassBySchoolId(schoolDto);

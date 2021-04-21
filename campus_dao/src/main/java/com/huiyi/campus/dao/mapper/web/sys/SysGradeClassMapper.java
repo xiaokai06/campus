@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
+
 import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 
 import java.util.List;
@@ -17,5 +18,5 @@ public interface SysGradeClassMapper {
 
     int updateByPrimaryKey(SysGradeClassEntity record);
 
-    List<SysGradeClassEntity> selectClassBySchoolId(Integer schoolId);
+    List<SysGradeClassEntity> selectGrdeClassList(SysGradeClassEntity sysGradeClassEntity);
 }

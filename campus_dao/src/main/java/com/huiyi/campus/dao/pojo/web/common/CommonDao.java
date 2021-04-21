@@ -71,9 +71,9 @@ public class CommonDao {
      * @param schoolDto
      * @return
      */
-    public List<SysGradeClassEntity> selectClassBySchoolId(SchoolDto schoolDto) {
-        return sysGradeClassMapper.selectClassBySchoolId(schoolDto.getSchoolId());
-    }
+//    public List<SysGradeClassEntity> selectClassBySchoolId(SchoolDto schoolDto) {
+//        return sysGradeClassMapper.selectClassBySchoolId(schoolDto.getSchoolId());
+//    }
 
     public List<TsTypeGroupEntity> selectTypeGroup() {
         return tsTypeGroupMapper.selectAll();

@@ -53,12 +53,24 @@ public class CampusHRecordController {
      * @param studentInfoRecordDto
      * @return
      */
-//    @IsLogin
+    @IsLogin
     @ApiOperation("获取所有学生档案信息接口")
     @PostMapping("/queryStudentInfoRecord")
     public HQJsonResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto);
     }
+    /**
+     * 查询学生档案信息
+     *
+     * @param studentInfoRecordDto
+     * @return
+     */
+    @IsLogin
+    @PostMapping("/selectStudentInfoRecord")
+    public HQJsonResult selectStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
+        return campusHRecordService.selectStudentInfoRecord(studentInfoRecordDto);
+    }
+
 
     /**
      * 创建学生档案信息
@@ -104,7 +116,7 @@ public class CampusHRecordController {
      * @return
      */
     @IsLogin
-    @ApiOperation("创建和修改学生健康档案信息接口")
+    @ApiOperation("创建学生健康档案信息接口")
     @PostMapping("/createStudentHealthInfo")
     public HQJsonResult createStudentHealthInfo(@RequestBody StudentHealthInfoDto studentHealthInfoDto) {
         return campusHRecordService.createStudentHealthInfo(studentHealthInfoDto);
@@ -163,9 +175,6 @@ public class CampusHRecordController {
     @ResponseBody
     @PostMapping("/exportStudentInfoFile")
     public String exportStudentInfoFile(@RequestBody StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response) {
-
-
-
         return campusHRecordService.exportStudentInfoFile(studentInfoRecordDto, response);
     }
 

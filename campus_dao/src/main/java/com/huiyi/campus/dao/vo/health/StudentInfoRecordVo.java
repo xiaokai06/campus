@@ -65,13 +65,21 @@ public class StudentInfoRecordVo {
     @ApiModelProperty("学生编号")
     private String studentNumber;
 
-    @Excel(name = "专业班级")
-    @ApiModelProperty("专业班级")
-    private String majorClass;
+    @Excel(name = "年级ID")
+    @ApiModelProperty("年级ID")
+    private String gradeId;
+
+    @Excel(name = "年级名称")
+    @ApiModelProperty("年级名称")
+    private String gradeName;
 
     @Excel(name = "班级id")
     @ApiModelProperty("班级id")
     private String classId;
+
+    @Excel(name = "班级名称")
+    @ApiModelProperty("班级名称")
+    private String className;
 
     @ApiModelProperty("国籍 0本国国籍 1外国国籍")
     private Byte nationality;
@@ -122,7 +130,7 @@ public class StudentInfoRecordVo {
 
     @Excel(name = "入学时间")
     @ApiModelProperty("入学时间")
-    private Date enterTime;
+    private String enterTime;
 
     @Excel(name = "建档人id")
     @ApiModelProperty("建档人id（校医）")
@@ -137,15 +145,15 @@ public class StudentInfoRecordVo {
 
     @Excel(name = "建档日期")
     @ApiModelProperty("建档日期")
-    private Date phyFileDate;
+    private String phyFileDate;
 
     @Excel(name = "创建时间")
     @ApiModelProperty("创建时间")
-    private Date createTime;
+    private String createTime;
 
     @Excel(name = "更新时间")
     @ApiModelProperty("更新时间")
-    private Date updateTime;
+    private String updateTime;
 
     @Excel(name = "操作人员id")
     @ApiModelProperty("操作人员id (注：当前操作人员)")

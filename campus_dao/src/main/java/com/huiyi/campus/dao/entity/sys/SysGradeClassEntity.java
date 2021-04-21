@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -12,27 +13,17 @@ import java.io.Serializable;
 public class SysGradeClassEntity implements Serializable {
     private String id;
 
-    private String gradeName;
-
-    private Integer gradeId;
-
     private String className;
 
-    private String parentId;
+    private String gradeParentId;
 
-    private Integer schoolId;
+    private String createUser;
 
-    private String remark1;
+    private String createTime;
 
-    private String remark2;
+    private String updateUser;
 
-    private String remark3;
-
-    private String remark4;
-
-    private String remark5;
-
-    private String remark6;
+    private String updateTime;
 
     private static final long serialVersionUID = 1L;
 

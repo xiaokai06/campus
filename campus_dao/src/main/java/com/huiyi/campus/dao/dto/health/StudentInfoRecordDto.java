@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: liyukai
@@ -31,13 +32,13 @@ public class StudentInfoRecordDto {
     @ApiModelProperty("父母id")
     private String parentId;
     @ApiModelProperty("学校机构id")
-    private Integer schoolId;
+    private String schoolId;
     @ApiModelProperty("教育局机构id")
-    private Integer organId;
+    private String organId;
     @ApiModelProperty("学生编号（学号）")
     private String studentNumber;
-    @ApiModelProperty("专业班级")
-    private String majorClass;
+    @ApiModelProperty("年级id")
+    private String gradeId;
     @ApiModelProperty("班级id")
     private String classId;
     @ApiModelProperty("国籍 0本国国籍 1外国国籍")
@@ -65,7 +66,7 @@ public class StudentInfoRecordDto {
     @ApiModelProperty("户籍详细地址")
     private String censusAddress;
     @ApiModelProperty("入学时间")
-    private Date enterTime;
+    private String enterTime;
     @ApiModelProperty("建档人id（校医）")
     private Integer doctorId;
     @ApiModelProperty("创建时间")
@@ -80,5 +81,12 @@ public class StudentInfoRecordDto {
     private Integer page;
     @ApiModelProperty("条数")
     private Integer rows;
+
+
+/*
+    @ApiModelProperty("机构id-list")
+    private List<String> orgIdList;
+    @ApiModelProperty("学校id-list")
+    private List<String> schoolIdList;*/
 
 }
