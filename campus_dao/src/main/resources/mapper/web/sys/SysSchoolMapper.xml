@@ -116,15 +116,18 @@
     <!-- 通过机构ID查询学校ID -->
     <select id="selectIdByOrganId" parameterType="java.util.List" resultType="java.lang.Integer">
         select id from sys_school
-        <where>
-            <if test="list != null and list.size() > 0">
-                organ_id in (
+        <choose>
+            <when test="list != null and list.size() > 0">
+                where organ_id in (
                     <foreach collection="list" item="item" separator=",">
                         #{item}
                     </foreach>
                 )
-            </if>
-        </where>
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </select>
 
     <!--根据用户ID查询当前所归属学校-->

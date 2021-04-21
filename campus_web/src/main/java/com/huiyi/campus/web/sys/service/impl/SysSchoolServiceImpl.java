@@ -9,7 +9,6 @@ import com.huiyi.campus.web.sys.service.SysSchoolService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,10 +39,7 @@ public class SysSchoolServiceImpl implements SysSchoolService {
     @Override
     public ResultBody selectAllSchool(SysSchoolEntity sysSchoolEntity) {
         Integer organId = sysSchoolEntity.getOrgId();
-        List<Integer> list = new ArrayList<>();
-        if (null != organId && organId != 0) {
-            list = sysOrganDao.selectIdByOrganId(organId);
-        }
+        List<Integer> list = sysOrganDao.selectIdByOrganId(organId);
         return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));
     }
 

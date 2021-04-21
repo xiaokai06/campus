@@ -24,7 +24,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -234,15 +233,9 @@ public class SysUserServiceImpl implements SysUserService {
     public CrRpcResult getAllUserInfo(SysUserEntity sysUserEntity) {
         Integer organId = sysUserEntity.getOrganId();
         Integer schoolId = sysUserEntity.getSchoolId();
-        List<Integer> organList = new ArrayList<>();
-        List<Integer> schoolList = new ArrayList<>();
-        if (null != organId && organId != 0) {
-            organList = sysOrganDao.selectIdByOrganId(organId);
-            schoolList = sysSchoolDao.selectIdByOrganId(organList);
-        }
-        if (null != schoolId && schoolId != 0) {
-            schoolList.add(schoolId);
-        }
+        List<Integer> organList = sysOrganDao.selectIdByOrganId(organId);
+        List<Integer> schoolList = sysSchoolDao.selectIdByOrganId(organList);
+        schoolList.add(schoolId);
         List<SysUserEntity> list = sysUserDao.selectAllUserInfo(sysUserEntity, organList, schoolList);
         PageInfo<SysUserEntity> pageInfo = new PageInfo<>(list);
         return CrRpcResult.success(pageInfo);

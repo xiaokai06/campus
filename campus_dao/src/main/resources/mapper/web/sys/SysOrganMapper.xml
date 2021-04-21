@@ -81,11 +81,14 @@
     <!-- 通过机构ID查询自己本身和子级 -->
     <select id="selectIdByOrganId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
         select id from sys_organ
-        <where>
-           <if test="organId != null">
-               parent_id=#{organId,jdbcType=INTEGER} or id=#{organId,jdbcType=INTEGER}
-           </if>
-        </where>
+        <choose>
+            <when test="organId != null and organId != 0">
+                where parent_id=#{organId,jdbcType=INTEGER} or id=#{organId,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </select>
 
     <!--根据机构id查询上级机构-->
