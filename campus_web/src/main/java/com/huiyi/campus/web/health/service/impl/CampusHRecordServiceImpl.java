@@ -221,8 +221,8 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             phyStudentHealthInfoEntity.setCreateTime(new Date());
             int healthInfoStr = healthRecordDao.createStudentHealthInfo(phyStudentHealthInfoEntity);
             //校验肝功能与血常规检查是否正常
-            if (StringUtils.isNotEmpty(studentHealthInfoDto.getBloodRoutine()) || StringUtils.isNotEmpty(studentHealthInfoDto.getLiverFunction())) {
-                if (studentHealthInfoDto.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) ||
+            if (StringUtils.isNotEmpty(studentHealthInfoDto.getBloodRoutine()) && StringUtils.isNotEmpty(studentHealthInfoDto.getLiverFunction())) {
+                if (studentHealthInfoDto.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) &&
                         studentHealthInfoDto.getLiverFunction().equals(PhyItemConstants.liverFunction_error)) {
                     //肝功能新增
                     studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStr -> {
@@ -275,8 +275,8 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             if (!JsonUtils.checkObjAllFieldsIsNull(studentHealthInfoVo)) {
                 //校验血常规与肝功能检查是否正常
 
-                if (StringUtils.isNotEmpty(studentHealthInfoVo.getBloodRoutine()) || StringUtils.isNotEmpty(studentHealthInfoVo.getLiverFunction())) {
-                    if (studentHealthInfoVo.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) ||
+                if (StringUtils.isNotEmpty(studentHealthInfoVo.getBloodRoutine()) && StringUtils.isNotEmpty(studentHealthInfoVo.getLiverFunction())) {
+                    if (studentHealthInfoVo.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) &&
                             studentHealthInfoVo.getLiverFunction().equals(PhyItemConstants.liverFunction_error)) {
                         List<PhyItemResultEntity> liverResultEntities = healthRecordDao.selectLiverListByHealthId(studentHealthInfoVo.getId(), PhyItemConstants.liverFunction);
                         if (!liverResultEntities.isEmpty()) {
@@ -318,8 +318,8 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             JavaBeanUtil.copyPropertiesIgnoreNull(studentHealthInfoDto, phyStudentHealthInfoEntity);
             int updateStudentHealth = healthRecordDao.updateStudentHealthInfo(phyStudentHealthInfoEntity);
             //校验肝功能与血常规检查是否正常
-            if (StringUtils.isNotEmpty(studentHealthInfoDto.getBloodRoutine()) || StringUtils.isNotEmpty(studentHealthInfoDto.getLiverFunction())) {
-                if (studentHealthInfoDto.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) ||
+            if (StringUtils.isNotEmpty(studentHealthInfoDto.getBloodRoutine()) && StringUtils.isNotEmpty(studentHealthInfoDto.getLiverFunction())) {
+                if (studentHealthInfoDto.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) &&
                         studentHealthInfoDto.getLiverFunction().equals(PhyItemConstants.liverFunction_error)) {
                     if (StringUtils.isEmpty(studentHealthInfoDto.getLiverFunctionItemList().get(0).getId())) {
                         studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStrC -> {

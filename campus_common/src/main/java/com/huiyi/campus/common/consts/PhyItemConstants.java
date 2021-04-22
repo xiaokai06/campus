@@ -17,8 +17,8 @@ public class PhyItemConstants {
     /**
      * 异常数据标志
      */
-    public static final Integer liverFunction_error = 1;//血常规
-    public static final Integer bloodRoutine_error = 1;//肝功能
+    public static final String liverFunction_error = "1";//血常规
+    public static final String bloodRoutine_error = "1";//肝功能
     /**
      * 报告项目
      */

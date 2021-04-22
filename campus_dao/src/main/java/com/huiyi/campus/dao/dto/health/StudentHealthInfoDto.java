@@ -166,9 +166,9 @@ public class StudentHealthInfoDto {
     @ApiModelProperty("胸透医师")
     private String chestDoctor;
     @ApiModelProperty("肝功能 0正常 1异常")
-    private Integer liverFunction;
+    private String liverFunction;
     @ApiModelProperty("血常规 0正常 1异常")
-    private Integer bloodRoutine;
+    private String bloodRoutine;
     @ApiModelProperty("血常规异常备注")
     private String bloodRoutineErrorText;
     @ApiModelProperty("肝功能异常备注")
