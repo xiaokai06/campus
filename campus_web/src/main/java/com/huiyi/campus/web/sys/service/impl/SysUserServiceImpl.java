@@ -235,7 +235,9 @@ public class SysUserServiceImpl implements SysUserService {
         Integer schoolId = sysUserEntity.getSchoolId();
         List<Integer> organList = sysOrganDao.selectIdByOrganId(organId);
         List<Integer> schoolList = sysSchoolDao.selectIdByOrganId(organList);
-        schoolList.add(schoolId);
+        if (null != schoolId) {
+            schoolList.add(schoolId);
+        }
         List<SysUserEntity> list = sysUserDao.selectAllUserInfo(sysUserEntity, organList, schoolList);
         PageInfo<SysUserEntity> pageInfo = new PageInfo<>(list);
         return CrRpcResult.success(pageInfo);

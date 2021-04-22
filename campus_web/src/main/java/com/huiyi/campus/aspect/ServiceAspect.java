@@ -83,7 +83,7 @@ public class ServiceAspect {
             Method method = signature.getMethod();
             // 获取操作
             OperLog opLog = method.getAnnotation(OperLog.class);
-            if (opLog != null) {
+            if (opLog.required()) {
                 String operModule = opLog.operModule();
                 String operType = opLog.operType();
                 String operDesc = opLog.operDesc();
