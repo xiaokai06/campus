@@ -2,6 +2,7 @@ package com.huiyi.campus.dao.mapper.web.phy;
 
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public interface PhyItemResultMapper {
 
     int updateItemResultList(List<PhyItemResultEntity> itemResultEntityList);
 
-    List<PhyItemResultEntity> selectItemListByHealthIdAndRptunitId(String phyHealthId, Integer rptunitid);
+    List<PhyItemResultEntity> selectItemListByHealthIdAndRptunitId(@Param("phyHealthId")String phyHealthId, @Param("rptunitid")Integer rptunitid);
 
     PhyItemResultEntity selectItemResultByHeathId(String phyHealthId);
 
