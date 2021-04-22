@@ -1,5 +1,6 @@
 package com.huiyi.campus.common.consts;
 
+
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
@@ -11,8 +12,13 @@ public class PhyItemConstants {
     /**
      * 检验单元
      */
-    public static final int liverFunction = 0;//血常规
-    public static final int bloodRoutine = 1;//肝功能
+    public static final Integer liverFunction = 0;//血常规
+    public static final Integer bloodRoutine = 1;//肝功能
+    /**
+     * 异常数据标志
+     */
+    public static final Integer liverFunction_error = 1;//血常规
+    public static final Integer bloodRoutine_error = 1;//肝功能
     /**
      * 报告项目
      */

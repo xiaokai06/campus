@@ -21,7 +21,8 @@ import java.util.List;
 @Setter
 @ApiModel("学生健康档案信息Dto")
 public class StudentHealthInfoDto {
-
+    @ApiModelProperty("学校机构id")
+    private String schoolId;
     @ApiModelProperty("体检id")
     private String id;
     @ApiModelProperty("学生id")
@@ -209,6 +210,8 @@ public class StudentHealthInfoDto {
     @ApiModelProperty("合格标志 0合格 1未合格")
     private Integer qualifiedStatus;
 
-    @ApiModelProperty("检验项目结果数据")
-    private List<PhyItemResultEntity> itemResultEntityList;
+    @ApiModelProperty("肝功能检验项目结果数据")
+    private List<PhyItemResultEntity> liverFunctionItemList;
+    @ApiModelProperty("血常规检验项目结果数据")
+    private List<PhyItemResultEntity> bloodRoutineItemList;
 }

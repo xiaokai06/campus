@@ -209,6 +209,8 @@ public class StudentHealthInfoVo {
     @ApiModelProperty("肺异常备注")
     private String lungErrorText;
 
-    @ApiModelProperty("检验项目结果数据")
-    private List<PhyItemResultEntity> itemResultEntityList;
+    @ApiModelProperty("肝功能检验项目结果数据")
+    private List<PhyItemResultEntity> liverFunctionItemList;
+    @ApiModelProperty("血常规检验项目结果数据")
+    private List<PhyItemResultEntity> bloodRoutineItemList;
 }

@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.pojo.web.health;
 
+import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
@@ -138,8 +139,16 @@ public class HealthRecordDao {
      * @param phyHealthId
      * @return
      */
-    public List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId) {
-        return phyItemResultMapper.selectBloodListByHealthId(phyHealthId);
+//    public List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId) {
+//        return phyItemResultMapper.selectBloodListByHealthId(phyHealthId);
+//    }
+
+    public List<PhyItemResultEntity> selectLiverListByHealthId(String phyHealthId, Integer rptunitid) {
+        return phyItemResultMapper.selectItemListByHealthIdAndRptunitId(phyHealthId,rptunitid);
+    }
+
+    public List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId, Integer rptunitid) {
+        return phyItemResultMapper.selectItemListByHealthIdAndRptunitId(phyHealthId,rptunitid);
     }
 
     /**
@@ -180,4 +189,16 @@ public class HealthRecordDao {
     public StudentInfoRecordVo selectStudentInfoRecord(PhyStudentInfoEntity phyStudentInfoEntity) {
         return phyStudentInfoMapper.selectByPrimaryStudentKey(phyStudentInfoEntity);
     }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public PhyItemResultEntity selectItemResultByHeathId(String id) {
+        return phyItemResultMapper.selectItemResultByHeathId(id);
+    }
+
+
+
 }

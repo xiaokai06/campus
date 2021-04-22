@@ -19,7 +19,8 @@
         <result column="extend2" jdbcType="VARCHAR" property="extend2"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id, phy_health_id, rptunitid, rpt_itemid, result_num, result_str, result_txt, result_unit,
+        id
+                , phy_health_id, rptunitid, rpt_itemid, result_num, result_str, result_txt, result_unit,
     create_time, create_user, update_time, update_user, extend1, extend2
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -342,10 +343,23 @@
             where id = #{item.id,jdbcType=VARCHAR}
         </foreach>
     </update>
-    <!--查询健康检验项目-->
-    <select id="selectBloodListByHealthId" resultMap="BaseResultMap">
+    <!--<select id="selectLiverListByHealthId" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM phy_item_result WHERE phy_health_id = #{phyHealthId,jdbcType=VARCHAR}
+        AND rptunitid = #{rptunitid,jdbcType=INTEGER}
+    </select>-->
+    <!--根据健康ID查询-->
+    <select id="selectItemResultByHeathId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM phy_item_result WHERE id = #{id,jdbcType=VARCHAR}
+    </select>
+    <!--查询健康检验项目-->
+    <select id="selectItemListByHealthIdAndRptunitId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM phy_item_result WHERE phy_health_id = #{phyHealthId,jdbcType=VARCHAR}
+        AND rptunitid = #{rptunitid,jdbcType=INTEGER}
     </select>
 </mapper>

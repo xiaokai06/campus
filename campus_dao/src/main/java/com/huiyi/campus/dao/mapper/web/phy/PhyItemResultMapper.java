@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.mapper.web.phy;
 
+import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
 
 import java.util.List;
@@ -21,5 +22,8 @@ public interface PhyItemResultMapper {
 
     int updateItemResultList(List<PhyItemResultEntity> itemResultEntityList);
 
-    List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId);
+    List<PhyItemResultEntity> selectItemListByHealthIdAndRptunitId(String phyHealthId, Integer rptunitid);
+
+    PhyItemResultEntity selectItemResultByHeathId(String phyHealthId);
+
 }
