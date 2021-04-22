@@ -59,11 +59,11 @@ public class PhyStudentInfoEntity implements Serializable {
     @ApiModelProperty("家庭详细住址")
     private String familyAddress;
     @ApiModelProperty("户籍地址省")
-    private String censusAddresspRrov;
+    private String censusAddressProv;
     @ApiModelProperty("户籍地址市")
-    private String censusAddresspCity;
+    private String censusAddressCity;
     @ApiModelProperty("户籍地址区")
-    private String censusAddresspArea;
+    private String censusAddressArea;
     @ApiModelProperty("户籍详细地址")
     private String censusAddress;
     @ApiModelProperty("入学时间")

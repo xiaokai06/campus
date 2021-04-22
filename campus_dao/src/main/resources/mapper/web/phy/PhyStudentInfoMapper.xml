@@ -22,9 +22,9 @@
         <result column="family_address_city" jdbcType="VARCHAR" property="familyAddressCity"/>
         <result column="family_address_area" jdbcType="VARCHAR" property="familyAddressArea"/>
         <result column="family_address" jdbcType="VARCHAR" property="familyAddress"/>
-        <result column="census_address_prov" jdbcType="VARCHAR" property="censusAddresspRrov"/>
-        <result column="census_address_city" jdbcType="VARCHAR" property="censusAddresspCity"/>
-        <result column="census_address_area" jdbcType="VARCHAR" property="censusAddresspArea"/>
+        <result column="census_address_prov" jdbcType="VARCHAR" property="censusAddressProv"/>
+        <result column="census_address_city" jdbcType="VARCHAR" property="censusAddressCity"/>
+        <result column="census_address_area" jdbcType="VARCHAR" property="censusAddressArea"/>
         <result column="census_address" jdbcType="VARCHAR" property="censusAddress"/>
         <result column="enter_time" jdbcType="TIMESTAMP" property="enterTime"/>
         <result column="doctor_id" jdbcType="INTEGER" property="doctorId"/>
@@ -75,8 +75,8 @@
                 #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER},
                 #{delFlag,jdbcType=TINYINT}, #{familyAddressProv,jdbcType=VARCHAR},
                 #{familyAddressCity,jdbcType=VARCHAR},
-                #{familyAddressArea,jdbcType=VARCHAR}, #{censusAddresspRrov,jdbcType=VARCHAR},
-                #{censusAddresspCity,jdbcType=VARCHAR}, #{censusAddresspArea,jdbcType=VARCHAR})
+                #{familyAddressArea,jdbcType=VARCHAR}, #{censusAddressProv,jdbcType=VARCHAR},
+                #{censusAddressCity,jdbcType=VARCHAR}, #{censusAddressArea,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity">
         insert into phy_student_info
@@ -165,13 +165,13 @@
             <if test="familyAddressArea != null">
                 family_address_area,
             </if>
-            <if test="censusAddresspRrov != null">
+            <if test="censusAddressProv != null">
                 census_address_prov,
             </if>
-            <if test="censusAddresspCity != null">
+            <if test="censusAddressCity != null">
                 census_address_city,
             </if>
-            <if test="censusAddresspArea != null">
+            <if test="censusAddressArea != null">
                 census_address_area,
             </if>
         </trim>
@@ -260,14 +260,14 @@
             <if test="familyAddressArea != null">
                 #{familyAddressArea,jdbcType=VARCHAR},
             </if>
-            <if test="censusAddresspRrov != null">
-                #{censusAddresspRrov,jdbcType=VARCHAR},
+            <if test="censusAddressProv != null">
+                #{censusAddressProv,jdbcType=VARCHAR},
             </if>
-            <if test="censusAddresspCity != null">
-                #{censusAddresspCity,jdbcType=VARCHAR},
+            <if test="censusAddressCity != null">
+                #{censusAddressCity,jdbcType=VARCHAR},
             </if>
-            <if test="censusAddresspArea != null">
-                #{censusAddresspArea,jdbcType=VARCHAR},
+            <if test="censusAddressArea != null">
+                #{censusAddressArea,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -355,14 +355,14 @@
             <if test="familyAddressArea != null">
                 family_address_area = #{familyAddressArea,jdbcType=VARCHAR},
             </if>
-            <if test="censusAddresspRrov != null">
-                census_address_prov = #{censusAddresspRrov,jdbcType=VARCHAR},
+            <if test="censusAddressProv != null">
+                census_address_prov = #{censusAddressProv,jdbcType=VARCHAR},
             </if>
-            <if test="censusAddresspCity != null">
-                census_address_city = #{censusAddresspCity,jdbcType=VARCHAR},
+            <if test="censusAddressCity != null">
+                census_address_city = #{censusAddressCity,jdbcType=VARCHAR},
             </if>
-            <if test="censusAddresspArea != null">
-                census_address_area = #{censusAddresspArea,jdbcType=VARCHAR},
+            <if test="censusAddressArea != null">
+                census_address_area = #{censusAddressArea,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=VARCHAR}
@@ -396,50 +396,58 @@
             family_address_prov = #{familyAddressProv,jdbcType=VARCHAR},
             family_address_city = #{familyAddressCity,jdbcType=VARCHAR},
             family_address_area = #{familyAddressArea,jdbcType=VARCHAR},
-            census_address_prov = #{censusAddresspRrov,jdbcType=VARCHAR},
-            census_address_city = #{censusAddresspCity,jdbcType=VARCHAR},
-            census_address_area = #{censusAddresspArea,jdbcType=VARCHAR}
+            census_address_prov = #{censusAddressProv,jdbcType=VARCHAR},
+            census_address_city = #{censusAddressCity,jdbcType=VARCHAR},
+            census_address_area = #{censusAddressArea,jdbcType=VARCHAR}
         where id = #{id,jdbcType=VARCHAR}
     </update>
     <!--查询所有学生档案信息-->
     <select id="selectAll" resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
         SELECT
-        info.id as "id",
-        info.student_name as "studentName",
-        info.sex as "sex",
-        info.age as "age",
-        info.birth_date as "birthDate",
-        p.user_name as "parentName",
-        school.school_name as "schoolName",
-        organ.organ_name as "organName",
-        info.student_number as "studentNumber",
-        info.grade_id as "gradeId",
-        info.class_id as "classId",
-        info.nationality as "nationality",
-        info.id_card as "idCard",
-        info.phone_number as "phoneNumber",
-        info.image as "image",
-        info.family_address_prov as "familyAddressProv",
-        info.family_address_city as "familyAddressCity",
-        info.family_address_area as "familyAddressArea",
-        info.family_address as "familyAddress",
-        info.census_address_prov as "censusAddresspRrov",
-        info.census_address_city as "censusAddresspCity",
-        info.census_address_area as "censusAddresspArea",
-        info.census_address as "censusAddress",
-        info.enter_time as "enterTime",
-        doctor.doctor_name as "doctorName",
-        info.duty_doctor as "dutyDoctor",
-        info.phy_file_date as "phyFileDate",
-        info.create_time as "createTime",
-        info.operator_id as "operatorId"
+        info.id AS "id",
+        info.student_name AS "studentName",
+        info.sex AS "sex",
+        info.age AS "age",
+        info.birth_date AS "birthDate",
+        info.parent_id AS "parentId",
+        p.user_name AS "parentName",
+        info.school_id AS "schoolId",
+        school.school_name AS "schoolName",
+        info.organ_id AS "organId",
+        organ.organ_name AS "organName",
+        info.student_number AS "studentNumber",
+        info.grade_id AS "gradeId",
+        grade.grade_name AS "gradeName",
+        info.class_id AS "classId",
+        class.class_name AS "className",
+        info.nationality AS "nationality",
+        info.id_card AS "idCard",
+        info.phone_number AS "phoneNumber",
+        info.image AS "image",
+        info.family_address_prov AS "familyAddressProv",
+        info.family_address_city AS "familyAddressCity",
+        info.family_address_area AS "familyAddressArea",
+        info.family_address AS "familyAddress",
+        info.census_address_prov AS "censusAddressProv",
+        info.census_address_city AS "censusAddressCity",
+        info.census_address_area AS "censusAddressArea",
+        info.census_address AS "censusAddress",
+        info.enter_time AS "enterTime",
+        info.doctor_id AS "doctorId",
+        u.nick_name AS "doctorName",
+        info.duty_doctor AS "dutyDoctor",
+        info.phy_file_date AS "phyFileDate",
+        info.create_time AS "createTime",
+        info.operator_id AS "operatorId"
         FROM
         phy_student_info info
-        LEFT JOIN sys_parent p on info.parent_id = p.id
-        LEFT JOIN sys_school school on info.school_id = school.id
-        LEFT JOIN sys_organ organ on info.organ_id = organ.id
-        LEFT JOIN sys_grade_class class on info.class_id = class.id
-        LEFT JOIN sys_doctor doctor on info.doctor_id = doctor.id
+        LEFT JOIN sys_parent p ON info.parent_id = p.id
+        LEFT JOIN sys_school school ON info.school_id = school.id
+        LEFT JOIN sys_organ organ ON info.organ_id = organ.id
+        LEFT JOIN sys_doctor doctor ON info.doctor_id = doctor.id
+        LEFT JOIN sys_user u ON info.doctor_id = u.id
+        LEFT JOIN sys_grade grade ON info.grade_id = grade.id
+        LEFT JOIN sys_grade_class class ON info.class_id = class.id
         WHERE 1=1
         <if test="id != null and id!=''">
             AND info.id = #{id,jdbcType=VARCHAR}
@@ -462,14 +470,14 @@
         <if test="familyAddress != null and familyAddress!=''">
             AND info.family_address = #{familyAddress,jdbcType=VARCHAR}
         </if>
-        <if test="censusAddresspRrov != null and censusAddresspRrov!=''">
-            AND info.census_address_prov = #{censusAddresspRrov,jdbcType=VARCHAR}
+        <if test="censusAddressProv != null and censusAddressProv!=''">
+            AND info.census_address_prov = #{censusAddressProv,jdbcType=VARCHAR}
         </if>
-        <if test="censusAddresspCity != null and censusAddresspCity!=''">
-            AND info.census_address_city = #{censusAddresspCity,jdbcType=VARCHAR}
+        <if test="censusAddressCity != null and censusAddressCity!=''">
+            AND info.census_address_city = #{censusAddressCity,jdbcType=VARCHAR}
         </if>
-        <if test="censusAddresspCity != null and censusAddresspCity!=''">
-            AND info.census_address_area = #{censusAddresspCity,jdbcType=VARCHAR}
+        <if test="censusAddressCity != null and censusAddressCity!=''">
+            AND info.census_address_area = #{censusAddressCity,jdbcType=VARCHAR}
         </if>
         <if test="censusAddress != null and censusAddress!=''">
             AND info.census_address = #{censusAddress,jdbcType=VARCHAR}
@@ -494,6 +502,9 @@
         </if>
         <if test="gradeId != null and gradeId!=''">
             AND info.grade_id = #{gradeId,jdbcType=INTEGER}
+        </if>
+        <if test="schoolId != null and schoolId!=''">
+            AND info.school_id = #{schoolId,jdbcType=INTEGER}
         </if>
     </select>
 
@@ -578,13 +589,13 @@
                 <if test="item.familyAddressArea != null">
                     family_address_area,
                 </if>
-                <if test="item.censusAddresspRrov != null">
+                <if test="item.censusAddressProv != null">
                     census_address_prov,
                 </if>
-                <if test="item.censusAddresspCity != null">
+                <if test="item.censusAddressCity != null">
                     census_address_city,
                 </if>
-                <if test="item.censusAddresspArea != null">
+                <if test="item.censusAddressArea != null">
                     census_address_area,
                 </if>
             </trim>
@@ -664,14 +675,14 @@
                 <if test="item.familyAddressArea != null">
                     #{item.familyAddressArea,jdbcType=VARCHAR},
                 </if>
-                <if test="item.censusAddresspRrov != null">
-                    #{item.censusAddresspRrov,jdbcType=VARCHAR},
+                <if test="item.censusAddressProv != null">
+                    #{item.censusAddressProv,jdbcType=VARCHAR},
                 </if>
-                <if test="item.censusAddresspCity != null">
-                    #{item.censusAddresspCity,jdbcType=VARCHAR},
+                <if test="item.censusAddressCity != null">
+                    #{item.censusAddressCity,jdbcType=VARCHAR},
                 </if>
-                <if test="item.censusAddresspArea != null">
-                    #{item.censusAddresspArea,jdbcType=VARCHAR},
+                <if test="item.censusAddressArea != null">
+                    #{item.censusAddressArea,jdbcType=VARCHAR},
                 </if>
             </trim>
         </foreach>
@@ -725,27 +736,68 @@
     <!--根据学生ID查询数据-->
     <select id="selectByPrimaryStudentKey" resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
         SELECT
-        <include refid="Base_Column_List"/>
+        info.id AS "id",
+        info.student_name AS "studentName",
+        info.sex AS "sex",
+        info.age AS "age",
+        info.birth_date AS "birthDate",
+        info.parent_id AS "parentId",
+        p.user_name AS "parentName",
+        info.school_id AS "schoolId",
+        school.school_name AS "schoolName",
+        info.organ_id AS "organId",
+        organ.organ_name AS "organName",
+        info.student_number AS "studentNumber",
+        info.grade_id AS "gradeId",
+        grade.grade_name AS "gradeName",
+        info.class_id AS "classId",
+        class.class_name AS "className",
+        info.nationality AS "nationality",
+        info.id_card AS "idCard",
+        info.phone_number AS "phoneNumber",
+        info.image AS "image",
+        info.family_address_prov AS "familyAddressProv",
+        info.family_address_city AS "familyAddressCity",
+        info.family_address_area AS "familyAddressArea",
+        info.family_address AS "familyAddress",
+        info.census_address_prov AS "censusAddressProv",
+        info.census_address_city AS "censusAddressCity",
+        info.census_address_area AS "censusAddressArea",
+        info.census_address AS "censusAddress",
+        info.enter_time AS "enterTime",
+        info.doctor_id AS "doctorId",
+        u.nick_name AS "doctorName",
+        info.duty_doctor AS "dutyDoctor",
+        info.phy_file_date AS "phyFileDate",
+        info.create_time AS "createTime",
+        info.operator_id AS "operatorId"
         FROM
-        phy_student_info
+        phy_student_info info
+        LEFT JOIN sys_parent p ON info.parent_id = p.id
+        LEFT JOIN sys_school school ON info.school_id = school.id
+        LEFT JOIN sys_organ organ ON info.organ_id = organ.id
+        LEFT JOIN sys_doctor doctor ON info.doctor_id = doctor.id
+        LEFT JOIN sys_user u ON info.doctor_id = u.id
+        LEFT JOIN sys_grade grade ON info.grade_id = grade.id
+        LEFT JOIN sys_grade_class class ON info.class_id = class.id
         WHERE 1=1
         <if test="id != null and id!=''">
-            AND id = #{id,jdbcType=VARCHAR}
+            AND info.id = #{id,jdbcType=VARCHAR}
         </if>
         <if test="studentName != null and studentName!=''">
-            AND student_name = #{studentName,jdbcType=VARCHAR}
+            AND info.student_name = #{studentName,jdbcType=VARCHAR}
         </if>
         <if test="familyAddress != null and familyAddress!=''">
-            AND family_address = #{familyAddress,jdbcType=VARCHAR}
+            AND info.family_address = #{familyAddress,jdbcType=VARCHAR}
         </if>
         <if test="censusAddress != null and censusAddress!=''">
-            AND census_address = #{censusAddress,jdbcType=VARCHAR}
+            AND info.census_address = #{censusAddress,jdbcType=VARCHAR}
         </if>
         <if test="studentNumber != null and studentNumber!=''">
-            AND student_number = #{studentNumber,jdbcType=VARCHAR}
+            AND info.student_number = #{studentNumber,jdbcType=VARCHAR}
         </if>
         <if test="schoolId != null and schoolId!=''">
-            AND school_id = #{schoolId,jdbcType=INTEGER}
+            AND info.school_id = #{schoolId,jdbcType=INTEGER}
         </if>
     </select>
 </mapper>

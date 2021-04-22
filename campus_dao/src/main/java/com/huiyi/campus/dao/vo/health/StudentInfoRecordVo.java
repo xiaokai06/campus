@@ -114,15 +114,15 @@ public class StudentInfoRecordVo {
 
     @Excel(name = "户籍地址省")
     @ApiModelProperty("户籍地址省")
-    private String censusAddresspRrov;
+    private String censusAddressProv;
 
     @Excel(name = "户籍地址市")
     @ApiModelProperty("户籍地址市")
-    private String censusAddresspCity;
+    private String censusAddressCity;
 
     @Excel(name = "户籍地址区")
     @ApiModelProperty("户籍地址区")
-    private String censusAddresspArea;
+    private String censusAddressArea;
 
     @Excel(name = "户籍地址")
     @ApiModelProperty("户籍地址")
