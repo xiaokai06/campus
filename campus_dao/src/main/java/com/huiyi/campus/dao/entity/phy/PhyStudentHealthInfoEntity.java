@@ -204,7 +204,7 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("更新人")
     private String updateUser;
     @ApiModelProperty("合格标志 0合格 1未合格")
-    private String qualifiedStatus;
+    private Integer qualifiedStatus;
     @ApiModelProperty("肺异常备注")
     private String lungErrorText;
 

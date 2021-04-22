@@ -1,13 +1,13 @@
 spring:
-#  boot:
-#    admin:
-#      client:
-#        url: http://localhost:9003/
-#        instance:
-#          service-url: http://localhost:${server.port}/${server.servlet.context-path}
-#          prefer-ip: true
-#          name: ${spring.application.name}
-#          read-timeout: 10000
+  #  boot:
+  #    admin:
+  #      client:
+  #        url: http://localhost:9003/
+  #        instance:
+  #          service-url: http://localhost:${server.port}/${server.servlet.context-path}
+  #          prefer-ip: true
+  #          name: ${spring.application.name}
+  #          read-timeout: 10000
 
   application:
     #   项目应用名
@@ -41,17 +41,19 @@ logging:
     com.huiyi.campus: debug
     root: info
   file: /opt/campus/health/campus-health/logs/campus-info.log
-#  file: campus-health/logs/campus-info.log
+  #  file: campus-health/logs/campus-info.log
   pattern: #日志高亮
     file: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx'
   config: classpath:logback-spring.xml
 #  minio对象存储配置
 minio:
+  bucketImageName: campus
+  studentImage: studentImage
   endpoint: http://47.93.112.92:9000
   accessKey: admin
   secretKey: admin123456
-  bucketImageName: campus
-  studentImage: studentImage
+
+
 
 
 #项目健康监控

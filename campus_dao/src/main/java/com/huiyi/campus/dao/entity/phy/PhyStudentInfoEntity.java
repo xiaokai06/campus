@@ -67,7 +67,7 @@ public class PhyStudentInfoEntity implements Serializable {
     @ApiModelProperty("户籍详细地址")
     private String censusAddress;
     @ApiModelProperty("入学时间")
-    private Date enterTime;
+    private String enterTime;
     @ApiModelProperty("建档人id（校医）")
     private Integer doctorId;
     @ApiModelProperty("责任医生")
@@ -80,7 +80,7 @@ public class PhyStudentInfoEntity implements Serializable {
     private Date updateTime;
     @ApiModelProperty("操作人员id (注：当前操作人员)")
     private Integer operatorId;
-    private Byte delFlag;
+    private Integer delFlag;
     @ApiModelProperty("扩展字段1")
     private String extend1;
     @ApiModelProperty("扩展字段2")

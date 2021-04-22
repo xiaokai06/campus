@@ -61,7 +61,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         try {
 
             HQJsonResult<StudentInfoRecordVo> hqJsonResult = new HQJsonResult<>();
-            /*String[] orgIdCode = studentInfoRecordDto.getOrganId().split(",");
+            /**String[] orgIdCode = studentInfoRecordDto.getOrganId().split(",");
             String[] schoolIdCode = studentInfoRecordDto.getSchoolId().split(",");
             studentInfoRecordDto.setOrgIdList(Arrays.asList(orgIdCode));
             studentInfoRecordDto.setSchoolIdList(Arrays.asList(schoolIdCode));*/
@@ -95,18 +95,24 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        PhyStudentInfoEntity phyStudentInfoEntity = new PhyStudentInfoEntity();
-        JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
-        StudentInfoRecordVo studentInfoRecordVo = healthRecordDao.selectStudentInfoRecord(phyStudentInfoEntity);
-        if (!JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordVo)) {
-            SysGradeEntity gradeEntity = new SysGradeEntity();
-            JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordVo, gradeEntity);
-            List<SysGradeVo> gradeVoList = sysGradeClassDao.queryGradeClass(gradeEntity);
-            gradeVoList.forEach(str -> {
-                studentInfoRecordVo.setGradeName(str.getGradeName());
-                studentInfoRecordVo.setClassName(str.getClassName());
-            });
-            return HQJsonResult.success(studentInfoRecordVo);
+        try {
+            PhyStudentInfoEntity phyStudentInfoEntity = new PhyStudentInfoEntity();
+            JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
+            StudentInfoRecordVo studentInfoRecordVo = healthRecordDao.selectStudentInfoRecord(phyStudentInfoEntity);
+            if (!JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordVo)) {
+                SysGradeEntity gradeEntity = new SysGradeEntity();
+                JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordVo, gradeEntity);
+                List<SysGradeVo> gradeVoList = sysGradeClassDao.queryGradeClass(gradeEntity);
+                gradeVoList.forEach(str -> {
+                    studentInfoRecordVo.setGradeName(str.getGradeName());
+                    studentInfoRecordVo.setClassName(str.getClassName());
+                });
+                return HQJsonResult.success(studentInfoRecordVo);
+            } else {
+                return HQJsonResult.success();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return new HQJsonResult();
     }
@@ -318,11 +324,13 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             JavaBeanUtil.copyPropertiesIgnoreNull(studentHealthInfoDto, phyStudentHealthInfoEntity);
             int updateStudentHealth = healthRecordDao.updateStudentHealthInfo(phyStudentHealthInfoEntity);
             //校验肝功能与血常规检查是否正常
-            if (1 == (studentHealthInfoDto.getBloodRoutine()) || 1 == (studentHealthInfoDto.getLiverFunction())) {
-                studentHealthInfoDto.getItemResultEntityList().forEach(str -> str.setUpdateTime(new Date()));
-                int bloodAndLiverRoutine = healthRecordDao.updateItemResult(studentHealthInfoDto.getItemResultEntityList());
-                if (bloodAndLiverRoutine < 0) {
-                    log.info("血常规与肝功能报告结果修改异常：" + bloodAndLiverRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
+            if (studentHealthInfoDto.getBloodRoutine() != null || studentHealthInfoDto.getLiverFunction() != null) {
+                if (1 == (studentHealthInfoDto.getBloodRoutine()) || 1 == (studentHealthInfoDto.getLiverFunction())) {
+                    studentHealthInfoDto.getItemResultEntityList().forEach(str -> str.setUpdateTime(new Date()));
+                    int bloodAndLiverRoutine = healthRecordDao.updateItemResult(studentHealthInfoDto.getItemResultEntityList());
+                    if (bloodAndLiverRoutine < 0) {
+                        log.info("血常规与肝功能报告结果修改异常：" + bloodAndLiverRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
+                    }
                 }
             }
             if (updateStudentHealth > 0) {
