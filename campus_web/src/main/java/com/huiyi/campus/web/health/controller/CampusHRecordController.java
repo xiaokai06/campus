@@ -171,7 +171,7 @@ public class CampusHRecordController {
      * @param response
      * @return
      */
-
+    @IsLogin
     @ApiOperation("学生档案信息数据导出接口")
     @ResponseBody
     @PostMapping("/exportStudentInfoFile")
