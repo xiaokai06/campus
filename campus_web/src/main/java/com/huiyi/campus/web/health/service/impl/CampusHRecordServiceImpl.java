@@ -84,7 +84,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             e.printStackTrace();
             log.error("获取学生档案信息接口异常：" + e.getMessage());
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
     }
 
     /**
@@ -120,7 +120,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
     }
 
 
@@ -153,7 +153,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             e.printStackTrace();
             log.error("创建学生档案信息异常为：" + e.getMessage());
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
     }
 
 
@@ -179,8 +179,10 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
+
     }
 
     /**
@@ -202,7 +204,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             log.info("学生档案信息删除成功,学生ID为：" + studentInfoRecordDto.getId());
             return HQJsonResult.success();
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
     }
 
     /**
@@ -245,7 +247,8 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
+
     }
 
     /**
@@ -319,7 +322,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
     }
 
     /**
@@ -422,7 +425,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
     }
 
     /**
@@ -497,7 +500,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success();
     }
 
     /**
