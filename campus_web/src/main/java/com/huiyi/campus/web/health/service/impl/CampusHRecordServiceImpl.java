@@ -343,7 +343,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             if (StringUtils.isNotEmpty(studentHealthInfoDto.getBloodRoutine()) || StringUtils.isNotEmpty(studentHealthInfoDto.getLiverFunction())) {
                 if (studentHealthInfoDto.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) ||
                         studentHealthInfoDto.getLiverFunction().equals(PhyItemConstants.liverFunction_error)) {
-                    //肝功能判断
+                    //肝功能新增修改判断
                     if (StringUtils.isEmpty(studentHealthInfoDto.getLiverFunctionItemList().get(0).getId())) {
                         studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStrC -> {
                             liverStrC.setId(Sid.nextShort());
@@ -378,7 +378,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
                             log.info("肝功能报告结果修改异常：" + liverRoutineU + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                         }
                     }
-                    //血常规判断
+                    //血常规新增修改判断
                     if (StringUtils.isEmpty(studentHealthInfoDto.getBloodRoutineItemList().get(0).getId())) {
                         studentHealthInfoDto.getBloodRoutineItemList().forEach(bloodStrC -> {
                             bloodStrC.setId(Sid.nextShort());
