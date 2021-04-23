@@ -157,18 +157,21 @@ public class HealthRecordDao {
     }
 
     /**
-     * 查询健康检验项目
+     * 查询肝功能健康检验项目
      *
      * @param phyHealthId
      * @return
      */
-//    public List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId) {
-//        return phyItemResultMapper.selectBloodListByHealthId(phyHealthId);
-//    }
     public List<PhyItemResultLiverVo> selectLiverListByHealthId(String phyHealthId, Integer rptunitid) {
         return phyItemResultMapper.selectLiverListByHealthId(phyHealthId, rptunitid);
     }
 
+    /**
+     * 查询血常规健康检验项目
+     *
+     * @param phyHealthId
+     * @return
+     */
     public List<PhyItemResultBloodVo> selectBloodListByHealthId(String phyHealthId, Integer rptunitid) {
         return phyItemResultMapper.selectBloodListByHealthId(phyHealthId, rptunitid);
     }
