@@ -1,10 +1,10 @@
 package com.huiyi.campus.web.health.controller;
 
 import com.huiyi.campus.common.annotaion.IsLogin;
-import com.huiyi.campus.common.consts.PhyRecordConstans;
 import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
+import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
@@ -167,16 +167,16 @@ public class CampusHRecordController {
     /**
      * 学生档案信息数据导出
      *
-     * @param studentInfoRecordDto
+     * @param exportStudentInfoDto
      * @param response
      * @return
      */
-    @IsLogin
+
     @ApiOperation("学生档案信息数据导出接口")
     @ResponseBody
     @PostMapping("/exportStudentInfoFile")
-    public String exportStudentInfoFile(@RequestBody StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response) {
-        return campusHRecordService.exportStudentInfoFile(studentInfoRecordDto, response);
+    public String exportStudentInfoFile(@RequestBody ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response) {
+        return campusHRecordService.exportStudentInfoFile(exportStudentInfoDto, response);
     }
 
     /**

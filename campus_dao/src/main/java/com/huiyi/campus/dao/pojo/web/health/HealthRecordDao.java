@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.pojo.web.health;
 
+import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
@@ -47,6 +48,15 @@ public class HealthRecordDao {
      */
     public List<StudentInfoRecordVo> queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto) {
         return phyStudentInfoMapper.selectAll(studentInfoRecordDto);
+    }
+
+    /**
+     * 导出学生信息
+     * @param exportStudentInfoDto
+     * @return
+     */
+    public List<StudentInfoRecordVo> exportStudentInfoRecord(ExportStudentInfoDto exportStudentInfoDto) {
+        return phyStudentInfoMapper.exportStudentInfo(exportStudentInfoDto);
     }
 
     /**

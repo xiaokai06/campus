@@ -508,6 +508,114 @@
         </if>
     </select>
 
+    <!-- 导出学生信息 -->
+    <select id="exportStudentInfo" resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
+        SELECT
+        info.id AS "id",
+        info.student_name AS "studentName",
+        info.sex AS "sex",
+        info.age AS "age",
+        info.birth_date AS "birthDate",
+        info.parent_id AS "parentId",
+        p.user_name AS "parentName",
+        info.school_id AS "schoolId",
+        school.school_name AS "schoolName",
+        info.organ_id AS "organId",
+        organ.organ_name AS "organName",
+        info.student_number AS "studentNumber",
+        info.grade_id AS "gradeId",
+        grade.grade_name AS "gradeName",
+        info.class_id AS "classId",
+        class.class_name AS "className",
+        info.nationality AS "nationality",
+        info.id_card AS "idCard",
+        info.phone_number AS "phoneNumber",
+        info.image AS "image",
+        info.family_address_prov AS "familyAddressProv",
+        info.family_address_city AS "familyAddressCity",
+        info.family_address_area AS "familyAddressArea",
+        info.family_address AS "familyAddress",
+        info.census_address_prov AS "censusAddressProv",
+        info.census_address_city AS "censusAddressCity",
+        info.census_address_area AS "censusAddressArea",
+        info.census_address AS "censusAddress",
+        info.enter_time AS "enterTime",
+        info.doctor_id AS "doctorId",
+        u.nick_name AS "doctorName",
+        info.duty_doctor AS "dutyDoctor",
+        info.phy_file_date AS "phyFileDate",
+        info.create_time AS "createTime",
+        info.operator_id AS "operatorId"
+        FROM
+        phy_student_info info
+        LEFT JOIN sys_parent p ON info.parent_id = p.id
+        LEFT JOIN sys_school school ON info.school_id = school.id
+        LEFT JOIN sys_organ organ ON info.organ_id = organ.id
+        LEFT JOIN sys_doctor doctor ON info.doctor_id = doctor.id
+        LEFT JOIN sys_user u ON info.doctor_id = u.id
+        LEFT JOIN sys_grade grade ON info.grade_id = grade.id
+        LEFT JOIN sys_grade_class class ON info.class_id = class.id
+        <where>
+            <if test="studentIds != null and studentIds.size() > 0">
+                info.id in
+                <foreach collection="studentIds" item="item" open="(" separator="," close=")">
+                    #{item,jdbcType=VARCHAR}
+                </foreach>
+            </if>
+            <if test="studentName != null and studentName!=''">
+                AND info.student_name = #{studentName,jdbcType=VARCHAR}
+            </if>
+            <if test="sex != null and sex!=''">
+                AND info.sex = #{sex,jdbcType=TINYINT}
+            </if>
+            <if test="familyAddressProv != null and familyAddressProv!=''">
+                AND info.family_address_prov = #{familyAddressProv,jdbcType=VARCHAR}
+            </if>
+            <if test="familyAddressCity != null and familyAddressCity!=''">
+                AND info.family_address_city = #{familyAddressCity,jdbcType=VARCHAR}
+            </if>
+            <if test="familyAddressArea != null and familyAddressArea!=''">
+                AND info.family_address_area = #{familyAddressArea,jdbcType=VARCHAR}
+            </if>
+            <if test="familyAddress != null and familyAddress!=''">
+                AND info.family_address = #{familyAddress,jdbcType=VARCHAR}
+            </if>
+            <if test="censusAddressProv != null and censusAddressProv!=''">
+                AND info.census_address_prov = #{censusAddressProv,jdbcType=VARCHAR}
+            </if>
+            <if test="censusAddressCity != null and censusAddressCity!=''">
+                AND info.census_address_city = #{censusAddressCity,jdbcType=VARCHAR}
+            </if>
+            <if test="censusAddressCity != null and censusAddressCity!=''">
+                AND info.census_address_area = #{censusAddressCity,jdbcType=VARCHAR}
+            </if>
+            <if test="censusAddress != null and censusAddress!=''">
+                AND info.census_address = #{censusAddress,jdbcType=VARCHAR}
+            </if>
+            <if test="studentNumber != null and studentNumber!=''">
+                AND info.student_number = #{studentNumber,jdbcType=VARCHAR}
+            </if>
+            <if test="orgIdList != null and orgIdList.size() > 0">
+                or info.school_id IN
+                <foreach item="item" index="index" collection="orgIdList" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="schoolIdList != null and schoolIdList.size() > 0">
+                or info.organ_id IN
+                <foreach item="item" index="index" collection="schoolIdList" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="classId != null and classId!=''">
+                AND info.class_id = #{classId,jdbcType=INTEGER}
+            </if>
+            <if test="gradeId != null and gradeId!=''">
+                AND info.grade_id = #{gradeId,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
+
     <!--批量导入学生档案信息-->
     <insert id="insertSelectiveList" parameterType="java.util.List">
         <foreach collection="list" item="item" index="index"

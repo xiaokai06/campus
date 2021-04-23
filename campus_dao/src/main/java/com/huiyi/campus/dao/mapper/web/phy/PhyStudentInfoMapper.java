@@ -1,10 +1,9 @@
 package com.huiyi.campus.dao.mapper.web.phy;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
 import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
-import org.mapstruct.Mapper;
 
 import java.util.List;
 
@@ -22,6 +21,8 @@ public interface PhyStudentInfoMapper {
     int updateByPrimaryKey(PhyStudentInfoEntity record);
 
     List<StudentInfoRecordVo> selectAll(StudentInfoRecordDto studentInfoRecordDto);
+
+    List<StudentInfoRecordVo> exportStudentInfo(ExportStudentInfoDto exportStudentInfoDto);
 
     int insertSelectiveList(List<PhyStudentInfoEntity> phyStudentInfoEntityList);
 

@@ -12,6 +12,7 @@ import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.idworker.Sid;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
+import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
@@ -30,7 +31,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * @author: liyukai
@@ -439,19 +443,18 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
     /**
      * 学生档案信息数据导出
      *
-     * @param studentInfoRecordDto
+     * @param exportStudentInfoDto
      * @param response
      * @return
      */
     @Override
-    public String exportStudentInfoFile(StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response) {
-        if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
+    public String exportStudentInfoFile(ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response) {
+        if (JsonUtils.checkObjAllFieldsIsNull(exportStudentInfoDto)) {
             return null;
         }
-        PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
-        List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
-        PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
-        if (studentInfoRecordVoList != null && !studentInfoRecordVoList.isEmpty()) {
+        PageHelper.startPage(exportStudentInfoDto.getPage(), exportStudentInfoDto.getRows());
+        List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.exportStudentInfoRecord(exportStudentInfoDto);
+        if (null != studentInfoRecordVoList && !studentInfoRecordVoList.isEmpty()) {
             try {
                 ExcelUtils.exportExcel(studentInfoRecordVoList, null, "学生表", StudentInfoRecordVo.class, "学生档案信息", response);
             } catch (Exception e) {

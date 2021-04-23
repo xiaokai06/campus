@@ -1,6 +1,7 @@
 package com.huiyi.campus.web.health.service;
 
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
+import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
@@ -23,7 +24,7 @@ public interface CampusHRecordService {
 
     HQJsonResult selectStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
 
-    String exportStudentInfoFile(StudentInfoRecordDto studentInfoRecordDto, HttpServletResponse response);
+    String exportStudentInfoFile(ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response);
 
     String importStudentInfoFile(MultipartFile file);
 
