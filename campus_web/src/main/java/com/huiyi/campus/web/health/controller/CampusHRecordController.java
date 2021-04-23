@@ -59,6 +59,7 @@ public class CampusHRecordController {
     public HQJsonResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
         return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto);
     }
+
     /**
      * 查询学生档案信息
      *
@@ -221,7 +222,7 @@ public class CampusHRecordController {
             imageVo.setUrl(url);
             return HQJsonResult.success(imageVo);
         }
-        return new HQJsonResult();
+        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
     }
 
     /**

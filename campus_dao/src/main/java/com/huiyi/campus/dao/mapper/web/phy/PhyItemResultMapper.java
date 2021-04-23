@@ -1,7 +1,9 @@
 package com.huiyi.campus.dao.mapper.web.phy;
 
-import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
+import com.huiyi.campus.dao.dto.health.PhyItemResultLiverDto;
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
+import com.huiyi.campus.dao.vo.health.PhyItemResultBloodVo;
+import com.huiyi.campus.dao.vo.health.PhyItemResultLiverVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -19,12 +21,19 @@ public interface PhyItemResultMapper {
 
     int updateByPrimaryKey(PhyItemResultEntity record);
 
-    int insertSelectiveList(List<PhyItemResultEntity> itemResultEntityList);
+    int insertSelectiveBloodList(List<PhyItemResultBloodVo> itemResultEntityList);
+
+    int insertSelectiveLiverList(List<PhyItemResultLiverVo> itemResultEntityList);
 
     int updateItemResultList(List<PhyItemResultEntity> itemResultEntityList);
 
-    List<PhyItemResultEntity> selectItemListByHealthIdAndRptunitId(@Param("phyHealthId")String phyHealthId, @Param("rptunitid")Integer rptunitid);
-
     PhyItemResultEntity selectItemResultByHeathId(String phyHealthId);
 
+    List<PhyItemResultBloodVo> selectBloodListByHealthId(@Param("phyHealthId") String phyHealthId, @Param("rptunitid") Integer rptunitid);
+
+    List<PhyItemResultLiverVo> selectLiverListByHealthId(@Param("phyHealthId") String phyHealthId, @Param("rptunitid") Integer rptunitid);
+
+    int updateItemLiverResultList(List<PhyItemResultLiverVo> itemResultEntityList);
+
+    int updateItemBloodResultList(List<PhyItemResultBloodVo> itemResultEntityList);
 }

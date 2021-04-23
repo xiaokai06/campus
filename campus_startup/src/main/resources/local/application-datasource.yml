@@ -51,6 +51,7 @@ mybatis-plus:
     type-aliases-package: com.huiyi.campus.dao.mapper
     mapperScanPackage: com.huiyi.campus.dao.mapper
     config-location: classpath:/mybatis-config.xml
+    field-strategy: 0 #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
 splitOrgId:
   splitSQL: SELECT :str AS value_str FROM DUAL
   oneMax: 1

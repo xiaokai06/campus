@@ -1,6 +1,5 @@
 package com.huiyi.campus.dao.pojo.web.health;
 
-import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
@@ -8,9 +7,7 @@ import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
 import com.huiyi.campus.dao.mapper.web.phy.PhyItemResultMapper;
 import com.huiyi.campus.dao.mapper.web.phy.PhyStudentHealthInfoMapper;
 import com.huiyi.campus.dao.mapper.web.phy.PhyStudentInfoMapper;
-import com.huiyi.campus.dao.vo.health.StudentHealthInfoPhyDateVo;
-import com.huiyi.campus.dao.vo.health.StudentHealthInfoVo;
-import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
+import com.huiyi.campus.dao.vo.health.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -114,23 +111,49 @@ public class HealthRecordDao {
     }
 
     /**
-     * 入库体检检验项目结果
+     * 血常规入库体检检验项目结果
      *
      * @param itemResultEntityList
      * @return
      */
-    public int insertItemResult(List<PhyItemResultEntity> itemResultEntityList) {
-        return phyItemResultMapper.insertSelectiveList(itemResultEntityList);
+    public int insertItemBloodResult(List<PhyItemResultBloodVo> itemResultEntityList) {
+        if (!itemResultEntityList.isEmpty()) {
+            return phyItemResultMapper.insertSelectiveBloodList(itemResultEntityList);
+        }
+        return 0;
     }
 
     /**
-     * 修改检验项目
+     * 肝功能入库体检检验项目结果
      *
      * @param itemResultEntityList
      * @return
      */
-    public int updateItemResult(List<PhyItemResultEntity> itemResultEntityList) {
-        return phyItemResultMapper.updateItemResultList(itemResultEntityList);
+    public int insertItemLiverResult(List<PhyItemResultLiverVo> itemResultEntityList) {
+        if (!itemResultEntityList.isEmpty()) {
+            return phyItemResultMapper.insertSelectiveLiverList(itemResultEntityList);
+        }
+        return 0;
+    }
+
+    /**
+     * 血常规修改检验项目
+     *
+     * @param itemResultEntityList
+     * @return
+     */
+    public int updateItemBloodResult(List<PhyItemResultBloodVo> itemResultEntityList) {
+        return phyItemResultMapper.updateItemBloodResultList(itemResultEntityList);
+    }
+
+    /**
+     * 肝功能修改检验项目
+     *
+     * @param itemResultEntityList
+     * @return
+     */
+    public int updateItemLiverResult(List<PhyItemResultLiverVo> itemResultEntityList) {
+        return phyItemResultMapper.updateItemLiverResultList(itemResultEntityList);
     }
 
     /**
@@ -142,13 +165,12 @@ public class HealthRecordDao {
 //    public List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId) {
 //        return phyItemResultMapper.selectBloodListByHealthId(phyHealthId);
 //    }
-
-    public List<PhyItemResultEntity> selectLiverListByHealthId(String phyHealthId, Integer rptunitid) {
-        return phyItemResultMapper.selectItemListByHealthIdAndRptunitId(phyHealthId,rptunitid);
+    public List<PhyItemResultLiverVo> selectLiverListByHealthId(String phyHealthId, Integer rptunitid) {
+        return phyItemResultMapper.selectLiverListByHealthId(phyHealthId, rptunitid);
     }
 
-    public List<PhyItemResultEntity> selectBloodListByHealthId(String phyHealthId, Integer rptunitid) {
-        return phyItemResultMapper.selectItemListByHealthIdAndRptunitId(phyHealthId,rptunitid);
+    public List<PhyItemResultBloodVo> selectBloodListByHealthId(String phyHealthId, Integer rptunitid) {
+        return phyItemResultMapper.selectBloodListByHealthId(phyHealthId, rptunitid);
     }
 
     /**
@@ -173,6 +195,7 @@ public class HealthRecordDao {
 
     /**
      * 根据学生id查询
+     *
      * @param studentId
      * @return
      */
@@ -183,6 +206,7 @@ public class HealthRecordDao {
 
     /**
      * 查询学生档案信息
+     *
      * @param phyStudentInfoEntity
      * @return
      */
@@ -191,14 +215,12 @@ public class HealthRecordDao {
     }
 
     /**
-     *
      * @param id
      * @return
      */
     public PhyItemResultEntity selectItemResultByHeathId(String id) {
         return phyItemResultMapper.selectItemResultByHeathId(id);
     }
-
 
 
 }

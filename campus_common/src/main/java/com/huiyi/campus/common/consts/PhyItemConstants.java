@@ -12,8 +12,8 @@ public class PhyItemConstants {
     /**
      * 检验单元
      */
-    public static final Integer liverFunction = 0;//血常规
-    public static final Integer bloodRoutine = 1;//肝功能
+    public static final Integer liverFunction = 1;//血常规
+    public static final Integer bloodRoutine = 0;//肝功能
     /**
      * 异常数据标志
      */

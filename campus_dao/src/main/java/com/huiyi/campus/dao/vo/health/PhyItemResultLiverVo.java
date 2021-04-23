@@ -1,26 +1,19 @@
-package com.huiyi.campus.dao.entity.phy;
+package com.huiyi.campus.dao.vo.health;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
- * @Description: 健康体检检验项目结果表
- * @date: 2021-03-28 13:38
+ * @Description:
+ * @date: 2021-04-23 12:22
  * @Version V1.0
  */
 @Getter
 @Setter
-@TableName("phy_item_result")
-public class PhyItemResultEntity implements Serializable {
-
+public class PhyItemResultLiverVo {
     @ApiModelProperty("主键id")
     private String id;
     @ApiModelProperty("健康体检报告id")
@@ -49,7 +42,4 @@ public class PhyItemResultEntity implements Serializable {
     private String extend1;
     @ApiModelProperty("扩展字段2")
     private String extend2;
-
-    private static final long serialVersionUID = 1L;
-
 }
