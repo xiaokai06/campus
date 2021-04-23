@@ -197,7 +197,13 @@ public class CampusHRecordController {
         studentInfoRecordDto.setId(studentId);
         studentInfoRecordDto.setImage(studentImage + "/" + studentId + "/" + fileName);
         campusHRecordService.updateStudentInfoRecord(studentInfoRecordDto);
-        return HQJsonResult.withSuccessMessage(PhyRecordConstans.STUDENT_IMAGE_CN);
+        ImageVo imageVo = new ImageVo();
+        if (StringUtils.isNoneEmpty(fileName)) {
+            String url = minioClient.presignedGetObject(bucketImageName, studentInfoRecordDto.getImage(), 60 * 60 * 24 * 7);
+            log.info("学生ID为:" + studentId + " 学生相片地址为：" + url);
+            imageVo.setUrl(url);
+        }
+        return HQJsonResult.success(imageVo);
     }
 
     /**
