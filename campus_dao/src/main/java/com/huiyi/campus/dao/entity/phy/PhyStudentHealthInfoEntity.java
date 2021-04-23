@@ -48,7 +48,7 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("右矫正")
     private BigDecimal correctRight;
     @ApiModelProperty("辨色力 0正常 1异常")
-    private String colorVision;
+    private Integer colorVision;
     @ApiModelProperty("辨色力异常备注")
     private String colorVisionErrorText;
     @ApiModelProperty("左沙眼")
@@ -58,11 +58,11 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("眼科医师")
     private String eyesDoctor;
     @ApiModelProperty("耳 0正常 1异常")
-    private String ear;
+    private Integer ear;
     @ApiModelProperty("鼻 0正常 1异常")
-    private String nose;
+    private Integer nose;
     @ApiModelProperty("咽喉（扁桃体）0无充血 1充血 2淋巴滤泡增生")
-    private String throat;
+    private Integer throat;
     @ApiModelProperty("鼻异常备注")
     private String noseErrorText;
     @ApiModelProperty("耳异常备注")
@@ -70,35 +70,35 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("耳鼻科医师")
     private String earNoseDoctor;
     @ApiModelProperty("牙齿 0 正常 1缺齿 2 龋齿 3 义齿（假牙）")
-    private String tooth;
+    private Integer tooth;
     @ApiModelProperty("牙周 0正常 1异常")
-    private String periodontal;
+    private Integer periodontal;
     @ApiModelProperty("口腔医师签名")
     private String OralCavityDoctor;
     @ApiModelProperty("既往病史 0 无 1有")
-    private String anamnesis;
+    private Integer anamnesis;
     @ApiModelProperty("脾 0正常 1异常")
-    private String spleen;
+    private Integer spleen;
     @ApiModelProperty("心 0正常 1异常")
-    private String heart;
+    private Integer heart;
     @ApiModelProperty("肺 0 正常 1异常")
-    private String lung;
+    private Integer lung;
     @ApiModelProperty("肝 0正常 1异常")
-    private String liver;
+    private Integer liver;
     @ApiModelProperty("内科其他")
     private String internalOther;
     @ApiModelProperty("肝异常备注")
     private String liverErrorText;
     @ApiModelProperty("桶状胸 0否 1是")
-    private String barrelChest;
+    private Integer barrelChest;
     @ApiModelProperty("桶状胸备注")
     private String barrelChestText;
     @ApiModelProperty("呼吸音 0 正常 1 异常")
-    private String breathSounds;
+    private Integer breathSounds;
     @ApiModelProperty("呼吸音异常备注")
     private String breathSoundsErrorText;
     @ApiModelProperty("罗音 0 无 1 干罗音 2 湿罗音 3 其他")
-    private String rae;
+    private Integer rae;
     @ApiModelProperty("罗音备注")
     private String raeText;
     @ApiModelProperty("心异常备注")
@@ -106,9 +106,9 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("心率")
     private String heartRate;
     @ApiModelProperty("心律 0齐 1不齐 2绝对不齐")
-    private String heartRhythm;
+    private Integer heartRhythm;
     @ApiModelProperty("杂音 0 无 1有")
-    private String murmur;
+    private Integer murmur;
     @ApiModelProperty("杂音异常备注")
     private String murmurErrorText;
     @ApiModelProperty("脾异常备注")
@@ -120,21 +120,21 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("内科医师")
     private String internalDoctor;
     @ApiModelProperty("皮肤 0 正常 1潮红 2苍白 3发绀 4黄染 5色素沉着 6其他")
-    private String skin;
+    private Integer skin;
     @ApiModelProperty("淋巴腺 0正常 1未触及 2锁骨上 3腋窝 4其他")
-    private String lymph;
+    private Integer lymph;
     @ApiModelProperty("甲状腺 0正常 1肿大 2其他")
-    private String thyroid;
+    private Integer thyroid;
     @ApiModelProperty("脊柱 0正常 1异常")
-    private String spine;
+    private Integer spine;
     @ApiModelProperty("四肢关节 0正常 1异常")
-    private String limbJoints;
+    private Integer limbJoints;
     @ApiModelProperty("扁平足 0无 1有")
-    private String flatfoot;
+    private Integer flatfoot;
     @ApiModelProperty("外生殖器 0正常 1异常")
-    private String pudendum;
+    private Integer pudendum;
     @ApiModelProperty("肛门 0未及异常 1触痛 2包块 3前列腺异常 4其他")
-    private String anus;
+    private Integer anus;
     @ApiModelProperty("肛门备注")
     private String anusText;
     @ApiModelProperty("外生殖器异常备注")
@@ -156,7 +156,7 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("外科医师")
     private String surgeryDoctor;
     @ApiModelProperty("胸透 0正常 1异常")
-    private String chest;
+    private Integer chest;
     @ApiModelProperty("胸透异常备注")
     private String chestErrorText;
     @ApiModelProperty("胸透医师")
@@ -170,23 +170,23 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("肝功能异常备注")
     private String liverFunctionErrorText;
     @ApiModelProperty("体检健康评价 0体检无异常 1有异常")
-    private String phyConclusion;
+    private Integer phyConclusion;
     @ApiModelProperty("健康评价异常备注")
     private String phyConclusionErrorText;
     @ApiModelProperty("建议复查 0是 1否")
-    private String review;
+    private Integer review;
     @ApiModelProperty("建议转诊 0是 1否")
-    private String referral;
+    private Integer referral;
     @ApiModelProperty("定期体检 0是 1否")
-    private String regularCensor;
+    private Integer regularCensor;
     @ApiModelProperty("个性化健康教育 0是 1否")
-    private String healthEducation;
+    private Integer healthEducation;
     @ApiModelProperty("饮食 0是 1否")
-    private String diet;
+    private Integer diet;
     @ApiModelProperty("锻炼 0是 1否")
-    private String forging;
+    private Integer forging;
     @ApiModelProperty("建议疫苗接种 0是 1否")
-    private String vaccination;
+    private Integer vaccination;
     @ApiModelProperty("健康指导备注")
     private String phyGuideText;
     @ApiModelProperty("医师签名")
@@ -204,7 +204,7 @@ public class PhyStudentHealthInfoEntity implements Serializable {
     @ApiModelProperty("更新人")
     private String updateUser;
     @ApiModelProperty("合格标志 0合格 1未合格")
-    private String qualifiedStatus;
+    private Integer qualifiedStatus;
     @ApiModelProperty("肺异常备注")
     private String lungErrorText;
 
