@@ -185,13 +185,13 @@ public class CampusHRecordController {
     @IsLogin
     @ApiOperation("学生相片上传接口")
     @PostMapping("/upload")
-    public HQJsonResult upload(@RequestParam("studentId") String studentId, @RequestParam("data") MultipartFile data) throws Exception {
-        String fileName = data.getOriginalFilename();
-        InputStream inputStream = data.getInputStream();
+    public HQJsonResult upload(@RequestParam("studentId")String studentId, @RequestParam("file")MultipartFile file) throws Exception {
+        String fileName = file.getOriginalFilename();
+        InputStream inputStream = file.getInputStream();
         minioClient.putObject(
                 PutObjectArgs.builder().bucket(bucketImageName).object(studentImage + "/" + studentId + "/" + fileName).stream(
-                        inputStream, data.getSize(), -1)
-                        .contentType(data.getContentType())
+                        inputStream, file.getSize(), -1)
+                        .contentType(file.getContentType())
                         .build());
         StudentInfoRecordDto studentInfoRecordDto = new StudentInfoRecordDto();
         studentInfoRecordDto.setId(studentId);
@@ -216,7 +216,7 @@ public class CampusHRecordController {
     @IsLogin
     @ApiOperation("学生相片下载接口")
     @PostMapping("/download")
-    public HQJsonResult download(@RequestParam("fileName") String fileName, @RequestParam("studentId") String studentId) throws Exception {
+    public HQJsonResult download(@RequestParam("fileName")String fileName, @RequestParam("studentId")String studentId) throws Exception {
         PhyStudentInfoEntity phyStudentInfoEntity = campusHRecordService.selectByStudentId(studentId);
         if (JsonUtils.checkObjAllFieldsIsNull(phyStudentInfoEntity)) {
             return HQJsonResult.error(SystemErrorEnum.CR_GET_REQ_ERROR);
