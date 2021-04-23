@@ -275,42 +275,46 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
                 if (studentHealthInfoDto.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) ||
                         studentHealthInfoDto.getLiverFunction().equals(PhyItemConstants.liverFunction_error)) {
                     //肝功能新增
-                    studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStr -> {
-                        liverStr.setId(Sid.nextShort());
-                        liverStr.setPhyHealthId(phyStudentHealthInfoEntity.getId());
-                        if (StringUtils.isNotEmpty(liverStr.getResultStr())) {
-                            BigDecimal liverNum = new BigDecimal(liverStr.getResultStr());
-                            liverNum.setScale(2, BigDecimal.ROUND_HALF_UP);
-                            liverStr.setResultNum(liverNum.toString());
-                            liverStr.setResultStr(liverStr.getResultNum());
+                    if (!studentHealthInfoDto.getLiverFunctionItemList().isEmpty()) {
+                        studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStr -> {
+                            liverStr.setId(Sid.nextShort());
+                            liverStr.setPhyHealthId(phyStudentHealthInfoEntity.getId());
+                            if (StringUtils.isNotEmpty(liverStr.getResultStr())) {
+                                BigDecimal liverNum = new BigDecimal(liverStr.getResultStr());
+                                liverNum.setScale(2, BigDecimal.ROUND_HALF_UP);
+                                liverStr.setResultNum(liverNum.toString());
+                                liverStr.setResultStr(liverStr.getResultNum());
+                            }
+                            liverStr.setCreateTime(DateUtil.getMsTime());
+                            if (StringUtils.isEmpty(liverStr.getResultNum())) {
+                                liverStr.setResultNum(null);
+                            }
+                        });
+                        int bloodRoutine = healthRecordDao.insertItemLiverResult(studentHealthInfoDto.getLiverFunctionItemList());
+                        if (bloodRoutine < 0) {
+                            log.info("肝功能报告结果入库异常：" + bloodRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                         }
-                        liverStr.setCreateTime(DateUtil.getMsTime());
-                        if (StringUtils.isEmpty(liverStr.getResultNum())) {
-                            liverStr.setResultNum(null);
-                        }
-                    });
-                    int bloodRoutine = healthRecordDao.insertItemLiverResult(studentHealthInfoDto.getLiverFunctionItemList());
-                    if (bloodRoutine < 0) {
-                        log.info("肝功能报告结果入库异常：" + bloodRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                     }
                     //血常规新增
-                    studentHealthInfoDto.getBloodRoutineItemList().forEach(bloodStr -> {
-                        bloodStr.setId(Sid.nextShort());
-                        bloodStr.setPhyHealthId(phyStudentHealthInfoEntity.getId());
-                        if (StringUtils.isNotEmpty(bloodStr.getResultStr())) {
-                            BigDecimal bloodNum = new BigDecimal(bloodStr.getResultStr());
-                            bloodNum.setScale(2, BigDecimal.ROUND_HALF_UP);
-                            bloodStr.setResultNum(bloodNum.toString());
-                            bloodStr.setResultStr(bloodStr.getResultNum());
+                    if (!studentHealthInfoDto.getBloodRoutineItemList().isEmpty()) {
+                        studentHealthInfoDto.getBloodRoutineItemList().forEach(bloodStr -> {
+                            bloodStr.setId(Sid.nextShort());
+                            bloodStr.setPhyHealthId(phyStudentHealthInfoEntity.getId());
+                            if (StringUtils.isNotEmpty(bloodStr.getResultStr())) {
+                                BigDecimal bloodNum = new BigDecimal(bloodStr.getResultStr());
+                                bloodNum.setScale(2, BigDecimal.ROUND_HALF_UP);
+                                bloodStr.setResultNum(bloodNum.toString());
+                                bloodStr.setResultStr(bloodStr.getResultNum());
+                            }
+                            bloodStr.setCreateTime(DateUtil.getMsTime());
+                            if (StringUtils.isEmpty(bloodStr.getResultNum())) {
+                                bloodStr.setResultNum(null);
+                            }
+                        });
+                        int liverRoutine = healthRecordDao.insertItemBloodResult(studentHealthInfoDto.getBloodRoutineItemList());
+                        if (liverRoutine < 0) {
+                            log.info("血常规报告结果入库异常：" + liverRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                         }
-                        bloodStr.setCreateTime(DateUtil.getMsTime());
-                        if (StringUtils.isEmpty(bloodStr.getResultNum())) {
-                            bloodStr.setResultNum(null);
-                        }
-                    });
-                    int liverRoutine = healthRecordDao.insertItemBloodResult(studentHealthInfoDto.getBloodRoutineItemList());
-                    if (liverRoutine < 0) {
-                        log.info("血常规报告结果入库异常：" + liverRoutine + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                     }
                 }
             }
@@ -347,73 +351,77 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
                 if (studentHealthInfoDto.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) ||
                         studentHealthInfoDto.getLiverFunction().equals(PhyItemConstants.liverFunction_error)) {
                     //肝功能新增修改判断
-                    if (StringUtils.isEmpty(studentHealthInfoDto.getLiverFunctionItemList().get(0).getId())) {
-                        studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStrC -> {
-                            liverStrC.setId(Sid.nextShort());
-                            liverStrC.setPhyHealthId(phyStudentHealthInfoEntity.getId());
-                            if (StringUtils.isNotEmpty(liverStrC.getResultStr())) {
-                                BigDecimal liverNumC = new BigDecimal(liverStrC.getResultStr());
-                                liverNumC.setScale(2, BigDecimal.ROUND_HALF_UP);
-                                liverStrC.setResultNum(liverNumC.toString());
-                                liverStrC.setResultStr(liverStrC.getResultNum());
+                    if (!studentHealthInfoDto.getLiverFunctionItemList().isEmpty()){
+                        if (StringUtils.isEmpty(studentHealthInfoDto.getLiverFunctionItemList().get(0).getId())) {
+                            studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStrC -> {
+                                liverStrC.setId(Sid.nextShort());
+                                liverStrC.setPhyHealthId(phyStudentHealthInfoEntity.getId());
+                                if (StringUtils.isNotEmpty(liverStrC.getResultStr())) {
+                                    BigDecimal liverNumC = new BigDecimal(liverStrC.getResultStr());
+                                    liverNumC.setScale(2, BigDecimal.ROUND_HALF_UP);
+                                    liverStrC.setResultNum(liverNumC.toString());
+                                    liverStrC.setResultStr(liverStrC.getResultNum());
+                                }
+                                liverStrC.setCreateTime(DateUtil.getMsTime());
+                                if (StringUtils.isEmpty(liverStrC.getResultNum())) {
+                                    liverStrC.setResultNum(null);
+                                }
+                            });
+                            int liverRoutineC = healthRecordDao.insertItemLiverResult(studentHealthInfoDto.getLiverFunctionItemList());
+                            if (liverRoutineC < 0) {
+                                log.info("肝功能报告结果新录入异常：" + liverRoutineC + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                             }
-                            liverStrC.setCreateTime(DateUtil.getMsTime());
-                            if (StringUtils.isEmpty(liverStrC.getResultNum())) {
-                                liverStrC.setResultNum(null);
+                        } else if (StringUtils.isNotEmpty(studentHealthInfoDto.getLiverFunctionItemList().get(0).getId())) {
+                            studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStrU -> {
+                                liverStrU.setUpdateTime(DateUtil.getMsTime());
+                                if (StringUtils.isNotEmpty(liverStrU.getResultStr())) {
+                                    BigDecimal liverU = new BigDecimal(liverStrU.getResultStr());
+                                    liverU.setScale(2, BigDecimal.ROUND_HALF_UP);
+                                    liverStrU.setResultNum(liverU.toString());
+                                    liverStrU.setResultStr(liverStrU.getResultNum());
+                                }
+                            });
+                            int liverRoutineU = healthRecordDao.updateItemLiverResult(studentHealthInfoDto.getLiverFunctionItemList());
+                            if (liverRoutineU < 0) {
+                                log.info("肝功能报告结果修改异常：" + liverRoutineU + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                             }
-                        });
-                        int liverRoutineC = healthRecordDao.insertItemLiverResult(studentHealthInfoDto.getLiverFunctionItemList());
-                        if (liverRoutineC < 0) {
-                            log.info("肝功能报告结果新录入异常：" + liverRoutineC + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                         }
-                    } else if (StringUtils.isNotEmpty(studentHealthInfoDto.getLiverFunctionItemList().get(0).getId())) {
-                        studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStrU -> {
-                            liverStrU.setUpdateTime(DateUtil.getMsTime());
-                            if (StringUtils.isNotEmpty(liverStrU.getResultStr())) {
-                                BigDecimal liverU = new BigDecimal(liverStrU.getResultStr());
-                                liverU.setScale(2, BigDecimal.ROUND_HALF_UP);
-                                liverStrU.setResultNum(liverU.toString());
-                                liverStrU.setResultStr(liverStrU.getResultNum());
-                            }
-                        });
-                        int liverRoutineU = healthRecordDao.updateItemLiverResult(studentHealthInfoDto.getLiverFunctionItemList());
-                        if (liverRoutineU < 0) {
-                            log.info("肝功能报告结果修改异常：" + liverRoutineU + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
-                        }
-                    }
+                }
                     //血常规新增修改判断
-                    if (StringUtils.isEmpty(studentHealthInfoDto.getBloodRoutineItemList().get(0).getId())) {
-                        studentHealthInfoDto.getBloodRoutineItemList().forEach(bloodStrC -> {
-                            bloodStrC.setId(Sid.nextShort());
-                            bloodStrC.setPhyHealthId(phyStudentHealthInfoEntity.getId());
-                            if (StringUtils.isNotEmpty(bloodStrC.getResultStr())) {
-                                BigDecimal bloodNumC = new BigDecimal(bloodStrC.getResultStr());
-                                bloodNumC.setScale(2, BigDecimal.ROUND_HALF_UP);
-                                bloodStrC.setResultNum(bloodNumC.toString());
-                                bloodStrC.setResultStr(bloodStrC.getResultNum());
+                    if (!studentHealthInfoDto.getBloodRoutineItemList().isEmpty()) {
+                        if (StringUtils.isEmpty(studentHealthInfoDto.getBloodRoutineItemList().get(0).getId())) {
+                            studentHealthInfoDto.getBloodRoutineItemList().forEach(bloodStrC -> {
+                                bloodStrC.setId(Sid.nextShort());
+                                bloodStrC.setPhyHealthId(phyStudentHealthInfoEntity.getId());
+                                if (StringUtils.isNotEmpty(bloodStrC.getResultStr())) {
+                                    BigDecimal bloodNumC = new BigDecimal(bloodStrC.getResultStr());
+                                    bloodNumC.setScale(2, BigDecimal.ROUND_HALF_UP);
+                                    bloodStrC.setResultNum(bloodNumC.toString());
+                                    bloodStrC.setResultStr(bloodStrC.getResultNum());
+                                }
+                                bloodStrC.setCreateTime(DateUtil.getMsTime());
+                                if (StringUtils.isEmpty(bloodStrC.getResultNum())) {
+                                    bloodStrC.setResultNum(null);
+                                }
+                            });
+                            int bloodRoutineC = healthRecordDao.insertItemBloodResult(studentHealthInfoDto.getBloodRoutineItemList());
+                            if (bloodRoutineC < 0) {
+                                log.info("血常规报告结果新录入异常：" + bloodRoutineC + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                             }
-                            bloodStrC.setCreateTime(DateUtil.getMsTime());
-                            if (StringUtils.isEmpty(bloodStrC.getResultNum())) {
-                                bloodStrC.setResultNum(null);
+                        } else if (StringUtils.isNotEmpty(studentHealthInfoDto.getBloodRoutineItemList().get(0).getId())) {
+                            studentHealthInfoDto.getBloodRoutineItemList().forEach(bloodStrU -> {
+                                bloodStrU.setUpdateTime(DateUtil.getMsTime());
+                                if (StringUtils.isNotEmpty(bloodStrU.getResultStr())) {
+                                    BigDecimal bloodU = new BigDecimal(bloodStrU.getResultStr());
+                                    bloodU.setScale(2, BigDecimal.ROUND_HALF_UP);
+                                    bloodStrU.setResultNum(bloodU.toString());
+                                    bloodStrU.setResultStr(bloodStrU.getResultNum());
+                                }
+                            });
+                            int bloodRoutineU = healthRecordDao.updateItemBloodResult(studentHealthInfoDto.getBloodRoutineItemList());
+                            if (bloodRoutineU < 0) {
+                                log.info("血常规报告结果修改异常：" + bloodRoutineU + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                             }
-                        });
-                        int bloodRoutineC = healthRecordDao.insertItemBloodResult(studentHealthInfoDto.getBloodRoutineItemList());
-                        if (bloodRoutineC < 0) {
-                            log.info("血常规报告结果新录入异常：" + bloodRoutineC + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
-                        }
-                    } else if (StringUtils.isEmpty(studentHealthInfoDto.getBloodRoutineItemList().get(0).getId())) {
-                        studentHealthInfoDto.getBloodRoutineItemList().forEach(bloodStrU -> {
-                            bloodStrU.setUpdateTime(DateUtil.getMsTime());
-                            if (StringUtils.isNotEmpty(bloodStrU.getResultStr())) {
-                                BigDecimal bloodU = new BigDecimal(bloodStrU.getResultStr());
-                                bloodU.setScale(2, BigDecimal.ROUND_HALF_UP);
-                                bloodStrU.setResultNum(bloodU.toString());
-                                bloodStrU.setResultStr(bloodStrU.getResultNum());
-                            }
-                        });
-                        int bloodRoutineU = healthRecordDao.updateItemBloodResult(studentHealthInfoDto.getBloodRoutineItemList());
-                        if (bloodRoutineU < 0) {
-                            log.info("血常规报告结果修改异常：" + bloodRoutineU + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                         }
                     }
                 }
