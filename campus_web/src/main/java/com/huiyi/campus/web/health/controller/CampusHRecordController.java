@@ -4,6 +4,7 @@ import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
+import com.huiyi.campus.dao.dto.common.CommonDto;
 import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
@@ -184,7 +185,7 @@ public class CampusHRecordController {
     /**
      * 学生相片上传
      */
-//    @IsLogin
+    @IsLogin
     @ApiOperation("学生相片上传接口")
     @PostMapping("/upload")
     public HQJsonResult upload(@RequestParam("studentId") String studentId, @RequestParam("file") MultipartFile file) throws Exception {
@@ -201,7 +202,6 @@ public class CampusHRecordController {
         campusHRecordService.updateStudentInfoRecord(studentInfoRecordDto);
         ImageVo imageVo = new ImageVo();
         if (StringUtils.isNoneEmpty(fileName)) {
-//            String url = minioClient.presignedGetObject(bucketImageName, studentInfoRecordDto.getImage(), 60 * 60 * 24 * 7);
             String url = minioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder()
                     .method(Method.GET)
                     .bucket(bucketImageName)
@@ -217,32 +217,30 @@ public class CampusHRecordController {
     /**
      * 学生相片下载
      *
-     * @param fileName
+     * @param commonDto
      * @return
      * @throws Exception
      */
     @IsLogin
     @ApiOperation("学生相片下载接口")
     @PostMapping("/download")
-    public HQJsonResult download(@RequestParam("fileName") String fileName, @RequestParam("studentId") String studentId) throws Exception {
-        PhyStudentInfoEntity phyStudentInfoEntity = campusHRecordService.selectByStudentId(studentId);
+    public HQJsonResult download(@RequestBody CommonDto commonDto) throws Exception {
+        PhyStudentInfoEntity phyStudentInfoEntity = campusHRecordService.selectByStudentId(commonDto.getStudentId());
         if (JsonUtils.checkObjAllFieldsIsNull(phyStudentInfoEntity)) {
             return HQJsonResult.error(SystemErrorEnum.CR_GET_REQ_ERROR);
         }
-        if (StringUtils.isNoneEmpty(fileName)) {
-//            String url = minioClient.presignedGetObject(bucketImageName, fileName, 60 * 60 * 24 * 7);
+        ImageVo imageVo = new ImageVo();
+        if (StringUtils.isNoneEmpty(commonDto.getFileName())) {
             String url = minioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder()
                     .method(Method.GET)
                     .bucket(bucketImageName)
-                    .object(fileName)
+                    .object(commonDto.getFileName())
                     .expiry(60 * 60 * 24 * 7)
                     .build());
             log.info("学生ID为:" + phyStudentInfoEntity.getId() + " 下载学生相片地址为：" + url);
-            ImageVo imageVo = new ImageVo();
             imageVo.setUrl(url);
-            return HQJsonResult.success(imageVo);
         }
-        return HQJsonResult.error(SystemErrorEnum.OUTPUT_SYSTEM_ERROR);
+        return HQJsonResult.success(imageVo);
     }
 
     /**
