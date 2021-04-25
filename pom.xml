@@ -56,7 +56,7 @@
         <!--netty通讯聊天服务-->
         <netty-all.version>4.1.25.Final</netty-all.version>
         <!--对象存储服务器-->
-        <minio.version>7.1.0</minio.version>
+        <minio.version>8.0.3</minio.version>
         <!--maven-->
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
