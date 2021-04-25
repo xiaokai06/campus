@@ -37,6 +37,7 @@ public class CommonDao {
 
     @Autowired
     SysOrganMapper sysOrganMapper;
+
     /**
      * 省市区三级联动查询
      *
@@ -47,13 +48,16 @@ public class CommonDao {
     }
 
     /**
-     * 根据用户ID查询学校
+     * 根据学校id查询学校
      *
      * @param schoolDto
      * @return
      */
-    public List<SysSchoolEntity> selectSchoolByUserId(SchoolDto schoolDto) {
-        return sysSchoolMapper.selectSchoolByUserId(schoolDto.getUserId());
+    public List<SysSchoolEntity> selectSchoolBySchoolId(SchoolDto schoolDto) {
+//        if (!schoolDto.getSchoolId().equals(null)) {
+            return sysSchoolMapper.selectSchoolBySchoolId(schoolDto.getSchoolId());
+//        }
+//        return null;
     }
 
     /**
@@ -68,13 +72,13 @@ public class CommonDao {
 
     /**
      * 根据学校ID查询专业班级
+     *
      * @param schoolDto
      * @return
      */
 //    public List<SysGradeClassEntity> selectClassBySchoolId(SchoolDto schoolDto) {
 //        return sysGradeClassMapper.selectClassBySchoolId(schoolDto.getSchoolId());
 //    }
-
     public List<TsTypeGroupEntity> selectTypeGroup() {
         return tsTypeGroupMapper.selectAll();
     }
@@ -85,14 +89,25 @@ public class CommonDao {
 
     /**
      * 根据教育机构ID查询当前教育局机构信息
+     *
      * @param schoolDto
      * @return
      */
     public List<SysOrganEntity> selectOrganByUserId(SchoolDto schoolDto) {
-        List<SysOrganEntity> organEntityList =sysOrganMapper.selectOrganByUserId(schoolDto.getOrganId());
-        if (organEntityList.isEmpty()){
+        List<SysOrganEntity> organEntityList = sysOrganMapper.selectOrganByUserId(schoolDto.getOrganId());
+        if (organEntityList.isEmpty()) {
             organEntityList = sysOrganMapper.selectByOrganId(schoolDto.getOrganId());
         }
         return organEntityList;
+    }
+
+    /**
+     * 根据机构id查询学校
+     *
+     * @param schoolDto
+     * @return
+     */
+    public List<SysSchoolEntity> selectSchoolByOrganId(SchoolDto schoolDto) {
+        return sysSchoolMapper.selectSchoolByOrganId(schoolDto.getOrganId());
     }
 }

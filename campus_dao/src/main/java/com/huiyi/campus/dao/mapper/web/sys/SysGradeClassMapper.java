@@ -19,4 +19,6 @@ public interface SysGradeClassMapper {
     int updateByPrimaryKey(SysGradeClassEntity record);
 
     List<SysGradeClassEntity> selectGrdeClassList(SysGradeClassEntity sysGradeClassEntity);
+
+    List<SysGradeClassEntity> selectClassByGradeList(String id);
 }

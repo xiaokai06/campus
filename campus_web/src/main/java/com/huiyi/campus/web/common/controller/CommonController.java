@@ -33,22 +33,23 @@ public class CommonController {
     }
 
     /**
-     * 根据用户ID与教育局ID查询当前所归属学校
+     * 根据学校id或教育局ID查询当前所归属学校
      *
      * @param schoolDto
      * @return
      */
     @IsLogin
-    @PostMapping("/selectSchoolByUserId")
-    public HQJsonResult selectSchoolByUserId(@RequestBody SchoolDto schoolDto) {
-        return commonService.selectSchoolByUserId(schoolDto);
+    @PostMapping("/selectSchoolBySchoolIdAndOrganId")
+    public HQJsonResult selectSchoolBySchoolIdAndOrganId(@RequestBody SchoolDto schoolDto) {
+        return commonService.selectSchoolBySchoolIdAndOrganId(schoolDto);
     }
+
     /**
      * 根据用户id查询教育局机构id
      */
     @IsLogin
     @PostMapping("/selectOrganByOrganId")
-    public HQJsonResult selectOrganByOrganId(@RequestBody SchoolDto schoolDto){
+    public HQJsonResult selectOrganByOrganId(@RequestBody SchoolDto schoolDto) {
         return commonService.selectOrganByOrganId(schoolDto);
     }
 
@@ -58,7 +59,7 @@ public class CommonController {
      * @param schoolDto
      * @return
      */
-//    @IsLogin
+    @IsLogin
     @PostMapping("/selectClassBySchoolId")
     public HQJsonResult selectClassBySchoolId(@RequestBody SchoolDto schoolDto) {
         return commonService.selectClassBySchoolId(schoolDto);

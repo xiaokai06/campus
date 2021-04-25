@@ -70,19 +70,19 @@ public class CommonServiceImpl implements CommonService {
     }
 
     /**
-     * 根据用户ID与教育局ID查询当前所归属学校
+     * 根据学校id或教育局ID查询当前所归属学校
      *
      * @param schoolDto
      * @return
      */
     @Override
-    public HQJsonResult selectSchoolByUserId(SchoolDto schoolDto) {
+    public HQJsonResult selectSchoolBySchoolIdAndOrganId(SchoolDto schoolDto) {
         if (JsonUtils.checkObjAllFieldsIsNull(schoolDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        List<SysSchoolEntity> schoolEntityList = commonDao.selectSchoolByUserId(schoolDto);
+        List<SysSchoolEntity> schoolEntityList = commonDao.selectSchoolBySchoolId(schoolDto);
         if (schoolEntityList.isEmpty()) {
-            schoolEntityList = commonDao.selectSchoolByUserIdAndOrganId(schoolDto);
+            schoolEntityList = commonDao.selectSchoolByOrganId(schoolDto);
         }
         return HQJsonResult.success(schoolEntityList);
     }
@@ -140,6 +140,7 @@ public class CommonServiceImpl implements CommonService {
 
     /**
      * 根据机构id查询教育局机构
+     *
      * @param schoolDto
      * @return
      */
@@ -149,7 +150,7 @@ public class CommonServiceImpl implements CommonService {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
         List<SysOrganEntity> organEntityList = commonDao.selectOrganByUserId(schoolDto);
-        if (!organEntityList.isEmpty()){
+        if (!organEntityList.isEmpty()) {
             return HQJsonResult.success(organEntityList);
         }
         return new HQJsonResult();

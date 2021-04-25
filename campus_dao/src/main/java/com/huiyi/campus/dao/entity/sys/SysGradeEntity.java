@@ -18,11 +18,11 @@ public class SysGradeEntity implements Serializable {
 
     private String createUser;
 
-    private Date createTime;
+    private String createTime;
 
     private String updateUser;
 
-    private Date updateTime;
+    private String updateTime;
 
     private String remark5;
 

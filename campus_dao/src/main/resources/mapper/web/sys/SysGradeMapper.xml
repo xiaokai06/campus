@@ -140,18 +140,41 @@
         where id = #{id,jdbcType=VARCHAR}
     </update>
     <!--查询年级数据-->
-    <select id="selectGradeList" resultMap="BaseResultMap">
+    <select id="selectGradeList" resultType="com.huiyi.campus.dao.vo.sys.SysGradeClassVo">
         select
         <include refid="Base_Column_List"/>
         from sys_grade
-        where 1=1
-        <if test="id != null and id!=''">
-            AND id = #{id,jdbcType=VARCHAR}
-        </if>
-        <if test="id != null and id!=''">
-            AND school_id = #{schoolId,jdbcType=INTEGER}
-        </if>
+        <where>
+            1=1
+            <if test="id != null and id!=''">
+                AND id = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="schoolId != null and schoolId!=''">
+                AND school_id = #{schoolId,jdbcType=INTEGER}
+            </if>
+            <if test="gradeName != null and gradeName!=''">
+                AND grade_name = #{gradeName,jdbcType=VARCHAR}
+            </if>
+        </where>
     </select>
+    <!--查询年级数据-->
+<!--    <select id="selectGradeList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_grade
+        <where>
+            1=1
+            <if test="id != null and id!=''">
+                AND id = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="id != null and id!=''">
+                AND school_id = #{schoolId,jdbcType=INTEGER}
+            </if>
+            <if test="gradeName != null and gradeName!=''">
+                AND grade_name = #{gradeName,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>-->
     <!--根据学校Id查询年级班级数据-->
     <select id="queryGradeClass" resultType="com.huiyi.campus.dao.vo.sys.SysGradeVo">
         SELECT grade.id              as "gradeId",
@@ -172,4 +195,6 @@
                      LEFT JOIN sys_grade_class class ON grade.id = class.grade_parent_id
         WHERE grade.school_id = #{schoolId,jdbcType=INTEGER}
     </select>
+
+
 </mapper>

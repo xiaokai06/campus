@@ -52,10 +52,10 @@ public interface SysSchoolMapper {
 
     /**
      * 根据用户ID查询当前所归属学校
-     * @param id 参数
+     * @param schoolId 参数
      * @return 返回值
      */
-    List<SysSchoolEntity> selectSchoolByUserId(Integer id);
+    List<SysSchoolEntity> selectSchoolBySchoolId(Integer schoolId);
 
     /**
      * 根据教育局ID与用户ID查询学校
@@ -63,4 +63,11 @@ public interface SysSchoolMapper {
      * @return 返回值
      */
     List<SysSchoolEntity> selectSchoolByUserIdAndOrganId(Integer id);
+
+    /**
+     * 根据机构Id查询学校
+     * @param organId
+     * @return
+     */
+    List<SysSchoolEntity> selectSchoolByOrganId(Integer organId);
 }

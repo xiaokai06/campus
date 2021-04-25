@@ -2,6 +2,7 @@ package com.huiyi.campus.web.sys.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.huiyi.campus.common.utils.DateUtil;
 import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.idworker.Sid;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
@@ -44,8 +45,11 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+//        HQJsonResult<SysGradeClassVo> hqJsonResult = new HQJsonResult<>();
+//        PageHelper.startPage(sysGradeEntity.getPage(), sysGradeEntity.getRows());
         List<SysGradeClassVo> resultVoList = new ArrayList<>();
         List<SysGradeVo> sysGradeClassVoList = sysGradeClassDao.queryGradeClass(sysGradeEntity);
+//        PageInfo<SysGradeVo> page = new PageInfo<>(sysGradeClassVoList);
         Map<String, List<SysGradeVo>> map = sysGradeClassVoList.stream().collect(Collectors.groupingBy(SysGradeVo::getGradeParentId));
         for (String id : map.keySet()) {
             SysGradeClassVo gradeVo = new SysGradeClassVo();
@@ -75,8 +79,18 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
                 resultVoList.add(gradeVo);
             }
         }
+//        if (!page.getList().isEmpty()) {
+//            hqJsonResult.setSuccess(true);
+//            hqJsonResult.setCode("200");
+//            hqJsonResult.setMsg("处理成功！");
+//            hqJsonResult.setRequestID(String.valueOf(UUID.randomUUID()));
+//            hqJsonResult.setTotal(page.getTotal());
+//            hqJsonResult.setData(resultVoList);
+//            return hqJsonResult;
+//        }
         return HQJsonResult.success(resultVoList);
     }
+
 
     /**
      * 新增年级
@@ -90,7 +104,7 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
         sysGradeEntity.setId(Sid.nextShort());
-        sysGradeEntity.setCreateTime(new Date());
+        sysGradeEntity.setCreateTime(DateUtil.getMsTime());
         int insertGrade = sysGradeClassDao.insertGrade(sysGradeEntity);
         if (insertGrade > 0) {
             return HQJsonResult.success(sysGradeEntity);
@@ -99,7 +113,7 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
     }
 
     /**
-     * 查询年级
+     * 查询年级和班级
      *
      * @param sysGradeEntity
      * @return
@@ -110,10 +124,18 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
         try {
-            HQJsonResult<SysGradeEntity> hqJsonResult = new HQJsonResult<>();
+            HQJsonResult<SysGradeClassVo> hqJsonResult = new HQJsonResult<>();
             PageHelper.startPage(sysGradeEntity.getPage(), sysGradeEntity.getRows());
-            List<SysGradeEntity> gradeEntityList = sysGradeClassDao.selectGrade(sysGradeEntity);
-            PageInfo<SysGradeEntity> page = new PageInfo<>(gradeEntityList);
+            List<SysGradeClassVo> gradeEntityList = sysGradeClassDao.selectGrade(sysGradeEntity);
+            PageInfo<SysGradeClassVo> page = new PageInfo<>(gradeEntityList);
+//            if (!gradeEntityList.isEmpty()) {
+//                gradeEntityList.forEach(str -> {
+//                    List<SysGradeClassEntity> classEntityList = sysGradeClassDao.selectClassByGradeList(str.getId());
+//                    if (!classEntityList.isEmpty()) {
+//                        str.setSysGradeClassEntityList(classEntityList);
+//                    }
+//                });
+//            }
             if (!page.getList().isEmpty()) {
                 hqJsonResult.setSuccess(true);
                 hqJsonResult.setCode("200");
@@ -140,7 +162,7 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        sysGradeEntity.setUpdateTime(new Date());
+        sysGradeEntity.setUpdateTime(DateUtil.getMsTime());
         int updateGrade = sysGradeClassDao.updateGrade(sysGradeEntity);
         if (updateGrade > 0) {
             return HQJsonResult.success(sysGradeEntity);
@@ -166,13 +188,19 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         return new HQJsonResult();
     }
 
+    /**
+     * 新增班级
+     *
+     * @param sysGradeClassEntity
+     * @return
+     */
     @Override
     public HQJsonResult insertGradeClass(SysGradeClassEntity sysGradeClassEntity) {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeClassEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
         sysGradeClassEntity.setId(Sid.nextShort());
-        sysGradeClassEntity.setCreateTime(String.valueOf(new Date()));
+        sysGradeClassEntity.setCreateTime(DateUtil.getMsTime());
         int insertGrdeClass = sysGradeClassDao.insertGrdeClass(sysGradeClassEntity);
         if (insertGrdeClass > 0) {
             return HQJsonResult.success(sysGradeClassEntity);
@@ -180,6 +208,12 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         return new HQJsonResult();
     }
 
+    /**
+     * 查询班级
+     *
+     * @param sysGradeClassEntity
+     * @return
+     */
     @Override
     public HQJsonResult selectGradeClass(SysGradeClassEntity sysGradeClassEntity) {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeClassEntity)) {
@@ -197,7 +231,7 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeClassEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        sysGradeClassEntity.setUpdateTime(String.valueOf(new Date()));
+        sysGradeClassEntity.setUpdateTime(DateUtil.getMsTime());
         int updateGradeClass = sysGradeClassDao.updaterdeClass(sysGradeClassEntity);
         if (updateGradeClass > 0) {
             return HQJsonResult.success(sysGradeClassEntity);

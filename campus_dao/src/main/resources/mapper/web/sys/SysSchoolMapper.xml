@@ -26,9 +26,9 @@
             </if>
             <if test="list != null and list.size() > 0">
                 and s.organ_id in (
-                    <foreach collection="list" item="item" separator=",">
-                        #{item}
-                    </foreach>
+                <foreach collection="list" item="item" separator=",">
+                    #{item}
+                </foreach>
                 )
             </if>
         </where>
@@ -119,9 +119,9 @@
         <choose>
             <when test="list != null and list.size() > 0">
                 where organ_id in (
-                    <foreach collection="list" item="item" separator=",">
-                        #{item}
-                    </foreach>
+                <foreach collection="list" item="item" separator=",">
+                    #{item}
+                </foreach>
                 )
             </when>
             <otherwise>
@@ -130,22 +130,26 @@
         </choose>
     </select>
 
-    <!--根据用户ID查询当前所归属学校-->
-    <select id="selectSchoolByUserId" resultMap="BaseResultMap">
-        SELECT school.id, school.school_name, school.school_address, school.organ_id,school.create_time, school.update_time
+    <!--根据学校ID查询归属学校-->
+    <select id="selectSchoolBySchoolId" resultMap="BaseResultMap">
+        SELECT school.id,
+        school.school_name,
+        school.school_address,
+        school.organ_id,
+        school.create_time,
+        school.update_time
         FROM sys_school school
-        LEFT JOIN sys_user u
-        ON school.id = u.school_id
         <where>
-            <if test="userId != null">
-                u.id = #{userId,jdbcType=INTEGER}
+            <if test="schoolId != null and schoolId !=''">
+                school.id = #{schoolId,jdbcType=INTEGER}
             </if>
         </where>
     </select>
 
     <!--根据教育局ID与用户ID查询学校-->
     <select id="selectSchoolByUserIdAndOrganId" resultMap="BaseResultMap">
-        SELECT school.id, school.school_name, school.school_address, school.organ_id,school.create_time, school.update_time
+        SELECT school.id, school.school_name, school.school_address, school.organ_id,school.create_time,
+        school.update_time
         FROM sys_school school
         INNER JOIN sys_user u ON school.organ_id = u.organ_id
         <where>
@@ -153,5 +157,18 @@
                 u.id = #{userId,jdbcType=INTEGER}
             </if>
         </where>
+    </select>
+    <!--根据机构id查询学校-->
+    <select id="selectSchoolByOrganId" resultMap="BaseResultMap">
+        SELECT school.id,
+               school.school_name,
+               school.school_address,
+               school.organ_id,
+               school.create_time,
+               school.update_time
+        FROM sys_organ organ
+                     LEFT JOIN sys_organ s ON organ.id = s.parent_id
+                     LEFT JOIN sys_school school ON s.id = school.organ_id
+        WHERE organ.id = #{organId,jdbcType=INTEGER}
     </select>
 </mapper>

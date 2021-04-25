@@ -13,7 +13,7 @@ import com.huiyi.campus.dao.dto.common.SchoolDto;
 public interface CommonService {
     HQJsonResult area();
 
-    HQJsonResult selectSchoolByUserId(SchoolDto schoolDto);
+    HQJsonResult selectSchoolBySchoolIdAndOrganId(SchoolDto schoolDto);
 
     HQJsonResult selectClassBySchoolId(SchoolDto schoolDto);
 

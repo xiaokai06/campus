@@ -31,7 +31,7 @@ public class SysGradeClassController {
      * @param sysGradeEntity
      * @return
      */
-//    @IsLogin
+    @IsLogin
     @PostMapping("/queryGradeClass")
     public HQJsonResult queryGradeClass(@RequestBody SysGradeEntity sysGradeEntity) {
         return sysGradeClassService.queryGradeClass(sysGradeEntity);

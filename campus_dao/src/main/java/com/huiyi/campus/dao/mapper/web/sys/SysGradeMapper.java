@@ -21,7 +21,7 @@ public interface SysGradeMapper {
 
     int updateByPrimaryKey(SysGradeEntity record);
 
-    List<SysGradeEntity> selectGradeList(SysGradeEntity sysGradeEntity);
+    List<SysGradeClassVo> selectGradeList(SysGradeEntity sysGradeEntity);
 
     List<SysGradeVo> queryGradeClass(SysGradeEntity sysGradeEntity);
 }

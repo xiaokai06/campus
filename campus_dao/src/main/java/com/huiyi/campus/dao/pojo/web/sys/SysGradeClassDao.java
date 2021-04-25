@@ -31,7 +31,7 @@ public class SysGradeClassDao {
         return sysGradeMapper.insert(sysGradeEntity);
     }
 
-    public List<SysGradeEntity> selectGrade(SysGradeEntity sysGradeEntity) {
+    public List<SysGradeClassVo> selectGrade(SysGradeEntity sysGradeEntity) {
         return sysGradeMapper.selectGradeList(sysGradeEntity);
     }
 
@@ -61,5 +61,14 @@ public class SysGradeClassDao {
 
     public List<SysGradeVo> queryGradeClass(SysGradeEntity sysGradeEntity) {
         return sysGradeMapper.queryGradeClass(sysGradeEntity);
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public List<SysGradeClassEntity> selectClassByGradeList(String id) {
+        return sysGradeClassMapper.selectClassByGradeList(id);
     }
 }

@@ -123,4 +123,10 @@
         from sys_grade_class
         where id = #{id,jdbcType=VARCHAR}
     </select>
+    <!--根据年级ID查询班级-->
+    <select id="selectClassByGradeList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_grade_class where grade_parent_id = #{id,jdbcType=VARCHAR}
+    </select>
 </mapper>
