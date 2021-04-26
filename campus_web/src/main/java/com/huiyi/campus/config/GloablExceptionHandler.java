@@ -24,7 +24,7 @@ public class GloablExceptionHandler {
             if (msg.equals(CommonEnum.INVALID_TOKEN.getResultMsg())) {
                 return ResultBody.invalidToken();
             }
-            if (msg.equals(CommConstants.NOT_LOGIN)) {
+            if (msg.equals(CommConstants.NOT_LOGIN) || msg.equals(CommonEnum.LOGIN_TIMEOUT.getResultMsg())) {
                 return ResultBody.loginTimeOut();
             }
             if (msg.equals(CommonEnum.USER_PWD_ERROR.getResultMsg())) {
