@@ -10,6 +10,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author: yzg
  * @time: 2021-04-06 11:06
@@ -30,8 +32,9 @@ public class SysSchoolController {
     @IsLogin
     @ApiOperation("获取所有学校")
     @PostMapping("/getAllSchool")
-    public ResultBody getAllSchool(@RequestBody SysSchoolEntity sysSchoolEntity) {
-        return sysSchoolService.selectAllSchool(sysSchoolEntity);
+    public ResultBody getAllSchool(@RequestBody SysSchoolEntity sysSchoolEntity, HttpServletRequest request) {
+        String nickName = request.getHeader(CommConstants.ACC);
+        return sysSchoolService.selectAllSchool(nickName, sysSchoolEntity);
     }
 
     @IsLogin

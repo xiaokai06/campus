@@ -13,9 +13,10 @@ public interface SysSchoolService {
     /**
      * 查询所有学校
      * @param sysSchoolEntity
+     * @param nickName
      * @return
      */
-    ResultBody selectAllSchool(SysSchoolEntity sysSchoolEntity);
+    ResultBody selectAllSchool(String nickName, SysSchoolEntity sysSchoolEntity);
 
     /**
      * 新增学校

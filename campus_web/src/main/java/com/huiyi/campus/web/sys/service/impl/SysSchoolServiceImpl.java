@@ -5,7 +5,11 @@ import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDoctorDao;
+import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysSchoolService;
+import com.huiyi.campus.web.sys.service.UserCacheService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,14 +24,18 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class SysSchoolServiceImpl implements SysSchoolService {
 
+    private static final Logger logger = LoggerFactory.getLogger(SysSchoolServiceImpl.class);
+
     SysOrganDao sysOrganDao;
     SysSchoolDao sysSchoolDao;
+    UserCacheService userCacheService;
     SysSchoolDoctorDao sysSchoolDoctorDao;
 
     SysSchoolServiceImpl(SysSchoolDao sysSchoolDao, SysSchoolDoctorDao sysSchoolDoctorDao,
-                         SysOrganDao sysOrganDao) {
+                         SysOrganDao sysOrganDao, UserCacheService userCacheService) {
         this.sysOrganDao = sysOrganDao;
         this.sysSchoolDao = sysSchoolDao;
+        this.userCacheService = userCacheService;
         this.sysSchoolDoctorDao = sysSchoolDoctorDao;
     }
 
@@ -37,10 +45,15 @@ public class SysSchoolServiceImpl implements SysSchoolService {
      * @return 返回值
      */
     @Override
-    public ResultBody selectAllSchool(SysSchoolEntity sysSchoolEntity) {
-        Integer organId = sysSchoolEntity.getOrgId();
-        List<Integer> list = sysOrganDao.selectIdByOrganId(organId);
-        return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));
+    public ResultBody selectAllSchool(String nickName, SysSchoolEntity sysSchoolEntity) {
+        logger.info("获取所有学校接口，从请求头获取到的用户昵称为：" + nickName);
+        if (userCacheService.hasUserKey(nickName)) {
+            TokenVo tokenVo = userCacheService.getUserCache(nickName);
+            Integer organId = tokenVo.getOrganId();
+            List<Integer> list = sysOrganDao.selectIdByOrganId(organId);
+            return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));
+        }
+        return ResultBody.success();
     }
 
     /**

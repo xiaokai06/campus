@@ -27,9 +27,6 @@ public class SysSchoolEntity implements Serializable {
     @ApiModelProperty("机构名称")
     private String organName;
 
-    @ApiModelProperty("教育局ID")
-    private Integer orgId;
-
     @ApiModelProperty("学校名称")
     private String schoolName;
 
