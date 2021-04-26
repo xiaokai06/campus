@@ -70,4 +70,8 @@ public interface SysSchoolMapper {
      * @return
      */
     List<SysSchoolEntity> selectSchoolByOrganId(Integer organId);
+
+/*
+    List<SysSchoolEntity> selectOrganByOrganId(Integer organId);
+*/
 }

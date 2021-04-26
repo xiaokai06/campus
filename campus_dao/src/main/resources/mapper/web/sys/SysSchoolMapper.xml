@@ -133,17 +133,13 @@
     <!--根据学校ID查询归属学校-->
     <select id="selectSchoolBySchoolId" resultMap="BaseResultMap">
         SELECT school.id,
-        school.school_name,
-        school.school_address,
-        school.organ_id,
-        school.create_time,
-        school.update_time
+               school.school_name,
+               school.school_address,
+               school.organ_id,
+               school.create_time,
+               school.update_time
         FROM sys_school school
-        <where>
-            <if test="schoolId != null and schoolId !=''">
-                school.id = #{schoolId,jdbcType=INTEGER}
-            </if>
-        </where>
+        WHERE school.id = #{schoolId,jdbcType=INTEGER}
     </select>
 
     <!--根据教育局ID与用户ID查询学校-->
@@ -166,9 +162,16 @@
                school.organ_id,
                school.create_time,
                school.update_time
-        FROM sys_organ organ
-                     LEFT JOIN sys_organ s ON organ.id = s.parent_id
-                     LEFT JOIN sys_school school ON s.id = school.organ_id
-        WHERE organ.id = #{organId,jdbcType=INTEGER}
+        FROM sys_school school
+        WHERE school.organ_id = #{organId,jdbcType=INTEGER}
     </select>
+
+    <!-- <select id="selectOrganByOrganId" resultMap="BaseResultMap">
+         SELECT school.id,
+                school.school_name,
+                school.school_address,
+                school.organ_id,
+                school.create_time,
+                school.update_time
+     </select>-->
 </mapper>

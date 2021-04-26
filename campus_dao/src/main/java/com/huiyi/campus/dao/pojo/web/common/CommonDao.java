@@ -110,4 +110,8 @@ public class CommonDao {
     public List<SysSchoolEntity> selectSchoolByOrganId(SchoolDto schoolDto) {
         return sysSchoolMapper.selectSchoolByOrganId(schoolDto.getOrganId());
     }
+//
+//    public List<SysSchoolEntity> selectSchoolByOrganId(SchoolDto schoolDto) {
+//        return sysSchoolMapper.selectOrganByOrganId(schoolDto.getOrganId());
+//    }
 }

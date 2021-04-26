@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.sys.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.huiyi.campus.common.utils.DateUtil;
@@ -15,6 +16,7 @@ import com.huiyi.campus.dao.vo.common.TsTypeGroupVo;
 import com.huiyi.campus.dao.vo.sys.SysGradeClassVo;
 import com.huiyi.campus.dao.vo.sys.SysGradeVo;
 import com.huiyi.campus.web.sys.service.SysGradeClassService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,7 @@ import java.util.stream.Collectors;
  * @date: 2021-04-21 14:23
  * @Version V1.0
  */
+@Slf4j
 @Service
 public class SysGradeClassServiceImpl implements SysGradeClassService {
 
@@ -97,7 +100,7 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (insertGrade > 0) {
             return HQJsonResult.success(sysGradeEntity);
         }
-        return new HQJsonResult();
+        return HQJsonResult.success();
     }
 
     /**
@@ -111,6 +114,7 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        log.info("获取所有查询年级和班级接口开始执行--->" + JSON.toJSON(sysGradeEntity));
         try {
             HQJsonResult<SysGradeClassVo> hqJsonResult = new HQJsonResult<>();
             PageHelper.startPage(sysGradeEntity.getPage(), sysGradeEntity.getRows());
@@ -131,12 +135,14 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
                 hqJsonResult.setRequestID(String.valueOf(UUID.randomUUID()));
                 hqJsonResult.setTotal(page.getTotal());
                 hqJsonResult.setData(page.getList());
+                log.info("获取所有查询年级和班级接口结束执行--->" + JSON.toJSON(hqJsonResult));
                 return hqJsonResult;
             }
         } catch (Exception e) {
             e.printStackTrace();
+            log.error(e.getMessage());
         }
-        return new HQJsonResult();
+        return HQJsonResult.success();
     }
 
     /**
@@ -150,12 +156,14 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        log.info("修改年级接口开始执行--->" + JSON.toJSON(sysGradeEntity));
         sysGradeEntity.setUpdateTime(DateUtil.getMsTime());
         int updateGrade = sysGradeClassDao.updateGrade(sysGradeEntity);
         if (updateGrade > 0) {
+            log.info("修改年级接口结束执行--->" + JSON.toJSON(sysGradeEntity));
             return HQJsonResult.success(sysGradeEntity);
         }
-        return new HQJsonResult();
+        return HQJsonResult.success();
     }
 
     /**
@@ -169,11 +177,13 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        log.info("删除年级接口开始执行--->" + JSON.toJSON(sysGradeEntity));
         int deleteGrade = sysGradeClassDao.deleteGrade(sysGradeEntity);
         if (deleteGrade > 0) {
+            log.info("删除年级接口结束执行--->" + JSON.toJSON(sysGradeEntity));
             return HQJsonResult.success();
         }
-        return new HQJsonResult();
+        return HQJsonResult.success();
     }
 
     /**
@@ -187,13 +197,15 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeClassEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        log.info("新增班级接口开始执行--->" + JSON.toJSON(sysGradeClassEntity));
         sysGradeClassEntity.setId(Sid.nextShort());
         sysGradeClassEntity.setCreateTime(DateUtil.getMsTime());
-        int insertGrdeClass = sysGradeClassDao.insertGrdeClass(sysGradeClassEntity);
-        if (insertGrdeClass > 0) {
+        int insertGradeClass = sysGradeClassDao.insertGrdeClass(sysGradeClassEntity);
+        if (insertGradeClass > 0) {
+            log.info("新增班级接口开始执行--->" + JSON.toJSON(sysGradeClassEntity));
             return HQJsonResult.success(sysGradeClassEntity);
         }
-        return new HQJsonResult();
+        return HQJsonResult.success();
     }
 
     /**
@@ -207,36 +219,54 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeClassEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        log.info("查询班级接口开始执行--->" + JSON.toJSON(sysGradeClassEntity));
         List<SysGradeClassEntity> sysGradeClassEntityList = sysGradeClassDao.selectGrdeClass(sysGradeClassEntity);
         if (!sysGradeClassEntityList.isEmpty()) {
+            log.info("查询班级接口结束执行--->" + JSON.toJSON(sysGradeClassEntity));
             return HQJsonResult.success(sysGradeClassEntityList);
         }
-        return new HQJsonResult();
+        return HQJsonResult.success();
     }
 
+    /**
+     * 修改班级接口
+     *
+     * @param sysGradeClassEntity
+     * @return
+     */
     @Override
     public HQJsonResult updateGradeClass(SysGradeClassEntity sysGradeClassEntity) {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeClassEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        log.info("修改班级接口开始执行--->" + JSON.toJSON(sysGradeClassEntity));
         sysGradeClassEntity.setUpdateTime(DateUtil.getMsTime());
         int updateGradeClass = sysGradeClassDao.updaterdeClass(sysGradeClassEntity);
         if (updateGradeClass > 0) {
+            log.info("修改班级接口结束执行--->" + JSON.toJSON(sysGradeClassEntity));
             return HQJsonResult.success(sysGradeClassEntity);
         }
-        return new HQJsonResult();
+        return HQJsonResult.success();
     }
 
+    /**
+     * 删除班级接口
+     *
+     * @param sysGradeClassEntity
+     * @return
+     */
     @Override
     public HQJsonResult deleteGradeClass(SysGradeClassEntity sysGradeClassEntity) {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeClassEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        log.info("删除班级接口开始执行--->" + JSON.toJSON(sysGradeClassEntity));
         int deleteGradeClass = sysGradeClassDao.deleteGradeClass(sysGradeClassEntity);
         if (deleteGradeClass > 0) {
+            log.info("删除班级接口结束执行--->" + JSON.toJSON(sysGradeClassEntity));
             return HQJsonResult.success();
         }
-        return new HQJsonResult();
+        return HQJsonResult.success();
     }
 
 }
