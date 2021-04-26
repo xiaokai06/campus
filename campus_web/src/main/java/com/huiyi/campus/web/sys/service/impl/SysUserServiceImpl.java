@@ -1,13 +1,15 @@
 package com.huiyi.campus.web.sys.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.huiyi.campus.common.base.CommonEnum;
 import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
-import com.huiyi.campus.common.utils.*;
+import com.huiyi.campus.common.utils.AESUtils;
+import com.huiyi.campus.common.utils.DateUtils;
+import com.huiyi.campus.common.utils.RSAUtils;
+import com.huiyi.campus.common.utils.StringUtils;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
@@ -19,6 +21,7 @@ import com.huiyi.campus.dao.vo.sys.SysUserVo;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysUserService;
 import com.huiyi.campus.web.sys.service.TokenService;
+import com.huiyi.campus.web.sys.service.UserCacheService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,7 +46,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     RSAUtils rsaUtils;
     AESUtils aesUtils;
-    RedisUtils redisUtils;
     SysUserDao sysUserDao;
     SysOrganDao sysOrganDao;
     SysSchoolDao sysSchoolDao;
@@ -53,18 +55,19 @@ public class SysUserServiceImpl implements SysUserService {
     private String defaultPwd;
     @Value("${user.administrator}")
     private String administrator;
+    UserCacheService userCacheService;
 
     SysUserServiceImpl(SysUserDao sysUserDao, RSAUtils rsaUtils, TokenService tokenService,
-                       AESUtils aesUtils, RedisUtils redisUtils, SysRoleMenuDao sysRoleMenuDao,
-                       SysOrganDao sysOrganDao, SysSchoolDao sysSchoolDao) {
+                       AESUtils aesUtils, SysRoleMenuDao sysRoleMenuDao,SysOrganDao sysOrganDao,
+                       SysSchoolDao sysSchoolDao, UserCacheService userCacheService) {
         this.rsaUtils = rsaUtils;
         this.aesUtils = aesUtils;
-        this.redisUtils = redisUtils;
         this.sysUserDao = sysUserDao;
         this.sysOrganDao = sysOrganDao;
         this.tokenService = tokenService;
         this.sysSchoolDao = sysSchoolDao;
         this.sysRoleMenuDao = sysRoleMenuDao;
+        this.userCacheService = userCacheService;
     }
 
     /**
@@ -89,21 +92,6 @@ public class SysUserServiceImpl implements SysUserService {
             String decAesM = decryptResult(passWord, "数据库");
             if (decAes.equals(decAesM)) {
                 TokenVo tokenVo = new TokenVo();
-                String key = CommConstants.USER_INFO + nickName;
-                if (redisUtils.hasKey(key)) {
-                    String str = JSON.toJSONString(redisUtils.get(key));
-                    TokenVo cacheToken = JSON.parseObject(str, TokenVo.class);
-                    String token = cacheToken.getToken();
-                    logger.info("从缓存中获取到的token为：" + token);
-                    tokenVo.setToken(token);
-                } else {
-                    String token = tokenService.getToken(nickName);
-                    logger.info("后端生成的token为：" + token);
-                    String aesToken = aesUtils.encrypt(token);
-                    logger.info("AES加密后的token为：" + aesToken);
-                    tokenVo.setToken(aesToken);
-                    redisUtils.set(key, tokenVo, CommConstants.DEFAULT_EXPIRE_TIME);
-                }
                 tokenVo.setId(id);
                 tokenVo.setNickName(sysUserInfo.getNickName());
                 tokenVo.setUserName(sysUserInfo.getUserName());
@@ -117,6 +105,19 @@ public class SysUserServiceImpl implements SysUserService {
                 String roleName = sysUserInfo.getRoleName();
                 if (!StringUtils.isEmpty(roleName) && roleName.contains(CommConstants.EDUCATION_LEADER)){
                     tokenVo.setEducationFlag(1);
+                }
+                if (userCacheService.hasUserKey(nickName)) {
+                    TokenVo cacheToken = userCacheService.getUserCache(nickName);
+                    String token = cacheToken.getToken();
+                    logger.info("从缓存中获取到的token为：" + token);
+                    tokenVo.setToken(token);
+                } else {
+                    String token = tokenService.getToken(nickName);
+                    logger.info("后端生成的token为：" + token);
+                    String aesToken = aesUtils.encrypt(token);
+                    logger.info("AES加密后的token为：" + aesToken);
+                    tokenVo.setToken(aesToken);
+                    userCacheService.setUserCache(nickName, tokenVo);
                 }
                 SysUserEntity sysUser = new SysUserEntity();
                 sysUser.setId(sysUserInfo.getId());
@@ -137,10 +138,8 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public ResultBody exitSystem(String nickName) {
-        String key = CommConstants.USER_INFO + nickName;
-        boolean bl = redisUtils.hasKey(key);
-        if (bl) {
-            redisUtils.del(key);
+        if (userCacheService.hasUserKey(nickName)) {
+            userCacheService.delUserCache(nickName);
             return ResultBody.success("退出成功");
         }
         return ResultBody.error("退出失败");
@@ -175,9 +174,8 @@ public class SysUserServiceImpl implements SysUserService {
             }
             int i = sysUserDao.updateUserPwd(updatePwdDto);
             if (i > 0) {
-                String key = CommConstants.USER_INFO + nickName;
-                if (redisUtils.hasKey(key)) {
-                    redisUtils.del(key);
+                if (userCacheService.hasUserKey(nickName)) {
+                    userCacheService.delUserCache(nickName);
                 }
             }
             return ResultBody.update(i);
