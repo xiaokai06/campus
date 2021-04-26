@@ -18,6 +18,7 @@ import com.huiyi.campus.web.common.service.CommonService;
 import com.huiyi.campus.web.sys.service.SysGradeClassService;
 import com.huiyi.campus.web.sys.service.UserCacheService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -128,7 +129,8 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(tokenVo)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        if (sysGradeEntity.getSchoolId() != null || sysGradeEntity.getSchoolId() != 0) {
+        String schoolId = String.valueOf(sysGradeEntity.getSchoolId());
+        if (StringUtils.isNotEmpty(schoolId)) {
             tokenVo.setSchoolId(sysGradeEntity.getSchoolId());
         }
         List<Integer> schoolIdStr = commonService.getSchoolIdStr(tokenVo.getOrganId(), tokenVo.getSchoolId());

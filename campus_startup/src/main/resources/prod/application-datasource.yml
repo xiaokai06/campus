@@ -15,9 +15,9 @@ user:
 spring:
   # MYSQL数据库驱动配置
   datasource:
-    name: db
+    name: DB
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://47.115.41.64:3306/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
     username: root
     password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
     driver-class-name: com.mysql.cj.jdbc.Driver

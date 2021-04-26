@@ -1,17 +1,24 @@
 spring:
+  #  boot:
+  #    admin:
+  #      client:
+  #        url: http://localhost:9003/
+  #        instance:
+  #          service-url: http://localhost:${server.port}/${server.servlet.context-path}
+  #          prefer-ip: true
+  #          name: ${spring.application.name}
+  #          read-timeout: 10000
+
   application:
     #   项目应用名
     name: campus_health_service
   #   需要加载的配置文件
   profiles:
-    active: datasource,cache,bootstrap
-    #  servlet:
-    #   项目默认路径
-    context-path: /campus
-
+    active: datasource,cache
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
   http:
+    enabled: true
     encoding:
       force: true
       charset: utf-8
@@ -26,23 +33,36 @@ server:
     buffer-size: 1024
     buffers-per-region: 1024
     direct-buffers: true
+
+# 日志文件访问配置
 logging:
   level:
-    com:
-      huiyi:
-        pacs: debug
-  config: classpath:logback.xml
+    com.huiyi.campus.dao.mapper: debug
+    com.huiyi.campus: debug
+    root: info
+  file: /opt/campus/health/campus-health/logs/campus-info.log
+  #  file: campus-health/logs/campus-info.log
+  pattern: #日志高亮
+    file: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx'
+  config: classpath:logback-spring.xml
 #  minio对象存储配置
 minio:
-  endpoint: http://47.93.112.92:9000
-  accessKey: admin
-  secretKey: admin123456
   bucketImageName: campus
-#login:
-#  count: 3 # 系统最多允许多少台设备登录同一账号
-# PageHelper分页插件
-#pagehelper:
-#  helperDialect: mysql
-#  reasonable: true
-#  supportMethodsArguments: false
-#  params: count=countSql
+  studentImage: studentImage
+  endpoint: http://120.78.82.196:9000
+  accessKey: zhihui
+  secretKey: zhihui123456
+
+
+
+
+#项目健康监控
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: ALWAYS
+

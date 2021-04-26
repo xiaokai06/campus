@@ -1,7 +1,7 @@
 spring:
   redis:
-    host: 47.115.41.64
-    port: 6379
+    host: 127.0.0.1
+    port: 6370
     passwordEncrypt: false
     passwordEncryptMode: AES
     password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
