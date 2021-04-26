@@ -82,6 +82,7 @@
                     </foreach>
                     )
                     <if test="schoolList != null and schoolList.size() > 0">
+                        and u.school_id is not null
                         or u.school_id in (
                         <foreach collection="schoolList" item="item" separator=",">
                             #{item}
