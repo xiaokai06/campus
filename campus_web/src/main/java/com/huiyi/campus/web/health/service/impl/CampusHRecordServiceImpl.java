@@ -147,7 +147,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             if (IdCardValidatorUtil.isValidCard(phyStudentInfoEntity.getIdCard())) {
                 phyStudentInfoEntity.setIdCard(phyStudentInfoEntity.getIdCard());
             }
-            phyStudentInfoEntity.setCreateTime(new Date());
+            phyStudentInfoEntity.setCreateTime(DateUtil.getMsTime());
             int createInfoStr = healthRecordDao.createStudentInfoRecord(phyStudentInfoEntity);
             //校验数据插入
             if (createInfoStr > 0) {
@@ -176,7 +176,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         try {
             PhyStudentInfoEntity phyStudentInfoEntity = new PhyStudentInfoEntity();
             JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
-            phyStudentInfoEntity.setUpdateTime(new Date());
+            phyStudentInfoEntity.setUpdateTime(DateUtil.getMsTime());
             int updateStudentInfo = healthRecordDao.updateStudentInfoRecord(phyStudentInfoEntity);
             if (updateStudentInfo > 0) {
                 return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity));
@@ -355,7 +355,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
                 if (studentHealthInfoDto.getBloodRoutine().equals(PhyItemConstants.bloodRoutine_error) ||
                         studentHealthInfoDto.getLiverFunction().equals(PhyItemConstants.liverFunction_error)) {
                     //肝功能新增修改判断
-                    if (!studentHealthInfoDto.getLiverFunctionItemList().isEmpty()){
+                    if (!studentHealthInfoDto.getLiverFunctionItemList().isEmpty()) {
                         if (StringUtils.isEmpty(studentHealthInfoDto.getLiverFunctionItemList().get(0).getId())) {
                             studentHealthInfoDto.getLiverFunctionItemList().forEach(liverStrC -> {
                                 liverStrC.setId(Sid.nextShort());
@@ -390,7 +390,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
                                 log.info("肝功能报告结果修改异常：" + liverRoutineU + "学生ID为：" + studentHealthInfoDto.getPhyStudentId());
                             }
                         }
-                }
+                    }
                     //血常规新增修改判断
                     if (!studentHealthInfoDto.getBloodRoutineItemList().isEmpty()) {
                         if (StringUtils.isEmpty(studentHealthInfoDto.getBloodRoutineItemList().get(0).getId())) {
@@ -478,7 +478,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             phyStudentInfoEntityList.forEach(str -> {
                 str.setId(Sid.nextShort());
 //                str.setPhyDate(new Date());
-                str.setCreateTime(new Date());
+                str.setCreateTime(DateUtil.getMsTime());
             });
             int batchInsertStudentInfo = healthRecordDao.batchInsertStudentInfo(phyStudentInfoEntityList);
             if (batchInsertStudentInfo > 0) {

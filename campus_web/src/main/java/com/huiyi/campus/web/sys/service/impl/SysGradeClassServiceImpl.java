@@ -45,11 +45,8 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-//        HQJsonResult<SysGradeClassVo> hqJsonResult = new HQJsonResult<>();
-//        PageHelper.startPage(sysGradeEntity.getPage(), sysGradeEntity.getRows());
         List<SysGradeClassVo> resultVoList = new ArrayList<>();
         List<SysGradeVo> sysGradeClassVoList = sysGradeClassDao.queryGradeClass(sysGradeEntity);
-//        PageInfo<SysGradeVo> page = new PageInfo<>(sysGradeClassVoList);
         Map<String, List<SysGradeVo>> map = sysGradeClassVoList.stream().collect(Collectors.groupingBy(SysGradeVo::getGradeParentId));
         for (String id : map.keySet()) {
             SysGradeClassVo gradeVo = new SysGradeClassVo();
@@ -79,15 +76,6 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
                 resultVoList.add(gradeVo);
             }
         }
-//        if (!page.getList().isEmpty()) {
-//            hqJsonResult.setSuccess(true);
-//            hqJsonResult.setCode("200");
-//            hqJsonResult.setMsg("处理成功！");
-//            hqJsonResult.setRequestID(String.valueOf(UUID.randomUUID()));
-//            hqJsonResult.setTotal(page.getTotal());
-//            hqJsonResult.setData(resultVoList);
-//            return hqJsonResult;
-//        }
         return HQJsonResult.success(resultVoList);
     }
 
@@ -128,14 +116,14 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
             PageHelper.startPage(sysGradeEntity.getPage(), sysGradeEntity.getRows());
             List<SysGradeClassVo> gradeEntityList = sysGradeClassDao.selectGrade(sysGradeEntity);
             PageInfo<SysGradeClassVo> page = new PageInfo<>(gradeEntityList);
-//            if (!gradeEntityList.isEmpty()) {
-//                gradeEntityList.forEach(str -> {
-//                    List<SysGradeClassEntity> classEntityList = sysGradeClassDao.selectClassByGradeList(str.getId());
-//                    if (!classEntityList.isEmpty()) {
-//                        str.setSysGradeClassEntityList(classEntityList);
-//                    }
-//                });
-//            }
+            if (!gradeEntityList.isEmpty()) {
+                gradeEntityList.forEach(str -> {
+                    List<SysGradeClassEntity> classEntityList = sysGradeClassDao.selectClassByGradeList(str.getId());
+                    if (!classEntityList.isEmpty()) {
+                        str.setSysGradeClassEntityList(classEntityList);
+                    }
+                });
+            }
             if (!page.getList().isEmpty()) {
                 hqJsonResult.setSuccess(true);
                 hqJsonResult.setCode("200");

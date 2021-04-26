@@ -75,9 +75,9 @@ public class PhyStudentInfoEntity implements Serializable {
     @ApiModelProperty("建档日期")
     private String phyFileDate;
     @ApiModelProperty("创建时间")
-    private Date createTime;
+    private String createTime;
     @ApiModelProperty("更新时间")
-    private Date updateTime;
+    private String updateTime;
     @ApiModelProperty("操作人员id (注：当前操作人员)")
     private Integer operatorId;
     private Integer delFlag;

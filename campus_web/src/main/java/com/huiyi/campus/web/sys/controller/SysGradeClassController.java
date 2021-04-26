@@ -51,7 +51,7 @@ public class SysGradeClassController {
     }
 
     /**
-     * 查询年级
+     * 查询年级和班级接口
      *
      * @param sysGradeEntity
      * @return

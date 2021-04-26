@@ -20,7 +20,7 @@ import java.util.Date;
 @ApiModel("学生档案信息返回Vo")
 public class StudentInfoRecordVo {
 
-    @Excel(name = "学号")
+//    @Excel(name = "学号")
     @ApiModelProperty("主键id")
     private String id;
 
