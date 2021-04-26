@@ -4,6 +4,7 @@ import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
 import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public interface PhyStudentInfoMapper {
 
     int updateByPrimaryKey(PhyStudentInfoEntity record);
 
-    List<StudentInfoRecordVo> selectAll(StudentInfoRecordDto studentInfoRecordDto);
+    List<StudentInfoRecordVo> selectAll(StudentInfoRecordDto studentInfoRecordDto, @Param("schoolIdStr") List<Integer> schoolIdStr);
 
     List<StudentInfoRecordVo> exportStudentInfo(ExportStudentInfoDto exportStudentInfoDto);
 

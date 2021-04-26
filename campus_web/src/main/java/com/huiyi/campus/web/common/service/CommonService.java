@@ -3,6 +3,8 @@ package com.huiyi.campus.web.common.service;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.dao.dto.common.SchoolDto;
 
+import java.util.List;
+
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
@@ -20,4 +22,6 @@ public interface CommonService {
     HQJsonResult selectType();
 
     HQJsonResult selectOrganByOrganId(SchoolDto schoolDto);
+
+    List<Integer> getSchoolIdStr(Integer orgId, Integer schoolId);
 }

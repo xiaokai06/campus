@@ -1,6 +1,7 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
+import com.huiyi.campus.dao.vo.sys.TokenVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -70,6 +71,18 @@ public interface SysSchoolMapper {
      * @return
      */
     List<SysSchoolEntity> selectSchoolByOrganId(Integer organId);
+
+    /**
+     * 根据机构ID与学校ID查询
+     * @param orgIdStr
+     * @param schoolId
+     * @return
+     */
+    List<Integer> selectSchoolStrBySchoolId(@Param("orgIdStr")List<Integer> orgIdStr, @Param("schoolId") Integer schoolId);
+
+/*
+    List<SysSchoolEntity> selectByOrganId(TokenVo tokenVo);
+*/
 
 /*
     List<SysSchoolEntity> selectOrganByOrganId(Integer organId);

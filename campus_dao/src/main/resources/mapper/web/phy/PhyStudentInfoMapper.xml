@@ -485,27 +485,21 @@
         <if test="studentNumber != null and studentNumber!=''">
             AND info.student_number = #{studentNumber,jdbcType=VARCHAR}
         </if>
-        <!--        <if test="orgIdList != null and orgIdList!=''">
-                    AND info.school_id IN
-                    <foreach item="orgIdList" index="index" collection="orgIdList" open="(" separator="," close=")">
-                        #{orgIdList}
-                    </foreach>
-                </if>
-                <if test="schoolIdList != null and schoolIdList!=''">
-                    AND info.organ_id IN
-                    <foreach item="schoolIdList" index="index" collection="schoolIdList" open="(" separator="," close=")">
-                        #{schoolIdList}
-                    </foreach>
-                </if>-->
+        <if test="schoolIdStr != null and schoolIdStr.size() > 0">
+            or info.school_id IN
+            <foreach item="item" index="index" collection="schoolIdStr" separator=",">
+                #{item}
+            </foreach>
+        </if>
         <if test="classId != null and classId!=''">
             AND info.class_id = #{classId,jdbcType=INTEGER}
         </if>
         <if test="gradeId != null and gradeId!=''">
             AND info.grade_id = #{gradeId,jdbcType=INTEGER}
         </if>
-        <if test="schoolId != null and schoolId!=''">
+      <!--  <if test="schoolId != null and schoolId!=''">
             AND info.school_id = #{schoolId,jdbcType=INTEGER}
-        </if>
+        </if>-->
     </select>
 
     <!-- 导出学生信息 -->

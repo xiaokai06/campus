@@ -13,6 +13,7 @@ public interface SysOrganMapper {
 
     /**
      * 查询所有机构
+     *
      * @param sysOrganEntity
      * @return
      */
@@ -20,6 +21,7 @@ public interface SysOrganMapper {
 
     /**
      * 新增机构
+     *
      * @param sysOrganEntity
      * @return
      */
@@ -27,6 +29,7 @@ public interface SysOrganMapper {
 
     /**
      * 修改机构
+     *
      * @param sysOrganEntity
      * @return
      */
@@ -34,6 +37,7 @@ public interface SysOrganMapper {
 
     /**
      * 删除机构
+     *
      * @param id
      * @return
      */
@@ -41,6 +45,7 @@ public interface SysOrganMapper {
 
     /**
      * 根据机构ID查询子级
+     *
      * @param organId
      * @return
      */
@@ -49,4 +54,6 @@ public interface SysOrganMapper {
     List<SysOrganEntity> selectOrganByUserId(Integer organId);
 
     List<SysOrganEntity> selectByOrganId(Integer organId);
+
+//    List<Integer> selectOrgByOrgId(Integer orgId);
 }

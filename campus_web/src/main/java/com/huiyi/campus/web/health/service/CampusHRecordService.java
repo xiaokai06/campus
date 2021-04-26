@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public interface CampusHRecordService {
     HQJsonResult createStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
 
-    HQJsonResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto);
+    HQJsonResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto,String nickName);
 
     HQJsonResult createStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
 

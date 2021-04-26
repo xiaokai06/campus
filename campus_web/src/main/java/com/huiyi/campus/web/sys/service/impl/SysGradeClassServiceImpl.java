@@ -10,12 +10,13 @@ import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
-import com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysGradeClassDao;
-import com.huiyi.campus.dao.vo.common.TsTypeGroupVo;
 import com.huiyi.campus.dao.vo.sys.SysGradeClassVo;
 import com.huiyi.campus.dao.vo.sys.SysGradeVo;
+import com.huiyi.campus.dao.vo.sys.TokenVo;
+import com.huiyi.campus.web.common.service.CommonService;
 import com.huiyi.campus.web.sys.service.SysGradeClassService;
+import com.huiyi.campus.web.sys.service.UserCacheService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,10 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
 
     @Autowired
     SysGradeClassDao sysGradeClassDao;
+    @Autowired
+    UserCacheService userCacheService;
+    @Autowired
+    CommonService commonService;
 
     /**
      * 根据学校id查询年级班级数据
@@ -103,6 +108,7 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         return HQJsonResult.success();
     }
 
+
     /**
      * 查询年级和班级
      *
@@ -110,15 +116,27 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
      * @return
      */
     @Override
-    public HQJsonResult selectGrade(SysGradeEntity sysGradeEntity) {
+    public HQJsonResult selectGrade(SysGradeEntity sysGradeEntity, String nickName) {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        /**
+         * 校验当前用户机构ID与学校ID
+         */
+        TokenVo tokenVo;
+        tokenVo = userCacheService.getUserCache(nickName);
+        if (JsonUtils.checkObjAllFieldsIsNull(tokenVo)) {
+            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
+        }
+        if (sysGradeEntity.getSchoolId() != null || sysGradeEntity.getSchoolId() != 0) {
+            tokenVo.setSchoolId(sysGradeEntity.getSchoolId());
+        }
+        List<Integer> schoolIdStr = commonService.getSchoolIdStr(tokenVo.getOrganId(), tokenVo.getSchoolId());
         log.info("获取所有查询年级和班级接口开始执行--->" + JSON.toJSON(sysGradeEntity));
         try {
             HQJsonResult<SysGradeClassVo> hqJsonResult = new HQJsonResult<>();
             PageHelper.startPage(sysGradeEntity.getPage(), sysGradeEntity.getRows());
-            List<SysGradeClassVo> gradeEntityList = sysGradeClassDao.selectGrade(sysGradeEntity);
+            List<SysGradeClassVo> gradeEntityList = sysGradeClassDao.selectGrade(sysGradeEntity, schoolIdStr);
             PageInfo<SysGradeClassVo> page = new PageInfo<>(gradeEntityList);
             if (!gradeEntityList.isEmpty()) {
                 gradeEntityList.forEach(str -> {

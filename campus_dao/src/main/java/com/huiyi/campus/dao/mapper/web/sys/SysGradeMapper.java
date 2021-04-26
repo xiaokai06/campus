@@ -1,10 +1,10 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
 
-import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
 import com.huiyi.campus.dao.vo.sys.SysGradeClassVo;
 import com.huiyi.campus.dao.vo.sys.SysGradeVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public interface SysGradeMapper {
 
     int updateByPrimaryKey(SysGradeEntity record);
 
-    List<SysGradeClassVo> selectGradeList(SysGradeEntity sysGradeEntity);
+    List<SysGradeClassVo> selectGradeList(SysGradeEntity sysGradeEntity, @Param("schoolIdStr")List<Integer> schoolIdStr);
 
     List<SysGradeVo> queryGradeClass(SysGradeEntity sysGradeEntity);
 }

@@ -170,6 +170,44 @@
         FROM sys_school school
         WHERE school.organ_id = #{organId,jdbcType=INTEGER}
     </select>
+    <!--根据机构ID与学校ID查询学校-->
+    <select id="selectSchoolStrBySchoolId" resultType="java.lang.Integer">
+        select id from sys_school
+        <choose>
+            <when test="orgIdStr != null and orgIdStr.size() > 0">
+                where organ_id in (
+                <foreach collection="orgIdStr" item="item" separator=",">
+                    #{item}
+                </foreach>
+                )
+            </when>
+            <when test="schoolId != null and schoolId != 0">
+                AND where id=#{schoolId,jdbcType=INTEGER} or id=#{schoolId,jdbcType=INTEGER}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
+    </select>
+
+    <!-- <select id="selectByOrganId" resultMap="BaseResultMap">
+         school.id,
+         school.school_name,
+         school.school_address,
+         school.organ_id,
+         school.create_time,
+         school.update_time
+         FROM sys_school school
+         <where>
+             1=1
+             <if test="organId != null">
+                 and school.organ_id = #{organId,jdbcType=INTEGER}
+             </if>
+             <if test="id != null">
+                 AND id = #{id,jdbcType=INTEGER}
+             </if>
+         </where>
+     </select>-->
 
     <!-- <select id="selectOrganByOrganId" resultMap="BaseResultMap">
          SELECT school.id,

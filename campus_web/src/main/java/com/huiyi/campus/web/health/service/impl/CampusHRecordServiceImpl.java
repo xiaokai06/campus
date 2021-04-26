@@ -22,7 +22,10 @@ import com.huiyi.campus.dao.pojo.web.health.HealthRecordDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysGradeClassDao;
 import com.huiyi.campus.dao.vo.health.*;
 import com.huiyi.campus.dao.vo.sys.SysGradeVo;
+import com.huiyi.campus.dao.vo.sys.TokenVo;
+import com.huiyi.campus.web.common.service.CommonService;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
+import com.huiyi.campus.web.sys.service.UserCacheService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +56,11 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
     @Autowired
     SysGradeClassDao sysGradeClassDao;
 
+    @Autowired
+    UserCacheService userCacheService;
+    @Autowired
+    CommonService commonService;
+
     /**
      * 获取所有学生档案信息
      *
@@ -60,10 +68,22 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
      * @return
      */
     @Override
-    public HQJsonResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto) {
+    public HQJsonResult queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto, String nickName) {
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        /**
+         * 校验当前用户机构ID与学校ID
+         */
+        TokenVo tokenVo;
+        tokenVo = userCacheService.getUserCache(nickName);
+        if (JsonUtils.checkObjAllFieldsIsNull(tokenVo)) {
+            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
+        }
+        if (StringUtils.isNotEmpty(studentInfoRecordDto.getSchoolId())) {
+            tokenVo.setSchoolId(Integer.valueOf(studentInfoRecordDto.getSchoolId()));
+        }
+        List<Integer> schoolIdStr = commonService.getSchoolIdStr(tokenVo.getOrganId(), tokenVo.getSchoolId());
         log.info("获取所有学生档案信息接口开始执行--->" + JSON.toJSON(studentInfoRecordDto));
         try {
             HQJsonResult<StudentInfoRecordVo> hqJsonResult = new HQJsonResult<>();
@@ -72,7 +92,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
              studentInfoRecordDto.setOrgIdList(Arrays.asList(orgIdCode));
              studentInfoRecordDto.setSchoolIdList(Arrays.asList(schoolIdCode));*/
             PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
-            List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
+            List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto,schoolIdStr);
             PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
             if (!page.getList().isEmpty()) {
                 hqJsonResult.setSuccess(true);

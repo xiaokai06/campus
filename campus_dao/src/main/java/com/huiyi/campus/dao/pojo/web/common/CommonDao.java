@@ -110,6 +110,24 @@ public class CommonDao {
     public List<SysSchoolEntity> selectSchoolByOrganId(SchoolDto schoolDto) {
         return sysSchoolMapper.selectSchoolByOrganId(schoolDto.getOrganId());
     }
+
+    /**
+     * 根据机构ID查询子级
+     * @param orgId
+     * @return
+     */
+    public List<Integer> selectOrgByOrgId(Integer orgId) {
+        return sysOrganMapper.selectIdByOrganId(orgId);
+    }
+
+    /**
+     * 根据机构ID查询学校
+     * @param orgIdStr
+     * @return
+     */
+    public List<Integer> selectSchoolStrBySchoolId(List<Integer> orgIdStr,Integer schoolId) {
+        return sysSchoolMapper.selectSchoolStrBySchoolId(orgIdStr,schoolId);
+    }
 //
 //    public List<SysSchoolEntity> selectSchoolByOrganId(SchoolDto schoolDto) {
 //        return sysSchoolMapper.selectOrganByOrganId(schoolDto.getOrganId());

@@ -14,7 +14,7 @@ import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
 public interface SysGradeClassService {
     HQJsonResult insertGrade(SysGradeEntity sysGradeEntity);
 
-    HQJsonResult selectGrade(SysGradeEntity sysGradeEntity);
+    HQJsonResult selectGrade(SysGradeEntity sysGradeEntity, String nickName);
 
     HQJsonResult updateGrade(SysGradeEntity sysGradeEntity);
 

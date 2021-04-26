@@ -8,7 +8,9 @@ import com.huiyi.campus.dao.entity.sys.*;
 import com.huiyi.campus.dao.pojo.web.common.CommonDao;
 import com.huiyi.campus.dao.vo.common.SysAreasVo;
 import com.huiyi.campus.dao.vo.common.TsTypeGroupVo;
+import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.common.service.CommonService;
+import com.huiyi.campus.web.sys.service.UserCacheService;
 import com.mchange.v1.util.CollectionUtils;
 import com.mchange.v2.beans.BeansUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -35,6 +37,9 @@ public class CommonServiceImpl implements CommonService {
 
     @Autowired
     CommonDao commonDao;
+
+    @Autowired
+    UserCacheService userCacheService;
 
 
     /**
@@ -154,5 +159,27 @@ public class CommonServiceImpl implements CommonService {
             return HQJsonResult.success(organEntityList);
         }
         return new HQJsonResult();
+    }
+
+
+    /**
+     * 获取当前机构下学校ID
+     *
+     * @param orgId
+     * @param schoolId
+     * @return
+     */
+    @Override
+    public List<Integer> getSchoolIdStr(Integer orgId, Integer schoolId) {
+        //1查询
+        List<Integer> orgIdStr = commonDao.selectOrgByOrgId(orgId);
+        if (!orgIdStr.isEmpty()) {
+            List<Integer> schoolIdStr = commonDao.selectSchoolStrBySchoolId(orgIdStr, schoolId);
+            if (!schoolIdStr.isEmpty()) {
+                return schoolIdStr;
+            }
+        }
+        return null;
+
     }
 }

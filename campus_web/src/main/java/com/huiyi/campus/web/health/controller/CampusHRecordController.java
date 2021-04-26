@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.health.controller;
 
+import com.google.common.net.HttpHeaders;
 import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
@@ -59,8 +60,8 @@ public class CampusHRecordController {
     @IsLogin
     @ApiOperation("获取所有学生档案信息接口")
     @PostMapping("/queryStudentInfoRecord")
-    public HQJsonResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto) {
-        return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto);
+    public HQJsonResult queryStudentInfoRecord(@RequestBody StudentInfoRecordDto studentInfoRecordDto, @RequestHeader("acc") String nickName) {
+        return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto,nickName);
     }
 
     /**

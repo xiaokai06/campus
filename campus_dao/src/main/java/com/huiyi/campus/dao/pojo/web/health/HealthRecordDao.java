@@ -46,8 +46,8 @@ public class HealthRecordDao {
      *
      * @return
      */
-    public List<StudentInfoRecordVo> queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto) {
-        return phyStudentInfoMapper.selectAll(studentInfoRecordDto);
+    public List<StudentInfoRecordVo> queryStudentInfoRecord(StudentInfoRecordDto studentInfoRecordDto, List<Integer> schoolIdStr) {
+        return phyStudentInfoMapper.selectAll(studentInfoRecordDto,schoolIdStr);
     }
 
     /**

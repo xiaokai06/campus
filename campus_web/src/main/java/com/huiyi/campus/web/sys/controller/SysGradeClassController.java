@@ -1,15 +1,16 @@
 package com.huiyi.campus.web.sys.controller;
 
 import com.huiyi.campus.common.annotaion.IsLogin;
+import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
+import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
+import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysGradeClassService;
+import com.huiyi.campus.web.sys.service.UserCacheService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: liyukai
@@ -24,6 +25,8 @@ public class SysGradeClassController {
 
     @Autowired
     SysGradeClassService sysGradeClassService;
+    @Autowired
+    UserCacheService userCacheService;
 
     /**
      * 根据学校id查询年级班级数据
@@ -58,8 +61,8 @@ public class SysGradeClassController {
      */
     @IsLogin
     @PostMapping("/selectGrade")
-    public HQJsonResult selectGrade(@RequestBody SysGradeEntity sysGradeEntity) {
-        return sysGradeClassService.selectGrade(sysGradeEntity);
+    public HQJsonResult selectGrade(@RequestBody SysGradeEntity sysGradeEntity, @RequestHeader("acc") String nickName) {
+        return sysGradeClassService.selectGrade(sysGradeEntity,nickName);
     }
 
     /**

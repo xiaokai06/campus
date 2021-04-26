@@ -4,6 +4,7 @@ import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysGradeClassMapper;
 import com.huiyi.campus.dao.mapper.web.sys.SysGradeMapper;
+import com.huiyi.campus.dao.mapper.web.sys.SysSchoolMapper;
 import com.huiyi.campus.dao.vo.sys.SysGradeClassVo;
 import com.huiyi.campus.dao.vo.sys.SysGradeVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,15 @@ public class SysGradeClassDao {
     @Autowired
     SysGradeClassMapper sysGradeClassMapper;
 
+    @Autowired
+    SysSchoolMapper sysSchoolMapper;
+
     public int insertGrade(SysGradeEntity sysGradeEntity) {
         return sysGradeMapper.insert(sysGradeEntity);
     }
 
-    public List<SysGradeClassVo> selectGrade(SysGradeEntity sysGradeEntity) {
-        return sysGradeMapper.selectGradeList(sysGradeEntity);
+    public List<SysGradeClassVo> selectGrade(SysGradeEntity sysGradeEntity, List<Integer> schoolIdStr) {
+        return sysGradeMapper.selectGradeList(sysGradeEntity, schoolIdStr);
     }
 
     public int updateGrade(SysGradeEntity sysGradeEntity) {
@@ -64,6 +68,7 @@ public class SysGradeClassDao {
     }
 
     /**
+     * 查询班级
      *
      * @param id
      * @return
@@ -71,4 +76,5 @@ public class SysGradeClassDao {
     public List<SysGradeClassEntity> selectClassByGradeList(String id) {
         return sysGradeClassMapper.selectClassByGradeList(id);
     }
+
 }
