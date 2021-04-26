@@ -1,6 +1,7 @@
 package com.huiyi.campus.web.sys.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.huiyi.campus.common.base.CommonEnum;
 import com.huiyi.campus.common.base.CrRpcResult;
@@ -14,6 +15,7 @@ import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
+import com.huiyi.campus.dao.vo.sys.SysUserVo;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysUserService;
 import com.huiyi.campus.web.sys.service.TokenService;
@@ -160,7 +162,7 @@ public class SysUserServiceImpl implements SysUserService {
             String decAes = decryptResult(pwd, "修改密码-旧密码");
             String decAesM = decryptResult(passWord, "修改密码-数据库密码");
             if (!decAes.equals(decAesM)) {
-                return ResultBody.error("旧密码输入错误，请重新输入....");
+                return ResultBody.error(CommonEnum.USER_PWD_ERROR.getResultMsg());
             }
             String newPwd = updatePwdDto.getNewPwd();
             String newAes = decryptResult(newPwd, "修改密码-新密码");
@@ -238,8 +240,9 @@ public class SysUserServiceImpl implements SysUserService {
         if (null != schoolId) {
             schoolList.add(schoolId);
         }
-        List<SysUserEntity> list = sysUserDao.selectAllUserInfo(sysUserEntity, organList, schoolList);
-        PageInfo<SysUserEntity> pageInfo = new PageInfo<>(list);
+        PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());
+        List<SysUserVo> list = sysUserDao.selectAllUserInfo(sysUserEntity, organList, schoolList);
+        PageInfo<SysUserVo> pageInfo = new PageInfo<>(list);
         return CrRpcResult.success(pageInfo);
     }
 
@@ -255,7 +258,7 @@ public class SysUserServiceImpl implements SysUserService {
         }
         SysUserEntity sysUser = sysUserDao.selectUserInfo(sysUserEntity.getNickName());
         if (null != sysUser) {
-            return ResultBody.error(CommonEnum.REPETITION);
+            return ResultBody.repetition();
         }
         sysUserEntity.setPassWord(encryptResult("新增用户"));
         return ResultBody.insert(sysUserDao.insertUserInfo(sysUserEntity), sysUserEntity.getId());

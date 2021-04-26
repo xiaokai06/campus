@@ -121,13 +121,13 @@ public class ResultBody {
     }
 
     /**
-     * 登录设备个数已上限，无法登录
+     * 用户名或密码输入错误，请重新登录
      * @return
      */
-    public static ResultBody loginOffline() {
+    public static ResultBody userPwdError() {
         ResultBody resultBody = new ResultBody();
-        resultBody.setCode(CommonEnum.LOGIN_OFFLINE.getResultCode());
-        resultBody.setMessage(CommonEnum.LOGIN_OFFLINE.getResultMsg());
+        resultBody.setCode(CommonEnum.USER_PWD_ERROR.getResultCode());
+        resultBody.setMessage(CommonEnum.USER_PWD_ERROR.getResultMsg());
         resultBody.setResult(null);
         return resultBody;
     }

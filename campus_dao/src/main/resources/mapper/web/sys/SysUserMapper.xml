@@ -15,9 +15,7 @@
         <result column="last_visit" jdbcType="TIMESTAMP" property="lastVisit"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="school_id" jdbcType="INTEGER" property="schoolId"/>
-        <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
         <result column="organ_id" jdbcType="INTEGER" property="organId"/>
-        <result column="organ_name" jdbcType="VARCHAR" property="organName"/>
     </resultMap>
 
     <!-- 通过昵称查询用户密码 -->
@@ -42,8 +40,26 @@
         </where>
     </select>
 
+    <resultMap id="UserInfoResult" type="com.huiyi.campus.dao.vo.sys.SysUserVo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="sex" jdbcType="TINYINT" property="sex"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="role_id" javaType="INTEGER" property="roleId"/>
+        <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
+        <result column="last_visit" jdbcType="TIMESTAMP" property="lastVisit"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="school_id" jdbcType="INTEGER" property="schoolId"/>
+        <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
+        <result column="organ_id" jdbcType="INTEGER" property="organId"/>
+        <result column="organ_name" jdbcType="VARCHAR" property="organName"/>
+    </resultMap>
+
     <!-- 查询所有用户信息 -->
-    <select id="selectAllUserInfo" resultMap="BaseResultMap">
+    <select id="selectAllUserInfo" resultMap="UserInfoResult">
         select u.id,u.nick_name,u.user_name,u.phone,u.email,u.remark,u.sex,u.last_visit,u.create_time,
         u.school_id,u.organ_id,ur.role_id,sr.role_name,sc.school_name,so.organ_name
         from sys_user u left join sys_user_role ur on u.id=ur.user_id

@@ -2,6 +2,7 @@ package com.huiyi.campus.dao.mapper.web.sys;
 
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
+import com.huiyi.campus.dao.vo.sys.SysUserVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -55,7 +56,7 @@ public interface SysUserMapper {
      * @param sysUserEntity
      * @return
      */
-    List<SysUserEntity> selectAllUserInfo(@Param("sysUser") SysUserEntity sysUserEntity,
-                                          @Param("organList") List<Integer> organList,
-                                          @Param("schoolList") List<Integer> schoolList);
+    List<SysUserVo> selectAllUserInfo(@Param("sysUser") SysUserEntity sysUserEntity,
+                                      @Param("organList") List<Integer> organList,
+                                      @Param("schoolList") List<Integer> schoolList);
 }

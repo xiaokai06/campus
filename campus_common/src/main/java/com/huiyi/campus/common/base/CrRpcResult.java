@@ -37,7 +37,7 @@ public class CrRpcResult<T> {
         CrRpcResult crRpcResult = new CrRpcResult();
         crRpcResult.setCode(CommonEnum.SUCCESS.getResultCode());
         crRpcResult.setMessage(CommonEnum.SUCCESS.getResultMsg());
-        crRpcResult.setTotal(pageInfo.getList().size());
+        crRpcResult.setTotal(pageInfo.getTotal());
         crRpcResult.setData(pageInfo.getList());
         return crRpcResult;
     }

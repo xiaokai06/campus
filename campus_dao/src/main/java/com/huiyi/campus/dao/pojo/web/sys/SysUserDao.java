@@ -1,10 +1,10 @@
 package com.huiyi.campus.dao.pojo.web.sys;
 
-import com.github.pagehelper.PageHelper;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysUserMapper;
 import com.huiyi.campus.dao.mapper.web.sys.SysUserRoleMapper;
+import com.huiyi.campus.dao.vo.sys.SysUserVo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Repository;
@@ -63,8 +63,7 @@ public class SysUserDao {
      * @param schoolList 学校ID
      * @return 返回值
      */
-    public List<SysUserEntity> selectAllUserInfo(SysUserEntity sysUserEntity, List<Integer> organList, List<Integer> schoolList) {
-        PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize(), false);
+    public List<SysUserVo> selectAllUserInfo(SysUserEntity sysUserEntity, List<Integer> organList, List<Integer> schoolList) {
         return sysUserMapper.selectAllUserInfo(sysUserEntity, organList, schoolList);
     }
 

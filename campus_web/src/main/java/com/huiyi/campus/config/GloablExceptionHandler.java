@@ -27,6 +27,9 @@ public class GloablExceptionHandler {
             if (msg.equals(CommConstants.NOT_LOGIN)) {
                 return ResultBody.loginTimeOut();
             }
+            if (msg.equals(CommonEnum.USER_PWD_ERROR.getResultMsg())) {
+                return ResultBody.userPwdError();
+            }
         } else {
             msg = CommonEnum.INTERNAL_SERVER_ERROR.getResultMsg();
         }
