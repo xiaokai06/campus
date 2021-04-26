@@ -45,7 +45,7 @@ public interface SysUserService {
      * @param sysUserEntity
      * @return
      */
-    CrRpcResult getAllUserInfo(SysUserEntity sysUserEntity);
+    CrRpcResult getAllUserInfo(String nickName, SysUserEntity sysUserEntity);
 
     /**
      * 新增用户

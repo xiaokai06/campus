@@ -59,4 +59,12 @@ public interface SysUserMapper {
     List<SysUserVo> selectAllUserInfo(@Param("sysUser") SysUserEntity sysUserEntity,
                                       @Param("organList") List<Integer> organList,
                                       @Param("schoolList") List<Integer> schoolList);
+
+    /**
+     * 通过学校ID修改机构ID
+     * @param schoolId
+     * @param organId
+     * @return
+     */
+    void updateOrganIdBySchoolId(@Param("schoolId") Integer schoolId, @Param("organId") Integer organId);
 }

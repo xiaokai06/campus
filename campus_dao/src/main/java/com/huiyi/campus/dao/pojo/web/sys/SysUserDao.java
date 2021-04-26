@@ -115,4 +115,13 @@ public class SysUserDao {
         return i;
     }
 
+    /**
+     * 通过学校ID修改机构ID
+     * @param schoolId
+     * @param organId
+     */
+    public void updateOrganIdBySchoolId(Integer schoolId, Integer organId) {
+        sysUserMapper.updateOrganIdBySchoolId(schoolId, organId);
+    }
+
 }

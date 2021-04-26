@@ -114,15 +114,20 @@
     </delete>
 
     <!-- 通过机构ID查询学校ID -->
-    <select id="selectIdByOrganId" parameterType="java.util.List" resultType="java.lang.Integer">
+    <select id="selectIdByOrganId" resultType="java.lang.Integer">
         select id from sys_school
         <choose>
             <when test="list != null and list.size() > 0">
-                where organ_id in (
-                <foreach collection="list" item="item" separator=",">
-                    #{item}
-                </foreach>
-                )
+                <where>
+                    <if test="schoolId != null and schoolId != ''">
+                        id =  #{schoolId,jdbcType=INTEGER}
+                    </if>
+                    and organ_id in (
+                    <foreach collection="list" item="item" separator=",">
+                        #{item}
+                    </foreach>
+                    )
+                </where>
             </when>
             <otherwise>
                 where 1 > 2

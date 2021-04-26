@@ -74,32 +74,20 @@
             <if test="sysUser.phone != null and sysUser.phone != ''">
                 and u.phone like CONCAT('%', #{sysUser.phone}, '%')
             </if>
-            <choose>
-                <when test="organList != null and organList.size() > 0">
-                    and u.organ_id in (
-                    <foreach collection="organList" item="item" separator=",">
+            <if test="organList != null and organList.size() > 0">
+                and u.organ_id in (
+                <foreach collection="organList" item="item" separator=",">
+                    #{item}
+                </foreach>
+                )
+                <if test="schoolList != null and schoolList.size() > 0">
+                    or u.school_id in (
+                    <foreach collection="schoolList" item="item" separator=",">
                         #{item}
                     </foreach>
                     )
-                    <if test="schoolList != null and schoolList.size() > 0">
-                        and u.school_id is not null
-                        or u.school_id in (
-                        <foreach collection="schoolList" item="item" separator=",">
-                            #{item}
-                        </foreach>
-                        )
-                    </if>
-                </when>
-                <otherwise>
-                    <if test="schoolList != null and schoolList.size() > 0">
-                        and u.school_id in (
-                        <foreach collection="schoolList" item="item" separator=",">
-                            #{item}
-                        </foreach>
-                        )
-                    </if>
-                </otherwise>
-            </choose>
+                </if>
+            </if>
         </where>
     </select>
 
@@ -226,6 +214,11 @@
                 where 1 > 2
             </otherwise>
         </choose>
+    </update>
+
+    <!-- 通过学校ID修改机构ID -->
+    <update id="updateOrganIdBySchoolId">
+        update sys_user set organ_id=#{organId,jdbcType=INTEGER} where school_id=#{schoolId,jdbcType=INTEGER}
     </update>
 
     <!-- 删除用户信息 -->

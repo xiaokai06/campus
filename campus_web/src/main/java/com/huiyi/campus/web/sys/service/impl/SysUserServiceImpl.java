@@ -231,8 +231,7 @@ public class SysUserServiceImpl implements SysUserService {
      * @return 返回值
      */
     @Override
-    public CrRpcResult getAllUserInfo(SysUserEntity sysUserEntity) {
-        String nickName = sysUserEntity.getNickName();
+    public CrRpcResult getAllUserInfo(String nickName, SysUserEntity sysUserEntity) {
         List<Integer> schoolList = new ArrayList<>();
         List<Integer> organList = new ArrayList<>();
         if (userCacheService.hasUserKey(nickName)) {
@@ -240,9 +239,10 @@ public class SysUserServiceImpl implements SysUserService {
             Integer schoolId = tokenVo.getSchoolId();
             Integer organId = tokenVo.getOrganId();
             organList = sysOrganDao.selectIdByOrganId(organId);
-            schoolList = sysSchoolDao.selectIdByOrganId(organList);
             if (null != schoolId) {
                 schoolList.add(schoolId);
+            } else {
+                schoolList = sysSchoolDao.selectIdByOrganId(organList, schoolId);
             }
         }
         PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());

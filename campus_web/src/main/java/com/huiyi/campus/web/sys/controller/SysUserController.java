@@ -13,6 +13,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 /**
  * @author: yzg
@@ -72,8 +74,9 @@ public class SysUserController {
     @IsLogin
     @ApiOperation("获取所有用户信息")
     @PostMapping("/getAllUserInfo")
-    public CrRpcResult getAllUserInfo(@RequestBody SysUserEntity sysUserEntity) {
-        return sysUserService.getAllUserInfo(sysUserEntity);
+    public CrRpcResult getAllUserInfo(@RequestBody SysUserEntity sysUserEntity, HttpServletRequest request) {
+        String nickName = request.getHeader(CommConstants.ACC);
+        return sysUserService.getAllUserInfo(nickName, sysUserEntity);
     }
 
     @IsLogin

@@ -70,8 +70,8 @@ public class SysSchoolDao {
      * @param list
      * @return
      */
-    public List<Integer> selectIdByOrganId(List<Integer> list) {
-        return sysSchoolMapper.selectIdByOrganId(list);
+    public List<Integer> selectIdByOrganId(List<Integer> list, Integer schoolId) {
+        return sysSchoolMapper.selectIdByOrganId(list, schoolId);
     }
 
 }

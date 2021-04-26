@@ -48,7 +48,7 @@ public interface SysSchoolMapper {
      * @param list
      * @return
      */
-    List<Integer> selectIdByOrganId(List<Integer> list);
+    List<Integer> selectIdByOrganId(@Param("list") List<Integer> list, @Param("schoolId") Integer schoolId);
 
     /**
      * 根据用户ID查询当前所归属学校
