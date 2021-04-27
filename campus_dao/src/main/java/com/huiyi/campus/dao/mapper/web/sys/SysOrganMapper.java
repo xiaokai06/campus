@@ -51,7 +51,7 @@ public interface SysOrganMapper {
      * @param organId
      * @return
      */
-    List<Integer> selectIdByOrganId(Integer organId);
+    List<SysOrganEntity> selectIdByOrganId(Integer organId);
 
     List<SysOrganEntity> selectOrganByUserId(Integer organId);
 

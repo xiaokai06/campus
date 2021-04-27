@@ -12,6 +12,7 @@ import com.huiyi.campus.common.utils.RSAUtils;
 import com.huiyi.campus.common.utils.StringUtils;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
+import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
@@ -235,10 +236,11 @@ public class SysUserServiceImpl implements SysUserService {
             TokenVo tokenVo = userCacheService.getUserCache(nickName);
             Integer schoolId = tokenVo.getSchoolId();
             Integer organId = tokenVo.getOrganId();
-            List<Integer> organList = sysOrganDao.selectIdByOrganId(organId);
-            List<Integer> schoolList = sysSchoolDao.selectIdByOrganId(organList, schoolId);
+            List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
+            List<Integer> organIds = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
+            List<Integer> schoolList = sysSchoolDao.selectIdByOrganId(organIds, schoolId);
             PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());
-            List<SysUserVo> list = sysUserDao.selectAllUserInfo(sysUserEntity, organList, schoolList);
+            List<SysUserVo> list = sysUserDao.selectAllUserInfo(sysUserEntity, organIds, schoolList);
             PageInfo<SysUserVo> pageInfo = new PageInfo<>(list);
             return CrRpcResult.success(pageInfo);
         }

@@ -1,6 +1,7 @@
 package com.huiyi.campus.web.sys.service.impl;
 
 import com.huiyi.campus.common.base.ResultBody;
+import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author: yzg
@@ -53,7 +55,8 @@ public class SysSchoolServiceImpl implements SysSchoolService {
         if (userCacheService.hasUserKey(nickName)) {
             TokenVo tokenVo = userCacheService.getUserCache(nickName);
             Integer organId = tokenVo.getOrganId();
-            List<Integer> list = sysOrganDao.selectIdByOrganId(organId);
+            List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
+            List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
             return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));
         }
         return ResultBody.success();

@@ -1,14 +1,17 @@
 package com.huiyi.campus.dao.pojo.web.common;
 
 import com.huiyi.campus.dao.dto.common.SchoolDto;
-import com.huiyi.campus.dao.entity.sys.*;
+import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
+import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
+import com.huiyi.campus.dao.entity.sys.TsTypeEntity;
+import com.huiyi.campus.dao.entity.sys.TsTypeGroupEntity;
 import com.huiyi.campus.dao.mapper.web.sys.*;
 import com.huiyi.campus.dao.vo.common.SysAreasVo;
-import com.huiyi.campus.dao.vo.common.TsTypeGroupVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author: liyukai
@@ -73,7 +76,7 @@ public class CommonDao {
     /**
      * 根据学校ID查询专业班级
      *
-     * @param schoolDto
+     * @param
      * @return
      */
 //    public List<SysGradeClassEntity> selectClassBySchoolId(SchoolDto schoolDto) {
@@ -117,7 +120,7 @@ public class CommonDao {
      * @return
      */
     public List<Integer> selectOrgByOrgId(Integer orgId) {
-        return sysOrganMapper.selectIdByOrganId(orgId);
+        return sysOrganMapper.selectIdByOrganId(orgId).stream().map(SysOrganEntity::getId).collect(Collectors.toList());
     }
 
     /**

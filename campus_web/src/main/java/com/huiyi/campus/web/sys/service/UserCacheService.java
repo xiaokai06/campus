@@ -1,6 +1,9 @@
 package com.huiyi.campus.web.sys.service;
 
+import com.huiyi.campus.dao.vo.sys.SchoolOrganVo;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
+
+import java.util.List;
 
 /**
  * @author: yzg
@@ -36,5 +39,12 @@ public interface UserCacheService {
      * @return
      */
     boolean hasUserKey(String nickName);
+
+    /**
+     * 通过昵称获取相应的机构-学校
+     * @param nickName
+     * @return
+     */
+    List<SchoolOrganVo> getOrganSchool(String nickName);
 
 }

@@ -81,8 +81,8 @@
     </delete>
 
     <!-- 通过机构ID查询自己本身和子级 -->
-    <select id="selectIdByOrganId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-        select id from sys_organ
+    <select id="selectIdByOrganId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select id,organ_name from sys_organ
         <choose>
             <when test="organId != null and organId != 0">
                 where parent_id=#{organId,jdbcType=INTEGER} or id=#{organId,jdbcType=INTEGER}

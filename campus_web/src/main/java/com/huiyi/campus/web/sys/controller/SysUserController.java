@@ -9,6 +9,7 @@ import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysUserEntity;
 import com.huiyi.campus.web.sys.service.SysUserService;
+import com.huiyi.campus.web.sys.service.UserCacheService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +29,11 @@ import javax.servlet.http.HttpServletRequest;
 public class SysUserController {
 
     SysUserService sysUserService;
+    UserCacheService userCacheService;
 
-    SysUserController(SysUserService sysUserService) {
+    SysUserController(SysUserService sysUserService, UserCacheService userCacheService) {
         this.sysUserService = sysUserService;
+        this.userCacheService = userCacheService;
     }
 
     @PassToken
@@ -101,6 +104,14 @@ public class SysUserController {
     @OperLog(operModule = "用户管理-删除", operType = CommConstants.DELETE, operDesc = "用户管理-删除用户")
     public ResultBody deleteUserInfo(@RequestParam Integer id) {
         return sysUserService.deleteUserInfoById(id);
+    }
+
+    @IsLogin
+    @ApiOperation("通过昵称获取学校-机构")
+    @PostMapping("/getOrganSchool")
+    public ResultBody getOrganSchoolByNickName(HttpServletRequest request) {
+        String nickName = request.getHeader(CommConstants.ACC);
+        return ResultBody.success(userCacheService.getOrganSchool(nickName));
     }
 
 }

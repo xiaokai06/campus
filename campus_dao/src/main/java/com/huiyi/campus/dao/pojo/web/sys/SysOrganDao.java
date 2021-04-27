@@ -62,7 +62,7 @@ public class SysOrganDao {
      * @param organId
      * @return
      */
-    public List<Integer> selectIdByOrganId(Integer organId) {
+    public List<SysOrganEntity> selectIdByOrganId(Integer organId) {
         return sysOrganMapper.selectIdByOrganId(organId);
     }
 
