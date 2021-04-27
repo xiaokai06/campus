@@ -84,9 +84,9 @@
             <properties>
                 <profiles.active>src/main/resources/local</profiles.active>
             </properties>
-            <!--<activation>
+            <activation>
                 <activeByDefault>true</activeByDefault>
-            </activation>-->
+            </activation>
         </profile>
         <!-- 生产环境 -->
         <profile>
@@ -94,9 +94,9 @@
             <properties>
                 <profiles.active>src/main/resources/prod</profiles.active>
             </properties>
-            <activation>
+            <!--<activation>
                 <activeByDefault>true</activeByDefault>
-            </activation>
+            </activation>-->
         </profile>
     </profiles>
     <build>
