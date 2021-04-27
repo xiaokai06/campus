@@ -23,7 +23,7 @@ public class JasyptUtils {
      * @param value    待加密值
      * @return
      */
-    public String encryptPwd(String value) {
+    public static String encryptPwd(String password, String value) {
         PooledPBEStringEncryptor encryptOr = new PooledPBEStringEncryptor();
         encryptOr.setConfig(cryptOr(password));
         return encryptOr.encrypt(value);
@@ -34,7 +34,7 @@ public class JasyptUtils {
      * @param value    待解密密文
      * @return
      */
-    public String decryptPwd(String value) {
+    public static String decryptPwd(String password,String value) {
         PooledPBEStringEncryptor encryptOr = new PooledPBEStringEncryptor();
         encryptOr.setConfig(cryptOr(password));
         return encryptOr.decrypt(value);
@@ -59,10 +59,10 @@ public class JasyptUtils {
      *
      * @param args
      */
-//    public static void main(String[] args) {
-//        // 加密
-//        System.out.println(encryptPwd("aztKpms@e7Dy9Fc#", "123456"));
-//        // 解密
-//        System.out.println(decyptPwd("aztKpms@e7Dy9Fc#", "ikT3m1vmolEaqq4DXKq4Jw=="));
-//    }
+    public static void main(String[] args) {
+        // 加密
+        System.out.println(encryptPwd("aztKpms@e7Dy9Fc#", "zhihuiJcE10myj20r8Q"));
+        // 解密
+//        System.out.println(decryptPwd("aztKpms@e7Dy9Fc#", "ikT3m1vmolEaqq4DXKq4Jw=="));
+    }
 }

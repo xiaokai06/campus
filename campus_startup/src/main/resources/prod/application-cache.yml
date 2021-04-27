@@ -1,10 +1,14 @@
+# 系统安全配置文件加密key
+jasypt:
+  encryptor:
+    password: aztKpms@e7Dy9Fc#
 spring:
   redis:
     host: 127.0.0.1
     port: 6370
     passwordEncrypt: false
     passwordEncryptMode: AES
-    password: ENC(ikT3m1vmolEaqq4DXKq4Jw==)
+    password: ENC(D1uf4UHXKAQ5eFXBiZsDT7JCTMrB3WXXhUBSRMfCjQD1AuYB1/6dww==)
     timeout: 30000
     jedis:
       pool:
