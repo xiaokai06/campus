@@ -8,7 +8,7 @@ spring:
     port: 6370
     passwordEncrypt: false
     passwordEncryptMode: AES
-    password: ENC(D1uf4UHXKAQ5eFXBiZsDT7JCTMrB3WXXhUBSRMfCjQD1AuYB1/6dww==)
+    password: zx20210426
     timeout: 30000
     jedis:
       pool:

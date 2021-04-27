@@ -18,7 +18,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://120.78.82.196:3309/campus_health?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&&nullCatalogMeansCurrent=true&allowMultiQueries=true
     username: root
-    password: ENC(SoTH+6E4UqPtYFuAjD4HrItxBjDDm6k0FGqmntjAmDKEU7V6cNns4tIqF8j0mWKl)
+    password: zhihuiJcE10myj20r8Q
     driver-class-name: com.mysql.cj.jdbc.Driver
     minIdle: 5
     maxActive: 100
