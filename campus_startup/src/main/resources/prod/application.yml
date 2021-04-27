@@ -7,6 +7,8 @@ spring:
     admin:
       client:
         url: http://localhost:9003/
+        username: admin
+        password: admin123456
         instance:
           service-url: http://localhost:${server.port}/${server.servlet.context-path}
           prefer-ip: true

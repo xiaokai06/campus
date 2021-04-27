@@ -20,3 +20,9 @@ management:
   endpoint:
     health:
       show-details: ALWAYS #总是展示详情信息
+#监控中心安全认证
+spring:
+  security:
+    user:
+      name: admin
+      password: admin123456
