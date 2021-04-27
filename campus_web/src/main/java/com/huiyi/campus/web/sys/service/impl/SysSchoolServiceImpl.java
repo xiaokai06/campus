@@ -55,6 +55,8 @@ public class SysSchoolServiceImpl implements SysSchoolService {
         if (userCacheService.hasUserKey(nickName)) {
             TokenVo tokenVo = userCacheService.getUserCache(nickName);
             Integer organId = tokenVo.getOrganId();
+            Integer schoolId = tokenVo.getSchoolId();
+            sysSchoolEntity.setId(schoolId);
             List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
             List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
             return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));

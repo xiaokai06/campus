@@ -15,8 +15,11 @@
         select s.id,s.school_name,s.school_address,s.create_time,s.organ_id,so.organ_name
         from sys_school s left join sys_organ so on s.organ_id=so.id
         <where>
+            <if test="sysSchool.id != null and sysSchool.id != ''">
+                s.id = #{sysSchool.id,jdbcType=INTEGER}
+            </if>
             <if test="sysSchool.schoolName != null and sysSchool.schoolName != ''">
-                s.school_name like CONCAT('%', #{sysSchool.schoolName,jdbcType=VARCHAR}, '%')
+                and s.school_name like CONCAT('%', #{sysSchool.schoolName,jdbcType=VARCHAR}, '%')
             </if>
             <if test="sysSchool.schoolAddress != null and sysSchool.schoolAddress != ''">
                 and s.school_address like CONCAT('%', #{sysSchool.schoolAddress,jdbcType=VARCHAR}, '%')

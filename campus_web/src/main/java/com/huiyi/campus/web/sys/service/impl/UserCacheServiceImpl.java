@@ -96,9 +96,12 @@ public class UserCacheServiceImpl implements UserCacheService {
             List<SchoolOrganVo> result = new ArrayList<>();
             TokenVo tokenVo = getUserCache(nickName);
             Integer organId = tokenVo.getOrganId();
+            Integer schoolId = tokenVo.getSchoolId();
+            SysSchoolEntity schoolEntity = new SysSchoolEntity();
+            schoolEntity.setId(schoolId);
             List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
             List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
-            List<SysSchoolEntity> schoolList = sysSchoolDao.selectAllSchool(new SysSchoolEntity(), list);
+            List<SysSchoolEntity> schoolList = sysSchoolDao.selectAllSchool(schoolEntity, list);
             Map<Integer, List<SysSchoolEntity>> schoolMap = schoolList.stream().collect(Collectors.groupingBy(SysSchoolEntity::getOrganId));
             for (SysOrganEntity sysOrganEntity : organList) {
                 Integer id = sysOrganEntity.getId();
@@ -124,9 +127,12 @@ public class UserCacheServiceImpl implements UserCacheService {
         if (hasUserKey(nickName)) {
             TokenVo tokenVo = getUserCache(nickName);
             Integer organId = tokenVo.getOrganId();
+            Integer schoolId = tokenVo.getSchoolId();
+            SysSchoolEntity schoolEntity = new SysSchoolEntity();
+            schoolEntity.setId(schoolId);
             List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
             List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
-            List<SysSchoolEntity> schoolList = sysSchoolDao.selectAllSchool(new SysSchoolEntity(), list);
+            List<SysSchoolEntity> schoolList = sysSchoolDao.selectAllSchool(schoolEntity, list);
             return schoolList.stream().map(SysSchoolEntity::getId).collect(Collectors.toList());
         }
         return null;
