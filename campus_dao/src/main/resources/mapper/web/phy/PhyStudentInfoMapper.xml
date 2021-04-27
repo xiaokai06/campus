@@ -402,7 +402,7 @@
         where id = #{id,jdbcType=VARCHAR}
     </update>
     <!--查询所有学生档案信息-->
-    <select id="selectAll" resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
+    <select id="selectAll" parameterType="com.huiyi.campus.dao.dto.health.StudentInfoRecordDto" resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
         SELECT
         info.id AS "id",
         info.student_name AS "studentName",
