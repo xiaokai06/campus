@@ -47,4 +47,11 @@ public interface UserCacheService {
      */
     List<SchoolOrganVo> getOrganSchool(String nickName);
 
+    /**
+     * 通过用户昵称获取所有学校ID
+     * @param nickName
+     * @return
+     */
+    List<Integer> getAllSchoolId(String nickName);
+
 }

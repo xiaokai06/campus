@@ -113,4 +113,23 @@ public class UserCacheServiceImpl implements UserCacheService {
         return null;
     }
 
+    /**
+     * 通过用户昵称获取所有学校ID
+     * @param nickName
+     * @return
+     */
+    @Override
+    public List<Integer> getAllSchoolId(String nickName) {
+        logger.info("公共接口获取所有学校，从请求头获取到的用户昵称为：" + nickName);
+        if (hasUserKey(nickName)) {
+            TokenVo tokenVo = getUserCache(nickName);
+            Integer organId = tokenVo.getOrganId();
+            List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
+            List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
+            List<SysSchoolEntity> schoolList = sysSchoolDao.selectAllSchool(new SysSchoolEntity(), list);
+            return schoolList.stream().map(SysSchoolEntity::getId).collect(Collectors.toList());
+        }
+        return null;
+    }
+
 }
