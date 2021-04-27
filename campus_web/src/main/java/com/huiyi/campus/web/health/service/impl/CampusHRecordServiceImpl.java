@@ -21,7 +21,6 @@ import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
 import com.huiyi.campus.dao.pojo.web.health.HealthRecordDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysGradeClassDao;
 import com.huiyi.campus.dao.vo.health.*;
-import com.huiyi.campus.dao.vo.sys.SchoolOrganVo;
 import com.huiyi.campus.dao.vo.sys.SysGradeVo;
 import com.huiyi.campus.web.common.service.CommonService;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
@@ -74,7 +73,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         }
         log.info("获取所有学生档案信息接口开始执行--->" + JSON.toJSON(studentInfoRecordDto));
 
-        if (StringUtils.isEmpty(studentInfoRecordDto.getSchoolId())) {
+        if (null == studentInfoRecordDto.getSchoolId()) {
             List<Integer> getAllSchoolId = userCacheService.getAllSchoolId(nickName);
             studentInfoRecordDto.setSchoolIdStrList(getAllSchoolId);
         }
@@ -148,6 +147,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
+        log.info("创建学生档案信息接口开始执行--->" + JSON.toJSON(studentInfoRecordDto));
         try {
             PhyStudentInfoEntity phyStudentInfoEntity = new PhyStudentInfoEntity();
             JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
@@ -156,10 +156,12 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             if (IdCardValidatorUtil.isValidCard(phyStudentInfoEntity.getIdCard())) {
                 phyStudentInfoEntity.setIdCard(phyStudentInfoEntity.getIdCard());
             }
+            phyStudentInfoEntity.setOperatorId(phyStudentInfoEntity.getDoctorId());
             phyStudentInfoEntity.setCreateTime(DateUtil.getMsTime());
             int createInfoStr = healthRecordDao.createStudentInfoRecord(phyStudentInfoEntity);
             //校验数据插入
             if (createInfoStr > 0) {
+                log.info("创建学生档案信息接口结束执行--->" + JSON.toJSON(phyStudentInfoEntity));
                 return HQJsonResult.success(Collections.singletonList(phyStudentInfoEntity));
             }
         } catch (Exception e) {

@@ -56,7 +56,7 @@ public class SysSchoolServiceImpl implements SysSchoolService {
             TokenVo tokenVo = userCacheService.getUserCache(nickName);
             Integer organId = tokenVo.getOrganId();
             Integer schoolId = tokenVo.getSchoolId();
-            sysSchoolEntity.setId(schoolId);
+            sysSchoolEntity.setSchoolId(schoolId);
             List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
             List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
             return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));
@@ -71,7 +71,7 @@ public class SysSchoolServiceImpl implements SysSchoolService {
      */
     @Override
     public ResultBody insertSchoolInfo(SysSchoolEntity sysSchoolEntity) {
-        return ResultBody.insert(sysSchoolDao.insertSchoolInfo(sysSchoolEntity), sysSchoolEntity.getId());
+        return ResultBody.insert(sysSchoolDao.insertSchoolInfo(sysSchoolEntity), sysSchoolEntity.getSchoolId());
     }
 
     /**
@@ -83,7 +83,7 @@ public class SysSchoolServiceImpl implements SysSchoolService {
     public ResultBody updateSchoolInfo(SysSchoolEntity sysSchoolEntity) {
         int count = sysSchoolDao.updateSchoolInfo(sysSchoolEntity);
         if (count > 0) {
-            Integer schoolId = sysSchoolEntity.getId();
+            Integer schoolId = sysSchoolEntity.getSchoolId();
             Integer organId = sysSchoolEntity.getOrganId();
             logger.info("修改学校接口，学校ID为：" + schoolId + ", 机构ID为：" + organId);
             sysUserDao.updateOrganIdBySchoolId(schoolId, organId);

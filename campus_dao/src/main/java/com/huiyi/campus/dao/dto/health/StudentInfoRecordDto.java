@@ -1,12 +1,10 @@
 package com.huiyi.campus.dao.dto.health;
 
-import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,9 +31,9 @@ public class StudentInfoRecordDto {
     @ApiModelProperty("父母id")
     private String parentId;
     @ApiModelProperty("学校机构id")
-    private String schoolId;
+    private Integer schoolId;
     @ApiModelProperty("教育局机构id")
-    private String organId;
+    private Integer organId;
     @ApiModelProperty("学生编号（学号）")
     private String studentNumber;
     @ApiModelProperty("年级id")

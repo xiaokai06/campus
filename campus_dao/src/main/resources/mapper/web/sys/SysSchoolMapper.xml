@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysSchoolMapper">
     <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.entity.sys.SysSchoolEntity">
-        <id column="id" jdbcType="INTEGER" property="id"/>
+        <id column="id" jdbcType="INTEGER" property="schoolId"/>
         <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
         <result column="school_address" jdbcType="VARCHAR" property="schoolAddress"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
@@ -15,8 +15,8 @@
         select s.id,s.school_name,s.school_address,s.create_time,s.organ_id,so.organ_name
         from sys_school s left join sys_organ so on s.organ_id=so.id
         <where>
-            <if test="sysSchool.id != null and sysSchool.id != ''">
-                s.id = #{sysSchool.id,jdbcType=INTEGER}
+            <if test="sysSchool.schoolId != null and sysSchool.schoolId != ''">
+                s.id = #{sysSchool.schoolId,jdbcType=INTEGER}
             </if>
             <if test="sysSchool.schoolName != null and sysSchool.schoolName != ''">
                 and s.school_name like CONCAT('%', #{sysSchool.schoolName,jdbcType=VARCHAR}, '%')
@@ -96,8 +96,8 @@
             </if>
         </set>
         <where>
-            <if test="id != null">
-                id = #{id,jdbcType=INTEGER}
+            <if test="schoolId != null">
+                id = #{schoolId,jdbcType=INTEGER}
             </if>
         </where>
     </update>
@@ -123,7 +123,7 @@
             <when test="list != null and list.size() > 0">
                 <where>
                     <if test="schoolId != null and schoolId != ''">
-                        id =  #{schoolId,jdbcType=INTEGER}
+                        id = #{schoolId,jdbcType=INTEGER}
                     </if>
                     and organ_id in (
                     <foreach collection="list" item="item" separator=",">

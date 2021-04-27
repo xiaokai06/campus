@@ -19,7 +19,7 @@ public class SysSchoolEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("id")
-    private Integer id;
+    private Integer schoolId;
 
     @ApiModelProperty("机构ID")
     private Integer organId;

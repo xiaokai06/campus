@@ -98,7 +98,7 @@ public class UserCacheServiceImpl implements UserCacheService {
             Integer organId = tokenVo.getOrganId();
             Integer schoolId = tokenVo.getSchoolId();
             SysSchoolEntity schoolEntity = new SysSchoolEntity();
-            schoolEntity.setId(schoolId);
+            schoolEntity.setSchoolId(schoolId);
             List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
             List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
             List<SysSchoolEntity> schoolList = sysSchoolDao.selectAllSchool(schoolEntity, list);
@@ -129,11 +129,11 @@ public class UserCacheServiceImpl implements UserCacheService {
             Integer organId = tokenVo.getOrganId();
             Integer schoolId = tokenVo.getSchoolId();
             SysSchoolEntity schoolEntity = new SysSchoolEntity();
-            schoolEntity.setId(schoolId);
+            schoolEntity.setSchoolId(schoolId);
             List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
             List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
             List<SysSchoolEntity> schoolList = sysSchoolDao.selectAllSchool(schoolEntity, list);
-            return schoolList.stream().map(SysSchoolEntity::getId).collect(Collectors.toList());
+            return schoolList.stream().map(SysSchoolEntity::getSchoolId).collect(Collectors.toList());
         }
         return null;
     }
