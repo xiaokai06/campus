@@ -1,9 +1,12 @@
 #lobak日志记录
 logging:
-  config: classpath:logback-spring.xml
   level:
     root: info
-  file: campus-health/logs/campus-admin-server-info.log
+  file: /opt/zhihui/campus/admin-server/campus-health/logs/campus-admin-server-info.log
+#  file: campus-health/logs/campus-admin-server-info.log
+  pattern: #日志高亮
+    file: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx'
+  config: classpath:logback-spring.xml
 
 server:
   port: 9003

@@ -3,15 +3,14 @@ jasypt:
   encryptor:
     password: aztKpms@e7Dy9Fc#
 spring:
-  #  boot:
-  #    admin:
-  #      client:
-  #        url: http://localhost:9003/
-  #        instance:
-  #          service-url: http://localhost:${server.port}/${server.servlet.context-path}
-  #          prefer-ip: true
-  #          name: ${spring.application.name}
-  #          read-timeout: 10000
+  boot:
+    admin:
+      client:
+        url: http://120.78.82.196:9003/
+        instance:
+          service-url: http://localhost:${server.port}/${server.servlet.context-path}
+          prefer-ip: true
+          name: ${spring.application.name}
 
   application:
     #   项目应用名
@@ -45,7 +44,7 @@ logging:
     com.huiyi.campus: debug
     root: info
   file: /opt/zhihui/campus/health/campus-health/logs/campus-info.log
-  #  file: campus-health/logs/campus-info.log
+#  file: campus-health/logs/campus-info.log
   pattern: #日志高亮
     file: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx'
   config: classpath:logback-spring.xml
@@ -57,16 +56,13 @@ minio:
   accessKey: zhihui
   secretKey: ENC(aoqZqcC9XzwCFgKvst7oi08o3K2Wu8roWM9iRW6o95/iQKNqMJdfzQ==)
 
-
-
-
 #项目健康监控
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-#  endpoint:
-#    health:
-#      show-details: ALWAYS
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
 
