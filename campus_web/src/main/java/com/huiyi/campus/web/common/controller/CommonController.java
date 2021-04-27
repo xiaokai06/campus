@@ -8,6 +8,7 @@ import com.huiyi.campus.dao.dto.common.SchoolDto;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.common.service.CommonService;
 import com.huiyi.campus.web.sys.service.UserCacheService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,7 +49,18 @@ public class CommonController {
      */
     @IsLogin
     @PostMapping("/selectSchoolBySchoolIdAndOrganId")
-    public HQJsonResult selectSchoolBySchoolIdAndOrganId(@RequestBody SchoolDto schoolDto) {
+    public HQJsonResult selectSchoolBySchoolIdAndOrganId(@RequestBody SchoolDto schoolDto, @RequestHeader("acc") String nickName) {
+        TokenVo tokenVo = userCacheService.getUserCache(nickName);
+        if (JsonUtils.checkObjAllFieldsIsNull(tokenVo)) {
+            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
+        }
+        schoolDto.setOrganId(tokenVo.getOrganId());
+        schoolDto.setSchoolId(tokenVo.getSchoolId());
+
+//        String schoolId = String.valueOf(schoolDto.getSchoolId());
+//        if (StringUtils.isEmpty(schoolId)) {
+//            schoolDto.setSchoolId(Integer.valueOf("15"));
+//        }
         return commonService.selectSchoolBySchoolIdAndOrganId(schoolDto);
     }
 

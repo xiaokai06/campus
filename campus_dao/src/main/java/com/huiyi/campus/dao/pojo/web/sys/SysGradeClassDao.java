@@ -35,8 +35,8 @@ public class SysGradeClassDao {
         return sysGradeMapper.insert(sysGradeEntity);
     }
 
-    public List<SysGradeClassVo> selectGrade(SysGradeEntity sysGradeEntity, List<Integer> schoolIdStr) {
-        return sysGradeMapper.selectGradeList(sysGradeEntity, schoolIdStr);
+    public List<SysGradeClassVo> selectGrade(SysGradeEntity sysGradeEntity) {
+        return sysGradeMapper.selectGradeList(sysGradeEntity);
     }
 
     public int updateGrade(SysGradeEntity sysGradeEntity) {

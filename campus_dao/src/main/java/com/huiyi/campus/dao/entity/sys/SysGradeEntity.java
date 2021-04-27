@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,6 +33,7 @@ public class SysGradeEntity implements Serializable {
     @ApiModelProperty("条数")
     private Integer rows;
 
+    private List<Integer> schoolIdStr;
     private static final long serialVersionUID = 1L;
 
 

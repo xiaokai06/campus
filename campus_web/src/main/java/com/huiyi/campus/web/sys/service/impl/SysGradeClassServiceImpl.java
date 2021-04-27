@@ -121,24 +121,17 @@ public class SysGradeClassServiceImpl implements SysGradeClassService {
         if (JsonUtils.checkObjAllFieldsIsNull(sysGradeEntity)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        /**
-         * 校验当前用户机构ID与学校ID
-         */
-        TokenVo tokenVo;
-        tokenVo = userCacheService.getUserCache(nickName);
-        if (JsonUtils.checkObjAllFieldsIsNull(tokenVo)) {
-            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
-        }
+        log.info("获取所有查询年级和班级接口开始执行--->" + JSON.toJSON(sysGradeEntity));
+
         String schoolId = String.valueOf(sysGradeEntity.getSchoolId());
         if (StringUtils.isNotEmpty(schoolId)) {
-            tokenVo.setSchoolId(sysGradeEntity.getSchoolId());
+            List<Integer> schoolIdStr = userCacheService.getAllSchoolId(nickName);
+            sysGradeEntity.setSchoolIdStr(schoolIdStr);
         }
-        List<Integer> schoolIdStr = commonService.getSchoolIdStr(tokenVo.getOrganId(), tokenVo.getSchoolId());
-        log.info("获取所有查询年级和班级接口开始执行--->" + JSON.toJSON(sysGradeEntity));
         try {
             HQJsonResult<SysGradeClassVo> hqJsonResult = new HQJsonResult<>();
             PageHelper.startPage(sysGradeEntity.getPage(), sysGradeEntity.getRows());
-            List<SysGradeClassVo> gradeEntityList = sysGradeClassDao.selectGrade(sysGradeEntity, schoolIdStr);
+            List<SysGradeClassVo> gradeEntityList = sysGradeClassDao.selectGrade(sysGradeEntity);
             PageInfo<SysGradeClassVo> page = new PageInfo<>(gradeEntityList);
             if (!gradeEntityList.isEmpty()) {
                 gradeEntityList.forEach(str -> {

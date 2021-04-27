@@ -21,7 +21,7 @@ public interface PhyStudentInfoMapper {
 
     int updateByPrimaryKey(PhyStudentInfoEntity record);
 
-    List<StudentInfoRecordVo> selectAll(StudentInfoRecordDto studentInfoRecordDto, List<Integer> schoolIdStr);
+    List<StudentInfoRecordVo> selectAll(StudentInfoRecordDto studentInfoRecordDto);
 
     List<StudentInfoRecordVo> exportStudentInfo(ExportStudentInfoDto exportStudentInfoDto);
 

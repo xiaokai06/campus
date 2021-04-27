@@ -21,8 +21,8 @@ import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
 import com.huiyi.campus.dao.pojo.web.health.HealthRecordDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysGradeClassDao;
 import com.huiyi.campus.dao.vo.health.*;
+import com.huiyi.campus.dao.vo.sys.SchoolOrganVo;
 import com.huiyi.campus.dao.vo.sys.SysGradeVo;
-import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.common.service.CommonService;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
 import com.huiyi.campus.web.sys.service.UserCacheService;
@@ -72,27 +72,16 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         if (JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordDto)) {
             return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
         }
-        /**
-         * 校验当前用户机构ID与学校ID
-         */
-        TokenVo tokenVo;
-        tokenVo = userCacheService.getUserCache(nickName);
-        if (JsonUtils.checkObjAllFieldsIsNull(tokenVo)) {
-            return HQJsonResult.error(SystemErrorEnum.SYSTEM_ERROR);
-        }
-        if (StringUtils.isNotEmpty(studentInfoRecordDto.getSchoolId())) {
-            tokenVo.setSchoolId(Integer.valueOf(studentInfoRecordDto.getSchoolId()));
-        }
-        List<Integer> schoolIdStr = commonService.getSchoolIdStr(tokenVo.getOrganId(), tokenVo.getSchoolId());
         log.info("获取所有学生档案信息接口开始执行--->" + JSON.toJSON(studentInfoRecordDto));
+
+        if (StringUtils.isEmpty(studentInfoRecordDto.getSchoolId())) {
+            List<Integer> getAllSchoolId = userCacheService.getAllSchoolId(nickName);
+            studentInfoRecordDto.setSchoolIdStrList(getAllSchoolId);
+        }
         try {
             HQJsonResult<StudentInfoRecordVo> hqJsonResult = new HQJsonResult<>();
-            /**String[] orgIdCode = studentInfoRecordDto.getOrganId().split(",");
-             String[] schoolIdCode = studentInfoRecordDto.getSchoolId().split(",");
-             studentInfoRecordDto.setOrgIdList(Arrays.asList(orgIdCode));
-             studentInfoRecordDto.setSchoolIdList(Arrays.asList(schoolIdCode));*/
             PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
-            List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto,schoolIdStr);
+            List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
             PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
             if (!page.getList().isEmpty()) {
                 hqJsonResult.setSuccess(true);
@@ -135,7 +124,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
                     studentInfoRecordVo.setGradeName(str.getGradeName());
                     studentInfoRecordVo.setClassName(str.getClassName());
                 });
-                log.info("查询学生档案信息接口结束执行--->" + JSON.toJSON(studentInfoRecordDto));
+                log.info("查询学生档案信息接口结束执行--->" + JSON.toJSON(studentInfoRecordVo));
                 return HQJsonResult.success(studentInfoRecordVo);
             } else {
                 log.info("学校ID为：" + studentInfoRecordDto.getSchoolId() + "-->当前学生档案信息不存在,学生ID为：" + studentInfoRecordDto.getId());

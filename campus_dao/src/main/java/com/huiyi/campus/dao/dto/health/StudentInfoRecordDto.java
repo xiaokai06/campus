@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.dto.health;
 
+import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -82,6 +83,8 @@ public class StudentInfoRecordDto {
     @ApiModelProperty("条数")
     private Integer rows;
 
+    @ApiModelProperty("学校id-list")
+    private List<Integer> schoolIdStrList;
 
 /*
     @ApiModelProperty("机构id-list")

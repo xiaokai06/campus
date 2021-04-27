@@ -74,6 +74,7 @@ public class CommonServiceImpl implements CommonService {
         return HQJsonResult.success(oneLevelRegion);
     }
 
+
     /**
      * 根据学校id或教育局ID查询当前所归属学校
      *
