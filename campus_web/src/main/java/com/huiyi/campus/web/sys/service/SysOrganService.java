@@ -13,9 +13,10 @@ public interface SysOrganService {
     /**
      * 查询所有机构
      * @param sysOrganEntity
+     * @param nickName
      * @return
      */
-    ResultBody selectAllOrgan(SysOrganEntity sysOrganEntity);
+    ResultBody selectAllOrgan(String nickName, SysOrganEntity sysOrganEntity);
 
     /**
      * 新增机构

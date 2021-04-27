@@ -10,6 +10,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author: yzg
  * @time: 2021-04-06 11:06
@@ -30,8 +32,9 @@ public class SysOrganController {
     @IsLogin
     @ApiOperation("获取所有机构")
     @PostMapping("/getAllOrgan")
-    public ResultBody getAllOrgan(@RequestBody SysOrganEntity sysOrganEntity) {
-        return sysOrganService.selectAllOrgan(sysOrganEntity);
+    public ResultBody getAllOrgan(@RequestBody SysOrganEntity sysOrganEntity, HttpServletRequest request) {
+        String nickName = request.getHeader(CommConstants.ACC);
+        return sysOrganService.selectAllOrgan(nickName,sysOrganEntity);
     }
 
     @IsLogin

@@ -5,7 +5,9 @@ import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysOrganDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysSchoolDao;
+import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysOrganService;
+import com.huiyi.campus.web.sys.service.UserCacheService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -23,20 +25,29 @@ public class SysOrganServiceImpl implements SysOrganService {
 
     SysOrganDao sysOrganDao;
     SysSchoolDao sysSchoolDao;
+    UserCacheService userCacheService;
 
-    SysOrganServiceImpl(SysOrganDao sysOrganDao, SysSchoolDao sysSchoolDao) {
+    SysOrganServiceImpl(SysOrganDao sysOrganDao, SysSchoolDao sysSchoolDao,
+                        UserCacheService userCacheService) {
         this.sysOrganDao = sysOrganDao;
         this.sysSchoolDao = sysSchoolDao;
+        this.userCacheService = userCacheService;
     }
 
     /**
      * 查询所有机构
      * @param sysOrganEntity 参数
+     * @param nickName 用户昵称
      * @return 返回值
      */
     @Override
-    public ResultBody selectAllOrgan(SysOrganEntity sysOrganEntity) {
-        return ResultBody.success(sysOrganDao.selectAllOrgan(sysOrganEntity));
+    public ResultBody selectAllOrgan(String nickName, SysOrganEntity sysOrganEntity) {
+        if (userCacheService.hasUserKey(nickName)) {
+            TokenVo tokenVo = userCacheService.getUserCache(nickName);
+            List<SysOrganEntity> list = sysOrganDao.selectAllOrgan(sysOrganEntity, tokenVo.getOrganId());
+            return ResultBody.success(list);
+        }
+        return ResultBody.success();
     }
 
     /**
@@ -46,7 +57,7 @@ public class SysOrganServiceImpl implements SysOrganService {
      */
     @Override
     public ResultBody insertOrganInfo(SysOrganEntity sysOrganEntity) {
-        List<SysOrganEntity> list = sysOrganDao.selectAllOrgan(sysOrganEntity);
+        List<SysOrganEntity> list = sysOrganDao.selectAllOrgan(sysOrganEntity, null);
         if (!CollectionUtils.isEmpty(list)) {
             return ResultBody.error(CommConstants.ORGAN_REPETITION);
         }

@@ -29,7 +29,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -232,23 +231,18 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public CrRpcResult getAllUserInfo(String nickName, SysUserEntity sysUserEntity) {
-        List<Integer> schoolList = new ArrayList<>();
-        List<Integer> organList = new ArrayList<>();
         if (userCacheService.hasUserKey(nickName)) {
             TokenVo tokenVo = userCacheService.getUserCache(nickName);
             Integer schoolId = tokenVo.getSchoolId();
             Integer organId = tokenVo.getOrganId();
-            organList = sysOrganDao.selectIdByOrganId(organId);
-            if (null != schoolId) {
-                schoolList.add(schoolId);
-            } else {
-                schoolList = sysSchoolDao.selectIdByOrganId(organList, schoolId);
-            }
+            List<Integer> organList = sysOrganDao.selectIdByOrganId(organId);
+            List<Integer> schoolList = sysSchoolDao.selectIdByOrganId(organList, schoolId);
+            PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());
+            List<SysUserVo> list = sysUserDao.selectAllUserInfo(sysUserEntity, organList, schoolList);
+            PageInfo<SysUserVo> pageInfo = new PageInfo<>(list);
+            return CrRpcResult.success(pageInfo);
         }
-        PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());
-        List<SysUserVo> list = sysUserDao.selectAllUserInfo(sysUserEntity, organList, schoolList);
-        PageInfo<SysUserVo> pageInfo = new PageInfo<>(list);
-        return CrRpcResult.success(pageInfo);
+        return CrRpcResult.success(new PageInfo());
     }
 
     /**

@@ -54,17 +54,17 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(
+                RequestContextHolder.getRequestAttributes())).getRequest();
+        String acc = request.getHeader(CommConstants.ACC);
         HandlerMethod handlerMethod = (HandlerMethod) object;
         Method method = handlerMethod.getMethod();
         //检查是否有passToken注释，有则跳过认证
         if (method.isAnnotationPresent(PassToken.class)) {
             PassToken passToken = method.getAnnotation(PassToken.class);
             if (passToken.required()) {
-                HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(
-                        RequestContextHolder.getRequestAttributes())).getRequest();
-                String operUser = request.getHeader(CommConstants.ACC);
                 SysLoginLogEntity sysLoginLogEntity = new SysLoginLogEntity();
-                sysLoginLogEntity.setLoginUname(operUser);
+                sysLoginLogEntity.setLoginUname(acc);
                 sysLoginLogEntity.setLoginIp(IpUtils.getIpAddress(request));
                 sysLoginLogEntity.setLoginTime(new Date());
                 sysLoginLogEntity.setCreateTime(new Date());
@@ -109,6 +109,9 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 String token = aesUtils.decrypt(aesToken);
                 try {
                     String nickName = JWT.decode(token).getAudience().get(0);
+                    if (!nickName.equals(acc)) {
+                        throw new RuntimeException(CommonEnum.SIGNATURE_NOT_MATCH.getResultMsg());
+                    }
                     boolean bl = redisUtils.hasKey(CommConstants.USER_INFO + nickName);
                     if (!bl) {
                         SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);

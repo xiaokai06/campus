@@ -1,6 +1,7 @@
 package com.huiyi.campus.dao.mapper.web.sys;
 
 import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,7 +18,8 @@ public interface SysOrganMapper {
      * @param sysOrganEntity
      * @return
      */
-    List<SysOrganEntity> selectAllOrgan(SysOrganEntity sysOrganEntity);
+    List<SysOrganEntity> selectAllOrgan(@Param("sysOrgan") SysOrganEntity sysOrganEntity,
+                                        @Param("organId") Integer organId);
 
     /**
      * 新增机构

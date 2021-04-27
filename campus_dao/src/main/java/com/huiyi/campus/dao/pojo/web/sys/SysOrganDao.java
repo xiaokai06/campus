@@ -23,10 +23,11 @@ public class SysOrganDao {
     /**
      * 查询所有机构
      * @param sysOrganEntity 参数
+     * @param organId 机构ID
      * @return 返回值
      */
-    public List<SysOrganEntity> selectAllOrgan(SysOrganEntity sysOrganEntity) {
-        return sysOrganMapper.selectAllOrgan(sysOrganEntity);
+    public List<SysOrganEntity> selectAllOrgan(SysOrganEntity sysOrganEntity, Integer organId) {
+        return sysOrganMapper.selectAllOrgan(sysOrganEntity, organId);
     }
 
     /**

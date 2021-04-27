@@ -9,16 +9,18 @@
     </resultMap>
 
     <!-- 查询机构 -->
-    <select id="selectAllOrgan" parameterType="com.huiyi.campus.dao.entity.sys.SysOrganEntity"
-            resultMap="BaseResultMap">
+    <select id="selectAllOrgan" resultMap="BaseResultMap">
         select id, organ_name, organ_code, create_time
         from sys_organ
         <where>
-            <if test="organName != null and organName != ''">
-                organ_name like CONCAT('%', #{organName,jdbcType=VARCHAR}, '%')
+            <if test="sysOrgan.organName != null and sysOrgan.organName != ''">
+                organ_name like CONCAT('%', #{sysOrgan.organName,jdbcType=VARCHAR}, '%')
             </if>
-            <if test="organCode != null and organCode != ''">
-                and organ_code like CONCAT('%', #{organCode,jdbcType=VARCHAR}, '%')
+            <if test="sysOrgan.organCode != null and sysOrgan.organCode != ''">
+                and organ_code like CONCAT('%', #{sysOrgan.organCode,jdbcType=VARCHAR}, '%')
+            </if>
+            <if test="organId != null and organId != ''">
+                and parent_id=#{organId,jdbcType=INTEGER} or id=#{organId,jdbcType=INTEGER}
             </if>
         </where>
     </select>
