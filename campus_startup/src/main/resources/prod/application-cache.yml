@@ -1,7 +1,3 @@
-# 系统安全配置文件加密key
-jasypt:
-  encryptor:
-    password: aztKpms@e7Dy9Fc#
 spring:
   redis:
     host: 127.0.0.1

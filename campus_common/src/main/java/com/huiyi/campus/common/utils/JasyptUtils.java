@@ -61,7 +61,7 @@ public class JasyptUtils {
      */
     public static void main(String[] args) {
         // 加密
-        System.out.println(encryptPwd("aztKpms@e7Dy9Fc#", "zhihuiJcE10myj20r8Q"));
+        System.out.println(encryptPwd("aztKpms@e7Dy9Fc#", "zxAdminDruid20200720"));
         // 解密
 //        System.out.println(decryptPwd("aztKpms@e7Dy9Fc#", "ikT3m1vmolEaqq4DXKq4Jw=="));
     }

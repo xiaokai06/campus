@@ -94,7 +94,7 @@
             <properties>
                 <profiles.active>src/main/resources/prod</profiles.active>
             </properties>
-            <!--<activation>
+           <!-- <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>-->
         </profile>

@@ -52,7 +52,7 @@
         <fastdfs-client.version>1.26.2</fastdfs-client.version>
         <easypoi-spring-boot-starter.version>4.2.0</easypoi-spring-boot-starter.version>
         <!--jasypt系统安全服务-->
-        <jasypt-spring-boot-starter.version>2.1.1</jasypt-spring-boot-starter.version>
+        <jasypt-spring-boot-starter.version>2.1.0</jasypt-spring-boot-starter.version>
         <!--netty通讯聊天服务-->
         <netty-all.version>4.1.25.Final</netty-all.version>
         <!--对象存储服务器-->

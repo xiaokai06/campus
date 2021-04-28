@@ -26,3 +26,8 @@ spring:
     user:
       name: admin
       password: admin123456
+
+# 系统安全配置文件加密key
+jasypt:
+  encryptor:
+    password: aztKpms@e7Dy9Fc#
