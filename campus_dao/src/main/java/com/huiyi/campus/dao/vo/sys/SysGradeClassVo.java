@@ -4,7 +4,6 @@ import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,7 +21,7 @@ public class SysGradeClassVo {
 
     private String gradeName;
 
-    private String schoolId;
+    private Integer schoolId;
 
     private String createUser;
 

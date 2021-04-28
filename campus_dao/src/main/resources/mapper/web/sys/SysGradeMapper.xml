@@ -183,4 +183,35 @@
                      LEFT JOIN sys_grade_class class ON grade.id = class.grade_parent_id
         WHERE grade.school_id = #{schoolId,jdbcType=INTEGER}
     </select>
+    <!--查询年纪与班级信息（查询档案使用）-->
+    <select id="selectGrdeAndClass" parameterType="com.huiyi.campus.dao.dto.sys.SysGradeClassDto"
+            resultType="com.huiyi.campus.dao.vo.sys.SysGradeVo">
+        SELECT grade.id as "gradeId",
+        grade.grade_name as "gradeName",
+        grade.school_id as "schoolId",
+        grade.create_user as "createUser",
+        grade.create_time as "createTime",
+        grade.update_user as "updateUser",
+        grade.update_time as "updateTime",
+        class.id as "classId",
+        class.class_name as "className",
+        class.grade_parent_id as "gradeParentId",
+        class.create_user as "classCreateUser",
+        class.create_time as "classCreateTime",
+        class.update_user as "classUpdateUser",
+        class.update_time as "classUpdateTime"
+        FROM sys_grade grade
+        LEFT JOIN sys_grade_class class ON grade.id = class.grade_parent_id
+        <where>
+            <if test="schoolId != null and schoolId !=''">
+                grade.school_id = #{schoolId,jdbcType=INTEGER}
+            </if>
+            <if test="gradeId != null and gradeId !=''">
+                AND grade.id = #{gradeId,jdbcType=INTEGER}
+            </if>
+            <if test="classId != null and classId !=''">
+                AND class.id = #{classId,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
 </mapper>

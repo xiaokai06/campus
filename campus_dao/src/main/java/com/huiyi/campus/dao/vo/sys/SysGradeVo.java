@@ -18,7 +18,7 @@ public class SysGradeVo {
      */
     private String gradeId;
     private String gradeName;
-    private String schoolId;
+    private Integer schoolId;
     private String createUser;
     private String createTime;
     private String updateUser;

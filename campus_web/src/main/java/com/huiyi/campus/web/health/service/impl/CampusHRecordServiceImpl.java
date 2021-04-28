@@ -15,9 +15,9 @@ import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
+import com.huiyi.campus.dao.dto.sys.SysGradeClassDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
-import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
 import com.huiyi.campus.dao.pojo.web.health.HealthRecordDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysGradeClassDao;
 import com.huiyi.campus.dao.vo.health.*;
@@ -116,9 +116,11 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordDto, phyStudentInfoEntity);
             StudentInfoRecordVo studentInfoRecordVo = healthRecordDao.selectStudentInfoRecord(phyStudentInfoEntity);
             if (!JsonUtils.checkObjAllFieldsIsNull(studentInfoRecordVo)) {
-                SysGradeEntity gradeEntity = new SysGradeEntity();
-                JavaBeanUtil.copyPropertiesIgnoreNull(studentInfoRecordVo, gradeEntity);
-                List<SysGradeVo> gradeVoList = sysGradeClassDao.queryGradeClass(gradeEntity);
+                SysGradeClassDto sysGradeClassDto = new SysGradeClassDto();
+                sysGradeClassDto.setSchoolId(studentInfoRecordVo.getSchoolId());
+                sysGradeClassDto.setGradeId(studentInfoRecordVo.getGradeId());
+                sysGradeClassDto.setClassId(studentInfoRecordVo.getClassId());
+                List<SysGradeVo> gradeVoList = sysGradeClassDao.selectGrdeAndClass(sysGradeClassDto);
                 gradeVoList.forEach(str -> {
                     studentInfoRecordVo.setGradeName(str.getGradeName());
                     studentInfoRecordVo.setClassName(str.getClassName());

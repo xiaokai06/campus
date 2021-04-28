@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.pojo.web.sys;
 
+import com.huiyi.campus.dao.dto.sys.SysGradeClassDto;
 import com.huiyi.campus.dao.entity.sys.SysGradeClassEntity;
 import com.huiyi.campus.dao.entity.sys.SysGradeEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysGradeClassMapper;
@@ -77,4 +78,12 @@ public class SysGradeClassDao {
         return sysGradeClassMapper.selectClassByGradeList(id);
     }
 
+    /**
+     * 查询年纪与班级信息（查询档案使用）
+     * @param sysGradeClassDto
+     * @return
+     */
+    public List<SysGradeVo> selectGrdeAndClass(SysGradeClassDto sysGradeClassDto) {
+        return sysGradeMapper.selectGrdeAndClass(sysGradeClassDto);
+    }
 }
