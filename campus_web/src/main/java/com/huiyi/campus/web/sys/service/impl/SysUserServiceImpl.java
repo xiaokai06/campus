@@ -242,6 +242,8 @@ public class SysUserServiceImpl implements SysUserService {
             PageHelper.startPage(sysUserEntity.getPageNum(), sysUserEntity.getPageSize());
             List<SysUserVo> list = sysUserDao.selectAllUserInfo(sysUserEntity, organIds, schoolList);
             PageInfo<SysUserVo> pageInfo = new PageInfo<>(list);
+            list = list.stream().filter(x -> CommConstants.ZERO == x.getDelFlag()).collect(Collectors.toList());
+            pageInfo.setList(list);
             return CrRpcResult.success(pageInfo);
         }
         return CrRpcResult.success(new PageInfo());

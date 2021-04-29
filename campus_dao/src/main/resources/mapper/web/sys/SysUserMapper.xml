@@ -56,20 +56,20 @@
         <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
         <result column="organ_id" jdbcType="INTEGER" property="organId"/>
         <result column="organ_name" jdbcType="VARCHAR" property="organName"/>
+        <result column="del_flag" jdbcType="INTEGER" property="delFlag"/>
     </resultMap>
 
     <!-- 查询所有用户信息 -->
     <select id="selectAllUserInfo" resultMap="UserInfoResult">
         select u.id,u.nick_name,u.user_name,u.phone,u.email,u.remark,u.sex,u.last_visit,u.create_time,
-        u.school_id,u.organ_id,ur.role_id,sr.role_name,sc.school_name,so.organ_name
+        u.school_id,u.organ_id,u.del_flag,ur.role_id,sr.role_name,sc.school_name,so.organ_name
         from sys_user u left join sys_user_role ur on u.id=ur.user_id
         left join sys_role sr on ur.role_id=sr.id
         left join sys_school sc on u.school_id=sc.id
         left join sys_organ so on u.organ_id=so.id
         <where>
-            u.del_flag=0
             <if test="sysUser.nickName != null and sysUser.nickName != ''">
-                and u.nick_name like CONCAT('%', #{sysUser.nickName}, '%')
+                u.nick_name like CONCAT('%', #{sysUser.nickName}, '%')
             </if>
             <if test="sysUser.phone != null and sysUser.phone != ''">
                 and u.phone like CONCAT('%', #{sysUser.phone}, '%')

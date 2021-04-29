@@ -64,4 +64,7 @@ public class SysUserVo {
     @ApiModelProperty("机构名称")
     private String organName;
 
+    @ApiModelProperty("删除标识")
+    private Integer delFlag;
+
 }
