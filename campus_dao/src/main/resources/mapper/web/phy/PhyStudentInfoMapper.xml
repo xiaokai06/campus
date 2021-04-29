@@ -402,7 +402,8 @@
         where id = #{id,jdbcType=VARCHAR}
     </update>
     <!--查询所有学生档案信息-->
-    <select id="selectAll" parameterType="com.huiyi.campus.dao.dto.health.StudentInfoRecordDto" resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
+    <select id="selectAll" parameterType="com.huiyi.campus.dao.dto.health.StudentInfoRecordDto"
+            resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
         SELECT
         info.id AS "id",
         info.student_name AS "studentName",
@@ -448,55 +449,62 @@
         LEFT JOIN sys_user u ON info.doctor_id = u.id
         LEFT JOIN sys_grade grade ON info.grade_id = grade.id
         LEFT JOIN sys_grade_class class ON info.class_id = class.id
-        WHERE 1=1
-        <if test="id != null and id!=''">
-            AND info.id = #{id,jdbcType=VARCHAR}
-        </if>
-        <if test="studentName != null and studentName!=''">
-            AND info.student_name = #{studentName,jdbcType=VARCHAR}
-        </if>
-        <if test="sex != null and sex!=''">
-            AND info.sex = #{sex,jdbcType=TINYINT}
-        </if>
-        <if test="familyAddressProv != null and familyAddressProv!=''">
-            AND info.family_address_prov = #{familyAddressProv,jdbcType=VARCHAR}
-        </if>
-        <if test="familyAddressCity != null and familyAddressCity!=''">
-            AND info.family_address_city = #{familyAddressCity,jdbcType=VARCHAR}
-        </if>
-        <if test="familyAddressArea != null and familyAddressArea!=''">
-            AND info.family_address_area = #{familyAddressArea,jdbcType=VARCHAR}
-        </if>
-        <if test="familyAddress != null and familyAddress!=''">
-            AND info.family_address = #{familyAddress,jdbcType=VARCHAR}
-        </if>
-        <if test="censusAddressProv != null and censusAddressProv!=''">
-            AND info.census_address_prov = #{censusAddressProv,jdbcType=VARCHAR}
-        </if>
-        <if test="censusAddressCity != null and censusAddressCity!=''">
-            AND info.census_address_city = #{censusAddressCity,jdbcType=VARCHAR}
-        </if>
-        <if test="censusAddressCity != null and censusAddressCity!=''">
-            AND info.census_address_area = #{censusAddressCity,jdbcType=VARCHAR}
-        </if>
-        <if test="censusAddress != null and censusAddress!=''">
-            AND info.census_address = #{censusAddress,jdbcType=VARCHAR}
-        </if>
-        <if test="studentNumber != null and studentNumber!=''">
-            AND info.student_number = #{studentNumber,jdbcType=VARCHAR}
-        </if>
-        <if test="schoolIdStrList != null and schoolIdStrList.size() > 0">
-            AND info.school_id IN
-            <foreach item="item" index="index" collection="schoolIdStrList" open="(" separator="," close=")">
-                #{item}
-            </foreach>
-        </if>
-        <if test="classId != null and classId!=''">
-            AND info.class_id = #{classId,jdbcType=INTEGER}
-        </if>
-        <if test="gradeId != null and gradeId!=''">
-            AND info.grade_id = #{gradeId,jdbcType=INTEGER}
-        </if>
+        <where>
+            <if test="id != null and id!=''">
+                info.id = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="studentName != null and studentName!=''">
+                AND info.student_name = #{studentName,jdbcType=VARCHAR}
+            </if>
+            <if test="sex != null and sex!=''">
+                AND info.sex = #{sex,jdbcType=TINYINT}
+            </if>
+            <if test="familyAddressProv != null and familyAddressProv!=''">
+                AND info.family_address_prov = #{familyAddressProv,jdbcType=VARCHAR}
+            </if>
+            <if test="familyAddressCity != null and familyAddressCity!=''">
+                AND info.family_address_city = #{familyAddressCity,jdbcType=VARCHAR}
+            </if>
+            <if test="familyAddressArea != null and familyAddressArea!=''">
+                AND info.family_address_area = #{familyAddressArea,jdbcType=VARCHAR}
+            </if>
+            <if test="familyAddress != null and familyAddress!=''">
+                AND info.family_address = #{familyAddress,jdbcType=VARCHAR}
+            </if>
+            <if test="censusAddressProv != null and censusAddressProv!=''">
+                AND info.census_address_prov = #{censusAddressProv,jdbcType=VARCHAR}
+            </if>
+            <if test="censusAddressCity != null and censusAddressCity!=''">
+                AND info.census_address_city = #{censusAddressCity,jdbcType=VARCHAR}
+            </if>
+            <if test="censusAddressCity != null and censusAddressCity!=''">
+                AND info.census_address_area = #{censusAddressCity,jdbcType=VARCHAR}
+            </if>
+            <if test="censusAddress != null and censusAddress!=''">
+                AND info.census_address = #{censusAddress,jdbcType=VARCHAR}
+            </if>
+            <if test="studentNumber != null and studentNumber!=''">
+                AND info.student_number = #{studentNumber,jdbcType=VARCHAR}
+            </if>
+            <if test="schoolIdStrList != null and schoolIdStrList.size() > 0">
+                AND info.school_id IN
+                <foreach item="item" index="index" collection="schoolIdStrList" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="classId != null and classId!=''">
+                AND info.class_id = #{classId,jdbcType=INTEGER}
+            </if>
+            <if test="gradeId != null and gradeId!=''">
+                AND info.grade_id = #{gradeId,jdbcType=INTEGER}
+            </if>
+            <if test="schoolId != null and schoolId!=''">
+                AND info.school_id = #{schoolId,jdbcType=INTEGER}
+            </if>
+            <if test="organId != null and organId!=''">
+                AND info.organ_id = #{organId,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
 
     <!-- 导出学生信息 -->
