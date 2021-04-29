@@ -24,7 +24,7 @@ public interface CampusHRecordService {
 
     HQJsonResult selectStudentHealthInfo(StudentHealthInfoDto studentHealthInfoDto);
 
-    String exportStudentInfoFile(ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response);
+    String exportStudentInfoFile(ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response,String nickName);
 
     String importStudentInfoFile(MultipartFile file);
 

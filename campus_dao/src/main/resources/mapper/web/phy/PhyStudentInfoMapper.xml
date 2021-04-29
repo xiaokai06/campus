@@ -508,7 +508,8 @@
     </select>
 
     <!-- 导出学生信息 -->
-    <select id="exportStudentInfo" resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
+    <select id="exportStudentInfo" parameterType="com.huiyi.campus.dao.dto.health.ExportStudentInfoDto"
+            resultType="com.huiyi.campus.dao.vo.health.StudentInfoRecordVo">
         SELECT
         info.id AS "id",
         info.student_name AS "studentName",
@@ -594,20 +595,23 @@
             <if test="studentNumber != null and studentNumber!=''">
                 AND info.student_number = #{studentNumber,jdbcType=VARCHAR}
             </if>
-            <if test="orgIdList != null and orgIdList.size() > 0">
-                or info.school_id IN
-                <foreach item="item" index="index" collection="orgIdList" open="(" separator="," close=")">
+            <if test="schoolIdList != null and schoolIdList.size() > 0">
+                AND info.school_id IN
+                <foreach item="item" index="index" collection="schoolIdList" open="(" separator="," close=")">
                     #{item}
                 </foreach>
             </if>
-            <if test="schoolIdList != null and schoolIdList.size() > 0">
-                or info.organ_id IN
-                <foreach item="item" index="index" collection="schoolIdList" open="(" separator="," close=")">
+            <if test="orgIdList != null and orgIdList.size() > 0">
+                AND info.organ_id IN
+                <foreach item="item" index="index" collection="orgIdList" open="(" separator="," close=")">
                     #{item}
                 </foreach>
             </if>
             <if test="schoolId != null and schoolId!=''">
                 AND info.school_id = #{schoolId,jdbcType=INTEGER}
+            </if>
+            <if test="organId != null and organId!=''">
+                AND info.organ_id = #{organId,jdbcType=INTEGER}
             </if>
             <if test="classId != null and classId!=''">
                 AND info.class_id = #{classId,jdbcType=INTEGER}

@@ -29,10 +29,10 @@ public class ExportStudentInfoDto {
     private String birthDate;
     @ApiModelProperty("父母id")
     private String parentId;
-//    @ApiModelProperty("学校机构id")
-//    private String schoolId;
-//    @ApiModelProperty("教育局机构id")
-//    private String organId;
+    @ApiModelProperty("学校机构id")
+    private Integer schoolId;
+    @ApiModelProperty("教育局机构id")
+    private Integer organId;
     @ApiModelProperty("学生编号（学号）")
     private String studentNumber;
     @ApiModelProperty("年级id")
@@ -80,8 +80,8 @@ public class ExportStudentInfoDto {
     @ApiModelProperty("条数")
     private Integer rows;
     @ApiModelProperty("机构id-list")
-    private List<String> orgIdList;
+    private List<Integer> orgIdList;
     @ApiModelProperty("学校id-list")
-    private List<String> schoolIdList;
+    private List<Integer> schoolIdList;
 
 }

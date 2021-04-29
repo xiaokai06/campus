@@ -179,8 +179,8 @@ public class CampusHRecordController {
     @ApiOperation("学生档案信息数据导出接口")
     @ResponseBody
     @PostMapping("/exportStudentInfoFile")
-    public String exportStudentInfoFile(@RequestBody ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response) {
-        return campusHRecordService.exportStudentInfoFile(exportStudentInfoDto, response);
+    public String exportStudentInfoFile(@RequestBody ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response, @RequestHeader("acc") String nickName) {
+        return campusHRecordService.exportStudentInfoFile(exportStudentInfoDto, response,nickName);
     }
 
     /**

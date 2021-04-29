@@ -60,6 +60,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
     @Autowired
     CommonService commonService;
 
+
     /**
      * 获取所有学生档案信息
      *
@@ -81,6 +82,10 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
             HQJsonResult<StudentInfoRecordVo> hqJsonResult = new HQJsonResult<>();
             PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
             List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
+            studentInfoRecordVoList.forEach(str -> {
+                str.setPhyFileDate(DateUtil.getDayTime(str.getPhyFileDate()));
+                str.setEnterTime(DateUtil.getDayTime(str.getEnterTime()));
+            });
             PageInfo<StudentInfoRecordVo> page = new PageInfo<>(studentInfoRecordVoList);
             if (!page.getList().isEmpty()) {
                 hqJsonResult.setSuccess(true);
@@ -461,14 +466,20 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
      * @return
      */
     @Override
-    public String exportStudentInfoFile(ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response) {
+    public String exportStudentInfoFile(ExportStudentInfoDto exportStudentInfoDto, HttpServletResponse response, String nickName) {
         if (JsonUtils.checkObjAllFieldsIsNull(exportStudentInfoDto)) {
             return null;
         }
-        PageHelper.startPage(exportStudentInfoDto.getPage(), exportStudentInfoDto.getRows());
+        log.info("学生档案信息数据导出息接口开始执行--->" + JSON.toJSON(exportStudentInfoDto));
+
+        if (null == exportStudentInfoDto.getSchoolId()) {
+            List<Integer> getAllSchoolId = userCacheService.getAllSchoolId(nickName);
+            exportStudentInfoDto.setSchoolIdList(getAllSchoolId);
+        }
         List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.exportStudentInfoRecord(exportStudentInfoDto);
         if (null != studentInfoRecordVoList && !studentInfoRecordVoList.isEmpty()) {
             try {
+                log.info("学生档案信息数据导出息接口结束执行--->" + JSON.toJSON(studentInfoRecordVoList));
                 ExcelUtils.exportExcel(studentInfoRecordVoList, null, "学生表", StudentInfoRecordVo.class, "学生档案信息", response);
             } catch (Exception e) {
                 e.printStackTrace();
