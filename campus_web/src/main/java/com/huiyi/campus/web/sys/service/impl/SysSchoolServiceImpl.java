@@ -57,7 +57,8 @@ public class SysSchoolServiceImpl implements SysSchoolService {
             Integer organId = tokenVo.getOrganId();
             Integer schoolId = tokenVo.getSchoolId();
             sysSchoolEntity.setSchoolId(schoolId);
-            List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(organId);
+            Integer id = sysSchoolEntity.getOrganId();
+            List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(null != id ? id : organId);
             List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
             return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));
         }

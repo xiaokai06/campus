@@ -24,9 +24,6 @@
             <if test="sysSchool.schoolAddress != null and sysSchool.schoolAddress != ''">
                 and s.school_address like CONCAT('%', #{sysSchool.schoolAddress,jdbcType=VARCHAR}, '%')
             </if>
-            <if test="sysSchool.organId != null and sysSchool.organId != null">
-                and s.organ_id = #{sysSchool.organId,jdbcType=INTEGER}
-            </if>
             <if test="list != null and list.size() > 0">
                 and s.organ_id in (
                 <foreach collection="list" item="item" separator=",">
