@@ -6,10 +6,7 @@ import com.huiyi.campus.common.base.CommonEnum;
 import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
-import com.huiyi.campus.common.utils.AESUtils;
-import com.huiyi.campus.common.utils.DateUtils;
-import com.huiyi.campus.common.utils.RSAUtils;
-import com.huiyi.campus.common.utils.StringUtils;
+import com.huiyi.campus.common.utils.*;
 import com.huiyi.campus.dao.dto.sys.UpdatePwdDto;
 import com.huiyi.campus.dao.entity.sys.SysMenuEntity;
 import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
@@ -21,7 +18,6 @@ import com.huiyi.campus.dao.pojo.web.sys.SysUserDao;
 import com.huiyi.campus.dao.vo.sys.SysUserVo;
 import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysUserService;
-import com.huiyi.campus.web.sys.service.TokenService;
 import com.huiyi.campus.web.sys.service.UserCacheService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -47,10 +43,10 @@ public class SysUserServiceImpl implements SysUserService {
 
     RSAUtils rsaUtils;
     AESUtils aesUtils;
+    JwtUtils jwtUtils;
     SysUserDao sysUserDao;
     SysOrganDao sysOrganDao;
     SysSchoolDao sysSchoolDao;
-    TokenService tokenService;
     SysRoleMenuDao sysRoleMenuDao;
     @Value("${user.defaultPwd}")
     private String defaultPwd;
@@ -58,14 +54,14 @@ public class SysUserServiceImpl implements SysUserService {
     private String administrator;
     UserCacheService userCacheService;
 
-    SysUserServiceImpl(SysUserDao sysUserDao, RSAUtils rsaUtils, TokenService tokenService,
+    SysUserServiceImpl(SysUserDao sysUserDao, RSAUtils rsaUtils, JwtUtils jwtUtils,
                        AESUtils aesUtils, SysRoleMenuDao sysRoleMenuDao,SysOrganDao sysOrganDao,
                        SysSchoolDao sysSchoolDao, UserCacheService userCacheService) {
         this.rsaUtils = rsaUtils;
         this.aesUtils = aesUtils;
+        this.jwtUtils = jwtUtils;
         this.sysUserDao = sysUserDao;
         this.sysOrganDao = sysOrganDao;
-        this.tokenService = tokenService;
         this.sysSchoolDao = sysSchoolDao;
         this.sysRoleMenuDao = sysRoleMenuDao;
         this.userCacheService = userCacheService;
@@ -113,7 +109,7 @@ public class SysUserServiceImpl implements SysUserService {
                     logger.info("从缓存中获取到的token为：" + token);
                     tokenVo.setToken(token);
                 } else {
-                    String token = tokenService.getToken(nickName);
+                    String token = jwtUtils.sign(nickName);
                     logger.info("后端生成的token为：" + token);
                     String aesToken = aesUtils.encrypt(token);
                     logger.info("AES加密后的token为：" + aesToken);

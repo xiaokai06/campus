@@ -1,7 +1,5 @@
 package com.huiyi.campus.config;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.annotaion.OperLog;
 import com.huiyi.campus.common.annotaion.PassToken;
@@ -45,6 +43,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     SysUserDao sysUserDao;
     @Autowired
     SysLoginLogDao sysLoginLogDao;
+    @Autowired
+    JwtUtils jwtUtils;
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) {
@@ -107,25 +107,23 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     throw new RuntimeException(CommonEnum.INVALID_TOKEN.getResultMsg());
                 }
                 String token = aesUtils.decrypt(aesToken);
-                try {
-                    String nickName = JWT.decode(token).getAudience().get(0);
-                    if (!nickName.equals(acc)) {
-                        throw new RuntimeException(CommonEnum.SIGNATURE_NOT_MATCH.getResultMsg());
-                    }
-                    boolean bl = redisUtils.hasKey(CommConstants.USER_INFO + nickName);
-                    if (!bl) {
-                        SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
-                        if (null == sysUserEntity) {
-                            logger.info(CommonEnum.NO_EXIST.getResultMsg());
-                            throw new RuntimeException(CommonEnum.NO_EXIST.getResultMsg());
-                        } else {
-                            logger.info(CommonEnum.LOGIN_TIMEOUT.getResultMsg());
-                            throw new RuntimeException(CommonEnum.LOGIN_TIMEOUT.getResultMsg());
-                        }
-                    }
-                } catch (JWTDecodeException j) {
+                String nickName = jwtUtils.getNickName(token);
+                if (!nickName.equals(acc)) {
                     throw new RuntimeException(CommonEnum.SIGNATURE_NOT_MATCH.getResultMsg());
                 }
+                boolean bl = redisUtils.hasKey(CommConstants.USER_INFO + nickName);
+                if (!bl) {
+                    SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
+                    if (null == sysUserEntity) {
+                        logger.info(CommonEnum.NO_EXIST.getResultMsg());
+                        throw new RuntimeException(CommonEnum.NO_EXIST.getResultMsg());
+                    } else {
+                        logger.info(CommonEnum.LOGIN_TIMEOUT.getResultMsg());
+                        throw new RuntimeException(CommonEnum.LOGIN_TIMEOUT.getResultMsg());
+                    }
+                }
+                // TODO:校验token是否合法
+                jwtUtils.checkSign(token);
                 return true;
             }
         }
