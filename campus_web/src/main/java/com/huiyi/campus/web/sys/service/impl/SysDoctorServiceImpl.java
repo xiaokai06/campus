@@ -1,5 +1,8 @@
 package com.huiyi.campus.web.sys.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysDoctorEntity;
 import com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity;
@@ -10,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @author: yzg
@@ -36,8 +41,15 @@ public class SysDoctorServiceImpl implements SysDoctorService {
      * @return 返回值
      */
     @Override
-    public ResultBody selectAllDoctor(SysDoctorEntity sysDoctorEntity) {
-        return ResultBody.success(sysDoctorDao.selectAllDoctor(sysDoctorEntity));
+    public CrRpcResult selectAllDoctor(SysDoctorEntity sysDoctorEntity) {
+        Integer pageNum = sysDoctorEntity.getPageNum();
+        Integer pageSize = sysDoctorEntity.getPageSize();
+        if (null != pageNum && null != pageSize) {
+            PageHelper.startPage(pageNum, pageSize);
+        }
+        List<SysDoctorEntity> list = sysDoctorDao.selectAllDoctor(sysDoctorEntity);
+        PageInfo<SysDoctorEntity> pageInfo = new PageInfo<>(list);
+        return CrRpcResult.success(pageInfo);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.sys.service;
 
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysDoctorEntity;
 import com.huiyi.campus.dao.entity.sys.SysSchoolDoctorEntity;
@@ -16,7 +17,7 @@ public interface SysDoctorService {
      * @param sysDoctorEntity
      * @return
      */
-    ResultBody selectAllDoctor(SysDoctorEntity sysDoctorEntity);
+    CrRpcResult selectAllDoctor(SysDoctorEntity sysDoctorEntity);
 
     /**
      * 新增医生

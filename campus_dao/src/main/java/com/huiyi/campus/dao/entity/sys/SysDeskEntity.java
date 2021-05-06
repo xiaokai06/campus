@@ -27,4 +27,8 @@ public class SysDeskEntity implements Serializable {
     @ApiModelProperty("创建时间")
     private String createTime;
 
+    private Integer pageNum;
+
+    private Integer pageSize;
+
 }

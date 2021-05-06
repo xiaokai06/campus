@@ -1,5 +1,8 @@
 package com.huiyi.campus.web.sys.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
@@ -41,13 +44,19 @@ public class SysOrganServiceImpl implements SysOrganService {
      * @return 返回值
      */
     @Override
-    public ResultBody selectAllOrgan(String nickName, SysOrganEntity sysOrganEntity) {
+    public CrRpcResult selectAllOrgan(String nickName, SysOrganEntity sysOrganEntity) {
         if (userCacheService.hasUserKey(nickName)) {
             TokenVo tokenVo = userCacheService.getUserCache(nickName);
+            Integer pageNum = sysOrganEntity.getPageNum();
+            Integer pageSize = sysOrganEntity.getPageSize();
+            if (null != pageNum && null != pageSize) {
+                PageHelper.startPage(pageNum, pageSize);
+            }
             List<SysOrganEntity> list = sysOrganDao.selectAllOrgan(sysOrganEntity, tokenVo.getOrganId());
-            return ResultBody.success(list);
+            PageInfo<SysOrganEntity> pageInfo = new PageInfo<>(list);
+            return CrRpcResult.success(pageInfo);
         }
-        return ResultBody.success();
+        return CrRpcResult.success(new PageInfo<>());
     }
 
     /**

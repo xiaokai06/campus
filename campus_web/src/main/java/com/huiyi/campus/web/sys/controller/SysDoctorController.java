@@ -2,6 +2,7 @@ package com.huiyi.campus.web.sys.controller;
 
 import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.annotaion.OperLog;
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysDoctorEntity;
@@ -32,7 +33,7 @@ public class SysDoctorController {
     @IsLogin
     @ApiOperation("获取所有医生")
     @PostMapping("/getAllDoctor")
-    public ResultBody getAllDoctor(@RequestBody SysDoctorEntity sysDoctorEntity) {
+    public CrRpcResult getAllDoctor(@RequestBody SysDoctorEntity sysDoctorEntity) {
         return sysDoctorService.selectAllDoctor(sysDoctorEntity);
     }
 

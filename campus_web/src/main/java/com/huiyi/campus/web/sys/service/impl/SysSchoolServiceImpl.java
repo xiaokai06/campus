@@ -1,5 +1,8 @@
 package com.huiyi.campus.web.sys.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
@@ -50,7 +53,7 @@ public class SysSchoolServiceImpl implements SysSchoolService {
      * @return 返回值
      */
     @Override
-    public ResultBody selectAllSchool(String nickName, SysSchoolEntity sysSchoolEntity) {
+    public CrRpcResult selectAllSchool(String nickName, SysSchoolEntity sysSchoolEntity) {
         logger.info("获取所有学校接口，从请求头获取到的用户昵称为：" + nickName);
         if (userCacheService.hasUserKey(nickName)) {
             TokenVo tokenVo = userCacheService.getUserCache(nickName);
@@ -60,9 +63,16 @@ public class SysSchoolServiceImpl implements SysSchoolService {
             Integer id = sysSchoolEntity.getOrganId();
             List<SysOrganEntity> organList = sysOrganDao.selectIdByOrganId(null != id ? id : organId);
             List<Integer> list = organList.stream().map(SysOrganEntity::getId).collect(Collectors.toList());
-            return ResultBody.success(sysSchoolDao.selectAllSchool(sysSchoolEntity, list));
+            Integer pageNum = sysSchoolEntity.getPageNum();
+            Integer pageSize = sysSchoolEntity.getPageSize();
+            if (null != pageNum && null != pageSize) {
+                PageHelper.startPage(pageNum, pageSize);
+            }
+            List<SysSchoolEntity> result = sysSchoolDao.selectAllSchool(sysSchoolEntity, list);
+            PageInfo<SysSchoolEntity> pageInfo = new PageInfo<>(result);
+            return CrRpcResult.success(pageInfo);
         }
-        return ResultBody.success();
+        return CrRpcResult.success(new PageInfo<>());
     }
 
     /**

@@ -49,7 +49,7 @@
     </delete>
 
     <!-- 新增学校 -->
-    <insert id="insertSchoolInfo" useGeneratedKeys="true" keyProperty="id"
+    <insert id="insertSchoolInfo" useGeneratedKeys="true" keyProperty="schoolId"
             parameterType="com.huiyi.campus.dao.entity.sys.SysSchoolEntity">
         insert into sys_school
         <trim prefix="(" suffix=")" suffixOverrides=",">

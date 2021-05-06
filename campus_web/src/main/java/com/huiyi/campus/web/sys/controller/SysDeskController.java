@@ -2,6 +2,7 @@ package com.huiyi.campus.web.sys.controller;
 
 import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.annotaion.OperLog;
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysDeskEntity;
@@ -30,7 +31,7 @@ public class SysDeskController {
     @IsLogin
     @ApiOperation("获取所有科室")
     @PostMapping("/getAllDesk")
-    public ResultBody getAllDesk(@RequestBody SysDeskEntity sysDeskEntity) {
+    public CrRpcResult getAllDesk(@RequestBody SysDeskEntity sysDeskEntity) {
         return sysDeskService.getAllDesk(sysDeskEntity);
     }
 

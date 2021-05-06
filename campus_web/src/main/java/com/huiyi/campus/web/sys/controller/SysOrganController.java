@@ -2,6 +2,7 @@ package com.huiyi.campus.web.sys.controller;
 
 import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.annotaion.OperLog;
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
@@ -32,7 +33,7 @@ public class SysOrganController {
     @IsLogin
     @ApiOperation("获取所有机构")
     @PostMapping("/getAllOrgan")
-    public ResultBody getAllOrgan(@RequestBody SysOrganEntity sysOrganEntity, HttpServletRequest request) {
+    public CrRpcResult getAllOrgan(@RequestBody SysOrganEntity sysOrganEntity, HttpServletRequest request) {
         String nickName = request.getHeader(CommConstants.ACC);
         return sysOrganService.selectAllOrgan(nickName,sysOrganEntity);
     }

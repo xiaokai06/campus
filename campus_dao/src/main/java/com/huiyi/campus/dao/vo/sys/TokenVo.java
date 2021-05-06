@@ -45,6 +45,9 @@ public class TokenVo {
     @ApiModelProperty("角色ID")
     private Integer roleId;
 
+    @ApiModelProperty("角色名称")
+    private String roleName;
+
     @ApiModelProperty("是否为教育局负责人（1:是，0:否）")
     private Integer educationFlag;
 

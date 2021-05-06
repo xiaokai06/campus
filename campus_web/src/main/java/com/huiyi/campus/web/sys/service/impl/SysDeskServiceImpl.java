@@ -1,5 +1,8 @@
 package com.huiyi.campus.web.sys.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.common.consts.CommConstants;
 import com.huiyi.campus.dao.entity.sys.SysDeskEntity;
@@ -35,8 +38,15 @@ public class SysDeskServiceImpl implements SysDeskService {
      * @return 返回值
      */
     @Override
-    public ResultBody getAllDesk(SysDeskEntity sysDeskEntity) {
-        return ResultBody.success(sysDeskDao.selectAllDesk(sysDeskEntity));
+    public CrRpcResult getAllDesk(SysDeskEntity sysDeskEntity) {
+        Integer pageNum = sysDeskEntity.getPageNum();
+        Integer pageSize = sysDeskEntity.getPageSize();
+        if (null != pageNum && null != pageSize) {
+            PageHelper.startPage(pageNum, pageSize);
+        }
+        List<SysDeskEntity> list = sysDeskDao.selectAllDesk(sysDeskEntity);
+        PageInfo<SysDeskEntity> pageInfo = new PageInfo<>(list);
+        return CrRpcResult.success(pageInfo);
     }
 
     /**

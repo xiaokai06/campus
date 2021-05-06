@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.sys.service;
 
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysDeskEntity;
 
@@ -15,7 +16,7 @@ public interface SysDeskService {
      * @param sysDeskEntity
      * @return
      */
-    ResultBody getAllDesk(SysDeskEntity sysDeskEntity);
+    CrRpcResult getAllDesk(SysDeskEntity sysDeskEntity);
 
     /**
      * 新增科室

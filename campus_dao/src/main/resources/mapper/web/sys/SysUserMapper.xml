@@ -59,21 +59,18 @@
 
     <!-- 查询所有用户信息 -->
     <select id="selectAllUserInfo" resultMap="UserInfoResult">
-        select u.id,u.nick_name,u.user_name,u.phone,u.email,u.remark,u.sex,u.last_visit,u.create_time,
+        select t.id,t.nick_name,t.user_name,t.phone,t.email,t.remark,t.sex,t.last_visit,t.create_time, t.school_id,t.organ_id,t.role_id,
+        t.role_name,t.school_name,t.organ_name
+        from (select u.id,u.nick_name,u.user_name,u.phone,u.email,u.remark,u.sex,u.last_visit,u.create_time,
         u.school_id,u.organ_id,ur.role_id,sr.role_name,sc.school_name,so.organ_name
-        from sys_user u left join sys_user_role ur on u.id=ur.user_id
+        from sys_user u
+        left join sys_user_role ur on u.id=ur.user_id
         left join sys_role sr on ur.role_id=sr.id
         left join sys_school sc on u.school_id=sc.id
         left join sys_organ so on u.organ_id=so.id
         <where>
-            <if test="sysUser.nickName != null and sysUser.nickName != ''">
-                u.nick_name like CONCAT('%', #{sysUser.nickName}, '%')
-            </if>
-            <if test="sysUser.phone != null and sysUser.phone != ''">
-                and u.phone like CONCAT('%', #{sysUser.phone}, '%')
-            </if>
             <if test="organList != null and organList.size() > 0">
-                and u.organ_id in (
+                u.organ_id in (
                 <foreach collection="organList" item="item" separator=",">
                     #{item}
                 </foreach>
@@ -96,6 +93,14 @@
                         </if>
                     </otherwise>
                 </choose>
+            </if>
+        </where>) t
+        <where>
+            <if test="sysUser.nickName != null and sysUser.nickName != ''">
+                t.nick_name like CONCAT('%', #{sysUser.nickName}, '%')
+            </if>
+            <if test="sysUser.phone != null and sysUser.phone != ''">
+                and t.phone like CONCAT('%', #{sysUser.phone}, '%')
             </if>
         </where>
     </select>

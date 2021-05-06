@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.sys.service;
 
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysSchoolEntity;
 
@@ -16,7 +17,7 @@ public interface SysSchoolService {
      * @param nickName
      * @return
      */
-    ResultBody selectAllSchool(String nickName, SysSchoolEntity sysSchoolEntity);
+    CrRpcResult selectAllSchool(String nickName, SysSchoolEntity sysSchoolEntity);
 
     /**
      * 新增学校

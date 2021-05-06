@@ -38,4 +38,8 @@ public class SysOrganEntity implements Serializable {
     @ApiModelProperty("上级机构ID")
     private Integer parentId;
 
+    private Integer pageNum;
+
+    private Integer pageSize;
+
 }

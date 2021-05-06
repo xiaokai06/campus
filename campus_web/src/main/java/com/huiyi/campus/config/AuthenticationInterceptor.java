@@ -78,16 +78,16 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             if (opLog.required()) {
                 String operType = opLog.operType();
                 if (operType.equals(CommConstants.DELETE)) {
-                    Map ParameterMap =  httpServletRequest.getParameterMap();
+                    Map ParameterMap = httpServletRequest.getParameterMap();
                     String url = httpServletRequest.getRequestURI();
                     Map<String, String> reqMap = new HashMap<>();
-                    Set<Map.Entry<String,String[]>> entry = ParameterMap.entrySet();
+                    Set<Map.Entry<String, String[]>> entry = ParameterMap.entrySet();
                     for (Map.Entry<String, String[]> me : entry) {
                         String key = me.getKey();
                         String value = me.getValue()[0];
                         reqMap.put(key, value);
                     }
-                    logger.info("》》》》》》》》》》》》》》接口地址：" + url +", 拦截器获取的请求参数为：" + reqMap);
+                    logger.info("》》》》》》》》》》》》》》接口地址：" + url + ", 拦截器获取的请求参数为：" + reqMap);
                     for (String key : reqMap.keySet()) {
                         String value = reqMap.get(key);
                         if (StringUtils.isEmpty(value)) {
@@ -113,6 +113,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 }
                 boolean bl = redisUtils.hasKey(CommConstants.USER_INFO + nickName);
                 if (!bl) {
+                    // TODO: 预防开发人员手动删除用户数据
                     SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
                     if (null == sysUserEntity) {
                         logger.info(CommonEnum.NO_EXIST.getResultMsg());

@@ -1,5 +1,6 @@
 package com.huiyi.campus.web.sys.service;
 
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.base.ResultBody;
 import com.huiyi.campus.dao.entity.sys.SysOrganEntity;
 
@@ -16,7 +17,7 @@ public interface SysOrganService {
      * @param nickName
      * @return
      */
-    ResultBody selectAllOrgan(String nickName, SysOrganEntity sysOrganEntity);
+    CrRpcResult selectAllOrgan(String nickName, SysOrganEntity sysOrganEntity);
 
     /**
      * 新增机构
