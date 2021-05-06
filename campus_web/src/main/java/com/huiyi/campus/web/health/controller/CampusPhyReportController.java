@@ -1,6 +1,7 @@
 package com.huiyi.campus.web.health.controller;
 
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
+import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
 import com.huiyi.campus.web.health.service.CampusPhyReportService;
@@ -38,6 +39,36 @@ public class CampusPhyReportController {
     @PostMapping("/selectAllReport")
     public HQJsonResult selectAllReport(@RequestBody StudentInfoRecordDto studentInfoRecordDto, @RequestHeader("acc") String nickName) {
         return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto, nickName);
+    }
+
+    /**
+     * 添加体检报告
+     * @param studentHealthInfoDto
+     * @return
+     */
+    @PostMapping("/insertReport")
+    public HQJsonResult insertExaminedReport(@RequestBody StudentHealthInfoDto studentHealthInfoDto){
+        return campusHRecordService.createStudentHealthInfo(studentHealthInfoDto);
+    }
+
+    /**
+     * 修改体检报告
+     * @param studentHealthInfoDto
+     * @return
+     */
+    @PostMapping("/updateReport")
+    public HQJsonResult updateExaminedReport(@RequestBody StudentHealthInfoDto studentHealthInfoDto){
+        return campusHRecordService.updateStudentHealthInfo(studentHealthInfoDto);
+    }
+
+    /**
+     * 根据学生ID查询体检日期
+     * @param studentHealthInfoDto
+     * @return
+     */
+    @PostMapping("/selectExaminedDate")
+    public HQJsonResult selectExaminedDate(@RequestBody StudentHealthInfoDto studentHealthInfoDto){
+        return campusHRecordService.selectPhyDateByPhyStudentId(studentHealthInfoDto);
     }
 
 

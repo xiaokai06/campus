@@ -83,6 +83,7 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
         }
         try {
             HQJsonResult<StudentInfoRecordVo> hqJsonResult = new HQJsonResult<>();
+
             PageHelper.startPage(studentInfoRecordDto.getPage(), studentInfoRecordDto.getRows());
             List<StudentInfoRecordVo> studentInfoRecordVoList = healthRecordDao.queryStudentInfoRecord(studentInfoRecordDto);
             studentInfoRecordVoList.forEach(str -> {
