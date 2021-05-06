@@ -36,34 +36,74 @@ public class SysGradeClassDao {
         return sysGradeMapper.insert(sysGradeEntity);
     }
 
+    /**
+     * 查询年级
+     * @param sysGradeEntity
+     * @return
+     */
     public List<SysGradeClassVo> selectGrade(SysGradeEntity sysGradeEntity) {
         return sysGradeMapper.selectGradeList(sysGradeEntity);
     }
 
+    /**
+     * 修改年级
+     * @param sysGradeEntity
+     * @return
+     */
     public int updateGrade(SysGradeEntity sysGradeEntity) {
         return sysGradeMapper.updateByPrimaryKeySelective(sysGradeEntity);
     }
 
+    /**
+     * 删除年级
+     * @param sysGradeEntity
+     * @return
+     */
     public int deleteGrade(SysGradeEntity sysGradeEntity) {
         return sysGradeMapper.deleteByPrimaryKey(sysGradeEntity.getId());
     }
 
+    /**
+     * 新增班级
+     * @param sysGradeClassEntity
+     * @return
+     */
     public int insertGrdeClass(SysGradeClassEntity sysGradeClassEntity) {
         return sysGradeClassMapper.insert(sysGradeClassEntity);
     }
 
+    /**
+     * 查询班级
+     * @param sysGradeClassEntity
+     * @return
+     */
     public List<SysGradeClassEntity> selectGrdeClass(SysGradeClassEntity sysGradeClassEntity) {
         return sysGradeClassMapper.selectGrdeClassList(sysGradeClassEntity);
     }
 
+    /**
+     * 修改班级
+     * @param sysGradeClassEntity
+     * @return
+     */
     public int updaterdeClass(SysGradeClassEntity sysGradeClassEntity) {
         return sysGradeClassMapper.updateByPrimaryKeySelective(sysGradeClassEntity);
     }
 
+    /**
+     * 删除班级
+     * @param sysGradeClassEntity
+     * @return
+     */
     public int deleteGradeClass(SysGradeClassEntity sysGradeClassEntity) {
         return sysGradeClassMapper.deleteByPrimaryKey(sysGradeClassEntity.getId());
     }
 
+    /**
+     * 根据学校id查询年级班级数据
+     * @param sysGradeEntity
+     * @return
+     */
     public List<SysGradeVo> queryGradeClass(SysGradeEntity sysGradeEntity) {
         return sysGradeMapper.queryGradeClass(sysGradeEntity);
     }
