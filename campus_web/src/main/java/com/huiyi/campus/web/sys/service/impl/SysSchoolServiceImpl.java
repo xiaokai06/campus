@@ -97,7 +97,7 @@ public class SysSchoolServiceImpl implements SysSchoolService {
             Integer schoolId = sysSchoolEntity.getSchoolId();
             Integer organId = sysSchoolEntity.getOrganId();
             logger.info("修改学校接口，学校ID为：" + schoolId + ", 机构ID为：" + organId);
-            sysUserDao.updateOrganIdBySchoolId(schoolId, organId);
+//            sysUserDao.updateOrganIdBySchoolId(schoolId, organId);
         }
         return ResultBody.update(count);
     }
