@@ -76,6 +76,9 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
 
         if (null == studentInfoRecordDto.getSchoolId()) {
             List<Integer> getAllSchoolId = userCacheService.getAllSchoolId(nickName);
+            if (getAllSchoolId.isEmpty()) {
+                return HQJsonResult.success();
+            }
             studentInfoRecordDto.setSchoolIdStrList(getAllSchoolId);
         }
         try {
