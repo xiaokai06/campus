@@ -25,8 +25,14 @@
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
         delete
-        from sys_grade
-        where id = #{id,jdbcType=VARCHAR}
+                sys_grade,
+                sys_grade_class
+        FROM
+	        sys_grade
+	    LEFT JOIN sys_grade_class ON sys_grade.id = sys_grade_class.grade_parent_id
+        WHERE
+	        sys_grade.id =
+                #{id,jdbcType=VARCHAR}
     </delete>
     <insert id="insert" parameterType="com.huiyi.campus.dao.entity.sys.SysGradeEntity">
         insert into sys_grade (id, grade_name, school_id,

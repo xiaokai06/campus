@@ -28,6 +28,13 @@ public class CampusPhyReportController {
     @Autowired
     CampusHRecordService campusHRecordService;
 
+    /**
+     * 体检报告列表查询
+     *
+     * @param studentInfoRecordDto
+     * @param nickName
+     * @return
+     */
     @PostMapping("/selectAllReport")
     public HQJsonResult selectAllReport(@RequestBody StudentInfoRecordDto studentInfoRecordDto, @RequestHeader("acc") String nickName) {
         return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto, nickName);
