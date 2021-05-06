@@ -1,6 +1,5 @@
 package com.huiyi.campus.web.health.controller;
 
-import com.google.common.net.HttpHeaders;
 import com.huiyi.campus.common.annotaion.IsLogin;
 import com.huiyi.campus.common.utils.JsonUtils;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
