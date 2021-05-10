@@ -64,4 +64,7 @@ public class SysUserVo {
     @ApiModelProperty("机构名称")
     private String organName;
 
+    @ApiModelProperty("用户状态（0:正常，1:停用）")
+    private Integer userState;
+
 }

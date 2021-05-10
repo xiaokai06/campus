@@ -7,24 +7,36 @@
     <result column="title" jdbcType="VARCHAR" property="title"/>
     <result column="content" jdbcType="VARCHAR" property="content"/>
     <result column="oper_user" jdbcType="VARCHAR" property="operUser"/>
-    <result column="school_id" jdbcType="INTEGER" property="schoolId"/>
-    <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
     <result column="image_url" jdbcType="VARCHAR" property="imageUrl"/>
     <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
     <result column="head_flag" jdbcType="INTEGER" property="headFlag"/>
   </resultMap>
 
   <!-- 查询所有健康宣教 -->
-  <select id="selectHealthEducation" parameterType="com.huiyi.campus.dao.entity.phy.PhyHealthEducationEntity" resultMap="BaseResultMap">
-    select p.id,p.title,p.content,p.oper_user,p.school_id,s.school_name,p.image_url,p.create_time,p.head_flag
-        from phy_health_education p
-            left join sys_school s on p.school_id=s.id where 1=1
-              <if test="createTime != null and createTime != ''">
-                and p.create_time=#{createTime}
-              </if>
-              <if test="title != null and title != ''">
-                and p.title like concat('%', #{title}, '%')
-              </if>
+  <select id="selectHealthEducation" parameterType="com.huiyi.campus.dao.dto.health.PhyHealthEduDto" resultMap="BaseResultMap">
+    select id,title,
+    <if test="id != null and id != ''">
+      content,
+    </if>
+    oper_user,image_url,create_time,head_flag
+        from phy_health_education
+          <where>
+            <if test="id != null and id != ''">
+              id=#{id,jdbcType=INTEGER}
+            </if>
+            <if test="schoolId != null">
+              and school_id=#{schoolId,jdbcType=INTEGER}
+            </if>
+            <if test="organId != null and organId != 1">
+              and organ_id=#{organId,jdbcType=INTEGER}
+            </if>
+            <if test="createTime != null and createTime != ''">
+              and create_time=#{createTime}
+            </if>
+            <if test="title != null and title != ''">
+              and title like concat('%', #{title}, '%')
+            </if>
+          </where>
   </select>
 
   <!-- 新增健康宣教 -->
@@ -42,6 +54,9 @@
       </if>
       <if test="schoolId != null">
         school_id,
+      </if>
+      <if test="organId != null">
+        organ_id,
       </if>
       <if test="imageUrl != null">
         image_url,
@@ -65,6 +80,9 @@
       </if>
       <if test="schoolId != null">
         #{schoolId},
+      </if>
+      <if test="organId != null">
+        #{organId},
       </if>
       <if test="imageUrl != null">
         #{imageUrl},
@@ -93,6 +111,9 @@
       </if>
       <if test="schoolId != null">
         school_id=#{schoolId},
+      </if>
+      <if test="organId != null">
+        organ_id=#{organId},
       </if>
       <if test="imageUrl != null">
         image_url=#{imageUrl},

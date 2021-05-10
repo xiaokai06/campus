@@ -54,6 +54,9 @@ public class SysUserEntity implements Serializable {
     @ApiModelProperty("创建时间")
     private String createTime;
 
+    @ApiModelProperty("用户状态（0:正常，1:停用）")
+    private Integer userState;
+
     @ApiModelProperty("学校ID")
     private Integer schoolId;
 

@@ -1,21 +1,21 @@
-package com.huiyi.campus.dao.entity.phy;
+package com.huiyi.campus.dao.vo.health;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 /**
  * @author: yzg
- * @time: 2021-04-14 14:24
- * @description: 健康宣教
+ * @time: 2021-05-07 14:29
+ * @description: 健康宣教返回实体类
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel("健康宣教")
-public class PhyHealthEducationEntity implements Serializable {
+public class PhyHealthEduVo implements Serializable {
 
     @ApiModelProperty("id")
     public Integer id;
@@ -31,12 +31,6 @@ public class PhyHealthEducationEntity implements Serializable {
 
     @ApiModelProperty("图片路径")
     public String imageUrl;
-
-    @ApiModelProperty("学校ID")
-    public Integer schoolId;
-
-    @ApiModelProperty("机构ID")
-    public Integer organId;
 
     @ApiModelProperty("创建时间")
     public String createTime;

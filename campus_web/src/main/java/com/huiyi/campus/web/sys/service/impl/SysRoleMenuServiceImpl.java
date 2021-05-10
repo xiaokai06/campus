@@ -99,9 +99,8 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
                             List<SysMenuEntity> menuList = map.get(secondMenu.getId());
                             if (!CollectionUtils.isEmpty(menuList)) {
                                 secondMenu.setList(menuList);
-                            } else {
-                                firstMenu.setList(resultList);
                             }
+                            firstMenu.setList(resultList);
                         }
                     }
                 }

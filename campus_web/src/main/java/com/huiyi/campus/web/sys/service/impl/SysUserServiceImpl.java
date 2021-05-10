@@ -80,6 +80,9 @@ public class SysUserServiceImpl implements SysUserService {
         if (null == sysUserInfo) {
             return ResultBody.error(CommonEnum.NO_EXIST.getResultMsg());
         }
+        if (1 == sysUserInfo.getUserState()) {
+            return ResultBody.error("该账号已停用，不可登录！");
+        }
         Integer id = sysUserInfo.getId();
         String passWord = sysUserInfo.getPassWord();
         logger.info("前端传递的数据，用户昵称：" + nickName + ", 密码为：" + pwd);
@@ -193,6 +196,9 @@ public class SysUserServiceImpl implements SysUserService {
             list = sysRoleMenuDao.selectMenuByUserId(null);
         } else {
             SysUserEntity sysUserEntity = sysUserDao.selectUserByNickName(nickName);
+            if (1 == sysUserEntity.getUserState()) {
+                return ResultBody.error("该账号已停用，不可登录！");
+            }
             Integer userId = sysUserEntity.getId();
             list = sysRoleMenuDao.selectMenuByUserId(userId);
         }
@@ -210,9 +216,8 @@ public class SysUserServiceImpl implements SysUserService {
                             List<SysMenuEntity> menuList = map.get(secondMenu.getId());
                             if (!CollectionUtils.isEmpty(menuList)) {
                                 secondMenu.setList(menuList);
-                            } else {
-                                firstMenu.setList(resultList);
                             }
+                            firstMenu.setList(resultList);
                         }
                     }
                 }

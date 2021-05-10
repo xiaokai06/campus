@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.pojo.web.health;
 
+import com.huiyi.campus.dao.dto.health.PhyHealthEduDto;
 import com.huiyi.campus.dao.entity.phy.PhyHealthEducationEntity;
 import com.huiyi.campus.dao.mapper.web.phy.PhyHealthEducationMapper;
 import org.springframework.stereotype.Repository;
@@ -16,13 +17,17 @@ public class PhyHealthEducationDao {
 
     PhyHealthEducationMapper phyHealthEducationMapper;
 
+    PhyHealthEducationDao(PhyHealthEducationMapper phyHealthEducationMapper) {
+        this.phyHealthEducationMapper = phyHealthEducationMapper;
+    }
+
     /**
      * 查询所有健康宣教
-     * @param phyHealthEducationEntity 参数
+     * @param phyHealthEduDto 参数
      * @return 返回值
      */
-    public List<PhyHealthEducationEntity> selectHealthEducation(PhyHealthEducationEntity phyHealthEducationEntity) {
-        return phyHealthEducationMapper.selectHealthEducation(phyHealthEducationEntity);
+    public List<PhyHealthEducationEntity> selectHealthEducation(PhyHealthEduDto phyHealthEduDto) {
+        return phyHealthEducationMapper.selectHealthEducation(phyHealthEduDto);
     }
 
     /**

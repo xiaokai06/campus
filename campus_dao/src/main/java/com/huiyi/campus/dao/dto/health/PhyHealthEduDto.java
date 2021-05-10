@@ -1,21 +1,21 @@
-package com.huiyi.campus.dao.entity.phy;
+package com.huiyi.campus.dao.dto.health;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 /**
  * @author: yzg
- * @time: 2021-04-14 14:24
+ * @time: 2021-05-07 14:32
  * @description: 健康宣教
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel("健康宣教")
-public class PhyHealthEducationEntity implements Serializable {
+public class PhyHealthEduDto implements Serializable {
 
     @ApiModelProperty("id")
     public Integer id;
@@ -43,5 +43,9 @@ public class PhyHealthEducationEntity implements Serializable {
 
     @ApiModelProperty("是否设置为头条（0:否，1:是）")
     public Integer headFlag;
+
+    public Integer pageNum;
+
+    public Integer pageSize;
 
 }

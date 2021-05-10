@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.mapper.web.phy;
 
+import com.huiyi.campus.dao.dto.health.PhyHealthEduDto;
 import com.huiyi.campus.dao.entity.phy.PhyHealthEducationEntity;
 
 import java.util.List;
@@ -13,10 +14,10 @@ public interface PhyHealthEducationMapper {
 
     /**
      * 查询所有健康宣教
-     * @param phyHealthEducationEntity 参数
+     * @param phyHealthEduDto 参数
      * @return 返回值
      */
-    List<PhyHealthEducationEntity> selectHealthEducation(PhyHealthEducationEntity phyHealthEducationEntity);
+    List<PhyHealthEducationEntity> selectHealthEducation(PhyHealthEduDto phyHealthEduDto);
 
     /**
      * 新增健康宣教

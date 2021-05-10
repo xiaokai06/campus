@@ -50,7 +50,8 @@ public class CommConstants {
 
     public static final String EDUCATION_LEADER = "教育局";
 
-    public static final int ZERO = 0;
+    public static final String COMMA = ",";
 
+    public static final String SLASH = "/";
 
 }
