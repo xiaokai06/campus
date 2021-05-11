@@ -186,6 +186,9 @@
             <if test="path != null and path != ''">
                 path,
             </if>
+            <if test="pathName != null and pathName != ''">
+                path_name,
+            </if>
             <if test="icon != null and icon != ''">
                 icon,
             </if>
@@ -215,6 +218,9 @@
             </if>
             <if test="path != null and path != ''">
                 #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="pathName != null and pathName != ''">
+                #{pathName,jdbcType=VARCHAR},
             </if>
             <if test="icon != null and icon != ''">
                 #{icon,jdbcType=VARCHAR},
@@ -250,6 +256,9 @@
             </if>
             <if test="path != null and path != ''">
                 path=#{path,jdbcType=VARCHAR},
+            </if>
+            <if test="pathName != null and pathName != ''">
+                path_name=#{pathName,jdbcType=VARCHAR},
             </if>
             <if test="icon != null and icon != ''">
                 icon=#{icon,jdbcType=VARCHAR},

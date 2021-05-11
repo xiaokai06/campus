@@ -10,6 +10,7 @@ import com.huiyi.campus.web.sys.service.SysRoleMenuService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -121,6 +122,13 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
         if (!CollectionUtils.isEmpty(list)) {
             return ResultBody.error(CommConstants.MENU_REPETITION);
         }
+        String path = sysMenuEntity.getPath();
+        // TODO: 前端要求path首字母大写作为路径名称
+        if (!StringUtils.isEmpty(path)) {
+            char[] cs = path.toCharArray();
+            cs[0] -= 32;
+            sysMenuEntity.setPathName(String.valueOf(cs));
+        }
         return ResultBody.insert(sysRoleMenuDao.insertMenuInfo(sysMenuEntity), sysMenuEntity.getId());
     }
 
@@ -131,6 +139,12 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
      */
     @Override
     public ResultBody updateMenuInfo(SysMenuEntity sysMenuEntity) {
+        String path = sysMenuEntity.getPath();
+        if (!StringUtils.isEmpty(path)) {
+            char[] cs = path.toCharArray();
+            cs[0] -= 32;
+            sysMenuEntity.setPathName(String.valueOf(cs));
+        }
         return ResultBody.update(sysRoleMenuDao.updateMenuInfo(sysMenuEntity));
     }
 
