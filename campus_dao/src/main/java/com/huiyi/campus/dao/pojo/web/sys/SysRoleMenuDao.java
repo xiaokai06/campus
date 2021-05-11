@@ -34,9 +34,8 @@ public class SysRoleMenuDao {
             Integer roleId = sysRoleMenuMapper.selectRoleIdByUserId(userId);
             if (null != roleId) {
                 return sysRoleMenuMapper.selectMenuById(roleId);
-            } else {
-                return null;
             }
+            return null;
         }
         return sysRoleMenuMapper.selectAllMenu(null);
     }

@@ -1,8 +1,12 @@
 package com.huiyi.campus.dao.pojo.web.sys;
 
+import com.huiyi.campus.dao.dto.sys.LogDto;
 import com.huiyi.campus.dao.entity.sys.SysOperLogEntity;
 import com.huiyi.campus.dao.mapper.web.sys.SysOperLogMapper;
+import com.huiyi.campus.dao.vo.sys.SysOperLogVo;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author: yzg
@@ -25,6 +29,15 @@ public class SysOperLogDao {
      */
     public int insertOperLog(SysOperLogEntity sysOperLogEntity) {
         return sysOperLogMapper.insertSelective(sysOperLogEntity);
+    }
+
+    /**
+     * 查询操作日志
+     * @param logDto
+     * @return
+     */
+    public List<SysOperLogVo> selectOperLog(LogDto logDto) {
+        return sysOperLogMapper.selectOperLog(logDto);
     }
 
 }

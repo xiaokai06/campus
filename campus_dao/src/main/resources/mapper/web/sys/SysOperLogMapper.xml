@@ -2,6 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysOperLogMapper">
 
+  <resultMap id="BaseOperLogResult" type="com.huiyi.campus.dao.vo.sys.SysOperLogVo">
+    <id property="id" jdbcType="INTEGER" column="id"/>
+    <result property="operIp" jdbcType="VARCHAR" column="oper_ip"/>
+    <result property="operUser" jdbcType="VARCHAR" column="oper_user"/>
+    <result property="operType" jdbcType="VARCHAR" column="oper_type"/>
+    <result property="operModel" jdbcType="VARCHAR" column="oper_model"/>
+    <result property="operDesc" jdbcType="VARCHAR" column="oper_desc"/>
+    <result property="createTime" jdbcType="VARCHAR" column="create_time"/>
+  </resultMap>
+
+  <!-- 查询操作日志 -->
+  <select id="selectOperLog" parameterType="com.huiyi.campus.dao.dto.sys.LogDto" resultMap="BaseOperLogResult">
+    select id,oper_ip,oper_user,oper_type,oper_model,oper_desc,create_time from sys_oper_log
+    <where>
+      <if test="ip != null and ip != ''">
+        oper_ip like concat('%', #{ip,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="name != null and name != ''">
+        and oper_user=#{name,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+
   <!-- 新增操作日志 -->
   <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.huiyi.campus.dao.entity.sys.SysOperLogEntity">
     insert into sys_oper_log

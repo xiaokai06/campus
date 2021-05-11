@@ -41,6 +41,12 @@ public class PhyHealthEduDto implements Serializable {
     @ApiModelProperty("创建时间")
     public String createTime;
 
+    @ApiModelProperty("开启时间")
+    public String startTime;
+
+    @ApiModelProperty("结束时间")
+    public String endTime;
+
     @ApiModelProperty("是否设置为头条（0:否，1:是）")
     public Integer headFlag;
 

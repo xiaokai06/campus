@@ -439,7 +439,9 @@
         info.duty_doctor AS "dutyDoctor",
         info.phy_file_date AS "phyFileDate",
         info.create_time AS "createTime",
-        info.operator_id AS "operatorId"
+        info.operator_id AS "operatorId",
+        p.user_name AS "parentName",
+        p.phone AS "parentNumber"
         FROM
         phy_student_info info
         LEFT JOIN sys_parent p ON info.parent_id = p.id

@@ -62,6 +62,8 @@ public class PhyHealthEducationServiceImpl implements PhyHealthEducationService 
         TokenVo tokenVo = userCacheService.getUserCache(nickName);
         phyHealthEduDto.setSchoolId(tokenVo.getSchoolId());
         phyHealthEduDto.setOrganId(tokenVo.getOrganId());
+        phyHealthEduDto.setStartTime(phyHealthEduDto.getCreateTime() + " 00:00:00");
+        phyHealthEduDto.setEndTime(phyHealthEduDto.getCreateTime() + " 23:59:59");
         Integer pageNum = phyHealthEduDto.getPageNum();
         Integer pageSize = phyHealthEduDto.getPageSize();
         if (null != pageNum && null != pageSize) {

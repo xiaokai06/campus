@@ -6,8 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 /**
  * @author: liyukai
  * @Email: 2919529566@qq.com
@@ -91,6 +89,9 @@ public class StudentInfoRecordVo {
     @Excel(name = "联系电话")
     @ApiModelProperty("联系电话")
     private String phoneNumber;
+
+    @ApiModelProperty("家长联系方式")
+    private String parentNumber;
 
     //    @Excel(name = "相片")
     @ApiModelProperty("相片")

@@ -24,8 +24,9 @@
         select u.id,u.user_name,u.nick_name,u.pass_word,u.sex,u.phone,u.email,u.organ_id,u.school_id,u.user_state,ur.role_id,sr.role_name
         from sys_user u left join sys_user_role ur on u.id=ur.user_id left join sys_role sr on ur.role_id=sr.id
         <where>
+            u.user_state = 0 and sr.role_status = 0
             <if test="nickName != null and nickName != ''">
-                u.nick_name=#{nickName}
+                and u.nick_name=#{nickName}
             </if>
         </where>
     </select>

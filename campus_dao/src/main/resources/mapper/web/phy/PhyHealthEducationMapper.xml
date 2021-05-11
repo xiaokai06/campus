@@ -18,7 +18,7 @@
     <if test="id != null and id != ''">
       content,
     </if>
-    oper_user,image_url,create_time,head_flag
+    oper_user,image_url,DATE_FORMAT(create_time,'%Y-%m-%d') as create_time,head_flag
         from phy_health_education
           <where>
             <if test="id != null and id != ''">
@@ -31,7 +31,8 @@
               and organ_id=#{organId,jdbcType=INTEGER}
             </if>
             <if test="createTime != null and createTime != ''">
-              and create_time=#{createTime}
+              and create_time <![CDATA[ <= ]]> #{endTime,jdbcType=VARCHAR}
+              and create_time <![CDATA[ >= ]]> #{startTime,jdbcType=VARCHAR}
             </if>
             <if test="title != null and title != ''">
               and title like concat('%', #{title}, '%')
