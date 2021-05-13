@@ -1,6 +1,7 @@
 package com.huiyi.campus.dao.mapper.web.phy;
 
 import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
+import com.huiyi.campus.dao.dto.health.ReportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyStudentInfoEntity;
 import com.huiyi.campus.dao.vo.health.StudentInfoRecordVo;
@@ -25,7 +26,7 @@ public interface PhyStudentInfoMapper {
 
     List<StudentInfoRecordVo> exportStudentInfo(ExportStudentInfoDto exportStudentInfoDto);
 
-    int insertSelectiveList(List<PhyStudentInfoEntity> phyStudentInfoEntityList);
+    int insertSelectiveList(List<ReportStudentInfoDto> phyStudentInfoEntityList);
 
     int deleteByPrimaryKeyAndHealthAndItem(String id);
 

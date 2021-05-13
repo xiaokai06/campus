@@ -13,6 +13,7 @@ import com.huiyi.campus.common.utils.idworker.Sid;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
 import com.huiyi.campus.common.utils.rs.SystemErrorEnum;
 import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
+import com.huiyi.campus.dao.dto.health.ReportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.dto.sys.SysGradeClassDto;
@@ -502,14 +503,16 @@ public class CampusHRecordServiceImpl implements CampusHRecordService {
     @Override
     public String importStudentInfoFile(MultipartFile file) {
         try {
-            List<PhyStudentInfoEntity> phyStudentInfoEntityList = ExcelUtils.importExcel(file, 0, 1, PhyStudentInfoEntity.class);
+            log.info("学生档案信息数据导入息接口开始执行--->");
+            List<ReportStudentInfoDto> phyStudentInfoEntityList = ExcelUtils.importExcel(file, 0, 1, ReportStudentInfoDto.class);
             phyStudentInfoEntityList.forEach(str -> {
                 str.setId(Sid.nextShort());
-//                str.setPhyDate(new Date());
                 str.setCreateTime(DateUtil.getMsTime());
             });
             int batchInsertStudentInfo = healthRecordDao.batchInsertStudentInfo(phyStudentInfoEntityList);
             if (batchInsertStudentInfo > 0) {
+                log.info("学生档案信息数据导入息接口结束执行--->");
+
                 return "导入成功";
             }
         } catch (Exception e) {

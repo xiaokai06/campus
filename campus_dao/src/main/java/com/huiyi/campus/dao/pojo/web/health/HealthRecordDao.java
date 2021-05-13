@@ -1,6 +1,7 @@
 package com.huiyi.campus.dao.pojo.web.health;
 
 import com.huiyi.campus.dao.dto.health.ExportStudentInfoDto;
+import com.huiyi.campus.dao.dto.health.ReportStudentInfoDto;
 import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.dao.entity.phy.PhyItemResultEntity;
 import com.huiyi.campus.dao.entity.phy.PhyStudentHealthInfoEntity;
@@ -116,7 +117,7 @@ public class HealthRecordDao {
      * @param phyStudentInfoEntityList
      * @return
      */
-    public int batchInsertStudentInfo(List<PhyStudentInfoEntity> phyStudentInfoEntityList) {
+    public int batchInsertStudentInfo(List<ReportStudentInfoDto> phyStudentInfoEntityList) {
         return phyStudentInfoMapper.insertSelectiveList(phyStudentInfoEntityList);
     }
 
