@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.entity.sys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
@@ -33,11 +34,19 @@ public class SysSchoolEntity implements Serializable {
     @ApiModelProperty("学校地址")
     private String schoolAddress;
 
+    @ApiModelProperty("学校联系电话")
+    private String schoolPhone;
+
+    @ApiModelProperty("学校负责人")
+    private String schoolManager;
+
     @ApiModelProperty("创建时间")
     private String createTime;
 
+    @JsonIgnore
     private Integer pageNum;
 
+    @JsonIgnore
     private Integer pageSize;
 
 }

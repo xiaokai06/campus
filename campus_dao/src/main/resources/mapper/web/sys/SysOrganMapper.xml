@@ -5,12 +5,15 @@
         <result property="id" jdbcType="INTEGER" column="id"/>
         <result property="organName" jdbcType="VARCHAR" column="organ_name"/>
         <result property="organCode" jdbcType="VARCHAR" column="organ_code"/>
+        <result property="organPhone" jdbcType="VARCHAR" column="organ_phone"/>
+        <result property="organManager" jdbcType="VARCHAR" column="organ_manager"/>
+        <result property="organAddress" jdbcType="VARCHAR" column="organ_address"/>
         <result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>
     </resultMap>
 
     <!-- 查询机构 -->
     <select id="selectAllOrgan" resultMap="BaseResultMap">
-        select id, organ_name, organ_code, create_time
+        select id, organ_name, organ_code,organ_phone,organ_manager,organ_address,create_time
         from sys_organ
         <where>
             <if test="sysOrgan.organName != null and sysOrgan.organName != ''">
@@ -36,6 +39,15 @@
             <if test="organCode != null and organCode != ''">
                 organ_code,
             </if>
+            <if test="organPhone != null and organPhone != ''">
+                organ_phone,
+            </if>
+            <if test="organManager != null and organManager != ''">
+                organ_manager,
+            </if>
+            <if test="organAddress != null and organAddress != ''">
+                organ_address,
+            </if>
             create_time,
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -44,6 +56,15 @@
             </if>
             <if test="organCode != null and organCode != ''">
                 #{organCode,jdbcType=VARCHAR},
+            </if>
+            <if test="organPhone != null and organPhone != ''">
+                #{organPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="organManager != null and organManager != ''">
+                #{organManager,jdbcType=VARCHAR},
+            </if>
+            <if test="organAddress != null and organAddress != ''">
+                #{organAddress,jdbcType=VARCHAR},
             </if>
             now(),
         </trim>
@@ -58,6 +79,15 @@
             </if>
             <if test="organCode != null and organCode != ''">
                 organ_code=#{organCode,jdbcType=VARCHAR},
+            </if>
+            <if test="organPhone != null and organPhone != ''">
+                organ_phone=#{organPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="organManager != null and organManager != ''">
+                organ_manager=#{organManager,jdbcType=VARCHAR},
+            </if>
+            <if test="organAddress != null and organAddress != ''">
+                organ_address=#{organAddress,jdbcType=VARCHAR},
             </if>
         </set>
         <where>

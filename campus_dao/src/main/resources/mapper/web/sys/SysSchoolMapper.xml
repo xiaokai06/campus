@@ -5,6 +5,8 @@
         <id column="id" jdbcType="INTEGER" property="schoolId"/>
         <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
         <result column="school_address" jdbcType="VARCHAR" property="schoolAddress"/>
+        <result column="school_phone" jdbcType="VARCHAR" property="schoolPhone"/>
+        <result column="school_manager" jdbcType="VARCHAR" property="schoolManager"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="organ_id" jdbcType="INTEGER" property="organId"/>
         <result column="organ_name" jdbcType="VARCHAR" property="organName"/>
@@ -12,7 +14,7 @@
 
     <!-- 查询学校 -->
     <select id="selectAllSchool" resultMap="BaseResultMap">
-        select s.id,s.school_name,s.school_address,s.create_time,s.organ_id,so.organ_name
+        select s.id,s.school_name,s.school_address,s.school_phone,s.school_manager,s.create_time,s.organ_id,so.organ_name
         from sys_school s left join sys_organ so on s.organ_id=so.id
         <where>
             <if test="sysSchool.schoolId != null and sysSchool.schoolId != ''">
@@ -59,6 +61,12 @@
             <if test="schoolAddress != null">
                 school_address,
             </if>
+            <if test="schoolPhone != null and schoolPhone != ''">
+                school_phone,
+            </if>
+            <if test="schoolManager != null and schoolManager != ''">
+                school_manager,
+            </if>
             <if test="organId != null">
                 organ_id,
             </if>
@@ -70,6 +78,12 @@
             </if>
             <if test="schoolAddress != null">
                 #{schoolAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolPhone != null and schoolPhone != ''">
+                #{schoolPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolManager != null and schoolManager != ''">
+                #{schoolManager,jdbcType=VARCHAR},
             </if>
             <if test="organId != null">
                 #{organId,jdbcType=INTEGER},
@@ -87,6 +101,12 @@
             </if>
             <if test="schoolAddress != null">
                 school_address = #{schoolAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolPhone != null and schoolPhone != ''">
+                school_phone=#{schoolPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolManager != null and schoolManager != ''">
+                school_manager=#{schoolManager,jdbcType=VARCHAR},
             </if>
             <if test="organId != null">
                 organ_id = #{organId,jdbcType=INTEGER},

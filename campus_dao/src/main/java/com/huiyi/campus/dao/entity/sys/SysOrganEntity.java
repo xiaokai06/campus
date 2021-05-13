@@ -1,5 +1,6 @@
 package com.huiyi.campus.dao.entity.sys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
@@ -32,14 +33,26 @@ public class SysOrganEntity implements Serializable {
     @ApiModelProperty("机构代码")
     private String organCode;
 
+    @ApiModelProperty("机构联系电话")
+    private String organPhone;
+
+    @ApiModelProperty("机构负责人")
+    private String organManager;
+
+    @ApiModelProperty("机构所在地")
+    private String organAddress;
+
     @ApiModelProperty("创建时间")
     private String createTime;
 
+    @JsonIgnore
     @ApiModelProperty("上级机构ID")
     private Integer parentId;
 
+    @JsonIgnore
     private Integer pageNum;
 
+    @JsonIgnore
     private Integer pageSize;
 
 }
