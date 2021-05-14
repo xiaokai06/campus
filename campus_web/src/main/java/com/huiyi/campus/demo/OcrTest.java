@@ -41,7 +41,7 @@ public class OcrTest {
         String url = "https://aip.baidubce.com/rest/2.0/ocr/v1/form";
         try {
             // 本地文件路径
-            String filePath = "E:\\phy\\1.jpg";
+            String filePath = "E:\\phy\\1620983526(1).png";
             byte[] imgData = FileUtil.readFileByBytes(filePath);
             String imgStr = Base64Util.encode(imgData);
             String imgParam = URLEncoder.encode(imgStr, "UTF-8");
@@ -75,7 +75,7 @@ public class OcrTest {
         String url = "https://aip.baidubce.com/rest/2.0/solution/v1/form_ocr/request";
         try {
             // 本地文件路径
-            String filePath = "E:\\phy\\1.jpg";
+            String filePath = "E:\\phy\\1620983526(1).png";
             byte[] imgData = FileUtil.readFileByBytes(filePath);
             String imgStr = Base64Util.encode(imgData);
             String imgParam = URLEncoder.encode(imgStr, "UTF-8");
@@ -95,8 +95,8 @@ public class OcrTest {
     }
 
     public static void main(String[] args) {
-//        OcrTest.form();
-        OcrTest.formOcrRequest();
+        OcrTest.form();
+//        OcrTest.formOcrRequest();
 
     }
 
