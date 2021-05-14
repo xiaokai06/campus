@@ -8,7 +8,6 @@ import com.huiyi.campus.dao.entity.sys.SysRoleEntity;
 import com.huiyi.campus.dao.pojo.web.sys.SysRoleMenuDao;
 import com.huiyi.campus.web.sys.service.SysRoleMenuService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -22,7 +21,6 @@ import java.util.stream.Collectors;
  * @description: 角色-菜单管理
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
     SysRoleMenuDao sysRoleMenuDao;

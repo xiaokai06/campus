@@ -12,7 +12,6 @@ import com.huiyi.campus.dao.vo.sys.TokenVo;
 import com.huiyi.campus.web.sys.service.SysOrganService;
 import com.huiyi.campus.web.sys.service.UserCacheService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -23,7 +22,6 @@ import java.util.List;
  * @description: 机构管理
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class SysOrganServiceImpl implements SysOrganService {
 
     SysOrganDao sysOrganDao;

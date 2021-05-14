@@ -10,7 +10,6 @@ import com.huiyi.campus.dao.pojo.web.sys.SysDeskDao;
 import com.huiyi.campus.dao.pojo.web.sys.SysDoctorDao;
 import com.huiyi.campus.web.sys.service.SysDeskService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -21,7 +20,6 @@ import java.util.List;
  * @description: 科室管理
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class SysDeskServiceImpl implements SysDeskService {
 
     SysDeskDao sysDeskDao;

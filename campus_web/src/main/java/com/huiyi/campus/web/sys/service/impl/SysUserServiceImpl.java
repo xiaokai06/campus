@@ -23,7 +23,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -36,7 +35,6 @@ import java.util.stream.Collectors;
  * @description: 用户管理
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class SysUserServiceImpl implements SysUserService {
 
     private static final Log logger = LogFactory.getLog(SysUserServiceImpl.class);

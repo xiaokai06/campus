@@ -16,7 +16,6 @@ import com.huiyi.campus.web.sys.service.UserCacheService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +26,6 @@ import java.util.stream.Collectors;
  * @description: 学校管理
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class SysSchoolServiceImpl implements SysSchoolService {
 
     private static final Logger logger = LoggerFactory.getLogger(SysSchoolServiceImpl.class);
@@ -97,7 +95,6 @@ public class SysSchoolServiceImpl implements SysSchoolService {
             Integer schoolId = sysSchoolEntity.getSchoolId();
             Integer organId = sysSchoolEntity.getOrganId();
             logger.info("修改学校接口，学校ID为：" + schoolId + ", 机构ID为：" + organId);
-//            sysUserDao.updateOrganIdBySchoolId(schoolId, organId);
         }
         return ResultBody.update(count);
     }
