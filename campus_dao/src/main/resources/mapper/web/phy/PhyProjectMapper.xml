@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.sys.SysProjectMapper">
+    <resultMap id="BasePhyProject" type="com.huiyi.campus.dao.entity.phy.PhyProject">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="phy_name" jdbcType="VARCHAR" property="phyName"/>
+        <result column="project_name" jdbcType="VARCHAR" property="projectName"/>
+        <result column="project_type_id" jdbcType="INTEGER" property="projectTypeId"/>
+        <result column="project_code" jdbcType="VARCHAR" property="projectCode"/>
+        <result column="unit" jdbcType="VARCHAR" property="unit"/>
+        <result column="low_advice" jdbcType="VARCHAR" property="lowAdvice"/>
+        <result column="high_advice" jdbcType="VARCHAR" property="highAdvice"/>
+        <result column="low_risk" jdbcType="VARCHAR" property="lowRisk"/>
+        <result column="high_risk" jdbcType="VARCHAR" property="highRisk"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="min_age" jdbcType="VARCHAR" property="minAge"/>
+        <result column="max_age" jdbcType="VARCHAR" property="maxAge"/>
+        <result column="ref_l" jdbcType="VARCHAR" property="refL"/>
+        <result column="ref_h" jdbcType="VARCHAR" property="refH"/>
+        <result column="ref_text" jdbcType="VARCHAR" property="refText"/>
+        <result column="ref_low" jdbcType="VARCHAR" property="refLow"/>
+        <result column="ref_high" jdbcType="VARCHAR" property="refHigh"/>
+        <result column="ref_value" jdbcType="VARCHAR" property="refValue"/>
+    </resultMap>
+
+    <!-- 查询项目字典列表 -->
+    <select id="selectAllProject" resultMap="BasePhyProject">
+        select p.id,p.project_name,p.project_type_id,p.project_code,p.unit,p.low_advice,p.high_advice,p.ref_low,p.ref_high,p.ref_value,
+               p.low_risk,p.high_risk,t.phy_name,sr.sex,sr.min_age,sr.max_age,sr.ref_l,sr.ref_h,sr.ref_text from phy_project p
+        left join phy_project_type t on p.project_type_id=t.id left join phy_sex_age_ref sr on p.id = sr.phy_project_id
+        <where>
+            <if test="projectName != null and projectName != ''">
+                p.project_name like concat('%', #{projectName}, '%')
+            </if>
+            <if test="projectTypeId != null and projectTypeId != 0">
+                and p.project_type_id = #{projectTypeId}
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="BaseProjectType" type="com.huiyi.campus.dao.entity.phy.PhyProjectType">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="phy_name" jdbcType="VARCHAR" property="phyName"/>
+        <result column="phy_code" jdbcType="VARCHAR" property="phyCode"/>
+    </resultMap>
+
+    <!-- 查询所有项目归类 -->
+    <select id="selectProjectType" resultMap="BaseProjectType">
+        select id,phy_name,phy_code from phy_project_type
+    </select>
+
+</mapper>
