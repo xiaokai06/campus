@@ -1,14 +1,17 @@
 package com.huiyi.campus.common.utils;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.collections.map.ListOrderedMap;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import static java.util.regex.Pattern.compile;
@@ -111,5 +114,5 @@ public class JsonUtils {
         }
         return true;
     }
-    
+
 }

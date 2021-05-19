@@ -1,5 +1,8 @@
 package com.huiyi.campus.demo;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -37,7 +40,7 @@ public class BaiOcrTest {
         String recogniseUrl = "https://aip.baidubce.com/rest/2.0/solution/v1/iocr/recognise";
 
 
-        String filePath = "E:\\phy\\2.jpg";
+        String filePath = "/Users/yukaili/huiyi/phy/2.jpg";
         try {
             byte[] imgData = FileUtil.readFileByBytes(filePath);
             String imgStr = Base64Util.encode(imgData);
@@ -52,9 +55,20 @@ public class BaiOcrTest {
             String result = HttpUtil.post(recogniseUrl, accessToken, recogniseParams);
             // 请求分类器识别
             // String result = HttpUtil.post(recogniseUrl, accessToken, classifierParams);
+            JSONObject jsonObject = new JSONObject(result);
+            JSONObject json = jsonObject.getJSONObject("data");
+            JSONArray jsonArray = json.getJSONArray("ret");
+            List<OcrDto> list = JSON.parseObject(jsonArray.toString(), new TypeReference<List<OcrDto>>() {
+            });
+            list.forEach(str -> {
+                if(str.getWordName().contains("list")){
+//                    System.out.println(str.getWordName());
+//                    System.out.println(str.getWordName().split("#").toString());
+                    System.out.println(str.getWord());
+                }
 
-
-            System.out.println(result);
+            });
+//            System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
