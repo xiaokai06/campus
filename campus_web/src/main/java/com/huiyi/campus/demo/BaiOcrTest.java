@@ -62,8 +62,9 @@ public class BaiOcrTest {
             });
             list.forEach(str -> {
                 if(str.getWordName().contains("list")){
-//                    System.out.println(str.getWordName());
-//                    System.out.println(str.getWordName().split("#").toString());
+                    System.out.println(str.getWordName());
+                    String test = str.getWordName().substring(5,6);
+                    System.out.println(test);
                     System.out.println(str.getWord());
                 }
 
