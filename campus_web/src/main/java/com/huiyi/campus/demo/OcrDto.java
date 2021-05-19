@@ -15,4 +15,5 @@ import lombok.Setter;
 public class OcrDto {
     private String wordName;
     private String word;
+    private String id ;
 }

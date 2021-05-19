@@ -2,14 +2,20 @@ package com.huiyi.campus.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.huiyi.campus.dao.mapper.web.phy.PhyItemResultMapper;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +32,11 @@ public class BaiOcrTest {
     public static final String API_KEY = "gIo6Gbsqg2hCfmg9OhPMjB2v";
     public static final String SECRET_KEY = "2f3wV33H91db4bx990EYLgzzYeESBxvg";
 
-    public static void main(String[] args) throws Exception {
+    @Autowired
+    PhyItemResultMapper phyItemResultMapper;
+
+    @Test
+    public void test() throws Exception {
         /**
          * 重要提示代码中所需工具类
          * FileUtil,Base64Util,HttpUtil,GsonUtils请从
@@ -60,16 +70,60 @@ public class BaiOcrTest {
             JSONArray jsonArray = json.getJSONArray("ret");
             List<OcrDto> list = JSON.parseObject(jsonArray.toString(), new TypeReference<List<OcrDto>>() {
             });
+            List<ItemDto> itemList = new ArrayList<>();
+            ItemDto itemDto = new ItemDto();
+//            AtomicInteger id = new AtomicInteger(AtomicInteger1);
             list.forEach(str -> {
-                if(str.getWordName().contains("list")){
-                    System.out.println(str.getWordName());
-                    String test = str.getWordName().substring(5,6);
-                    System.out.println(test);
-                    System.out.println(str.getWord());
+                if (str.getWordName().contains("list")) {
+                    String ids = str.getWordName().substring(5, 6);
+                    str.setId(ids);
+//
+//                    if (str.getWordName().contains("#" + id + "#")) {
+//                        if (str.getWordName().contains("id")) {
+//                            itemDto.setId(str.getWord());
+//                        }
+//                        if (str.getWordName().contains("itemCode")) {
+//                            itemDto.setItemCode(str.getWord());
+//                        }
+//                        if (str.getWordName().contains("itemName")) {
+//                            itemDto.setItemName(str.getWord());
+//                        }
+//                        if (str.getWordName().contains("itemResult")) {
+//                            itemDto.setItemResult(str.getWord());
+//                        }
+//                        if (str.getWordName().contains("resultText")) {
+//                            itemDto.setResultText(str.getWord());
+//                        }
+//                        if (str.getWordName().contains("itemUnit")) {
+//                            itemDto.setItemUnit(str.getWord());
+//                        }
+//                        if (str.getWordName().contains("itemArea")) {
+//                            itemDto.setItemArea(str.getWord());
+//                        }
+//                    }
+                }
+            });
+            Map<Integer, List<OcrDto>> mapMap = new HashMap<>();
+//            list.forEach(st->{
+//                if (st.getWordName().contains("list")) {
+//
+//                }
+//                });
+            for (OcrDto newMap : list){
+                if (StringUtils.isNotBlank(newMap.getId())) {
+                    List<OcrDto> newl = new ArrayList<>();
+                    if (mapMap.containsKey(Integer.valueOf(newMap.getId()))) {
+                        mapMap.get(Integer.valueOf(newMap.getId())).add((OcrDto) newMap);
+                    } else {
+                        newl.add(newMap);
+                        mapMap.put(Integer.valueOf(newMap.getId()), newl);
+                    }
                 }
 
-            });
-//            System.out.println(result);
+            }
+            JSONObject JS = new JSONObject(mapMap);
+            System.out.println(JS);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
