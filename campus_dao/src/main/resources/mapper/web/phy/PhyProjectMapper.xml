@@ -12,12 +12,6 @@
         <result column="high_advice" jdbcType="VARCHAR" property="highAdvice"/>
         <result column="low_risk" jdbcType="VARCHAR" property="lowRisk"/>
         <result column="high_risk" jdbcType="VARCHAR" property="highRisk"/>
-        <result column="sex" jdbcType="VARCHAR" property="sex"/>
-        <result column="min_age" jdbcType="VARCHAR" property="minAge"/>
-        <result column="max_age" jdbcType="VARCHAR" property="maxAge"/>
-        <result column="ref_l" jdbcType="VARCHAR" property="refL"/>
-        <result column="ref_h" jdbcType="VARCHAR" property="refH"/>
-        <result column="ref_text" jdbcType="VARCHAR" property="refText"/>
         <result column="ref_low" jdbcType="VARCHAR" property="refLow"/>
         <result column="ref_high" jdbcType="VARCHAR" property="refHigh"/>
         <result column="ref_value" jdbcType="VARCHAR" property="refValue"/>
@@ -26,8 +20,7 @@
     <!-- 查询项目字典列表 -->
     <select id="selectAllProject" resultMap="BasePhyProject">
         select p.id,p.project_name,p.project_type_id,p.project_code,p.unit,p.low_advice,p.high_advice,p.ref_low,p.ref_high,p.ref_value,
-               p.low_risk,p.high_risk,t.phy_name,sr.sex,sr.min_age,sr.max_age,sr.ref_l,sr.ref_h,sr.ref_text from phy_project p
-        left join phy_project_type t on p.project_type_id=t.id left join phy_sex_age_ref sr on p.id = sr.phy_project_id
+               p.low_risk,p.high_risk,t.phy_name from phy_project p left join phy_project_type t on p.project_type_id=t.id
         <where>
             <if test="projectName != null and projectName != ''">
                 p.project_name like concat('%', #{projectName}, '%')
@@ -37,6 +30,209 @@
             </if>
         </where>
     </select>
+
+    <!-- 新增项目字典 -->
+    <insert id="insertProject" parameterType="com.huiyi.campus.dao.entity.phy.PhyProject" useGeneratedKeys="true" keyProperty="id">
+        insert into phy_project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="projectName != null and projectName != ''">
+                project_name,
+            </if>
+            <if test="projectTypeId != null and projectTypeId != 0">
+                project_type_id,
+            </if>
+            <if test="unit != null and unit != ''">
+                unit,
+            </if>
+            <if test="projectCode != null and projectCode != ''">
+                project_code,
+            </if>
+            <if test="refLow != null and refLow != ''">
+                ref_low,
+            </if>
+            <if test="refHigh != null and refHigh != ''">
+                ref_high,
+            </if>
+            <if test="refValue != null and refValue != ''">
+                ref_value,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="projectName != null and projectName != ''">
+                #{projectName,jdbcType=VARCHAR},
+            </if>
+            <if test="projectTypeId != null and projectTypeId != 0">
+                #{projectTypeId,jdbcType=INTEGER},
+            </if>
+            <if test="unit != null and unit != ''">
+                #{unit,jdbcType=VARCHAR},
+            </if>
+            <if test="projectCode != null and projectCode != ''">
+                #{projectCode,jdbcType=VARCHAR},
+            </if>
+            <if test="refLow != null and refLow != ''">
+                #{refLow,jdbcType=VARCHAR},
+            </if>
+            <if test="refHigh != null and refHigh != ''">
+                #{refHigh,jdbcType=VARCHAR},
+            </if>
+            <if test="refValue != null and refValue != ''">
+                #{refValue,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 修改项目字典 -->
+    <update id="updateProject" parameterType="com.huiyi.campus.dao.entity.phy.PhyProject">
+        update phy_project
+        <set>
+            <if test="projectName != null and projectName != ''">
+                project_name=#{projectName,jdbcType=VARCHAR},
+            </if>
+            <if test="projectTypeId != null and projectTypeId != 0">
+                project_type_id=#{projectTypeId,jdbcType=INTEGER},
+            </if>
+            <if test="unit != null and unit != ''">
+                unit=#{unit,jdbcType=VARCHAR},
+            </if>
+            <if test="projectCode != null and projectCode != ''">
+                project_code=#{projectCode,jdbcType=VARCHAR},
+            </if>
+            <if test="refLow != null and refLow != ''">
+                ref_low=#{refLow,jdbcType=VARCHAR},
+            </if>
+            <if test="refHigh != null and refHigh != ''">
+                ref_high=#{refHigh,jdbcType=VARCHAR},
+            </if>
+            <if test="refValue != null and refValue != ''">
+                ref_value=#{refValue,jdbcType=VARCHAR},
+            </if>
+            <if test="lowAdvice != null and lowAdvice != ''">
+                low_advice=#{lowAdvice,jdbcType=VARCHAR},
+            </if>
+            <if test="highAdvice != null and highAdvice != ''">
+                high_advice=#{highAdvice,jdbcType=VARCHAR},
+            </if>
+            <if test="lowRisk != null and lowRisk != ''">
+                low_risk=#{lowRisk,jdbcType=VARCHAR},
+            </if>
+            <if test="highRisk != null and highRisk != ''">
+                high_risk=#{highRisk,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <where>
+            <if test="id != null">
+                id = #{id,jdbcType=INTEGER}
+            </if>
+        </where>
+    </update>
+
+    <!-- 删除项目字典 -->
+    <delete id="deleteProject" parameterType="java.lang.Integer">
+        delete from phy_project where id = #{id}
+    </delete>
+
+    <resultMap id="BaseSexAgeRef" type="com.huiyi.campus.dao.entity.phy.PhySexAgeRef">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="phy_project_id" jdbcType="INTEGER" property="phyProjectId"/>
+        <result column="min_age" jdbcType="VARCHAR" property="minAge"/>
+        <result column="max_age" jdbcType="VARCHAR" property="maxAge"/>
+        <result column="ref_l" jdbcType="VARCHAR" property="refL"/>
+        <result column="ref_h" jdbcType="VARCHAR" property="refH"/>
+        <result column="ref_text" jdbcType="VARCHAR" property="refText"/>
+    </resultMap>
+
+    <!-- 查询性别年龄参考值 -->
+    <select id="selectSexAgeRef" parameterType="java.lang.Integer" resultMap="BaseSexAgeRef">
+        select id,sex,phy_project_id,min_age,max_age,ref_l,ref_h,ref_text from phy_sex_age_ref where phy_project_id=#{id}
+    </select>
+
+    <!-- 新增性别年龄参考值 -->
+    <insert id="insertPhySexAgeRef" parameterType="com.huiyi.campus.dao.entity.phy.PhySexAgeRef" useGeneratedKeys="true" keyProperty="id">
+        insert into phy_sex_age_ref
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="phyProjectId != null">
+                phy_project_id,
+            </if>
+            <if test="sex != null and sex != ''">
+                sex,
+            </if>
+            <if test="minAge != null and minAge != ''">
+                min_age,
+            </if>
+            <if test="maxAge != null and maxAge != ''">
+                max_age,
+            </if>
+            <if test="refL != null and refL != ''">
+                ref_l,
+            </if>
+            <if test="refH != null and refH != ''">
+                ref_h,
+            </if>
+            <if test="refText != null and refText != ''">
+                ref_text,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="phyProjectId != null">
+                #{phyProjectId},
+            </if>
+            <if test="sex != null and sex != ''">
+                #{sex},
+            </if>
+            <if test="minAge != null and minAge != ''">
+                #{minAge},
+            </if>
+            <if test="maxAge != null and maxAge != ''">
+                #{maxAge},
+            </if>
+            <if test="refL != null and refL != ''">
+                #{refL},
+            </if>
+            <if test="refH != null and refH != ''">
+                #{refH},
+            </if>
+            <if test="refText != null and refText != ''">
+                #{refText},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 修改性别年龄参考值 -->
+    <update id="updatePhySexAgeRef" parameterType="com.huiyi.campus.dao.entity.phy.PhySexAgeRef">
+        update phy_sex_age_ref
+        <set>
+            <if test="sex != null and sex != ''">
+                sex = #{sex},
+            </if>
+            <if test="minAge != null and minAge != ''">
+                min_age = #{minAge},
+            </if>
+            <if test="maxAge != null and maxAge != ''">
+                max_age = #{maxAge},
+            </if>
+            <if test="refL != null and refL != ''">
+                ref_l = #{refL},
+            </if>
+            <if test="refH != null and refH != ''">
+                ref_h = #{refH},
+            </if>
+            <if test="refText != null and refText != ''">
+                ref_text = #{refText},
+            </if>
+        </set>
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <!-- 删除性别年龄参考值 -->
+    <delete id="deletePhySexAgeRef" parameterType="java.lang.Integer">
+        delete from phy_sex_age_ref where phy_project_id = #{id}
+    </delete>
 
     <resultMap id="BaseProjectType" type="com.huiyi.campus.dao.entity.phy.PhyProjectType">
         <id column="id" jdbcType="INTEGER" property="id"/>

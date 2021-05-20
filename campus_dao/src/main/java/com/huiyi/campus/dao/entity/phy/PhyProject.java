@@ -47,24 +47,6 @@ public class PhyProject {
     @ApiModelProperty("高于参考值风险")
     private String highRisk;
 
-    @ApiModelProperty("性别（1:男，2:女，all：未知）")
-    private String sex;
-
-    @ApiModelProperty("最小年龄")
-    private String minAge;
-
-    @ApiModelProperty("最大年龄")
-    private String maxAge;
-
-    @ApiModelProperty("最小值")
-    private String refL;
-
-    @ApiModelProperty("最大值")
-    private String refH;
-
-    @ApiModelProperty("参考值范围")
-    private String refText;
-
     @ApiModelProperty("参考低值")
     private String refLow;
 

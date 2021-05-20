@@ -8,16 +8,10 @@ import com.huiyi.campus.dao.dto.sys.PhyProjectDto;
 import com.huiyi.campus.dao.entity.phy.PhyProject;
 import com.huiyi.campus.dao.entity.phy.PhySexAgeRef;
 import com.huiyi.campus.dao.pojo.web.sys.SysProjectDao;
-import com.huiyi.campus.dao.vo.sys.SysProjectVo;
 import com.huiyi.campus.web.sys.service.SysProjectService;
-import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author: yzg
@@ -46,29 +40,7 @@ public class SysProjectServiceImpl implements SysProjectService {
             PageHelper.startPage(pageNum, pageSize);
         }
         List<PhyProject> list = sysProjectDao.getAllProject(phyProjectDto);
-        Map<Integer, List<PhyProject>> map = list.stream().collect(Collectors.groupingBy(PhyProject::getId));
-        List<SysProjectVo> resultList = new ArrayList<>();
-        for (Integer typeId : map.keySet()) {
-            SysProjectVo sysProjectVo = new SysProjectVo();
-            List<PhyProject> phyList = map.get(typeId);
-            if (!CollectionUtils.isEmpty(phyList)) {
-                PhyProject phyProject = phyList.get(0);
-                try {
-                    BeanUtils.copyProperties(sysProjectVo, phyProject);
-                    List<PhySexAgeRef> sexAgeRefs = new ArrayList<>();
-                    for (PhyProject phyProject1 : phyList) {
-                        PhySexAgeRef phySexAgeRef = new PhySexAgeRef();
-                        BeanUtils.copyProperties(phySexAgeRef, phyProject1);
-                        sexAgeRefs.add(phySexAgeRef);
-                    }
-                    sysProjectVo.setList(sexAgeRefs);
-                    resultList.add(sysProjectVo);
-                } catch (Exception e) {
-                    throw new RuntimeException("项目字典对象赋值异常：" + e.getMessage());
-                }
-            }
-        }
-        PageInfo<SysProjectVo> pageInfo = new PageInfo<>(resultList);
+        PageInfo<PhyProject> pageInfo = new PageInfo<>(list);
         return CrRpcResult.success(pageInfo);
     }
 
@@ -80,4 +52,75 @@ public class SysProjectServiceImpl implements SysProjectService {
     public ResultBody selectProjectType() {
         return ResultBody.success(sysProjectDao.getProjectType());
     }
+
+    /**
+     * 新增项目字典
+     * @param phyProject
+     * @return
+     */
+    @Override
+    public ResultBody insertProject(PhyProject phyProject) {
+        return ResultBody.insert(sysProjectDao.insertProject(phyProject), phyProject.getId());
+    }
+
+    /**
+     * 修改项目字典
+     * @param phyProject
+     * @return
+     */
+    @Override
+    public ResultBody updateProject(PhyProject phyProject) {
+        return ResultBody.update(sysProjectDao.updateProject(phyProject));
+    }
+
+    /**
+     * 删除项目字典
+     * @param id
+     * @return
+     */
+    @Override
+    public ResultBody deleteProject(Integer id) {
+        return ResultBody.delete(sysProjectDao.deleteProject(id));
+    }
+
+    /**
+     * 查询性别年龄参考值
+     * @param id
+     * @return
+     */
+    @Override
+    public ResultBody selectSexAgeRef(Integer id) {
+        return ResultBody.success(sysProjectDao.selectSexAgeRef(id));
+    }
+
+    /**
+     * 新增性别年龄参考值
+     * @param phySexAgeRef
+     * @return
+     */
+    @Override
+    public ResultBody insertPhySexAgeRef(PhySexAgeRef phySexAgeRef) {
+        return ResultBody.insert(sysProjectDao.insertPhySexAgeRef(phySexAgeRef), phySexAgeRef.getId());
+    }
+
+    /**
+     * 修改性别年龄参考值
+     * @param phySexAgeRef
+     * @return
+     */
+    @Override
+    public ResultBody updatePhySexAgeRef(PhySexAgeRef phySexAgeRef) {
+        return ResultBody.update(sysProjectDao.updatePhySexAgeRef(phySexAgeRef));
+    }
+
+    /**
+     * 删除性别年龄参考值
+     * @param id
+     * @return
+     */
+    @Override
+    public ResultBody deletePhySexAgeRef(Integer id) {
+        return ResultBody.delete(sysProjectDao.deletePhySexAgeRef(id));
+    }
+
 }
