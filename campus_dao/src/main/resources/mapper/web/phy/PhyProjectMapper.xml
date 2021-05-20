@@ -120,16 +120,27 @@
                 high_risk=#{highRisk,jdbcType=VARCHAR},
             </if>
         </set>
-        <where>
-            <if test="id != null">
-                id = #{id,jdbcType=INTEGER}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id = #{id}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </update>
 
     <!-- 删除项目字典 -->
     <delete id="deleteProject" parameterType="java.lang.Integer">
-        delete from phy_project where id = #{id}
+        delete from phy_project
+        <choose>
+            <when test="id != null">
+                where id = #{id}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 
     <resultMap id="BaseSexAgeRef" type="com.huiyi.campus.dao.entity.phy.PhySexAgeRef">
@@ -145,7 +156,15 @@
 
     <!-- 查询性别年龄参考值 -->
     <select id="selectSexAgeRef" parameterType="java.lang.Integer" resultMap="BaseSexAgeRef">
-        select id,sex,phy_project_id,min_age,max_age,ref_l,ref_h,ref_text from phy_sex_age_ref where phy_project_id=#{id}
+        select id,sex,phy_project_id,min_age,max_age,ref_l,ref_h,ref_text from phy_sex_age_ref
+        <choose>
+            <when test="id != null">
+                where phy_project_id = #{id}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </select>
 
     <!-- 新增性别年龄参考值 -->
@@ -222,16 +241,27 @@
                 ref_text = #{refText},
             </if>
         </set>
-        <where>
-            <if test="id != null">
-                id = #{id}
-            </if>
-        </where>
+        <choose>
+            <when test="id != null">
+                where id = #{id}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </update>
 
     <!-- 删除性别年龄参考值 -->
     <delete id="deletePhySexAgeRef" parameterType="java.lang.Integer">
-        delete from phy_sex_age_ref where phy_project_id = #{id}
+        delete from phy_sex_age_ref
+        <choose>
+            <when test="id != null">
+                where phy_project_id = #{id}
+            </when>
+            <otherwise>
+                where 1 > 2
+            </otherwise>
+        </choose>
     </delete>
 
     <resultMap id="BaseProjectType" type="com.huiyi.campus.dao.entity.phy.PhyProjectType">
