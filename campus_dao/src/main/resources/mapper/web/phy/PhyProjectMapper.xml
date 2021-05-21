@@ -15,12 +15,14 @@
         <result column="ref_low" jdbcType="VARCHAR" property="refLow"/>
         <result column="ref_high" jdbcType="VARCHAR" property="refHigh"/>
         <result column="ref_value" jdbcType="VARCHAR" property="refValue"/>
+        <result column="ref_by_age" jdbcType="INTEGER" property="refByAge"/>
+        <result column="ref_by_sex" jdbcType="INTEGER" property="refBySex"/>
     </resultMap>
 
     <!-- 查询项目字典列表 -->
     <select id="selectAllProject" resultMap="BasePhyProject">
-        select p.id,p.project_name,p.project_type_id,p.project_code,p.unit,p.low_advice,p.high_advice,p.ref_low,p.ref_high,p.ref_value,
-               p.low_risk,p.high_risk,t.phy_name from phy_project p left join phy_project_type t on p.project_type_id=t.id
+        select p.id,p.project_name,p.project_type_id,p.project_code,p.unit,p.low_advice,p.high_advice,p.ref_low,p.ref_high,p.ref_value,p.low_risk,
+                p.high_risk,p.ref_by_age,p.ref_by_sex,t.phy_name from phy_project p left join phy_project_type t on p.project_type_id=t.id
         <where>
             <if test="projectName != null and projectName != ''">
                 p.project_name like concat('%', #{projectName}, '%')
@@ -56,6 +58,12 @@
             <if test="refValue != null and refValue != ''">
                 ref_value,
             </if>
+            <if test="refByAge != null and refByAge != 0">
+                ref_by_age,
+            </if>
+            <if test="refBySex != null and refBySex != 0">
+                ref_by_sex,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="projectName != null and projectName != ''">
@@ -78,6 +86,12 @@
             </if>
             <if test="refValue != null and refValue != ''">
                 #{refValue,jdbcType=VARCHAR},
+            </if>
+            <if test="refByAge != null and refByAge != 0">
+                #{refByAge,jdbcType=INTEGER},
+            </if>
+            <if test="refBySex != null and refBySex != 0">
+                #{refBySex,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -118,6 +132,12 @@
             </if>
             <if test="highRisk != null and highRisk != ''">
                 high_risk=#{highRisk,jdbcType=VARCHAR},
+            </if>
+            <if test="refByAge != null and refByAge != 0">
+                ref_by_age=#{refByAge,jdbcType=INTEGER},
+            </if>
+            <if test="refBySex != null and refBySex != 0">
+                ref_by_sex=#{refBySex,jdbcType=INTEGER},
             </if>
         </set>
         <choose>
@@ -256,7 +276,7 @@
         delete from phy_sex_age_ref
         <choose>
             <when test="id != null">
-                where phy_project_id = #{id}
+                where id = #{id}
             </when>
             <otherwise>
                 where 1 > 2

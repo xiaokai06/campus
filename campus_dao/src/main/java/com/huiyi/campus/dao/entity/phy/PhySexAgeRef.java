@@ -1,6 +1,5 @@
 package com.huiyi.campus.dao.entity.phy;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -21,7 +20,6 @@ public class PhySexAgeRef {
     @ApiModelProperty("id")
     private Integer id;
 
-    @JsonIgnore
     @ApiModelProperty("项目ID")
     private Integer phyProjectId;
 
@@ -42,9 +40,5 @@ public class PhySexAgeRef {
 
     @ApiModelProperty("参考值范围")
     private String refText;
-
-    @JsonIgnore
-    @ApiModelProperty("seq")
-    private Integer seq;
 
 }

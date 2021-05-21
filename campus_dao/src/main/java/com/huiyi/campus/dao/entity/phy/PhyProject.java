@@ -56,4 +56,10 @@ public class PhyProject {
     @ApiModelProperty("参考值范围")
     private String refValue;
 
+    @ApiModelProperty("是否与年龄有关（1:有关，-1:无关）")
+    private Integer refByAge;
+
+    @ApiModelProperty("是否与性别有关（1:有关，-1:无关）")
+    private Integer refBySex;
+
 }
