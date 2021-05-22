@@ -1,7 +1,9 @@
 package com.huiyi.campus.demo;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author: liyukai
@@ -12,6 +14,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@EqualsAndHashCode
+@ToString
 public class ItemDto {
     private String id;
     private String itemCode;

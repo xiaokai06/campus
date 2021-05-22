@@ -3,7 +3,6 @@ package com.huiyi.campus.demo;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.huiyi.campus.dao.mapper.web.phy.PhyItemResultMapper;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -36,7 +35,7 @@ public class BaiOcrTest {
     PhyItemResultMapper phyItemResultMapper;
 
     @Test
-    public void test() throws Exception {
+    public void test() {
         /**
          * 重要提示代码中所需工具类
          * FileUtil,Base64Util,HttpUtil,GsonUtils请从
@@ -48,82 +47,69 @@ public class BaiOcrTest {
          */
         // iocr识别apiUrl
         String recogniseUrl = "https://aip.baidubce.com/rest/2.0/solution/v1/iocr/recognise";
-
-
-        String filePath = "/Users/yukaili/huiyi/phy/2.jpg";
+        String filePath = "C:/Users/Admin/Desktop/2.png";
         try {
             byte[] imgData = FileUtil.readFileByBytes(filePath);
             String imgStr = Base64Util.encode(imgData);
             // 请求模板参数
             String recogniseParams = "templateSign=f7775382d24ebd1f79693c1184006005&image=" + URLEncoder.encode(imgStr, "UTF-8");
-            // 请求分类器参数
-            String classifierParams = "classifierId=f7775382d24ebd1f79693c1184006005&image=" + URLEncoder.encode(imgStr, "UTF-8");
-
             String accessToken = getAuth(API_KEY, SECRET_KEY);
-
             // 请求模板识别
             String result = HttpUtil.post(recogniseUrl, accessToken, recogniseParams);
-            // 请求分类器识别
-            // String result = HttpUtil.post(recogniseUrl, accessToken, classifierParams);
             JSONObject jsonObject = new JSONObject(result);
             JSONObject json = jsonObject.getJSONObject("data");
             JSONArray jsonArray = json.getJSONArray("ret");
             List<OcrDto> list = JSON.parseObject(jsonArray.toString(), new TypeReference<List<OcrDto>>() {
             });
-            List<ItemDto> itemList = new ArrayList<>();
-            ItemDto itemDto = new ItemDto();
-//            AtomicInteger id = new AtomicInteger(AtomicInteger1);
-            list.forEach(str -> {
+            List<ItemDto> resultList = new ArrayList<>();
+            int i = 0;
+            Map<Integer, ItemDto> map = new HashMap<>();
+            ItemDto itemDto;
+            for (OcrDto str : list) {
                 if (str.getWordName().contains("list")) {
-                    String ids = str.getWordName().substring(5, 6);
-                    str.setId(ids);
-//
-//                    if (str.getWordName().contains("#" + id + "#")) {
-//                        if (str.getWordName().contains("id")) {
-//                            itemDto.setId(str.getWord());
-//                        }
-//                        if (str.getWordName().contains("itemCode")) {
-//                            itemDto.setItemCode(str.getWord());
-//                        }
-//                        if (str.getWordName().contains("itemName")) {
-//                            itemDto.setItemName(str.getWord());
-//                        }
-//                        if (str.getWordName().contains("itemResult")) {
-//                            itemDto.setItemResult(str.getWord());
-//                        }
-//                        if (str.getWordName().contains("resultText")) {
-//                            itemDto.setResultText(str.getWord());
-//                        }
-//                        if (str.getWordName().contains("itemUnit")) {
-//                            itemDto.setItemUnit(str.getWord());
-//                        }
-//                        if (str.getWordName().contains("itemArea")) {
-//                            itemDto.setItemArea(str.getWord());
-//                        }
-//                    }
-                }
-            });
-            Map<Integer, List<OcrDto>> mapMap = new HashMap<>();
-//            list.forEach(st->{
-//                if (st.getWordName().contains("list")) {
-//
-//                }
-//                });
-            for (OcrDto newMap : list){
-                if (StringUtils.isNotBlank(newMap.getId())) {
-                    List<OcrDto> newl = new ArrayList<>();
-                    if (mapMap.containsKey(Integer.valueOf(newMap.getId()))) {
-                        mapMap.get(Integer.valueOf(newMap.getId())).add((OcrDto) newMap);
-                    } else {
-                        newl.add(newMap);
-                        mapMap.put(Integer.valueOf(newMap.getId()), newl);
+                    String[] s = str.getWordName().split("#");
+                    String ids = s[1];
+                    String name = s[2];
+                    int k = Integer.parseInt(ids);
+                    itemDto = map.get(k);
+                    if (null == itemDto || i != k) {
+                        itemDto = new ItemDto();
+                    }
+                    if ("id".equals(name) && i != k) {
+                        itemDto.setId(ids);
+                        map.put(k, itemDto);
+                        i = k;
+                    }
+                    if (i == k && "itemCode".equals(name)) {
+                        itemDto.setItemCode(str.getWord());
+                        map.put(k, itemDto);
+                    }
+                    if (i == k && "itemName".equals(name)) {
+                        itemDto.setItemName(str.getWord());
+                        map.put(k, itemDto);
+                    }
+                    if (i == k && "itemResult".equals(name)) {
+                        itemDto.setItemResult(str.getWord());
+                        map.put(k, itemDto);
+                    }
+                    if (i == k && "resultText".equals(name)) {
+                        itemDto.setResultText(str.getWord());
+                        map.put(k, itemDto);
+                    }
+                    if (i == k && "itemUnit".equals(name)) {
+                        itemDto.setItemUnit(str.getWord());
+                        map.put(k, itemDto);
+                    }
+                    if (i == k && "itemArea".equals(name)) {
+                        itemDto.setItemArea(str.getWord());
+                        map.put(k, itemDto);
                     }
                 }
-
             }
-            JSONObject JS = new JSONObject(mapMap);
-            System.out.println(JS);
-
+            for (Integer key : map.keySet()) {
+                resultList.add(map.get(key));
+            }
+            System.out.println(resultList);
         } catch (Exception e) {
             e.printStackTrace();
         }
