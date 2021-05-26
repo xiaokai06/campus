@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huiyi.campus.dao.mapper.web.phy.PhyHealthReportMapper">
+  <resultMap id="BaseResultMap" type="com.huiyi.campus.dao.vo.health.PhyReportVo">
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
+    <result column="sex" jdbcType="INTEGER" property="sex"/>
+    <result column="class_name" jdbcType="VARCHAR" property="className"/>
+    <result column="phone" jdbcType="VARCHAR" property="parentNumber"/>
+    <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
+    <result column="create_user" jdbcType="VARCHAR" property="exceptionItem"/>
+  </resultMap>
+
+  <!-- 查询体检报告 -->
+  <select id="selectPhyReport" parameterType="com.huiyi.campus.dao.dto.health.PhyReportDto" resultMap="BaseResultMap">
+    select p.id,p.student_name,p.sex,sg.class_name,sp.phone,p.create_time,'血压升高，体重过重' as create_user
+    from phy_student_info p
+    left join sys_parent sp on p.parent_id=sp.id
+    left join sys_grade_class sg on p.class_id=sg.grade_parent_id
+    <where>
+      <if test="studentName != null and studentName != ''">
+        p.student_name = #{studentName}
+      </if>
+      <if test="className != null and className != ''">
+        and sg.class_name = #{className}
+      </if>
+    </where>
+
+  </select>
+</mapper>

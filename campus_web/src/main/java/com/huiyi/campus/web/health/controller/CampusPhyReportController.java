@@ -1,14 +1,17 @@
 package com.huiyi.campus.web.health.controller;
 
+import com.huiyi.campus.common.base.CrRpcResult;
 import com.huiyi.campus.common.utils.rs.HQJsonResult;
+import com.huiyi.campus.dao.dto.health.PhyReportDto;
 import com.huiyi.campus.dao.dto.health.StudentHealthInfoDto;
-import com.huiyi.campus.dao.dto.health.StudentInfoRecordDto;
 import com.huiyi.campus.web.health.service.CampusHRecordService;
 import com.huiyi.campus.web.health.service.CampusPhyReportService;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author: liyukai
@@ -20,45 +23,26 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "校园健康体检报告")
 @Slf4j
 @RestController
-@RequestMapping("/preport")
+@RequestMapping("/phy")
 public class CampusPhyReportController {
 
-    @Autowired
-    CampusPhyReportService campusPhyReportService;
+    private final CampusPhyReportService campusPhyReportService;
+    private final CampusHRecordService campusHRecordService;
 
-    @Autowired
-    CampusHRecordService campusHRecordService;
+    CampusPhyReportController(CampusPhyReportService campusPhyReportService,
+                              CampusHRecordService campusHRecordService) {
+        this.campusHRecordService = campusHRecordService;
+        this.campusPhyReportService = campusPhyReportService;
+    }
 
     /**
      * 体检报告列表查询
      *
-     * @param studentInfoRecordDto
-     * @param nickName
      * @return
      */
-    @PostMapping("/selectAllReport")
-    public HQJsonResult selectAllReport(@RequestBody StudentInfoRecordDto studentInfoRecordDto, @RequestHeader("acc") String nickName) {
-        return campusHRecordService.queryStudentInfoRecord(studentInfoRecordDto, nickName);
-    }
-
-    /**
-     * 添加体检报告
-     * @param studentHealthInfoDto
-     * @return
-     */
-    @PostMapping("/insertReport")
-    public HQJsonResult insertExaminedReport(@RequestBody StudentHealthInfoDto studentHealthInfoDto){
-        return campusHRecordService.createStudentHealthInfo(studentHealthInfoDto);
-    }
-
-    /**
-     * 修改体检报告
-     * @param studentHealthInfoDto
-     * @return
-     */
-    @PostMapping("/updateReport")
-    public HQJsonResult updateExaminedReport(@RequestBody StudentHealthInfoDto studentHealthInfoDto){
-        return campusHRecordService.updateStudentHealthInfo(studentHealthInfoDto);
+    @PostMapping("/selectPhyReport")
+    public CrRpcResult selectAllReport(@RequestBody PhyReportDto phyReportDto) {
+        return campusPhyReportService.selectPhyReport(phyReportDto);
     }
 
     /**
