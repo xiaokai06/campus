@@ -1,0 +1,286 @@
+2021-04-11 09:48:44.363  INFO 4892 --- [main] com.huiyi.campus.CampusStartApplication  : Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 4892 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+2021-04-11 09:48:44.367  INFO 4892 --- [main] com.huiyi.campus.CampusStartApplication  : The following profiles are active: datasource,cache,bootstrap
+2021-04-11 09:48:46.305  INFO 4892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-11 09:48:46.308  INFO 4892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-11 09:48:46.375  INFO 4892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51ms. Found 0 Redis repository interfaces.
+2021-04-11 09:48:47.000  INFO 4892 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-11 09:48:47.211  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-11 09:48:47.213  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 09:48:47.214  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 09:48:47.215  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 09:48:47.215  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 09:48:47.215  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 09:48:47.215  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 09:48:47.215  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 09:48:47.215  INFO 4892 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 09:48:47.356  INFO 4892 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-11 09:48:47.648  INFO 4892 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$f05cd54a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-11 09:48:48.095  INFO 4892 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-11 09:48:48.097  INFO 4892 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-11 09:48:48.494  INFO 4892 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2021-04-11 09:48:48.496  INFO 4892 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4049 ms
+2021-04-11 09:48:49.130  INFO 4892 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-04-11 09:48:49.319  INFO 4892 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-04-11 09:48:53.140  INFO 4892 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-04-11 09:48:53.275  INFO 4892 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-11 09:48:53.553  INFO 4892 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 09:48:54.657  INFO 4892 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2021-04-11 09:48:54.673  INFO 4892 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-04-11 09:48:54.673  INFO 4892 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2021-04-11 09:48:54.673  INFO 4892 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2021-04-11 09:48:54.674  INFO 4892 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-04-11 09:48:54.674  INFO 4892 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-04-11 09:48:54.674  INFO 4892 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2021-04-11 09:48:54.674  INFO 4892 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6aaf1ce8
+2021-04-11 09:48:54.787  INFO 4892 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-11 09:48:54.796  INFO 4892 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-11 09:48:54.850  INFO 4892 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-11 09:48:55.370  INFO 4892 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2021-04-11 09:48:55.372  INFO 4892 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-04-11 09:48:55.453  INFO 4892 --- [main] com.huiyi.campus.netty.NWebSocketServer  : netty websocket server 启动完毕......
+2021-04-11 09:48:55.477  INFO 4892 --- [main] io.undertow                              : starting server: Undertow - 2.0.29.Final
+2021-04-11 09:48:55.485  INFO 4892 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2021-04-11 09:48:55.500  INFO 4892 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2021-04-11 09:48:55.567  INFO 4892 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 8021 (http) with context path '/campus'
+2021-04-11 09:48:55.570  INFO 4892 --- [main] com.huiyi.campus.CampusStartApplication  : Started CampusStartApplication in 12.602 seconds (JVM running for 14.348)
+2021-04-11 09:48:55.572  INFO 4892 --- [main] com.huiyi.campus.CampusStartApplication  : 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+2021-04-11 09:48:56.039  INFO 4892 --- [RMI TCP Connection(21)-127.0.0.1] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 09:48:56.042  INFO 4892 --- [RMI TCP Connection(21)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 09:48:56.143  INFO 4892 --- [RMI TCP Connection(21)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 100 ms
+2021-04-11 09:48:57.307  INFO 4892 --- [boundedElastic-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2021-04-11 09:48:57.623  INFO 4892 --- [boundedElastic-1] io.lettuce.core.KqueueProvider           : Starting with kqueue library
+2021-04-11 09:49:29.913  INFO 4892 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-11 09:49:29.916  INFO 4892 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2021-04-11 09:49:29.916  INFO 4892 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-04-11 09:49:29.917  INFO 4892 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-11 09:49:29.917  INFO 4892 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-04-11 09:49:29.924  INFO 4892 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-11 09:49:29.935  INFO 4892 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-04-11 09:49:29.956  INFO 4892 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-04-11 09:49:30.122  INFO 4892 --- [SpringContextShutdownHook] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2021-04-11 09:49:30.128  INFO 4892 --- [SpringContextShutdownHook] io.undertow                              : stopping server: Undertow - 2.0.29.Final
+2021-04-11 19:12:37.955  INFO 1962 --- [main] com.huiyi.campus.CampusStartApplication  : Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 1962 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+2021-04-11 19:12:37.958  INFO 1962 --- [main] com.huiyi.campus.CampusStartApplication  : The following profiles are active: datasource,cache,bootstrap
+2021-04-11 19:12:41.079  INFO 1962 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-11 19:12:41.083  INFO 1962 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-11 19:12:41.220  INFO 1962 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113ms. Found 0 Redis repository interfaces.
+2021-04-11 19:12:41.989  INFO 1962 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-11 19:12:42.203  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-11 19:12:42.204  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 19:12:42.204  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 19:12:42.205  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:12:42.205  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:12:42.205  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 19:12:42.205  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:12:42.206  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:12:42.206  INFO 1962 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:12:42.458  INFO 1962 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-11 19:12:43.175  INFO 1962 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$114dce99] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-11 19:12:43.627  INFO 1962 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-11 19:12:43.637  INFO 1962 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-11 19:12:44.346  INFO 1962 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2021-04-11 19:12:44.347  INFO 1962 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6284 ms
+2021-04-11 19:12:45.668  INFO 1962 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-04-11 19:12:46.024  INFO 1962 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-04-11 19:12:52.544  INFO 1962 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-04-11 19:12:52.836  INFO 1962 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-11 19:12:53.415  INFO 1962 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 19:12:55.459  INFO 1962 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2021-04-11 19:12:55.507  INFO 1962 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-04-11 19:12:55.507  INFO 1962 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2021-04-11 19:12:55.507  INFO 1962 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2021-04-11 19:12:55.509  INFO 1962 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-04-11 19:12:55.510  INFO 1962 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-04-11 19:12:55.510  INFO 1962 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2021-04-11 19:12:55.510  INFO 1962 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6fa2d0b2
+2021-04-11 19:12:55.742  INFO 1962 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-11 19:12:55.779  INFO 1962 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-11 19:12:55.961  INFO 1962 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-11 19:12:56.442  INFO 1962 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2021-04-11 19:12:56.443  INFO 1962 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-04-11 19:12:56.594  INFO 1962 --- [main] com.huiyi.campus.netty.NWebSocketServer  : netty websocket server 启动完毕......
+2021-04-11 19:12:56.637  INFO 1962 --- [main] io.undertow                              : starting server: Undertow - 2.0.29.Final
+2021-04-11 19:12:56.657  INFO 1962 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2021-04-11 19:12:56.702  INFO 1962 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2021-04-11 19:12:56.821  INFO 1962 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 8021 (http) with context path '/campus'
+2021-04-11 19:12:56.850  INFO 1962 --- [main] com.huiyi.campus.CampusStartApplication  : Started CampusStartApplication in 20.193 seconds (JVM running for 24.431)
+2021-04-11 19:12:56.865  INFO 1962 --- [main] com.huiyi.campus.CampusStartApplication  : 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+2021-04-11 19:13:05.047  INFO 1962 --- [RMI TCP Connection(1)-192.168.123.17] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 19:13:05.050  INFO 1962 --- [RMI TCP Connection(1)-192.168.123.17] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 19:13:05.180  INFO 1962 --- [RMI TCP Connection(1)-192.168.123.17] o.s.web.servlet.DispatcherServlet        : Completed initialization in 130 ms
+2021-04-11 19:13:11.565  INFO 1962 --- [boundedElastic-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2021-04-11 19:13:12.399  INFO 1962 --- [boundedElastic-1] io.lettuce.core.KqueueProvider           : Starting with kqueue library
+2021-04-11 19:22:06.283  INFO 1962 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-11 19:22:06.292  INFO 1962 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2021-04-11 19:22:06.292  INFO 1962 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-04-11 19:22:06.292  INFO 1962 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-11 19:22:06.296  INFO 1962 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-04-11 19:22:06.316  INFO 1962 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-11 19:22:06.334  INFO 1962 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-04-11 19:22:06.390  INFO 1962 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2021-04-11 19:22:06.650  INFO 1962 --- [SpringContextShutdownHook] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2021-04-11 19:22:06.656  INFO 1962 --- [SpringContextShutdownHook] io.undertow                              : stopping server: Undertow - 2.0.29.Final
+2021-04-11 19:22:20.326  INFO 2138 --- [main] com.huiyi.campus.CampusStartApplication  : Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 2138 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+2021-04-11 19:22:20.330  INFO 2138 --- [main] com.huiyi.campus.CampusStartApplication  : The following profiles are active: datasource,cache,bootstrap
+2021-04-11 19:22:22.412  INFO 2138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-11 19:22:22.414  INFO 2138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-11 19:22:22.499  INFO 2138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71ms. Found 0 Redis repository interfaces.
+2021-04-11 19:22:22.942  INFO 2138 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-11 19:22:23.041  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-11 19:22:23.042  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 19:22:23.042  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 19:22:23.042  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:22:23.042  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:22:23.042  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-11 19:22:23.043  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:22:23.043  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:22:23.044  INFO 2138 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-11 19:22:23.199  INFO 2138 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-11 19:22:23.613  INFO 2138 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$be433f5d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-11 19:22:23.887  INFO 2138 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-11 19:22:23.891  INFO 2138 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-11 19:22:24.514  INFO 2138 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2021-04-11 19:22:24.514  INFO 2138 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4118 ms
+2021-04-11 19:22:25.309  INFO 2138 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-04-11 19:22:25.448  INFO 2138 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-04-11 19:22:29.045  INFO 2138 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-04-11 19:22:29.189  INFO 2138 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-11 19:22:29.420  INFO 2138 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 19:22:30.367  INFO 2138 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2021-04-11 19:22:30.380  INFO 2138 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-04-11 19:22:30.380  INFO 2138 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2021-04-11 19:22:30.381  INFO 2138 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2021-04-11 19:22:30.381  INFO 2138 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-04-11 19:22:30.381  INFO 2138 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-04-11 19:22:30.381  INFO 2138 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2021-04-11 19:22:30.381  INFO 2138 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6920fa35
+2021-04-11 19:22:30.467  INFO 2138 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-11 19:22:30.476  INFO 2138 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-11 19:22:30.525  INFO 2138 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-11 19:22:30.821  INFO 2138 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2021-04-11 19:22:30.821  INFO 2138 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-04-11 19:22:30.874  INFO 2138 --- [main] com.huiyi.campus.netty.NWebSocketServer  : netty websocket server 启动完毕......
+2021-04-11 19:22:30.897  INFO 2138 --- [main] io.undertow                              : starting server: Undertow - 2.0.29.Final
+2021-04-11 19:22:30.914  INFO 2138 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2021-04-11 19:22:30.933  INFO 2138 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2021-04-11 19:22:30.999  INFO 2138 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 8021 (http) with context path '/campus'
+2021-04-11 19:22:31.013  INFO 2138 --- [main] com.huiyi.campus.CampusStartApplication  : Started CampusStartApplication in 12.032 seconds (JVM running for 13.54)
+2021-04-11 19:22:31.017  INFO 2138 --- [main] com.huiyi.campus.CampusStartApplication  : 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+2021-04-11 19:22:31.532  INFO 2138 --- [RMI TCP Connection(5)-127.0.0.1] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 19:22:31.534  INFO 2138 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 19:22:31.616  INFO 2138 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 81 ms
+2021-04-11 19:22:34.218  INFO 2138 --- [boundedElastic-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2021-04-11 19:22:34.622  INFO 2138 --- [boundedElastic-1] io.lettuce.core.KqueueProvider           : Starting with kqueue library
+2021-04-11 19:24:31.120  INFO 2138 --- [XNIO-1 task-4] c.h.c.w.h.c.CampusHRecordController      : http://47.93.112.92:9000/campus/210328BH8D9G01KP/0.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20210411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210411T112431Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=15d2d0c1d4d89e21e0e4243c17db12695838af1cfcdf55dece05ef35bd6cf3fc
+2021-04-11 19:32:41.677  INFO 2138 --- [XNIO-1 task-9] c.h.c.w.h.c.CampusHRecordController      : http://47.93.112.92:9000/campus/210328BH8D9G01KP/1.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20210411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210411T113241Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=02ca9e1ae10e7d836c16de17bf623c905d063d2a2b72fe1d8908aa2b2e9b8253
+2021-04-11 19:37:44.522  INFO 2138 --- [XNIO-1 task-14] c.h.c.w.h.c.CampusHRecordController      : http://47.93.112.92:9000/campus/210328BH5B4CXK1P/2.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20210411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210411T113744Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=46ad8c3a25052bac1a3323e2b20698036583fec91d8e1d9ab1ace87b001ef17c
+2021-04-11 19:39:14.449  INFO 2138 --- [XNIO-1 task-19] c.h.c.w.h.c.CampusHRecordController      : http://47.93.112.92:9000/campus/210328FG22WD8C28/0.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20210411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210411T113914Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=d9146b3bdc88c91e202cfdf11a8e635aa5293647ff350174052ffc90d4d6bf1e
+2021-04-11 19:40:51.727  INFO 2138 --- [XNIO-1 task-21] c.h.c.w.h.c.CampusHRecordController      : 下载学生相片地址为：http://47.93.112.92:9000/campus/210328FG22WD8C28/0.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20210411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210411T114051Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=0534450cd2b58123dace33cac97726595bf6353b869bbbf1fbbd4bf9b92e472f
+2021-04-11 19:42:45.284  INFO 2138 --- [XNIO-1 task-24] c.h.c.w.h.c.CampusHRecordController      : 下载学生相片地址为：http://47.93.112.92:9000/campus/210328BH5B4CXK1P/2.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20210411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210411T114245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=f3537a439f00760261c978d9ac464d64e7a729697518fda406dfe27f8f42ba5f
+2021-04-11 22:08:36.805  INFO 2138 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-11 22:08:36.830  INFO 2138 --- [SpringContextShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2021-04-11 22:08:36.830  INFO 2138 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-04-11 22:08:36.830  INFO 2138 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-04-11 22:08:36.833  INFO 2138 --- [SpringContextShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-04-11 22:08:36.869  INFO 2138 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-11 22:08:36.890  INFO 2138 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-04-11 22:08:36.968  INFO 2138 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

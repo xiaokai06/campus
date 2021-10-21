@@ -48,10 +48,9 @@ logging:
 minio:
   bucketImageName: campus
   studentImage: studentImage
-  endpoint: http://47.93.112.92:9000
-  accessKey: admin
-  secretKey: admin123456
-
+  endpoint: http://47.93.112.92:7100
+  accessKey: minio
+  secretKey: minio@321
 #项目健康监控
 #management:
 #  endpoints:

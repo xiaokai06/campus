@@ -147,6 +147,11 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox-swagger-ui.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.9.6</version>
+        </dependency>
         <!--commons-lang3依赖-->
         <dependency>
             <groupId>org.apache.commons</groupId>

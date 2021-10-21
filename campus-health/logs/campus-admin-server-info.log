@@ -1,0 +1,26 @@
+2021-04-19 22:46:13.764  INFO 2240 --- [main] c.h.campus.CampusAdminServerApplication  : Starting CampusAdminServerApplication on yukailideMacBook-Pro.local with PID 2240 (/Users/yukaili/huiyi/zx/campus_health_system/campus_admin_server/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+2021-04-19 22:46:13.770  INFO 2240 --- [main] c.h.campus.CampusAdminServerApplication  : No active profile set, falling back to default profiles: default
+2021-04-19 22:46:15.724  INFO 2240 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2021-04-19 22:46:15.823  INFO 2240 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2021-04-19 22:46:15.825  INFO 2240 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-19 22:46:15.825  INFO 2240 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2021-04-19 22:46:15.825  INFO 2240 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-19 22:46:15.825  INFO 2240 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-19 22:46:15.825  INFO 2240 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2021-04-19 22:46:15.825  INFO 2240 --- [main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2021-04-19 22:46:15.859  INFO 2240 --- [main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2021-04-19 22:46:16.330  WARN 2240 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2021-04-19 22:46:16.363  INFO 2240 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2021-04-19 22:46:16.364  INFO 2240 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2538 ms
+2021-04-19 22:46:16.439  INFO 2240 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2021-04-19 22:46:16.444  INFO 2240 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2021-04-19 22:46:16.803  INFO 2240 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-19 22:46:16.966  WARN 2240 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-04-19 22:46:17.300  INFO 2240 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-04-19 22:46:17.366  INFO 2240 --- [main] io.undertow                              : starting server: Undertow - 2.0.29.Final
+2021-04-19 22:46:17.370  INFO 2240 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
+2021-04-19 22:46:17.377  INFO 2240 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2021-04-19 22:46:17.435  INFO 2240 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 9003 (http) with context path ''
+2021-04-19 22:46:17.440  INFO 2240 --- [main] c.h.campus.CampusAdminServerApplication  : Started CampusAdminServerApplication in 4.388 seconds (JVM running for 5.247)
+2021-04-19 22:46:33.390  INFO 2240 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-19 22:46:33.405  INFO 2240 --- [SpringContextShutdownHook] io.undertow                              : stopping server: Undertow - 2.0.29.Final

@@ -1,0 +1,585 @@
+[2m2021-04-21 00:39:51.037[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 6192 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+[2m2021-04-21 00:39:51.040[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+[2m2021-04-21 00:39:51.040[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m The following profiles are active: datasource,cache
+[2m2021-04-21 00:39:52.643[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+[2m2021-04-21 00:39:52.648[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2m2021-04-21 00:39:52.774[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 102ms. Found 0 Redis repository interfaces.
+[2m2021-04-21 00:39:53.206[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mptablePropertiesBeanFactoryPostProcessor[0;39m [2m:[0;39m Post-processing PropertySource instances
+[2m2021-04-21 00:39:53.313[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2m2021-04-21 00:39:53.314[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:39:53.315[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:39:53.315[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:39:53.316[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:39:53.316[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:39:53.316[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:39:53.316[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:39:53.316[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:39:53.457[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.filter.DefaultLazyPropertyFilter  [0;39m [2m:[0;39m Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2m2021-04-21 00:39:53.749[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mtrationDelegate$BeanPostProcessorChecker[0;39m [2m:[0;39m Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$b98e3edb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2m2021-04-21 00:39:53.983[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.r.DefaultLazyPropertyResolver     [0;39m [2m:[0;39m Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2m2021-04-21 00:39:53.985[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.d.DefaultLazyPropertyDetector     [0;39m [2m:[0;39m Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2m2021-04-21 00:39:54.454[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2021-04-21 00:39:54.457[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.web.context.ContextLoader           [0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 3326 ms
+[2m2021-04-21 00:39:57.260[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.h.c.common.utils.idworker.IdWorker    [0;39m [2m:[0;39m worker starting. timestamp left shift 21, worker id 0
+[2m2021-04-21 00:39:57.824[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mpertySourcedRequestMappingHandlerMapping[0;39m [2m:[0;39m Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2m2021-04-21 00:39:58.145[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Initializing ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 00:39:58.721[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Using default implementation for ThreadExecutor
+[2m2021-04-21 00:39:58.730[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.SchedulerSignalerImpl   [0;39m [2m:[0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2m2021-04-21 00:39:58.731[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Quartz Scheduler v.2.3.2 created.
+[2m2021-04-21 00:39:58.731[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.simpl.RAMJobStore            [0;39m [2m:[0;39m RAMJobStore initialized.
+[2m2021-04-21 00:39:58.732[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2m2021-04-21 00:39:58.734[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2m2021-04-21 00:39:58.734[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler version: 2.3.2
+[2m2021-04-21 00:39:58.734[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1fa44f66
+[2m2021-04-21 00:39:58.824[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Context refreshed
+[2m2021-04-21 00:39:58.835[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Found 1 custom documentation plugin(s)
+[2m2021-04-21 00:39:58.859[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36ms.d.s.w.s.ApiListingReferenceScanner    [0;39m [2m:[0;39m Scanning for api listing references
+[2m2021-04-21 00:39:59.278[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Starting Quartz Scheduler now
+[2m2021-04-21 00:39:59.329[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2m2021-04-21 00:39:59.381[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow                             [0;39m [2m:[0;39m starting server: Undertow - 2.0.29.Final
+[2m2021-04-21 00:39:59.388[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio                                [0;39m [2m:[0;39m XNIO version 3.3.8.Final
+[2m2021-04-21 00:39:59.412[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio.nio                            [0;39m [2m:[0;39m XNIO NIO Implementation Version 3.3.8.Final
+[2m2021-04-21 00:39:59.485[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.b.w.e.u.UndertowServletWebServer    [0;39m [2m:[0;39m Undertow started on port(s) 8021 (http) with context path '/campus'
+[2m2021-04-21 00:39:59.503[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Started CampusStartApplication in 9.437 seconds (JVM running for 10.841)
+[2m2021-04-21 00:39:59.506[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+[2m2021-04-21 00:42:35.040[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2m2021-04-21 00:42:35.049[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Initializing Servlet 'dispatcherServlet'
+[2m2021-04-21 00:42:35.138[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Completed initialization in 89 ms
+[2m2021-04-21 00:42:59.030[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} inited
+[2m2021-04-21 00:42:59.043[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m ==>  Preparing: select organ.* from sys_organ INNER JOIN sys_organ organ on sys_organ.id = organ.parent_id where sys_organ.id = ?
+[2m2021-04-21 00:42:59.135[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m ==> Parameters: 2(Integer)
+[2m2021-04-21 00:42:59.212[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m <==      Total: 0
+[2m2021-04-21 00:42:59.219[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectByOrganId         [0;39m [2m:[0;39m ==>  Preparing: select sys_organ.* from sys_organ LEFT JOIN sys_organ organ on sys_organ.id = organ.parent_id where sys_organ.id = ?
+[2m2021-04-21 00:42:59.219[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectByOrganId         [0;39m [2m:[0;39m ==> Parameters: 2(Integer)
+[2m2021-04-21 00:42:59.277[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectByOrganId         [0;39m [2m:[0;39m <==      Total: 1
+[2m2021-04-21 00:42:59.279[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mcom.huiyi.campus.aspect.ServiceAspect   [0;39m [2m:[0;39m 执行 com.huiyi.campus.web.common.service.impl.CommonServiceImpl.selectOrganByOrganId 耗时为：8392ms
+[2m2021-04-21 00:43:11.796[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-3][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m ==>  Preparing: select organ.* from sys_organ INNER JOIN sys_organ organ on sys_organ.id = organ.parent_id where sys_organ.id = ?
+[2m2021-04-21 00:43:11.798[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-3][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m ==> Parameters: 1(Integer)
+[2m2021-04-21 00:43:11.869[0;39m [32mDEBUG[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-3][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m <==      Total: 11
+[2m2021-04-21 00:43:11.871[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-3][0;39m [36mcom.huiyi.campus.aspect.ServiceAspect   [0;39m [2m:[0;39m 执行 com.huiyi.campus.web.common.service.impl.CommonServiceImpl.selectOrganByOrganId 耗时为：77ms
+[2m2021-04-21 00:44:37.641[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[  XNIO-1 task-4][0;39m [36mc.h.c.config.AuthenticationInterceptor  [0;39m [2m:[0;39m token无效，无法登录
+[2m2021-04-21 00:44:43.580[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 00:44:43.591[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Shutting down Quartz Scheduler
+[2m2021-04-21 00:44:43.592[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2m2021-04-21 00:44:43.592[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 00:44:43.593[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2m2021-04-21 00:44:43.600[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 00:44:43.708[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closing ...
+[2m2021-04-21 00:44:43.866[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closed
+[2m2021-04-21 00:44:43.895[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2m2021-04-21 00:44:43.902[0;39m [32m INFO[0;39m [35m6192[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow                             [0;39m [2m:[0;39m stopping server: Undertow - 2.0.29.Final
+[2m2021-04-21 00:44:48.023[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 6249 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+[2m2021-04-21 00:44:48.026[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+[2m2021-04-21 00:44:48.027[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m The following profiles are active: datasource,cache
+[2m2021-04-21 00:44:49.498[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+[2m2021-04-21 00:44:49.500[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2m2021-04-21 00:44:49.556[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 44ms. Found 0 Redis repository interfaces.
+[2m2021-04-21 00:44:49.932[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mptablePropertiesBeanFactoryPostProcessor[0;39m [2m:[0;39m Post-processing PropertySource instances
+[2m2021-04-21 00:44:50.009[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2m2021-04-21 00:44:50.011[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:44:50.011[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:44:50.012[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:44:50.012[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:44:50.012[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:44:50.012[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:44:50.012[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:44:50.012[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:44:50.129[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.filter.DefaultLazyPropertyFilter  [0;39m [2m:[0;39m Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2m2021-04-21 00:44:50.314[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mtrationDelegate$BeanPostProcessorChecker[0;39m [2m:[0;39m Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$432963f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2m2021-04-21 00:44:50.501[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.r.DefaultLazyPropertyResolver     [0;39m [2m:[0;39m Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2m2021-04-21 00:44:50.502[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.d.DefaultLazyPropertyDetector     [0;39m [2m:[0;39m Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2m2021-04-21 00:44:50.886[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2021-04-21 00:44:50.887[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.web.context.ContextLoader           [0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 2790 ms
+[2m2021-04-21 00:44:53.252[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.h.c.common.utils.idworker.IdWorker    [0;39m [2m:[0;39m worker starting. timestamp left shift 21, worker id 0
+[2m2021-04-21 00:44:53.793[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mpertySourcedRequestMappingHandlerMapping[0;39m [2m:[0;39m Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2m2021-04-21 00:44:54.111[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Initializing ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 00:44:54.650[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Using default implementation for ThreadExecutor
+[2m2021-04-21 00:44:54.659[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.SchedulerSignalerImpl   [0;39m [2m:[0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2m2021-04-21 00:44:54.660[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Quartz Scheduler v.2.3.2 created.
+[2m2021-04-21 00:44:54.662[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.simpl.RAMJobStore            [0;39m [2m:[0;39m RAMJobStore initialized.
+[2m2021-04-21 00:44:54.665[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2m2021-04-21 00:44:54.665[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2m2021-04-21 00:44:54.665[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler version: 2.3.2
+[2m2021-04-21 00:44:54.665[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4b86a656
+[2m2021-04-21 00:44:54.752[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Context refreshed
+[2m2021-04-21 00:44:54.763[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Found 1 custom documentation plugin(s)
+[2m2021-04-21 00:44:54.796[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36ms.d.s.w.s.ApiListingReferenceScanner    [0;39m [2m:[0;39m Scanning for api listing references
+[2m2021-04-21 00:44:55.232[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Starting Quartz Scheduler now
+[2m2021-04-21 00:44:55.285[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2m2021-04-21 00:44:55.345[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow                             [0;39m [2m:[0;39m starting server: Undertow - 2.0.29.Final
+[2m2021-04-21 00:44:55.354[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio                                [0;39m [2m:[0;39m XNIO version 3.3.8.Final
+[2m2021-04-21 00:44:55.366[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio.nio                            [0;39m [2m:[0;39m XNIO NIO Implementation Version 3.3.8.Final
+[2m2021-04-21 00:44:55.454[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.b.w.e.u.UndertowServletWebServer    [0;39m [2m:[0;39m Undertow started on port(s) 8021 (http) with context path '/campus'
+[2m2021-04-21 00:44:55.465[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Started CampusStartApplication in 8.311 seconds (JVM running for 9.089)
+[2m2021-04-21 00:44:55.470[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+[2m2021-04-21 00:45:00.243[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2m2021-04-21 00:45:00.245[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Initializing Servlet 'dispatcherServlet'
+[2m2021-04-21 00:45:00.279[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Completed initialization in 34 ms
+[2m2021-04-21 00:45:08.673[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} inited
+[2m2021-04-21 00:45:08.684[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m ==>  Preparing: select organ.* from sys_organ INNER JOIN sys_organ organ on sys_organ.id = organ.parent_id where sys_organ.id = ?
+[2m2021-04-21 00:45:08.714[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m ==> Parameters: 1(Integer)
+[2m2021-04-21 00:45:08.801[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m <==      Total: 11
+[2m2021-04-21 00:45:08.806[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mcom.huiyi.campus.aspect.ServiceAspect   [0;39m [2m:[0;39m 执行 com.huiyi.campus.web.common.service.impl.CommonServiceImpl.selectOrganByOrganId 耗时为：8410ms
+[2m2021-04-21 00:45:20.294[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m ==>  Preparing: SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time FROM sys_school school LEFT JOIN sys_user u ON school.id = u.school_id WHERE u.id = ?
+[2m2021-04-21 00:45:20.298[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m ==> Parameters: 1(Integer)
+[2m2021-04-21 00:45:20.359[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m <==      Total: 0
+[2m2021-04-21 00:45:20.366[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36md.m.w.s.S.selectSchoolByUserIdAndOrganId[0;39m [2m:[0;39m ==>  Preparing: SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time FROM sys_school school INNER JOIN sys_user u ON school.organ_id = u.organ_id WHERE u.id = ?
+[2m2021-04-21 00:45:20.367[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36md.m.w.s.S.selectSchoolByUserIdAndOrganId[0;39m [2m:[0;39m ==> Parameters: 1(Integer)
+[2m2021-04-21 00:45:20.419[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36md.m.w.s.S.selectSchoolByUserIdAndOrganId[0;39m [2m:[0;39m <==      Total: 0
+[2m2021-04-21 00:45:20.421[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mcom.huiyi.campus.aspect.ServiceAspect   [0;39m [2m:[0;39m 执行 com.huiyi.campus.web.common.service.impl.CommonServiceImpl.selectSchoolByUserId 耗时为：158ms
+[2m2021-04-21 00:49:51.041[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-3][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m ==>  Preparing: SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time FROM sys_school school LEFT JOIN sys_user u ON school.id = u.school_id WHERE u.id = ?
+[2m2021-04-21 00:49:51.046[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-3][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m ==> Parameters: 25(Integer)
+[2m2021-04-21 00:49:51.129[0;39m [32mDEBUG[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-3][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m <==      Total: 1
+[2m2021-04-21 00:49:51.131[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[  XNIO-1 task-3][0;39m [36mcom.huiyi.campus.aspect.ServiceAspect   [0;39m [2m:[0;39m 执行 com.huiyi.campus.web.common.service.impl.CommonServiceImpl.selectSchoolByUserId 耗时为：180ms
+[2m2021-04-21 00:53:49.083[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 00:53:49.091[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Shutting down Quartz Scheduler
+[2m2021-04-21 00:53:49.092[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2m2021-04-21 00:53:49.092[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 00:53:49.096[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2m2021-04-21 00:53:49.106[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 00:53:49.202[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closing ...
+[2m2021-04-21 00:53:49.235[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closed
+[2m2021-04-21 00:53:49.253[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2m2021-04-21 00:53:49.269[0;39m [32m INFO[0;39m [35m6249[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow                             [0;39m [2m:[0;39m stopping server: Undertow - 2.0.29.Final
+[2m2021-04-21 00:53:53.445[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 6331 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+[2m2021-04-21 00:53:53.448[0;39m [32mDEBUG[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+[2m2021-04-21 00:53:53.448[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m The following profiles are active: datasource,cache
+[2m2021-04-21 00:53:54.907[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+[2m2021-04-21 00:53:54.911[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2m2021-04-21 00:53:54.992[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 63ms. Found 0 Redis repository interfaces.
+[2m2021-04-21 00:53:55.490[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mptablePropertiesBeanFactoryPostProcessor[0;39m [2m:[0;39m Post-processing PropertySource instances
+[2m2021-04-21 00:53:55.614[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2m2021-04-21 00:53:55.616[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:53:55.617[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:53:55.619[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:53:55.619[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:53:55.619[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:53:55.619[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:53:55.619[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:53:55.620[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:53:55.767[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.filter.DefaultLazyPropertyFilter  [0;39m [2m:[0;39m Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2m2021-04-21 00:53:55.991[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mtrationDelegate$BeanPostProcessorChecker[0;39m [2m:[0;39m Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$cb0e24c1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2m2021-04-21 00:53:56.239[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.r.DefaultLazyPropertyResolver     [0;39m [2m:[0;39m Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2m2021-04-21 00:53:56.242[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.d.DefaultLazyPropertyDetector     [0;39m [2m:[0;39m Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2m2021-04-21 00:53:56.733[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2021-04-21 00:53:56.734[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.web.context.ContextLoader           [0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 3230 ms
+[2m2021-04-21 00:53:59.260[0;39m [32mDEBUG[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.h.c.common.utils.idworker.IdWorker    [0;39m [2m:[0;39m worker starting. timestamp left shift 21, worker id 0
+[2m2021-04-21 00:53:59.806[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mpertySourcedRequestMappingHandlerMapping[0;39m [2m:[0;39m Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2m2021-04-21 00:54:00.157[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Initializing ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 00:54:00.713[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Using default implementation for ThreadExecutor
+[2m2021-04-21 00:54:00.725[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.SchedulerSignalerImpl   [0;39m [2m:[0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2m2021-04-21 00:54:00.725[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Quartz Scheduler v.2.3.2 created.
+[2m2021-04-21 00:54:00.725[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.simpl.RAMJobStore            [0;39m [2m:[0;39m RAMJobStore initialized.
+[2m2021-04-21 00:54:00.728[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2m2021-04-21 00:54:00.728[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2m2021-04-21 00:54:00.728[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler version: 2.3.2
+[2m2021-04-21 00:54:00.728[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@c478e4e
+[2m2021-04-21 00:54:00.820[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Context refreshed
+[2m2021-04-21 00:54:00.832[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Found 1 custom documentation plugin(s)
+[2m2021-04-21 00:54:00.860[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36ms.d.s.w.s.ApiListingReferenceScanner    [0;39m [2m:[0;39m Scanning for api listing references
+[2m2021-04-21 00:54:01.310[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Starting Quartz Scheduler now
+[2m2021-04-21 00:54:01.311[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2m2021-04-21 00:54:01.345[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow                             [0;39m [2m:[0;39m starting server: Undertow - 2.0.29.Final
+[2m2021-04-21 00:54:01.411[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio                                [0;39m [2m:[0;39m XNIO version 3.3.8.Final
+[2m2021-04-21 00:54:01.438[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio.nio                            [0;39m [2m:[0;39m XNIO NIO Implementation Version 3.3.8.Final
+[2m2021-04-21 00:54:01.506[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.b.w.e.u.UndertowServletWebServer    [0;39m [2m:[0;39m Undertow started on port(s) 8021 (http) with context path '/campus'
+[2m2021-04-21 00:54:01.519[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Started CampusStartApplication in 8.689 seconds (JVM running for 9.504)
+[2m2021-04-21 00:54:01.524[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+[2m2021-04-21 00:54:31.046[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2m2021-04-21 00:54:31.048[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Initializing Servlet 'dispatcherServlet'
+[2m2021-04-21 00:54:31.090[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Completed initialization in 42 ms
+[2m2021-04-21 00:54:39.538[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} inited
+[2m2021-04-21 00:54:39.557[0;39m [32mDEBUG[0;39m [35m6331[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m ==>  Preparing: SELECT school.id, school.school_name, school.school_address, school.create_time, school.update_time FROM sys_school school LEFT JOIN sys_user u ON school.id = u.school_id WHERE u.id = ?
+[2m2021-04-21 00:54:39.594[0;39m [32mDEBUG[0;39m [35m6331[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m ==> Parameters: 25(Integer)
+[2m2021-04-21 00:54:39.674[0;39m [32mDEBUG[0;39m [35m6331[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m <==      Total: 1
+[2m2021-04-21 00:54:39.678[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mcom.huiyi.campus.aspect.ServiceAspect   [0;39m [2m:[0;39m 执行 com.huiyi.campus.web.common.service.impl.CommonServiceImpl.selectSchoolByUserId 耗时为：8463ms
+[2m2021-04-21 00:55:36.626[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 00:55:36.630[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Shutting down Quartz Scheduler
+[2m2021-04-21 00:55:36.631[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2m2021-04-21 00:55:36.631[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 00:55:36.631[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2m2021-04-21 00:55:36.641[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 00:55:36.681[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closing ...
+[2m2021-04-21 00:55:36.728[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closed
+[2m2021-04-21 00:55:36.744[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2m2021-04-21 00:55:36.750[0;39m [32m INFO[0;39m [35m6331[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow                             [0;39m [2m:[0;39m stopping server: Undertow - 2.0.29.Final
+[2m2021-04-21 00:55:40.378[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 6359 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+[2m2021-04-21 00:55:40.381[0;39m [32mDEBUG[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+[2m2021-04-21 00:55:40.381[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m The following profiles are active: datasource,cache
+[2m2021-04-21 00:55:41.701[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+[2m2021-04-21 00:55:41.703[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2m2021-04-21 00:55:41.779[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 61ms. Found 0 Redis repository interfaces.
+[2m2021-04-21 00:55:42.213[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mptablePropertiesBeanFactoryPostProcessor[0;39m [2m:[0;39m Post-processing PropertySource instances
+[2m2021-04-21 00:55:42.298[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2m2021-04-21 00:55:42.299[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:55:42.299[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:55:42.299[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:55:42.299[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:55:42.299[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 00:55:42.299[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:55:42.300[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:55:42.301[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 00:55:42.377[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.filter.DefaultLazyPropertyFilter  [0;39m [2m:[0;39m Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2m2021-04-21 00:55:42.596[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mtrationDelegate$BeanPostProcessorChecker[0;39m [2m:[0;39m Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$2e924b0d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2m2021-04-21 00:55:42.783[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.r.DefaultLazyPropertyResolver     [0;39m [2m:[0;39m Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2m2021-04-21 00:55:42.785[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.d.DefaultLazyPropertyDetector     [0;39m [2m:[0;39m Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2m2021-04-21 00:55:43.182[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2021-04-21 00:55:43.183[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.web.context.ContextLoader           [0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 2730 ms
+[2m2021-04-21 00:55:45.738[0;39m [32mDEBUG[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.h.c.common.utils.idworker.IdWorker    [0;39m [2m:[0;39m worker starting. timestamp left shift 21, worker id 0
+[2m2021-04-21 00:55:46.488[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mpertySourcedRequestMappingHandlerMapping[0;39m [2m:[0;39m Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2m2021-04-21 00:55:46.876[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Initializing ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 00:55:47.478[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Using default implementation for ThreadExecutor
+[2m2021-04-21 00:55:47.489[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.SchedulerSignalerImpl   [0;39m [2m:[0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2m2021-04-21 00:55:47.499[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Quartz Scheduler v.2.3.2 created.
+[2m2021-04-21 00:55:47.500[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.simpl.RAMJobStore            [0;39m [2m:[0;39m RAMJobStore initialized.
+[2m2021-04-21 00:55:47.504[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2m2021-04-21 00:55:47.504[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2m2021-04-21 00:55:47.504[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler version: 2.3.2
+[2m2021-04-21 00:55:47.505[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@59b3f162
+[2m2021-04-21 00:55:47.597[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Context refreshed
+[2m2021-04-21 00:55:47.608[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Found 1 custom documentation plugin(s)
+[2m2021-04-21 00:55:47.636[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36ms.d.s.w.s.ApiListingReferenceScanner    [0;39m [2m:[0;39m Scanning for api listing references
+[2m2021-04-21 00:55:48.064[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Starting Quartz Scheduler now
+[2m2021-04-21 00:55:48.065[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2m2021-04-21 00:55:48.116[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow                             [0;39m [2m:[0;39m starting server: Undertow - 2.0.29.Final
+[2m2021-04-21 00:55:48.203[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio                                [0;39m [2m:[0;39m XNIO version 3.3.8.Final
+[2m2021-04-21 00:55:48.222[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio.nio                            [0;39m [2m:[0;39m XNIO NIO Implementation Version 3.3.8.Final
+[2m2021-04-21 00:55:48.297[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.b.w.e.u.UndertowServletWebServer    [0;39m [2m:[0;39m Undertow started on port(s) 8021 (http) with context path '/campus'
+[2m2021-04-21 00:55:48.311[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Started CampusStartApplication in 8.565 seconds (JVM running for 9.329)
+[2m2021-04-21 00:55:48.314[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+[2m2021-04-21 00:55:52.049[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2m2021-04-21 00:55:52.051[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Initializing Servlet 'dispatcherServlet'
+[2m2021-04-21 00:55:52.092[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Completed initialization in 41 ms
+[2m2021-04-21 00:56:00.374[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} inited
+[2m2021-04-21 00:56:00.392[0;39m [32mDEBUG[0;39m [35m6359[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m ==>  Preparing: SELECT school.id, school.school_name, school.school_address, school.organ_id,school.create_time, school.update_time FROM sys_school school LEFT JOIN sys_user u ON school.id = u.school_id WHERE u.id = ?
+[2m2021-04-21 00:56:00.430[0;39m [32mDEBUG[0;39m [35m6359[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m ==> Parameters: 25(Integer)
+[2m2021-04-21 00:56:00.510[0;39m [32mDEBUG[0;39m [35m6359[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectSchoolByUserId    [0;39m [2m:[0;39m <==      Total: 1
+[2m2021-04-21 00:56:00.514[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mcom.huiyi.campus.aspect.ServiceAspect   [0;39m [2m:[0;39m 执行 com.huiyi.campus.web.common.service.impl.CommonServiceImpl.selectSchoolByUserId 耗时为：8302ms
+[2m2021-04-21 01:04:32.786[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 01:04:32.796[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Shutting down Quartz Scheduler
+[2m2021-04-21 01:04:32.796[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2m2021-04-21 01:04:32.797[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 01:04:32.798[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2m2021-04-21 01:04:32.816[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 01:04:32.915[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closing ...
+[2m2021-04-21 01:04:32.990[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closed
+[2m2021-04-21 01:04:33.005[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2m2021-04-21 01:04:33.013[0;39m [32m INFO[0;39m [35m6359[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow                             [0;39m [2m:[0;39m stopping server: Undertow - 2.0.29.Final
+[2m2021-04-21 01:04:42.776[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 6849 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+[2m2021-04-21 01:04:42.782[0;39m [32mDEBUG[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+[2m2021-04-21 01:04:42.783[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m The following profiles are active: datasource,cache
+[2m2021-04-21 01:04:44.298[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+[2m2021-04-21 01:04:44.301[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2m2021-04-21 01:04:44.358[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 46ms. Found 0 Redis repository interfaces.
+[2m2021-04-21 01:04:44.723[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mptablePropertiesBeanFactoryPostProcessor[0;39m [2m:[0;39m Post-processing PropertySource instances
+[2m2021-04-21 01:04:44.809[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2m2021-04-21 01:04:44.811[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 01:04:44.811[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 01:04:44.811[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:04:44.812[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:04:44.812[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 01:04:44.812[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:04:44.812[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:04:44.812[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:04:44.923[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.filter.DefaultLazyPropertyFilter  [0;39m [2m:[0;39m Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2m2021-04-21 01:04:45.099[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mtrationDelegate$BeanPostProcessorChecker[0;39m [2m:[0;39m Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$6189f84a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2m2021-04-21 01:04:45.262[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.r.DefaultLazyPropertyResolver     [0;39m [2m:[0;39m Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2m2021-04-21 01:04:45.263[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.d.DefaultLazyPropertyDetector     [0;39m [2m:[0;39m Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2m2021-04-21 01:04:45.673[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2021-04-21 01:04:45.674[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.web.context.ContextLoader           [0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 2825 ms
+[2m2021-04-21 01:04:48.278[0;39m [32mDEBUG[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.h.c.common.utils.idworker.IdWorker    [0;39m [2m:[0;39m worker starting. timestamp left shift 21, worker id 0
+[2m2021-04-21 01:04:48.907[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mpertySourcedRequestMappingHandlerMapping[0;39m [2m:[0;39m Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2m2021-04-21 01:04:49.238[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Initializing ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 01:04:49.840[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Using default implementation for ThreadExecutor
+[2m2021-04-21 01:04:49.850[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.SchedulerSignalerImpl   [0;39m [2m:[0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2m2021-04-21 01:04:49.851[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Quartz Scheduler v.2.3.2 created.
+[2m2021-04-21 01:04:49.852[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.simpl.RAMJobStore            [0;39m [2m:[0;39m RAMJobStore initialized.
+[2m2021-04-21 01:04:49.854[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2m2021-04-21 01:04:49.854[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2m2021-04-21 01:04:49.854[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler version: 2.3.2
+[2m2021-04-21 01:04:49.854[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5c1687d1
+[2m2021-04-21 01:04:49.948[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Context refreshed
+[2m2021-04-21 01:04:49.959[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Found 1 custom documentation plugin(s)
+[2m2021-04-21 01:04:49.988[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36ms.d.s.w.s.ApiListingReferenceScanner    [0;39m [2m:[0;39m Scanning for api listing references
+[2m2021-04-21 01:04:50.487[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Starting Quartz Scheduler now
+[2m2021-04-21 01:04:50.489[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2m2021-04-21 01:04:50.530[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow                             [0;39m [2m:[0;39m starting server: Undertow - 2.0.29.Final
+[2m2021-04-21 01:04:50.536[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio                                [0;39m [2m:[0;39m XNIO version 3.3.8.Final
+[2m2021-04-21 01:04:50.557[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio.nio                            [0;39m [2m:[0;39m XNIO NIO Implementation Version 3.3.8.Final
+[2m2021-04-21 01:04:50.626[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.b.w.e.u.UndertowServletWebServer    [0;39m [2m:[0;39m Undertow started on port(s) 8021 (http) with context path '/campus'
+[2m2021-04-21 01:04:50.638[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Started CampusStartApplication in 8.619 seconds (JVM running for 9.425)
+[2m2021-04-21 01:04:50.641[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+[2m2021-04-21 01:04:53.581[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2m2021-04-21 01:04:53.583[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Initializing Servlet 'dispatcherServlet'
+[2m2021-04-21 01:04:53.622[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Completed initialization in 39 ms
+[2m2021-04-21 01:04:53.652[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.config.AuthenticationInterceptor  [0;39m [2m:[0;39m token无效，无法登录
+[2m2021-04-21 01:05:12.300[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[  XNIO-1 task-2][0;39m [36mc.h.c.config.AuthenticationInterceptor  [0;39m [2m:[0;39m token无效，无法登录
+[2m2021-04-21 01:05:15.575[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 01:05:15.580[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Shutting down Quartz Scheduler
+[2m2021-04-21 01:05:15.580[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2m2021-04-21 01:05:15.580[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 01:05:15.581[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2m2021-04-21 01:05:15.592[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 01:05:15.715[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-0} closing ...
+[2m2021-04-21 01:05:15.726[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2m2021-04-21 01:05:15.730[0;39m [32m INFO[0;39m [35m6849[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow                             [0;39m [2m:[0;39m stopping server: Undertow - 2.0.29.Final
+[2m2021-04-21 01:05:19.209[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Starting CampusStartApplication on yukailideMacBook-Pro.local with PID 6862 (/Users/yukaili/huiyi/zx/campus_health_system/campus_startup/target/classes started by yukaili in /Users/yukaili/huiyi/zx/campus_health_system)
+[2m2021-04-21 01:05:19.212[0;39m [32mDEBUG[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+[2m2021-04-21 01:05:19.212[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m The following profiles are active: datasource,cache
+[2m2021-04-21 01:05:20.781[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+[2m2021-04-21 01:05:20.783[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2m2021-04-21 01:05:20.844[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 48ms. Found 0 Redis repository interfaces.
+[2m2021-04-21 01:05:21.248[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mptablePropertiesBeanFactoryPostProcessor[0;39m [2m:[0;39m Post-processing PropertySource instances
+[2m2021-04-21 01:05:21.334[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[2m2021-04-21 01:05:21.335[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 01:05:21.335[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 01:05:21.335[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:05:21.335[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:05:21.335[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[2m2021-04-21 01:05:21.337[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-cache.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:05:21.337[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application-datasource.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:05:21.337[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.EncryptablePropertySourceConverter[0;39m [2m:[0;39m Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[2m2021-04-21 01:05:21.409[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.filter.DefaultLazyPropertyFilter  [0;39m [2m:[0;39m Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[2m2021-04-21 01:05:21.583[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mtrationDelegate$BeanPostProcessorChecker[0;39m [2m:[0;39m Bean 'redisConfig' of type [com.huiyi.campus.common.config.redis.RedisConfig$$EnhancerBySpringCGLIB$$7178b348] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2m2021-04-21 01:05:21.744[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.r.DefaultLazyPropertyResolver     [0;39m [2m:[0;39m Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[2m2021-04-21 01:05:21.746[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.u.j.d.DefaultLazyPropertyDetector     [0;39m [2m:[0;39m Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[2m2021-04-21 01:05:22.137[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2021-04-21 01:05:22.141[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.web.context.ContextLoader           [0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 2877 ms
+[2m2021-04-21 01:05:24.442[0;39m [32mDEBUG[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mc.h.c.common.utils.idworker.IdWorker    [0;39m [2m:[0;39m worker starting. timestamp left shift 21, worker id 0
+[2m2021-04-21 01:05:24.999[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mpertySourcedRequestMappingHandlerMapping[0;39m [2m:[0;39m Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2m2021-04-21 01:05:25.174[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Initializing ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 01:05:25.853[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Using default implementation for ThreadExecutor
+[2m2021-04-21 01:05:25.862[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.SchedulerSignalerImpl   [0;39m [2m:[0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2m2021-04-21 01:05:25.862[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Quartz Scheduler v.2.3.2 created.
+[2m2021-04-21 01:05:25.863[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.simpl.RAMJobStore            [0;39m [2m:[0;39m RAMJobStore initialized.
+[2m2021-04-21 01:05:25.865[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2m2021-04-21 01:05:25.867[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2m2021-04-21 01:05:25.867[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.impl.StdSchedulerFactory     [0;39m [2m:[0;39m Quartz scheduler version: 2.3.2
+[2m2021-04-21 01:05:25.867[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@54087bdb
+[2m2021-04-21 01:05:25.960[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Context refreshed
+[2m2021-04-21 01:05:25.971[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36md.s.w.p.DocumentationPluginsBootstrapper[0;39m [2m:[0;39m Found 1 custom documentation plugin(s)
+[2m2021-04-21 01:05:25.996[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36ms.d.s.w.s.ApiListingReferenceScanner    [0;39m [2m:[0;39m Scanning for api listing references
+[2m2021-04-21 01:05:26.402[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Starting Quartz Scheduler now
+[2m2021-04-21 01:05:26.402[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2m2021-04-21 01:05:26.427[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mio.undertow                             [0;39m [2m:[0;39m starting server: Undertow - 2.0.29.Final
+[2m2021-04-21 01:05:26.434[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio                                [0;39m [2m:[0;39m XNIO version 3.3.8.Final
+[2m2021-04-21 01:05:26.443[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36morg.xnio.nio                            [0;39m [2m:[0;39m XNIO NIO Implementation Version 3.3.8.Final
+[2m2021-04-21 01:05:26.588[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mo.s.b.w.e.u.UndertowServletWebServer    [0;39m [2m:[0;39m Undertow started on port(s) 8021 (http) with context path '/campus'
+[2m2021-04-21 01:05:26.605[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m Started CampusStartApplication in 8.077 seconds (JVM running for 8.816)
+[2m2021-04-21 01:05:26.610[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[           main][0;39m [36mcom.huiyi.campus.CampusStartApplication [0;39m [2m:[0;39m 
+
+
+
+
+                                                                                                                                   dddddddd
+                          tttt                                                         tttt                                          d::::::d
+                       ttt:::t                                                      ttt:::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d::::::d
+                       t:::::t                                                      t:::::t                                          d:::::d 
+    ssssssssss   ttttttt:::::ttttttt      aaaaaaaaaaaaa   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt        eeeeeeeeeeee        ddddddddd:::::d 
+  ss::::::::::s  t:::::::::::::::::t      a::::::::::::a  r::::rrr:::::::::r  t:::::::::::::::::t      ee::::::::::::ee    dd::::::::::::::d 
+ss:::::::::::::s t:::::::::::::::::t      aaaaaaaaa:::::a r:::::::::::::::::r t:::::::::::::::::t     e::::::eeeee:::::ee d::::::::::::::::d 
+s::::::ssss:::::stttttt:::::::tttttt               a::::a rr::::::rrrrr::::::rtttttt:::::::tttttt    e::::::e     e:::::ed:::::::ddddd:::::d 
+ s:::::s  ssssss       t:::::t              aaaaaaa:::::a  r:::::r     r:::::r      t:::::t          e:::::::eeeee::::::ed::::::d    d:::::d 
+   s::::::s            t:::::t            aa::::::::::::a  r:::::r     rrrrrrr      t:::::t          e:::::::::::::::::e d:::::d     d:::::d 
+      s::::::s         t:::::t           a::::aaaa::::::a  r:::::r                  t:::::t          e::::::eeeeeeeeeee  d:::::d     d:::::d 
+ssssss   s:::::s       t:::::t    tttttta::::a    a:::::a  r:::::r                  t:::::t    tttttte:::::::e           d:::::d     d:::::d 
+s:::::ssss::::::s      t::::::tttt:::::ta::::a    a:::::a  r:::::r                  t::::::tttt:::::te::::::::e          d::::::ddddd::::::dd
+s::::::::::::::s       tt::::::::::::::ta:::::aaaa::::::a  r:::::r                  tt::::::::::::::t e::::::::eeeeeeee   d:::::::::::::::::d
+ s:::::::::::ss          tt:::::::::::tt a::::::::::aa:::a r:::::r                    tt:::::::::::tt  ee:::::::::::::e    d:::::::::ddd::::d
+  sssssssssss              ttttttttttt    aaaaaaaaaa  aaaa rrrrrrr                      ttttttttttt      eeeeeeeeeeeeee     ddddddddd   ddddd
+
+
+
+
+
+[2m2021-04-21 01:05:31.152[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2m2021-04-21 01:05:31.154[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Initializing Servlet 'dispatcherServlet'
+[2m2021-04-21 01:05:31.192[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Completed initialization in 38 ms
+[2m2021-04-21 01:05:39.897[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} inited
+[2m2021-04-21 01:05:39.918[0;39m [32mDEBUG[0;39m [35m6862[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m ==>  Preparing: select organ.* from sys_organ INNER JOIN sys_organ organ on sys_organ.id = organ.parent_id where sys_organ.id = ?
+[2m2021-04-21 01:05:39.960[0;39m [32mDEBUG[0;39m [35m6862[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m ==> Parameters: 1(Integer)
+[2m2021-04-21 01:05:40.040[0;39m [32mDEBUG[0;39m [35m6862[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mc.h.c.d.m.w.s.S.selectOrganByUserId     [0;39m [2m:[0;39m <==      Total: 11
+[2m2021-04-21 01:05:40.045[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[  XNIO-1 task-1][0;39m [36mcom.huiyi.campus.aspect.ServiceAspect   [0;39m [2m:[0;39m 执行 com.huiyi.campus.web.common.service.impl.CommonServiceImpl.selectOrganByOrganId 耗时为：8751ms
+[2m2021-04-21 22:50:49.323[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 22:50:49.374[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.quartz.SchedulerFactoryBean       [0;39m [2m:[0;39m Shutting down Quartz Scheduler
+[2m2021-04-21 22:50:49.375[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2m2021-04-21 22:50:49.375[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2m2021-04-21 22:50:49.378[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36morg.quartz.core.QuartzScheduler         [0;39m [2m:[0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2m2021-04-21 22:50:49.394[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mo.s.s.concurrent.ThreadPoolTaskExecutor [0;39m [2m:[0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+[2m2021-04-21 22:50:49.532[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closing ...
+[2m2021-04-21 22:50:49.544[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mcom.alibaba.druid.pool.DruidDataSource  [0;39m [2m:[0;39m {dataSource-1} closed
+[2m2021-04-21 22:50:49.574[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow.servlet                     [0;39m [2m:[0;39m Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2m2021-04-21 22:50:49.581[0;39m [32m INFO[0;39m [35m6862[0;39m [2m---[0;39m [2m[extShutdownHook][0;39m [36mio.undertow                             [0;39m [2m:[0;39m stopping server: Undertow - 2.0.29.Final
